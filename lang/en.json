@@ -29,12 +29,27 @@
 			"parent": "Parent",
 			"background": "Background",
 			"fate": "Fate",
-			"talents": "Talents"
+			"talents": "Talents",
+			"gifts": "Gifts",
+			"giftsTalents": "Gifts and Talents",
+			"careers": "Careers",
+			"mysteryCults": "Mystery Cults"
 		},
 		"attributes": {
 			"risk": "Risk",
 			"resolve": "Resolve",
-			"endurance": "Endurance"
+			"endurance": "Endurance",
+			"standing": "Standing",
+			"glory": "Glory",
+			"hubris": "Hubris",
+			"xp": "XP",
+			"scars": "Scars"
+		},
+		"defence": {
+			"armour": "Armour",
+			"shield": "Shield",
+			"parry": "Parry",
+			"dodge": "Dodge",
 		}
 	}
 }

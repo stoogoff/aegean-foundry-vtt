@@ -99,11 +99,41 @@
 					"label": "aegean.skills.vigour",
 					"value": 0,
 					"speciality": []
+				},
+				"defence": {
+					"armour": {
+						"label": "aegean.defence.armour",
+						"value": 0
+					},
+					"shield": {
+						"label": "aegean.defence.shield",
+						"value": 0,
+						"used": false
+					},
+					"parry": {
+						"label": "aegean.defence.parry",
+						"value": 0,
+						"used": false
+					}
+				},
+				"baseAttributes": {
+					"risk": {
+						"label": "aegean.attributes.risk",
+						"value": 0
+					},
+					"endurance": {
+						"label": "aegean.attributes.endurance",
+						"value": 0
+					},
+					"standing": {
+						"label": "aegean.attributes.standing",
+						"value": 0
+					}
 				}
-			},
+			}
 		},
 		"character": {
-			"template": ["characteristics", "skills"],
+			"template": ["characteristics", "skills", "defence", "baseAttributes"],
 			"heritage": {
 				"label": "aegean.character.heritage",
 				"value": ""
@@ -120,17 +150,33 @@
 				"label": "aegean.character.fate",
 				"value": ""
 			},
+			"careers": {
+				"label": "aegean.character.careers",
+				"value": []
+			},
+			"mysteryCults": {
+				"label": "aegean.character.mysteryCults",
+				"value": []
+			},
 			"attributes": {
-				"risk": {
-					"label": "aegean.attributes.risk",
-					"value": 0
-				},
 				"resolve": {
 					"label": "aegean.attributes.resolve",
 					"value": 0
 				},
-				"endurance": {
-					"label": "aegean.attributes.endurance",
+				"glory": {
+					"label": "aegean.attributes.glory",
+					"value": 0
+				},
+				"hubris": {
+					"label": "aegean.attributes.hubris",
+					"value": 0
+				},
+				"xp": {
+					"label": "aegean.attributes.xp",
+					"value": 0
+				},
+				"scars": {
+					"label": "aegean.attributes.scars",
 					"value": 0
 				}
 			},
