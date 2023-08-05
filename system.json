@@ -1,0 +1,45 @@
+{
+	"id": "aegean",
+	"title": "Aegean",
+	"description": "Aegean RPG system for FoundryVTT",
+	"version": "0.0.1",
+	"compatibility": {
+		"minimum": "11",
+		"verified": "11",
+		"maximum": "11"
+	},
+	"authors": [
+		{
+			"name": "Stoo Goff",
+			"url": "https://www.aegeanrpg.com/"
+		}
+	],
+	"media": [
+		{
+		"type": "cover",
+		"url": "systems/aegean/assets/aegean-cover.jpg",
+		"loop": false,
+		"flags": {}
+		}
+	],
+	"background": "systems/aegean/assets/aegean-cover.jpg",
+	"esmodules": [
+		"module/aegean.js"
+	],
+	"styles": [
+		"css/layout.css",
+		"dist/styles.vue.css"
+	],
+	"packs": [],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"url": "https://github.com/stoogoff/aegean-foundry-vtt/",
+	"manifest": "https://github.com/stoogoff/aegean-foundry-vtt/releases/",
+	"download": "https://github.com/stoogoff/aegean-foundry-vtt/releases/",
+	"license": "LICENSE"
+}

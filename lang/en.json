@@ -1,22 +1,40 @@
 {
-  "AEGEAN.AbilityStr": "Strength",
-  "AEGEAN.AbilityCon": "Constitution",
-  "AEGEAN.AbilityDex": "Dexterity",
-  "AEGEAN.AbilityInt": "Intelligence",
-  "AEGEAN.AbilityWis": "Wisdom",
-  "AEGEAN.AbilityCha": "Charisma",
-
-  "AEGEAN.AbilityStrAbbr": "str",
-  "AEGEAN.AbilityConAbbr": "con",
-  "AEGEAN.AbilityDexAbbr": "dex",
-  "AEGEAN.AbilityIntAbbr": "int",
-  "AEGEAN.AbilityWisAbbr": "wis",
-  "AEGEAN.AbilityChaAbbr": "cha",
-
-  "AEGEAN.EffectCreate": "Create Effect",
-  "AEGEAN.EffectToggle": "Toggle Effect",
-  "AEGEAN.EffectEdit": "Edit Effect",
-  "AEGEAN.EffectDelete": "Delete Effect",
-
-  "AEGEAN.Add": "Add"
+	"aegean": {
+		"characteristics": {
+			"might": "Might",
+			"reflexes": "Reflexes",
+			"cool": "Cool",
+			"insight": "Insight",
+			"cunning": "Cunning",
+		},
+		"skills": {
+			"accuracy": "Accuracy",
+			"athletics": "Athletics",
+			"awareness": "Awareness",
+			"brawl": "Brawl",
+			"craft": "Craft",
+			"diplomacy": "Diplomacy",
+			"knowledge": "Knowledge",
+			"lore": "Lore",
+			"manipulation": "Manipulation",
+			"medicine": "Medicine",
+			"melee": "Melee",
+			"perform": "Perform",
+			"ride": "Ride",
+			"survival": "Survival",
+			"vigour": "Vigour"
+		},
+		"character": {
+			"heritage": "Heritage",
+			"parent": "Parent",
+			"background": "Background",
+			"fate": "Fate",
+			"talents": "Talents"
+		},
+		"attributes": {
+			"risk": "Risk",
+			"resolve": "Resolve",
+			"endurance": "Endurance"
+		}
+	}
 }

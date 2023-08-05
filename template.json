@@ -1,0 +1,151 @@
+{
+	"Actor": {
+		"types": ["character"],
+		"templates": {
+			"characteristics": {
+				"might": {
+					"label": "aegean.characteristics.might",
+					"value": 0
+				},
+				"reflexes": {
+					"label": "aegean.characteristics.reflexes",
+					"value": 0
+				},
+				"cool": {
+					"label": "aegean.characteristics.cool",
+					"value": 0
+				},
+				"insight": {
+					"label": "aegean.characteristics.insight",
+					"value": 0
+				},
+				"cunning": {
+					"label": "aegean.characteristics.cunning",
+					"value": 0
+				}
+			},
+			"skills": {
+				"accuracy": {
+					"label": "aegean.skills.accuracy",
+					"value": 0,
+					"speciality": []
+				},
+				"athletics": {
+					"label": "aegean.skills.athletics",
+					"value": 0,
+					"speciality": []
+				},
+				"awareness": {
+					"label": "aegean.skills.awareness",
+					"value": 0,
+					"speciality": []
+				},
+				"brawl": {
+					"label": "aegean.skills.brawl",
+					"value": 0,
+					"speciality": []
+				},
+				"craft": {
+					"label": "aegean.skills.craft",
+					"value": 0,
+					"speciality": []
+				},
+				"diplomacy": {
+					"label": "aegean.skills.diplomacy",
+					"value": 0,
+					"speciality": []
+				},
+				"knowledge": {
+					"label": "aegean.skills.knowledge",
+					"value": 0,
+					"speciality": []
+				},
+				"lore": {
+					"label": "aegean.skills.lore",
+					"value": 0,
+					"speciality": []
+				},
+				"manipulation": {
+					"label": "aegean.skills.manipulation",
+					"value": 0,
+					"speciality": []
+				},
+				"medicine": {
+					"label": "aegean.skills.medicine",
+					"value": 0,
+					"speciality": []
+				},
+				"melee": {
+					"label": "aegean.skills.melee",
+					"value": 0,
+					"speciality": []
+				},
+				"perform": {
+					"label": "aegean.skills.perform",
+					"value": 0,
+					"speciality": []
+				},
+				"ride": {
+					"label": "aegean.skills.ride",
+					"value": 0,
+					"speciality": []
+				},
+				"survival": {
+					"label": "aegean.skills.survival",
+					"value": 0,
+					"speciality": []
+				},
+				"vigour": {
+					"label": "aegean.skills.vigour",
+					"value": 0,
+					"speciality": []
+				}
+			},
+		},
+		"character": {
+			"template": ["characteristics", "skills"],
+			"heritage": {
+				"label": "aegean.character.heritage",
+				"value": ""
+			},
+			"parent": {
+				"label": "aegean.character.parent",
+				"value": ""
+			},
+			"background": {
+				"label": "aegean.character.background",
+				"value": ""
+			},
+			"fate": {
+				"label": "aegean.character.fate",
+				"value": ""
+			},
+			"attributes": {
+				"risk": {
+					"label": "aegean.attributes.risk",
+					"value": 0
+				},
+				"resolve": {
+					"label": "aegean.attributes.resolve",
+					"value": 0
+				},
+				"endurance": {
+					"label": "aegean.attributes.endurance",
+					"value": 0
+				}
+			},
+			"talents": {
+				"label": "aegean.character.talents",
+				"value": []
+			}
+		}
+	},
+	"Item": {
+		"types": ["item", "feature", "spell"],
+		"templates": {
+			"base": {
+				"description": ""
+			}
+		}
+	}
+}
