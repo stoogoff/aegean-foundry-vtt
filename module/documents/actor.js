@@ -2,7 +2,7 @@
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-export class v3boilerplateActor extends Actor {
+export class AegeanActor extends Actor {
 
   /** @override */
   prepareData() {
@@ -31,7 +31,7 @@ export class v3boilerplateActor extends Actor {
   prepareDerivedData() {
     const actorData = this.data;
     const data = actorData.data;
-    const flags = actorData.flags.v3boilerplate || {};
+    const flags = actorData.flags.Aegean || {};
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.

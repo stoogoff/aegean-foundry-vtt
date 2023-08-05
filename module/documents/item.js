@@ -2,7 +2,7 @@
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
  */
-export class v3boilerplateItem extends Item {
+export class AegeanItem extends Item {
   /**
    * Augment the basic Item data model with additional dynamic data.
    */

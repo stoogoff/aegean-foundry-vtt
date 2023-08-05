@@ -8,7 +8,7 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: path.resolve(__dirname, 'src/components/index.js'),
-      name: 'v3boilerplateVueComponents',
+      name: 'AegeanVueComponents',
       formats: ['es'], // also supports 'umd'
       fileName: (format) => `components.vue.${format}.js`,
     },

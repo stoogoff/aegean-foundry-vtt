@@ -2,12 +2,12 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class v3boilerplateItemSheet extends ItemSheet {
+export class AegeanItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["v3boilerplate", "sheet", "item"],
+      classes: ["Aegean", "sheet", "item"],
       width: 520,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -16,7 +16,7 @@ export class v3boilerplateItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/v3boilerplate/templates/item";
+    const path = "systems/aegean/templates/item";
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 

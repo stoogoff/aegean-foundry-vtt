@@ -4,13 +4,13 @@ import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/ef
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class v3boilerplateActorSheet extends ActorSheet {
+export class AegeanActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["v3boilerplate", "sheet", "actor"],
-      template: "systems/v3boilerplate/templates/actor/actor-sheet.html",
+      classes: ["Aegean", "sheet", "actor"],
+      template: "systems/aegean/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
@@ -19,7 +19,7 @@ export class v3boilerplateActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/v3boilerplate/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+    return `systems/aegean/templates/actor/actor-${this.actor.data.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -69,7 +69,7 @@ export class v3boilerplateActorSheet extends ActorSheet {
   _prepareCharacterData(context) {
     // Handle ability scores.
     for (let [k, v] of Object.entries(context.data.abilities)) {
-      v.label = game.i18n.localize(CONFIG.V3BOILERPLATE.abilities[k]) ?? k;
+      v.label = game.i18n.localize(CONFIG.AEGEAN.abilities[k]) ?? k;
     }
   }
 

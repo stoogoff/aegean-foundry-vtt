@@ -1,22 +1,22 @@
 {
-  "V3BOILERPLATE.AbilityStr": "Strength",
-  "V3BOILERPLATE.AbilityCon": "Constitution",
-  "V3BOILERPLATE.AbilityDex": "Dexterity",
-  "V3BOILERPLATE.AbilityInt": "Intelligence",
-  "V3BOILERPLATE.AbilityWis": "Wisdom",
-  "V3BOILERPLATE.AbilityCha": "Charisma",
+  "AEGEAN.AbilityStr": "Strength",
+  "AEGEAN.AbilityCon": "Constitution",
+  "AEGEAN.AbilityDex": "Dexterity",
+  "AEGEAN.AbilityInt": "Intelligence",
+  "AEGEAN.AbilityWis": "Wisdom",
+  "AEGEAN.AbilityCha": "Charisma",
 
-  "V3BOILERPLATE.AbilityStrAbbr": "str",
-  "V3BOILERPLATE.AbilityConAbbr": "con",
-  "V3BOILERPLATE.AbilityDexAbbr": "dex",
-  "V3BOILERPLATE.AbilityIntAbbr": "int",
-  "V3BOILERPLATE.AbilityWisAbbr": "wis",
-  "V3BOILERPLATE.AbilityChaAbbr": "cha",
+  "AEGEAN.AbilityStrAbbr": "str",
+  "AEGEAN.AbilityConAbbr": "con",
+  "AEGEAN.AbilityDexAbbr": "dex",
+  "AEGEAN.AbilityIntAbbr": "int",
+  "AEGEAN.AbilityWisAbbr": "wis",
+  "AEGEAN.AbilityChaAbbr": "cha",
 
-  "V3BOILERPLATE.EffectCreate": "Create Effect",
-  "V3BOILERPLATE.EffectToggle": "Toggle Effect",
-  "V3BOILERPLATE.EffectEdit": "Edit Effect",
-  "V3BOILERPLATE.EffectDelete": "Delete Effect",
+  "AEGEAN.EffectCreate": "Create Effect",
+  "AEGEAN.EffectToggle": "Toggle Effect",
+  "AEGEAN.EffectEdit": "Edit Effect",
+  "AEGEAN.EffectDelete": "Delete Effect",
 
-  "V3BOILERPLATE.Add": "Add"
+  "AEGEAN.Add": "Add"
 }

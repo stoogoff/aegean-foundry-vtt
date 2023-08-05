@@ -1,29 +1,29 @@
-export const V3BOILERPLATE = {};
+export const AEGEAN = {};
 
 // Define constants here, such as:
-V3BOILERPLATE.foobar = {
-  'bas': 'V3BOILERPLATE.bas',
-  'bar': 'V3BOILERPLATE.bar'
+AEGEAN.foobar = {
+  'bas': 'AEGEAN.bas',
+  'bar': 'AEGEAN.bar'
 };
 
 /**
  * The set of Ability Scores used within the sytem.
  * @type {Object}
  */
- V3BOILERPLATE.abilities = {
-  "str": "V3BOILERPLATE.AbilityStr",
-  "dex": "V3BOILERPLATE.AbilityDex",
-  "con": "V3BOILERPLATE.AbilityCon",
-  "int": "V3BOILERPLATE.AbilityInt",
-  "wis": "V3BOILERPLATE.AbilityWis",
-  "cha": "V3BOILERPLATE.AbilityCha"
+ AEGEAN.abilities = {
+  "str": "AEGEAN.AbilityStr",
+  "dex": "AEGEAN.AbilityDex",
+  "con": "AEGEAN.AbilityCon",
+  "int": "AEGEAN.AbilityInt",
+  "wis": "AEGEAN.AbilityWis",
+  "cha": "AEGEAN.AbilityCha"
 };
 
-V3BOILERPLATE.abilityAbbreviations = {
-  "str": "V3BOILERPLATE.AbilityStrAbbr",
-  "dex": "V3BOILERPLATE.AbilityDexAbbr",
-  "con": "V3BOILERPLATE.AbilityConAbbr",
-  "int": "V3BOILERPLATE.AbilityIntAbbr",
-  "wis": "V3BOILERPLATE.AbilityWisAbbr",
-  "cha": "V3BOILERPLATE.AbilityChaAbbr"
+AEGEAN.abilityAbbreviations = {
+  "str": "AEGEAN.AbilityStrAbbr",
+  "dex": "AEGEAN.AbilityDexAbbr",
+  "con": "AEGEAN.AbilityConAbbr",
+  "int": "AEGEAN.AbilityIntAbbr",
+  "wis": "AEGEAN.AbilityWisAbbr",
+  "cha": "AEGEAN.AbilityChaAbbr"
 };
