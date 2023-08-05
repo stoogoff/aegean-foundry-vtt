@@ -1,0 +1,22 @@
+{
+  "V3BOILERPLATE.AbilityStr": "Strength",
+  "V3BOILERPLATE.AbilityCon": "Constitution",
+  "V3BOILERPLATE.AbilityDex": "Dexterity",
+  "V3BOILERPLATE.AbilityInt": "Intelligence",
+  "V3BOILERPLATE.AbilityWis": "Wisdom",
+  "V3BOILERPLATE.AbilityCha": "Charisma",
+
+  "V3BOILERPLATE.AbilityStrAbbr": "str",
+  "V3BOILERPLATE.AbilityConAbbr": "con",
+  "V3BOILERPLATE.AbilityDexAbbr": "dex",
+  "V3BOILERPLATE.AbilityIntAbbr": "int",
+  "V3BOILERPLATE.AbilityWisAbbr": "wis",
+  "V3BOILERPLATE.AbilityChaAbbr": "cha",
+
+  "V3BOILERPLATE.EffectCreate": "Create Effect",
+  "V3BOILERPLATE.EffectToggle": "Toggle Effect",
+  "V3BOILERPLATE.EffectEdit": "Edit Effect",
+  "V3BOILERPLATE.EffectDelete": "Delete Effect",
+
+  "V3BOILERPLATE.Add": "Add"
+}
