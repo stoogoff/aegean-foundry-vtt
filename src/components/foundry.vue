@@ -28,7 +28,7 @@
 							v-model="character.characteristics[ch]"
 						/>
 					</div>
-					<div class="grid skill-panel">
+					<div class="grid column-panel">
 						<div class="skills">
 							<h2>Skills</h2>
 							<skill-input
@@ -43,7 +43,6 @@
 							<h2>Attributes</h2>
 							<box-input label="Glory" v-model="character.attributes.Glory" />
 							<box-input label="Hubris" v-model="character.attributes.Hubris" />
-							<box-input label="Standing" v-model="character.attributes.Standing" />
 							<box-input label="XP" v-model="character.attributes.XP" />
 							<box-input label="Scars" v-model="character.attributes.Scars" />
 						</div>
@@ -53,18 +52,68 @@
 					Weapons, defence, combat moves / summary, wounds
 				</tab-panel>
 				<tab-panel title="Equipment">
-					Equipment, encumbrance, drakhmae doses ammo
+					<div class="grid column-panel">
+						<div>
+							<h2>Equipment</h2>
+							<table>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Availability</th>
+										<th>Price</th>
+										<th>Weight</th>
+										<th>Properties</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										v-for="(item, idx) in character.equipment.items"
+										:key="`item_${idx}`"
+									>
+										<td>{{ item.title }}</td>
+										<td>{{ item.availability }}</td>
+										<td class="text-right">{{ item.price }}</td>
+										<td class="text-right">{{ item.weight | fraction }}</td>
+										<td>{{ (item.properties || []) | join }}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="box-column">
+							<box-input label="Standing" v-model="character.attributes.Standing" />
+							<box-input label="Drakhmae" v-model="character.equipment.Drakhmae" />
+							<box-input label="Encumbrance" v-model="character.equipment.Encumbrance" />
+							<box-input label="Ammo" v-model="character.equipment.AmmoLoads" />
+							<box-input label="Doses" v-model="character.equipment.HerbalistDoses" />
+						</div>
+					</div>
 				</tab-panel>
 				<tab-panel title="Talents">
 					<h2>Talents and Gifts</h2>
-					<div v-for="talent in character.talents" :key="talent.title">
+					<div v-for="talent in character.talents" :key="talent.title" class="talent">
 						<h3>{{ talent.title }}</h3>
 						<p>{{ talent.description }}</p>
 					</div>
 					<button class="btn">Add</button>
 				</tab-panel>
 				<tab-panel title="Background">
-					Heritage, background, careers, fate. If there's room all of the back of the sheet
+					<p>Heritage, background, careers, fate. If there's room all of the back of the sheet</p>
+
+					<div class="grid grid-cols-2">
+						<div>
+							<select-input label="Heritage" :items="heritages" v-model="character.background.Heritage" />
+							<select-input
+								label="Divine Parent"
+								:items="parents"
+								v-model="character.background.Parent"
+								v-if="character.background.Heritage === 'Divine'"
+							/>
+							<select-input label="Background" :items="backgrounds" v-model="character.background.Background" />
+						</div>
+						<div>
+							Col
+						</div>
+					</div>
 				</tab-panel>
 			</tab-group>
 		</article>
@@ -78,6 +127,30 @@ export default {
 	data() {
 		return {
 			input: '',
+			backgrounds: [
+				'Criminal',
+				'Farmer',
+				'Herder',
+				'Hunter',
+				'Merchant',
+				'Noble',
+				'Priest',
+				'Soldier',
+			],
+			heritages: [
+				'Divine',
+				'Mortal',
+			],
+			parents: [
+				'Aphrodite',
+				'Apollo',
+				'Ares',
+				'Demeter',
+				'Hephaestos',
+				'Hermes',
+				'Poseidon',
+				'Zeus',
+			],
 			character: {
 				background: {
 					Name: 'Akhilles',
@@ -98,7 +171,7 @@ export default {
 					Athletics: 0,
 					Awareness: 0,
 					Brawl: 0,
-					Craft: 0,
+					Craft: 3,
 					Diplomacy: 0,
 					Knowledge: 0,
 					Lore: 0,
@@ -130,7 +203,32 @@ export default {
 						title: 'Deadeye',
 						description: 'Whenever you make an Aim Maneuver you gain +2D instead of +1D. All other Aim rules apply.',
 					},
-				]
+					{
+						title: 'Deadeye',
+						description: 'Whenever you make an Aim Maneuver you gain +2D instead of +1D. All other Aim rules apply.',
+					},
+				],
+				equipment: {
+					Drakhmae: 3,
+					Encumbrance: 3, // needs to be computed
+					AmmoLoads: 2,
+					HerbalistDoses: 2,
+					items: [
+						{
+							title: 'Rich Clothing',
+							availability: 'Rare',
+							weight: 0,
+							price: 2,
+							properties: [ 'Rich 1' ]
+						},
+						{
+							title: 'Salpinx',
+							availability: 'Uncommon',
+							weight: 0.5,
+							price: 1,
+						},
+					]
+				},
 			},
 		}
 	},
@@ -175,6 +273,7 @@ export default {
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: 200px auto;
+	margin-bottom: 0.5rem;
 }
 
 .flex {
@@ -184,6 +283,9 @@ export default {
 .grid {
 	display: grid;
 	gap: 1rem;
+}
+.grid-cols-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .grid-cols-3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -195,8 +297,15 @@ export default {
 	grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-.skill-panel {
+.column-panel {
 	grid-template-columns: 612px auto;
+}
+
+.text-right {
+	text-align: right;
+}
+.text-left {
+	text-align: left;
 }
 
 .skills {
@@ -227,6 +336,18 @@ export default {
 	background-color: #374151;
 	border-color: black;
 	color: white;
+}
+
+.talent {
+	border-bottom: 1px solid #9CA3AF;
+	margin-bottom: 1rem;
+}
+.talent:last-of-type {
+	border-bottom: 0;
+}
+
+table {
+	width: 100%;
 }
 
 </style>

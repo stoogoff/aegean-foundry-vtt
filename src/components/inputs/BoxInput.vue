@@ -4,7 +4,6 @@
 		<label>{{ label }}</label>
 	</div>
 </template>
-
 <script>
 
 import Vue from 'vue'
@@ -15,7 +14,6 @@ export default Vue.component('BoxInput', {
 })
 
 </script>
-
 <style scoped>
 
 .box-input {

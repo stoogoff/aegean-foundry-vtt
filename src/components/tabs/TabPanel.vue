@@ -4,6 +4,7 @@
 	</section>
 </template>
 <script>
+
 import Vue from 'vue'
 
 export default Vue.component('TabPanel', {
@@ -24,4 +25,5 @@ export default Vue.component('TabPanel', {
 		}
 	}
 })
+
 </script>

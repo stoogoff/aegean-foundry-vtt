@@ -1,54 +1,47 @@
 <template>
-  <header class="sheet-header">
-    <img :src="actor.img" :alt="actor.name" class="profile-img" height="100" width="100"/>
-    <div class="header-fields">
-      <h1 class="charname">
-        <input type="text" name="name" v-model="actor.name" placeholder="Name"/>
-      </h1>
-      <div class="resources grid grid-3col">
-
-        <div class="resource flex-group-center">
-          <label for="data.health.value" class="resource-label">Health</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="data.health.value" v-model="data.health.value" data-dtype="Number"/>
-          <span> / </span>
-          <input type="text" name="data.health.max" v-model="data.health.max" data-dtype="Number"/>
-          </div>
-        </div>
-
-        <div class="resource flex-group-center">
-          <label for="data.power.value" class="resource-label">Power</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="data.power.value" v-model="data.power.value" data-dtype="Number"/>
-          <span> / </span>
-          <input type="text" name="data.power.max" v-model="data.power.max" data-dtype="Number"/>
-          </div>
-        </div>
-
-        <div class="resource flex-group-center">
-          <label for="data.attributes.level.value" class="resource-label">Level</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="data.attributes.level.value" v-model="data.attributes.level.value" data-dtype="Number"/>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </header>
+	<header>
+		<div>
+			<img src="https://placehold.co/200x200" />
+		</div>
+		<div>
+			<!-- TODO Aegean Logo -->
+			<form-input label="Character" v-model="character.background.Name" />
+			<form-input label="Home" v-model="character.background.Home" />
+			<div class="grid grid-cols-4">
+				<box-input label="Risk" v-model="character.attributes.Risk" />
+				<box-input label="Endurance" v-model="character.attributes.Endurance" />
+				<box-input label="Resolve" v-model="character.attributes.Resolve" />
+				<box-input label="Oracle" v-model="character.attributes.Oracle" />
+			</div>
+		</div>
+	</header>
 </template>
 
 <script>
+
+import BoxInput from '../input/BoxInput'
+import FormInput from '../input/FormInput'
+import Character from './character'
+
 export default {
-  name: 'Header',
-  props: ['actor'],
-  computed: {
-    data() {
-      return this.actor.data;
-    }
-  }
+	name: 'Header',
+
+	mixins: [ Character ],
+
+	components: {
+		BoxInput,
+		FormInput,
+	},
 }
 </script>
 
 <style scoped>
+
+header {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 200px auto;
+	margin-bottom: 0.5rem;
+}
 
 </style>
