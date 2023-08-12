@@ -1,7 +1,7 @@
 <template>
 	<section class="grid column-panel">
 		<div>
-			<h2>{{ "aegean.system.Equipment" }}</h2>
+			<h2>{{ $filters.localise("aegean.system.Equipment") }}</h2>
 			<table>
 				<thead>
 					<tr>

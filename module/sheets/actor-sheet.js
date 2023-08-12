@@ -1,6 +1,7 @@
 
 import { CharacterSheet } from '../../dist/components.vue.es.js'
 import { createApp } from '../lib/vue.esm-browser.js'
+import { AEGEAN } from '../helpers/config.js'
 
 export class AegeanActorSheet extends ActorSheet {
 
@@ -61,6 +62,7 @@ export class AegeanActorSheet extends ActorSheet {
 					}
 				}
 			})
+			this.vueApp.config.globalProperties.$config = AEGEAN
 			this.vueApp.config.globalProperties.$filters = {
 				localise(value) {
 					return game.i18n.localize(value)
