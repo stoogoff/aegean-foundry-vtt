@@ -1,229 +1,136 @@
-import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/effects.mjs";
+import { AegeanActorSheet } from './actor-sheet.mjs'
+import { CharacterSheet } from '../../dist/components.vue.es.js'
+import { createApp } from '../lib/vue.esm-browser.js'
+import { prepareActiveEffectCategories } from '../helpers/effects.mjs'
 
-/**
- * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
- */
-export class AegeanActorSheet extends ActorSheet {
+export class AegeanActorSheetVue extends AegeanActorSheet {
 
-  /** @override */
-  static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
-      classes: ["Aegean", "sheet", "actor"],
-      template: "systems/aegean/templates/actor/actor-sheet.html",
-      width: 600,
-      height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
-    });
-  }
+	constructor(...args) {
+		super(...args)
 
-  /** @override */
-  get template() {
-    return `systems/aegean/templates/actor/actor-${this.actor.data.type}-sheet.html`;
-  }
+		this.vueApp = null
+		this.vueRoot = null
+	}
 
-  /* -------------------------------------------- */
+	/** @override */
+	static get defaultOptions() {
+		return mergeObject(super.defaultOptions, {
+			classes: ['Aegean', 'sheet', 'actor'],
+			template: 'systems/aegean/templates/actor/actor-character-sheet.html',
+			width: 800,
+			height: 600,
+			tabs: [{ navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'features' }]
+		})
+	}
 
-  /** @override */
-  getData() {
-    // Retrieve the data structure from the base sheet. You can inspect or log
-    // the context variable to see the structure, but some key properties for
-    // sheets are the actor object, the data object, whether or not it's
-    // editable, the items array, and the effects array.
-    const context = super.getData();
+	/** @override */
+	get template() {
+		return `systems/aegean/templates/actor/actor-${this.actor.data.type}-sheet.vue.html`
+	}
 
-    // Use a safe clone of the actor data for further operations.
-    const actorData = this.actor.data.toObject(false);
+	/* -------------------------------------------- */
 
-    // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = actorData.data;
-    context.flags = actorData.flags;
+	/** @override */
+	getData() {
+		const context = super.getData()
+		context.actor = this.actor.data.toObject(false)
+		context.actor.id = context.actor.id ?? context.actor._id
+		// Prepare active effects
+		context.effects = prepareActiveEffectCategories(this.actor.effects, true)
 
-    // Prepare character data and items.
-    if (actorData.type == 'character') {
-      this._prepareItems(context);
-      this._prepareCharacterData(context);
-    }
+		return context
+	}
 
-    // Prepare NPC data and items.
-    if (actorData.type == 'npc') {
-      this._prepareItems(context);
-    }
+	render(force=false, options={}) {
+		const context = this.getData()
 
-    // Add roll data for TinyMCE editors.
-    context.rollData = context.actor.getRollData();
+		// Render the vue application after loading. We'll need to destroy this
+		// later in the this.close() method for the sheet.
+		if (!this.vueApp) {
+			this.vueApp = createApp({
+				data() {
+					return {
+						context: context,
+					}
+				},
+				components: {
+					'character-sheet': CharacterSheet
+				},
+				methods: {
+					updateContext(newContext) {
+						// We can't just replace the object outright without destroying the
+						// reactivity, so this instead updates the keys individually.
+						for (let key of Object.keys(this.context)) {
+							this.context[key] = newContext[key]
+						}
+					}
+				}
+			})
+		}
+		// Otherwise, perform update routines on the app.
+		else {
+			// Pass new values from this.getData() into the app.
+			this.vueRoot.updateContext(context)
+			this.activateVueListeners($(this.form), true)
+			return
+		}
 
-    // Prepare active effects
-    context.effects = prepareActiveEffectCategories(this.actor.effects);
+		this._render(force, options).catch(err => {
+			err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`
+			console.error(err)
+			this._state = Application.RENDER_STATES.ERROR
+		})
+		// Run Vue's render, assign it to our prop for tracking.
+		.then(rendered => {
+			this.vueRoot = this.vueApp.mount(`[data-appid='${this.appId}'] .Aegean-vue`)
+			this.activateVueListeners($(this.form), false)
+		})
 
-    return context;
-  }
+		this.object.apps[this.appId] = this
+		return this
+	}
 
-  /**
-   * Organize and classify Items for Character sheets.
-   *
-   * @param {Object} actorData The actor to prepare.
-   *
-   * @return {undefined}
-   */
-  _prepareCharacterData(context) {
-    // Handle ability scores.
-    for (let [k, v] of Object.entries(context.data.abilities)) {
-      v.label = game.i18n.localize(CONFIG.AEGEAN.abilities[k]) ?? k;
-    }
-  }
+	async close(options={}) {
+		this.vueApp.unmount()
+		this.vueApp = null
+		this.vueRoot = null
+		return super.close(options)
+	}
 
-  /**
-   * Organize and classify Items for Character sheets.
-   *
-   * @param {Object} actorData The actor to prepare.
-   *
-   * @return {undefined}
-   */
-  _prepareItems(context) {
-    // Initialize containers.
-    const gear = [];
-    const features = [];
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
-    };
+	/**
+	 * Apply drag events to items (powers and equipment).
+	 * @param {jQuery} html
+	 */
+	 _dragHandler(html) {
+		let dragHandler = event => this._onDragStart(event)
+		html.find('.item[data-draggable="true"]').each((i, li) => {
+			li.setAttribute('draggable', true)
+			li.addEventListener('dragstart', dragHandler, false)
+		})
+	}
 
-    // Iterate through items, allocating to containers
-    for (let i of context.items) {
-      i.img = i.img || DEFAULT_TOKEN;
-      // Append to gear.
-      if (i.type === 'item') {
-        gear.push(i);
-      }
-      // Append to features.
-      else if (i.type === 'feature') {
-        features.push(i);
-      }
-      // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.data.spellLevel != undefined) {
-          spells[i.data.spellLevel].push(i);
-        }
-      }
-    }
+	/**
+	 * Activate additional listeners on the rendered Vue app.
+	 * @param {jQuery} html
+	 * @param {boolean} repeat
+	 *	 Used to require logic to execute only once.
+	 */
+	activateVueListeners(html, repeat = false) {
+		if (!this.options.editable) {
+			html.find('input,select,textarea').attr('disabled', true)
+			return
+		}
 
-    // Assign and return
-    context.gear = gear;
-    context.features = features;
-    context.spells = spells;
-   }
+		this._dragHandler(html)
 
-  /* -------------------------------------------- */
+		// Place one-time executions after this line.
+		if (repeat) return
 
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
+		html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div))
+	}
 
-    // Render the item sheet for viewing/editing prior to the editable check.
-    html.find('.item-edit').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
-      item.sheet.render(true);
-    });
-
-    // -------------------------------------------------------------
-    // Everything below here is only needed if the sheet is editable
-    if (!this.isEditable) return;
-
-    // Add Inventory Item
-    html.find('.item-create').click(this._onItemCreate.bind(this));
-
-    // Delete Inventory Item
-    html.find('.item-delete').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
-      item.delete();
-      li.slideUp(200, () => this.render(false));
-    });
-
-    // Active Effect management
-    html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
-
-    // Rollable abilities.
-    html.find('.rollable').click(this._onRoll.bind(this));
-
-    // Drag events for macros.
-    if (this.actor.owner) {
-      let handler = ev => this._onDragStart(ev);
-      html.find('li.item').each((i, li) => {
-        if (li.classList.contains("inventory-header")) return;
-        li.setAttribute("draggable", true);
-        li.addEventListener("dragstart", handler, false);
-      });
-    }
-  }
-
-  /**
-   * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
-   * @param {Event} event   The originating click event
-   * @private
-   */
-  async _onItemCreate(event) {
-    event.preventDefault();
-    const header = event.currentTarget;
-    // Get the type of item to create.
-    const type = header.dataset.type;
-    // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
-    // Initialize a default name.
-    const name = `New ${type.capitalize()}`;
-    // Prepare the item object.
-    const itemData = {
-      name: name,
-      type: type,
-      data: data
-    };
-    // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
-
-    // Finally, create the item!
-    return await Item.create(itemData, {parent: this.actor});
-  }
-
-  /**
-   * Handle clickable rolls.
-   * @param {Event} event   The originating click event
-   * @private
-   */
-  _onRoll(event) {
-    event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
-
-    // Handle item rolls.
-    if (dataset.rollType) {
-      if (dataset.rollType == 'item') {
-        const itemId = element.closest('.item').dataset.itemId;
-        const item = this.actor.items.get(itemId);
-        if (item) return item.roll();
-      }
-    }
-
-    // Handle rolls that supply the formula directly.
-    if (dataset.roll) {
-      let label = dataset.label ? `[roll] ${dataset.label}` : '';
-      let roll = new Roll(dataset.roll, this.actor.getRollData());
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
-      });
-      return roll;
-    }
-  }
-
+	// Exit early, place listeners in vue components.
+	activateListeners(html) {
+		return
+	}
 }

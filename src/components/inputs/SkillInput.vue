@@ -1,7 +1,7 @@
 <template>
 	<div class="skill-input grid">
 		<div class="skill">
-			<label>{{ label }}</label>
+			<label>{{ label | localise }}</label>
 			<input type="text" :value="value" @input="$emit('input', $event.target.value)" />
 		</div>
 		<ul class="specialisations">
@@ -14,10 +14,11 @@
 </template>
 <script>
 
-import Vue from 'vue'
 import TextInput from './text-input'
 
-export default Vue.component('SkillInput', {
+export default {
+	name: 'SkillInput',
+
 	mixins: [ TextInput ],
 
 	props: {
@@ -26,7 +27,7 @@ export default Vue.component('SkillInput', {
 			default: [],
 		},
 	}
-})
+}
 
 </script>
 <style scoped>

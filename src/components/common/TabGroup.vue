@@ -12,7 +12,7 @@
 					@click="activate(tab)"
 					tabindex="0"
 				>
-					{{ tab.title }}
+					{{ tab.title | localise }}
 				</li>
 			</ul>
 		</div>
@@ -21,9 +21,9 @@
 </template>
 <script>
 
-import Vue from 'vue'
+export default {
+	name: 'TabGroup',
 
-export default Vue.component('TabGroup', {
 	props: {
 		active: {
 			type: String,
@@ -59,7 +59,7 @@ export default Vue.component('TabGroup', {
 			this.tabs.forEach(child => child.active = child === tab)
 		},
 	},
-})
+}
 
 </script>
 <style scoped>

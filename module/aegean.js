@@ -21,8 +21,8 @@ Hooks.once('init', async function() {
 
 	Actors.unregisterSheet('core', ActorSheet)
 	Actors.registerSheet('Aegean', AegeanActorSheet, { label: 'Vue', makeDefault: true })
-	Items.unregisterSheet('core', ItemSheet)
-	Items.registerSheet('Aegean', AegeanItemSheet, { makeDefault: true })
+	//Items.unregisterSheet('core', ItemSheet)
+	//Items.registerSheet('Aegean', AegeanItemSheet, { makeDefault: true })
 })
 
 

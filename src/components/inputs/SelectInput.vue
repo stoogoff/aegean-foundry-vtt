@@ -1,6 +1,6 @@
 <template>
 	<div class="select-input">
-		<label>{{ label }}</label>
+		<label>{{ label | localise }}</label>
 		<div>
 			<div
 				class="select-trigger"
@@ -38,10 +38,11 @@
 </template>
 <script>
 
-import Vue from 'vue'
 import TextInput from './text-input'
 
-export default Vue.component('SelectInput', {
+export default {
+	name: 'TextInput',
+
 	mixins: [ TextInput ],
 
 	props: {
@@ -96,7 +97,7 @@ export default Vue.component('SelectInput', {
 			el.style.height = ''
 		},
 	},
-})
+}
 
 </script>
 <style scoped>

@@ -5,9 +5,9 @@
 </template>
 <script>
 
-import Vue from 'vue'
+export default {
+	name: 'TabPanel',
 
-export default Vue.component('TabPanel', {
 	props: {
 		title: {
 			type: String,
@@ -24,6 +24,6 @@ export default Vue.component('TabPanel', {
 			active: false
 		}
 	}
-})
+}
 
 </script>

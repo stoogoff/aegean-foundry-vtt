@@ -1,2 +1,2 @@
 
-export const AEGEAN = {};
+export const AEGEAN = {}

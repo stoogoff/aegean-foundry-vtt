@@ -1,5 +1,5 @@
 <template>
-	<div class="m-32" style="max-width: 800px;">
+	<div>
 		<article class="character-sheet">
 			<header>
 				<div>
@@ -269,85 +269,6 @@ export default {
 </script>
 <style scoped>
 
-.character-sheet header {
-	display: grid;
-	gap: 1rem;
-	grid-template-columns: 200px auto;
-	margin-bottom: 0.5rem;
-}
 
-.flex {
-	display: flex;
-}
-
-.grid {
-	display: grid;
-	gap: 1rem;
-}
-.grid-cols-2 {
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.grid-cols-3 {
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.grid-cols-4 {
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-.grid-cols-5 {
-	grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.column-panel {
-	grid-template-columns: 612px auto;
-}
-
-.text-right {
-	text-align: right;
-}
-.text-left {
-	text-align: left;
-}
-
-.skills {
-	border: 1px solid black;
-	padding: 0.5rem;
-	margin-top: 1rem;
-}
-
-.box-column {
-	margin-top: 1rem;
-}
-.box-column .box-input {
-	margin-bottom: 1rem;
-}
-
-.btn {
-	text-transform: uppercase;
-	background-color: black;
-	border: 1px solid #9CA3AF;
-	border-radius: 0.2rem;
-	color: #D1D5DB;
-	font-weight: bold;
-	padding: 0.25rem 1rem;
-	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-.btn:hover {
-	background-color: #374151;
-	border-color: black;
-	color: white;
-}
-
-.talent {
-	border-bottom: 1px solid #9CA3AF;
-	margin-bottom: 1rem;
-}
-.talent:last-of-type {
-	border-bottom: 0;
-}
-
-table {
-	width: 100%;
-}
 
 </style>

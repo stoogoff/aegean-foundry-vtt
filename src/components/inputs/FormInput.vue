@@ -1,17 +1,17 @@
 <template>
 	<div class="form-input">
-		<label>{{ label }}</label>
+		<label>{{ label | localise }}</label>
 		<input type="text" :value="value" @input="$emit('input', $event.target.value)" />
 	</div>
 </template>
 <script>
 
-import Vue from 'vue'
 import TextInput from './text-input'
 
-export default Vue.component('FormInput', {
+export default {
+	name: 'FormInput',
 	mixins: [ TextInput ],
-})
+}
 
 </script>
 <style scoped>

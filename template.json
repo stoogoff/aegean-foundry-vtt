@@ -3,130 +3,130 @@
 		"types": ["character"],
 		"templates": {
 			"characteristics": {
-				"might": {
-					"label": "aegean.characteristics.might",
+				"Might": {
+					"label": "aegean.characteristics.Might",
 					"value": 0
 				},
-				"reflexes": {
-					"label": "aegean.characteristics.reflexes",
+				"Reflexes": {
+					"label": "aegean.characteristics.Reflexes",
 					"value": 0
 				},
-				"cool": {
-					"label": "aegean.characteristics.cool",
+				"Cool": {
+					"label": "aegean.characteristics.Cool",
 					"value": 0
 				},
-				"insight": {
-					"label": "aegean.characteristics.insight",
+				"Insight": {
+					"label": "aegean.characteristics.Insight",
 					"value": 0
 				},
-				"cunning": {
-					"label": "aegean.characteristics.cunning",
+				"Cunning": {
+					"label": "aegean.characteristics.Cunning",
 					"value": 0
 				}
 			},
 			"skills": {
-				"accuracy": {
-					"label": "aegean.skills.accuracy",
+				"Accuracy": {
+					"label": "aegean.skills.Accuracy",
 					"value": 0,
 					"speciality": []
 				},
-				"athletics": {
-					"label": "aegean.skills.athletics",
+				"Athletics": {
+					"label": "aegean.skills.Athletics",
 					"value": 0,
 					"speciality": []
 				},
-				"awareness": {
-					"label": "aegean.skills.awareness",
+				"Awareness": {
+					"label": "aegean.skills.Awareness",
 					"value": 0,
 					"speciality": []
 				},
-				"brawl": {
-					"label": "aegean.skills.brawl",
+				"Brawl": {
+					"label": "aegean.skills.Brawl",
 					"value": 0,
 					"speciality": []
 				},
-				"craft": {
-					"label": "aegean.skills.craft",
+				"Craft": {
+					"label": "aegean.skills.Craft",
 					"value": 0,
 					"speciality": []
 				},
-				"diplomacy": {
-					"label": "aegean.skills.diplomacy",
+				"Diplomacy": {
+					"label": "aegean.skills.Diplomacy",
 					"value": 0,
 					"speciality": []
 				},
-				"knowledge": {
-					"label": "aegean.skills.knowledge",
+				"Knowledge": {
+					"label": "aegean.skills.Knowledge",
 					"value": 0,
 					"speciality": []
 				},
-				"lore": {
-					"label": "aegean.skills.lore",
+				"Lore": {
+					"label": "aegean.skills.Lore",
 					"value": 0,
 					"speciality": []
 				},
-				"manipulation": {
-					"label": "aegean.skills.manipulation",
+				"Manipulation": {
+					"label": "aegean.skills.Manipulation",
 					"value": 0,
 					"speciality": []
 				},
-				"medicine": {
-					"label": "aegean.skills.medicine",
+				"Medicine": {
+					"label": "aegean.skills.Medicine",
 					"value": 0,
 					"speciality": []
 				},
-				"melee": {
-					"label": "aegean.skills.melee",
+				"Melee": {
+					"label": "aegean.skills.Melee",
 					"value": 0,
 					"speciality": []
 				},
-				"perform": {
-					"label": "aegean.skills.perform",
+				"Perform": {
+					"label": "aegean.skills.Perform",
 					"value": 0,
 					"speciality": []
 				},
-				"ride": {
-					"label": "aegean.skills.ride",
+				"Ride": {
+					"label": "aegean.skills.Ride",
 					"value": 0,
 					"speciality": []
 				},
-				"survival": {
-					"label": "aegean.skills.survival",
+				"Survival": {
+					"label": "aegean.skills.Survival",
 					"value": 0,
 					"speciality": []
 				},
-				"vigour": {
-					"label": "aegean.skills.vigour",
+				"Vigour": {
+					"label": "aegean.skills.Vigour",
 					"value": 0,
 					"speciality": []
 				},
 				"defence": {
-					"armour": {
-						"label": "aegean.defence.armour",
+					"Armour": {
+						"label": "aegean.combat.Armour",
 						"value": 0
 					},
-					"shield": {
-						"label": "aegean.defence.shield",
+					"Shield": {
+						"label": "aegean.combat.Shield",
 						"value": 0,
 						"used": false
 					},
-					"parry": {
-						"label": "aegean.defence.parry",
+					"Parry": {
+						"label": "aegean.combat.Parry",
 						"value": 0,
 						"used": false
 					}
 				},
 				"baseAttributes": {
-					"risk": {
-						"label": "aegean.attributes.risk",
+					"Risk": {
+						"label": "aegean.attributes.Risk",
 						"value": 0
 					},
-					"endurance": {
-						"label": "aegean.attributes.endurance",
+					"Endurance": {
+						"label": "aegean.attributes.Endurance",
 						"value": 0
 					},
-					"standing": {
-						"label": "aegean.attributes.standing",
+					"Standing": {
+						"label": "aegean.attributes.Standing",
 						"value": 0
 					}
 				}
@@ -134,63 +134,147 @@
 		},
 		"character": {
 			"template": ["characteristics", "skills", "defence", "baseAttributes"],
-			"heritage": {
-				"label": "aegean.character.heritage",
-				"value": ""
-			},
-			"parent": {
-				"label": "aegean.character.parent",
-				"value": ""
-			},
 			"background": {
-				"label": "aegean.character.background",
-				"value": ""
-			},
-			"fate": {
-				"label": "aegean.character.fate",
-				"value": ""
-			},
-			"careers": {
-				"label": "aegean.character.careers",
-				"value": []
-			},
-			"mysteryCults": {
-				"label": "aegean.character.mysteryCults",
-				"value": []
+				"Home": {
+					"label": "aegean.character.Home",
+					"value": ""
+				},
+				"Heritage": {
+					"label": "aegean.character.Heritage",
+					"value": ""
+				},
+				"Parent": {
+					"label": "aegean.character.Parent",
+					"value": ""
+				},
+				"Background": {
+					"label": "aegean.character.Background",
+					"value": ""
+				},
+				"Fate": {
+					"label": "aegean.character.Fate",
+					"value": ""
+				},
+				"Careers": {
+					"label": "aegean.character.Careers",
+					"value": []
+				},
+				"MysteryCults": {
+					"label": "aegean.character.MysteryCults",
+					"value": []
+				}
 			},
 			"attributes": {
-				"resolve": {
-					"label": "aegean.attributes.resolve",
+				"Resolve": {
+					"label": "aegean.attributes.Resolve",
 					"value": 0
 				},
-				"glory": {
-					"label": "aegean.attributes.glory",
+				"Glory": {
+					"label": "aegean.attributes.Glory",
 					"value": 0
 				},
-				"hubris": {
-					"label": "aegean.attributes.hubris",
+				"Hubris": {
+					"label": "aegean.attributes.Hubris",
 					"value": 0
 				},
-				"xp": {
-					"label": "aegean.attributes.xp",
+				"XP": {
+					"label": "aegean.attributes.XP",
 					"value": 0
 				},
-				"scars": {
-					"label": "aegean.attributes.scars",
+				"Scars": {
+					"label": "aegean.attributes.Scars",
+					"value": 0
+				},
+				"Oracle": {
+					"label": "aegean.attributes.Oracle",
 					"value": 0
 				}
 			},
 			"talents": {
-				"label": "aegean.character.talents",
+				"label": "aegean.system.GiftsTalents",
 				"value": []
 			}
 		}
 	},
 	"Item": {
-		"types": ["item", "feature", "spell"],
+		"types": ["property", "talent", "equipment", "armour", "weapons"],
 		"templates": {
 			"base": {
-				"description": ""
+				"Title": {
+					"label": "aegean.system.Title",
+					"value": ""
+				},
+				"Description": {
+					"label": "aegean.system.Description",
+					"value": ""
+				}
+			},
+			"equipment": {
+				"Availability": {
+					"label": "aegean.equipment.Availability",
+					"value": ""
+				},
+				"Weight": {
+					"label": "aegean.equipment.Weight",
+					"value": 0
+				},
+				"Price": {
+					"label": "aegean.equipment.Price",
+					"value": 0
+				},
+				"Properties": {
+					"label": "aegean.equipment.Properties",
+					"value": []
+				}
+			}
+		},
+		"talent": {
+			"template": ["base"]
+		},
+		"property": {
+			"template": ["base"],
+			"stats": {
+				"Rank": {
+					"label": "aegean.system.Rank",
+					"value": 0
+				}
+			},
+		},
+		"equipment": {
+			"template": ["base", "equipment"]
+		},
+		"weapon": {
+			"template": ["base", "equipment"],
+			"stats": {
+				"Skill": {
+					"label": "aegean.system.Skill",
+					"value": ""
+				},
+				"Reach": {
+					"label": "aegean.combat.Reach",
+					"value": 0
+				},
+				"Range": {
+					"label": "aegean.combat.Range",
+					"value": ""
+				},
+				"Damage": {
+					"label": "aegean.combat.Damage",
+					"value": 0
+				}
+			}
+		},
+		"armour": {
+			"template": ["base", "equipment"],
+			"stats": {
+				"Location": {
+					"label": "aegean.combat.Location",
+					"value": ""
+				},
+				"Armour": {
+					"label": "aegean.combat.Armour",
+					"value": 0
+				}
 			}
 		}
 	}
