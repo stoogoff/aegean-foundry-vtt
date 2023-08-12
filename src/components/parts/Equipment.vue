@@ -1,20 +1,20 @@
 <template>
 	<section class="grid column-panel">
 		<div>
-			<h2>{{ "aegean.system.Equipment" | localise }}</h2>
+			<h2>{{ "aegean.system.Equipment" }}</h2>
 			<table>
 				<thead>
 					<tr>
-						<th>{{ "aegean.system.Name" | localise }}</th>
-						<th>{{ "aegean.equipment.Availability" | localise }}</th>
-						<th>{{ "aegean.equipment.Price" | localise }}</th>
-						<th>{{ "aegean.equipment.Weight" | localise }}</th>
-						<th>{{ "aegean.equipment.Properties" | localise }}</th>
+						<th>{{ $filters.localise("aegean.system.Name") }}</th>
+						<th>{{ $filters.localise("aegean.equipment.Availability") }}</th>
+						<th>{{ $filters.localise("aegean.equipment.Price") }}</th>
+						<th>{{ $filters.localise("aegean.equipment.Weight") }}</th>
+						<th>{{ $filters.localise("aegean.equipment.Properties") }}</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr
-						v-for="(item, idx) in character.equipment.items"
+						v-for="(item, idx) in items"
 						:key="`item_${idx}`"
 					>
 						<td>{{ item.title }}</td>
@@ -48,6 +48,16 @@ export default {
 
 	components: {
 		BoxInput,
+	},
+
+	computed: {
+		items() {
+			if(!this.character) return []
+			if(!this.character.equipment) return []
+			if(!this.character.equipment.items) return []
+
+			return this.character.equipment.items
+		}
 	},
 }
 

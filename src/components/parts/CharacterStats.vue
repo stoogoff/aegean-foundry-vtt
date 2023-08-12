@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<h2>{{ "aegean.system.Characteristics" | localise }}</h2>
+		<h2>{{ $filters.localise("aegean.system.Characteristics") }}</h2>
 		<div class="grid grid-cols-5">
 			<box-input
 				v-for="ch in characteristics"
@@ -11,7 +11,7 @@
 		</div>
 		<div class="grid column-panel">
 			<div class="skills">
-				<h2>{{ "aegean.system.Skills" | localise }}</h2>
+				<h2>{{ $filters.localise("aegean.system.Skills") }}</h2>
 				<skill-input
 					v-for="sk in skills"
 					:key="sk"
@@ -21,7 +21,7 @@
 				/>
 			</div>
 			<div class="box-column">
-				<h2>{{ "aegean.system.Attributes" | localise }}</h2>
+				<h2>{{ $filters.localise("aegean.system.Attributes") }}</h2>
 				<box-input label="aegean.attributes.Glory" v-model="character.attributes.Glory" />
 				<box-input label="aegean.attributes.Hubris" v-model="character.attributes.Hubris" />
 				<box-input label="aegean.attributes.XP" v-model="character.attributes.XP" />

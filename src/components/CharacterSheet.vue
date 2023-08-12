@@ -9,15 +9,22 @@
 				Weapons, defence, combat moves / summary, wounds
 			</tab-panel>
 			<tab-panel title="Equipment">
-				<equipment :actor="context.actor" />
+				<p>Equipment here</p>
+				<!-- equipment :actor="context.actor" /-->
 			</tab-panel>
 			<tab-panel title="Talents">
-				<talents-gifts :actor="context.actor" />
+				<p>Talents</p>
+				<!-- talents-gifts :actor="context.actor" / -->
 			</tab-panel>
 			<tab-panel title="Background">
-				<background :actor="context.actor" />
+				<p>Background</p>
+				<!-- background :actor="context.actor" / -->
 			</tab-panel>
 		</tab-group>
+		<button @click="test">TEST</button>
+		<div>
+			{{ context.actor.name }}
+		</div>
 	</article>
 </template>
 <script>
@@ -38,7 +45,7 @@ export default {
 		context: {
 			type: Object,
 			required: true,
-		},
+		},	
 	},
 
 	components: {
@@ -50,7 +57,20 @@ export default {
 		CharacterStats,
 		Equipment,
 		TalentsGifts,
-	}
+	},
+
+	methods: {
+		test() {
+			console.log(this.context)
+		}
+	},
 }
 
 </script>
+<style scoped>
+
+.character-sheet {
+	background-color: white;
+}
+
+</style>

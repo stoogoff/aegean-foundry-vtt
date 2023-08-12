@@ -1,11 +1,11 @@
 <template>
 	<header>
 		<div>
-			<img src="https://placehold.co/200x200" />
+			<img :src="actor.img" />
 		</div>
 		<div>
 			<!-- TODO Aegean Logo -->
-			<form-input label="aegean.character.Character" v-model="character.background.Name" />
+			<form-input label="aegean.character.Character" v-model="actor.name" />
 			<form-input label="aegean.character.Home" v-model="character.background.Home" />
 			<div class="grid grid-cols-4">
 				<box-input label="aegean.attributes.Risk" v-model="character.attributes.Risk" />
@@ -44,5 +44,9 @@ header {
 	grid-template-columns: 200px auto;
 	margin-bottom: 0.5rem;
 }
+
+/*img {
+	max-width: 200px;
+}*/
 
 </style>

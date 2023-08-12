@@ -12,7 +12,7 @@
 					@click="activate(tab)"
 					tabindex="0"
 				>
-					{{ tab.title | localise }}
+					{{ tab.title }}
 				</li>
 			</ul>
 		</div>
@@ -47,7 +47,7 @@ export default {
 				}
 			})
 		}
-		else {
+		else if(this.tabs && this.tabs[0]) {
 			this.tabs[0].active = true
 		}
 	},

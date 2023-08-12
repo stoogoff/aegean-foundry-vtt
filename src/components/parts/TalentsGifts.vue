@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<h2>Talents and Gifts</h2>
+		<h2>{{ $filters.localise("aegean.system.GiftsTalents") }}</h2>
 		<talent-panel v-for="talent in character.talents" :key="talent.title" :talent="talent" />
 	</section>
 </template>

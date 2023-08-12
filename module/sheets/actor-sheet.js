@@ -1,9 +1,8 @@
-import { AegeanActorSheet } from './actor-sheet.mjs'
+
 import { CharacterSheet } from '../../dist/components.vue.es.js'
 import { createApp } from '../lib/vue.esm-browser.js'
-import { prepareActiveEffectCategories } from '../helpers/effects.mjs'
 
-export class AegeanActorSheetVue extends AegeanActorSheet {
+export class AegeanActorSheet extends ActorSheet {
 
 	constructor(...args) {
 		super(...args)
@@ -18,14 +17,13 @@ export class AegeanActorSheetVue extends AegeanActorSheet {
 			classes: ['Aegean', 'sheet', 'actor'],
 			template: 'systems/aegean/templates/actor/actor-character-sheet.html',
 			width: 800,
-			height: 600,
-			tabs: [{ navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'features' }]
+			height: 600
 		})
 	}
 
 	/** @override */
 	get template() {
-		return `systems/aegean/templates/actor/actor-${this.actor.data.type}-sheet.vue.html`
+		return `systems/aegean/templates/actor/actor-${this.actor.data.type}-sheet.html`
 	}
 
 	/* -------------------------------------------- */
@@ -33,11 +31,8 @@ export class AegeanActorSheetVue extends AegeanActorSheet {
 	/** @override */
 	getData() {
 		const context = super.getData()
-		context.actor = this.actor.data.toObject(false)
-		context.actor.id = context.actor.id ?? context.actor._id
-		// Prepare active effects
-		context.effects = prepareActiveEffectCategories(this.actor.effects, true)
-
+		console.log('AEGEAN ActorSheet::getData', context)
+		console.log('AEGEAN ActorSheet::actor', this.actor.toObject())
 		return context
 	}
 
@@ -50,11 +45,11 @@ export class AegeanActorSheetVue extends AegeanActorSheet {
 			this.vueApp = createApp({
 				data() {
 					return {
-						context: context,
+						context,
 					}
 				},
 				components: {
-					'character-sheet': CharacterSheet
+					CharacterSheet,
 				},
 				methods: {
 					updateContext(newContext) {
@@ -66,6 +61,11 @@ export class AegeanActorSheetVue extends AegeanActorSheet {
 					}
 				}
 			})
+			this.vueApp.config.globalProperties.$filters = {
+				localise(value) {
+					return game.i18n.localize(value)
+				}
+			}
 		}
 		// Otherwise, perform update routines on the app.
 		else {
@@ -82,7 +82,7 @@ export class AegeanActorSheetVue extends AegeanActorSheet {
 		})
 		// Run Vue's render, assign it to our prop for tracking.
 		.then(rendered => {
-			this.vueRoot = this.vueApp.mount(`[data-appid='${this.appId}'] .Aegean-vue`)
+			this.vueRoot = this.vueApp.mount(`[data-appid='${this.appId}'] .aegean-vue`)
 			this.activateVueListeners($(this.form), false)
 		})
 

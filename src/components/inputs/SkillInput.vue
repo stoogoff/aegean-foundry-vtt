@@ -1,8 +1,8 @@
 <template>
 	<div class="skill-input grid">
 		<div class="skill">
-			<label>{{ label | localise }}</label>
-			<input type="text" :value="value" @input="$emit('input', $event.target.value)" />
+			<label>{{ $filters.localise(label) }}</label>
+			<input type="text" :value="modelValue" @input="updateModel($event.target.value)" />
 		</div>
 		<ul class="specialisations">
 			<li

@@ -1,6 +1,6 @@
 <template>
 	<div class="select-input">
-		<label>{{ label | localise }}</label>
+		<label>{{ $filters.localise(label) }}</label>
 		<div>
 			<div
 				class="select-trigger"
@@ -8,7 +8,7 @@
 				@click="toggleActive"
 				@keypress.enter="toggleActive"
 				@keypress.space.prevent="toggleActive"
-			>{{ value }}</div>
+			>{{ $filters.localise(value) }}</div>
 			<transition
 				name="select"
 				@enter="start"
@@ -38,6 +38,7 @@
 </template>
 <script>
 
+import { nextTick } from '../../../module/lib/vue.esm-browser.js'
 import TextInput from './text-input'
 
 export default {
@@ -61,7 +62,7 @@ export default {
 
 	mounted() {
 		document.addEventListener('click', () => {
-			Vue.nextTick(() => {
+			nextTick(() => {
 				if(!this.suppressClose) {
 					this.active = false
 				}
@@ -81,7 +82,7 @@ export default {
 		},
 
 		select(item) {
-			this.$emit('input', item)
+			this.updateModel(item)
 			this.active = false
 		},
 

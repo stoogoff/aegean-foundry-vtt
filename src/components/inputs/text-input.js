@@ -5,9 +5,17 @@ export default {
 			type: String,
 			required: true,
 		},
-		value: {
+		modelValue: {
 			type: [String, Number],
 			default: '',
+		},
+	},
+
+	emits: ['update:modelValue'],
+
+	methods: {
+		updateModel(value) {
+			this.$emit('update:modelValue', value)
 		},
 	},
 }

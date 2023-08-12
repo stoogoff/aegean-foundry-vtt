@@ -1,7 +1,7 @@
 <template>
 	<div class="box-input">
-		<input type="text" :value="value" @input="$emit('input', $event.target.value)" />
-		<label>{{ label | localise }}</label>
+		<input type="text" :value="modelValue" @input="updateModel($event.target.value)" />
+		<label>{{ $filters.localise(label) }}</label>
 	</div>
 </template>
 <script>

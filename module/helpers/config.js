@@ -1,2 +1,51 @@
 
-export const AEGEAN = {}
+export const AEGEAN = {
+	Characteristics: [
+		'Might',
+		'Reflexes',
+		'Cool',
+		'Insight',
+		'Cunning',
+	],
+	Skills: [
+		'Accuracy',
+		'Athletics',
+		'Awareness',
+		'Brawl',
+		'Craft',
+		'Diplomacy',
+		'Knowledge',
+		'Lore',
+		'Manipulation',
+		'Medicine',
+		'Melee',
+		'Perform',
+		'Ride',
+		'Survival',
+		'Vigour',
+	],
+	Backgrounds: [
+		'Criminal',
+		'Farmer',
+		'Herder',
+		'Hunter',
+		'Merchant',
+		'Noble',
+		'Priest',
+		'Soldier',
+	],
+	Heritages: [
+		'Divine',
+		'Mortal',
+	],
+	Parents: [
+		'Aphrodite',
+		'Apollo',
+		'Ares',
+		'Demeter',
+		'Hephaestos',
+		'Hermes',
+		'Poseidon',
+		'Zeus',
+	],
+}
