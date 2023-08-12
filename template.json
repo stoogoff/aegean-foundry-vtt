@@ -86,7 +86,7 @@
 			"template": ["base"],
 			"stats": {
 				"Rank": 0
-			},
+			}
 		},
 		"equipment": {
 			"template": ["base", "equipment"]

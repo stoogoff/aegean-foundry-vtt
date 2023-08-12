@@ -39,7 +39,7 @@
 		}
 	],
 	"url": "https://github.com/stoogoff/aegean-foundry-vtt/",
-	"manifest": "https://github.com/stoogoff/aegean-foundry-vtt/releases/",
-	"download": "https://github.com/stoogoff/aegean-foundry-vtt/releases/",
+	"manifest": "https://github.com/stoogoff/aegean-foundry-vtt/releases/latest/download/system.json",
+	"download": "https://github.com/stoogoff/aegean-foundry-vtt/releases/download/0.0.1/system.zip",
 	"license": "LICENSE"
 }
