@@ -39,8 +39,8 @@ export default {
 <style>
 
 .aegean .tab-panel {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-top: var(--spacing-4);
+	padding-bottom: var(--spacing-4);
 }
 
 </style>

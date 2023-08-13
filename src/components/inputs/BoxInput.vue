@@ -17,22 +17,22 @@ export default {
 <style>
 
 .aegean .box-input {
-	border: 1px solid black;
+	border: var(--border);
 }
 .aegean .box-input label {
 	text-transform: uppercase;
-	background-color: black;
-	color: white;
+	background-color: var(--invert-bg);
+	color: var(--inver-fg);
 	display: block;
-	padding: 0.25rem;
+	padding: var(--spacing-1);
 	text-align: center;
 	line-height: 1;
-	font-size: 16px;
+	font-size: var(--font-md);
 	max-height: 20px;
 }
 .aegean .box-input input[type=text] {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-top: var(--spacing-4);
+	padding-bottom: var(--spacing-4);
 	font-size: 30px;
 	text-align: center;
 }

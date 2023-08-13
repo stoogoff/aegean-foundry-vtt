@@ -105,15 +105,15 @@ export default {
 
 .aegean .select-input {
 	display: flex;
-	padding: 0.125rem 0;
+	padding: var(--spacing) 0;
 }
 
 .aegean .select-input label {
 	display: block;
-	margin-top: 0.5rem;
-	margin-right: 0.125rem;
+	margin-top: var(--spacing-2);
+	margin-right: var(--spacing);
 	font-weight: bold;
-	font-size: 16px;
+	font-size: var(--font-mid);
 	white-space: nowrap;
 }
 
@@ -125,7 +125,7 @@ export default {
 .aegean .select-trigger {
 	border-bottom: 1px solid black;
 	cursor: pointer;
-	padding: 0.25rem 0.5rem 0;
+	padding: var(--spacing-1) var(--spacing-2) 0;
 	height: 32px;
 	background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>chevron-down</title><path d="M5.84,9.59L11.5,15.25L17.16,9.59L16.45,8.89L11.5,13.84L6.55,8.89L5.84,9.59Z" /></svg>') right center no-repeat;
 }
@@ -134,10 +134,10 @@ export default {
 }
 
 .aegean .select-dropdown {
-	border: 1px solid black;
+	border: var(--border);
 	border-top-width: 0;
 	position: absolute;
-	background-color: white;
+	background-color: var(--base-bg);
 	min-width: 150px;
 	box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
 	z-index: 100;
@@ -146,17 +146,17 @@ export default {
 .aegean .select-item {
 	color: #4B5563;
 	cursor: pointer;
-	font-size: 14px;
-	padding: 0.5rem 1rem;
+	font-size: var(--font-sm);
+	padding: var(--spacing-2) var(--spacing-4);
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 .aegean .select-item:hover {
-	background-color: #E5E7EB;
-	color: black;
+	background-color: var(--grey-light);
+	color: var(--base-fg);
 }
 .aegean .select-item.active {
-	background-color: #E5E7EB;
-	color: black;
+	background-color: var(--grey-light);
+	color: var(--base-fg);
 	font-weight: bold;
 }
 

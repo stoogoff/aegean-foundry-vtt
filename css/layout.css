@@ -11,27 +11,56 @@
 
 
 :root {
+	--border: 1px solid black;
+
+	--grey-light: #E5E7EB;
+	--grey-mid: #9CA3AF;
+	--grey-dark: #374151;
+
+	--grey-50: #F9FAFB;
+	--grey-100: #F3F4F6;
+	--grey-200: #E5E7EB;
+	--grey-300: #D1D5DB;
+	--grey-400: #9CA3AF;
+	--grey-500: #6B7280;
+	--grey-600: #4B5563;
+	--grey-700: #374151;
+	--grey-800: #1F2937;
+	--grey-900: #111827;
+
+	--spacing: 0.125rem;
 	--spacing-1: 0.25rem;
 	--spacing-2: 0.5rem;
 	--spacing-3: 0.75rem;
 	--spacing-4: 1rem;
 	--spacing-5: 1.25rem;
+
+	--font-sm: 0.8rem;
+	--font-mid: 1rem;
+	--font-lg: 1.125rem;
+	--font-xl: 1.5rem;
+
+	--base-bg: white;
+	--base-fg: black;
+	--invert-bg: black;
+	--invert-fg: white;
 }
 
 /* general styling */
 .aegean .window-content {
 	font-family: 'Josefin Sans', sans-serif;
-	background-color: white;
+	background-color: var(--base-bg);
 	background-image: none;
-	color: black;
+	color: var(--base-fg);
+	font-size: var(--font-mid);
 }
 
 .aegean h2 {
 	text-transform: uppercase;
 	text-align: center;
 	font-weight: 600;
-	color: #374151;
-	font-size: 1.125rem;
+	color: var(--grey-dark);
+	font-size: var(--font-lg);
 	line-height: 1.75em;
 	letter-spacing: 0.05em;
 	margin: var(--spacing-3) 0;
@@ -95,8 +124,8 @@ input[type=text]:focus {
 /* buttons */
 .aegean .btn {
 	text-transform: uppercase;
-	background-color: black;
-	border: 1px solid #9CA3AF;
+	background-color: var(--invert-bg);
+	border: 1px solid var(--grey-mid);
 	border-radius: 0.2rem;
 	color: #D1D5DB;
 	font-weight: bold;
@@ -105,9 +134,9 @@ input[type=text]:focus {
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 .aegean .btn:hover {
-	background-color: #374151;
-	border-color: black;
-	color: white;
+	background-color: VAR(--grey-dark);
+	border-color: var(--invert-bg);
+	color: var(--invert-fg);
 }
 
 .aegean .table {

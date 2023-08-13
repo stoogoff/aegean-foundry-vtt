@@ -41,27 +41,27 @@ export default {
 }
 .aegean .skill label {
 	display: block;
-	margin-top: 0.5rem;
-	margin-right: 0.125rem;
+	margin-top: var(--spacing-2);
+	margin-right: var(--spacing);
 	font-weight: bold;
-	font-size: 16px;
+	font-size: var(--font-mid);
 	position: relative;
-	top: 0.25rem;
+	top: var(--spacing-1);
 }
 .aegean .skill input[type=text] {
 	border-bottom: 1px solid black;
-	padding: 0.25rem 0.5rem 0;
+	padding: var(--spacing-1) var(--spacing-2) 0;
 	text-align: right;
 }
 .aegean ul.specialisations {
 	list-style-type: none;
-	margin: 0.25rem 0 0 0;
+	margin: var(--spacing-1) 0 0 0;
 	padding: 0;
 }
 .aegean ul.specialisations li {
 	display: inline-block;
-	padding: 0.125rem 0.25rem;
-	margin-right: 0.25rem;
+	padding: var(--spacing) var(--spacing-1);
+	margin-right: var(--spacing-1);
 	background-color: rgb(200,200,200);
 }
 .aegean ul.specialisations li:last-child {

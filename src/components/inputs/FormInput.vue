@@ -18,22 +18,22 @@ export default {
 
 .aegean .form-input {
 	display: flex;
-	padding: 0.5rem 0;
+	padding: var(--spacing-2) 0;
 }
 
 .aegean .form-input label {
 	display: block;
-	margin-top: 0.5rem;
+	margin-top: var(--spacing-2);
 	margin-right: 0.125rem;
 	text-transform: uppercase;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: var(--font-mid);
 	position: relative;
-	top: 0.25rem;
+	top: var(--spacing-1);
 }
 .aegean .form-input input[type=text] {
-	border-bottom: 1px solid black;
-	padding: 0.25rem 0.5rem 0;
+	border-bottom: var(--border);
+	padding: var(--spacing-1) var(--spacing-2) 0;
 }
 
 </style>

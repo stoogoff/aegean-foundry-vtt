@@ -22,7 +22,7 @@ export default {
 
 .talent {
   border-bottom: 1px solid #9CA3AF;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-4);
 }
 .talent:last-of-type {
   border-bottom: 0;

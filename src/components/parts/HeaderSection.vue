@@ -40,9 +40,9 @@ export default {
 
 .aegean .character-info {
 	display: grid;
-	gap: 1rem;
+	gap: var(--spacing-4);
 	grid-template-columns: 200px auto;
-	margin-bottom: 0.5rem;
+	margin-bottom: var(--spacing-2);
 }
 .character-portrait {
 	background-color: rgb(200,200,200);

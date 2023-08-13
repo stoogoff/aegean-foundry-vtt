@@ -62,7 +62,7 @@ export default {
 <style>
 
 .aegean .tab-group {
-  border-bottom: 1px solid black;
+  border-bottom: var(--border);
 }
 .aegean .tab-group ul {
   list-style-type: none;
@@ -74,22 +74,22 @@ export default {
   color: #4B5563;
   cursor: pointer;
   display: inline-block;
-  font-size: 12px;
-  padding: 0.5rem 1rem;
+  font-size: var(--font-sm);
+  padding: var(--spacing-2) var(--spacing-4);
   text-align: center;
   text-transform: uppercase;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 .aegean .tab-item:hover {
-  background-color: #E5E7EB;
-  color: black;
+  background-color: var(--grey-light);
+  color: var(--base-fg);
 }
 .aegean .tab-item.active {
-  background-color: black;
-  color: white;
+  background-color: var(--invert-bg);
+  color: var(--invert-fg);
 }
 .aegean .tab-item.disabled {
-  color: rgb(120,120,120);
+  color: var(--grey-mid);
 }
 
 </style>
