@@ -62,7 +62,8 @@ export default {
 	display: inline-block;
 	padding: var(--spacing) var(--spacing-1);
 	margin-right: var(--spacing-1);
-	background-color: rgb(200,200,200);
+	background-color: var(--grey-light);
+	border-radius: 0.1rem;
 }
 .aegean ul.specialisations li:last-child {
 	margin-right: 0;

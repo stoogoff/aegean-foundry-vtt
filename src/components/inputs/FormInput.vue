@@ -24,7 +24,7 @@ export default {
 .aegean .form-input label {
 	display: block;
 	margin-top: var(--spacing-2);
-	margin-right: 0.125rem;
+	margin-right: var(--spacing);
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: var(--font-mid);

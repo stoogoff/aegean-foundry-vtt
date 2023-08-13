@@ -123,14 +123,17 @@ export default {
 }
 
 .aegean .select-trigger {
-	border-bottom: 1px solid black;
+	border-bottom: var(--border);
 	cursor: pointer;
 	padding: var(--spacing-1) var(--spacing-2) 0;
 	height: 32px;
 	background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>chevron-down</title><path d="M5.84,9.59L11.5,15.25L17.16,9.59L16.45,8.89L11.5,13.84L6.55,8.89L5.84,9.59Z" /></svg>') right center no-repeat;
 }
+.aegean .select-trigger:hover {
+	background-color: var(--input-hover-bg);
+}
 .aegean .select-trigger:focus {
-	outline: 1px solid blue;
+	outline: var(--input-focus-border);
 }
 
 .aegean .select-dropdown {
@@ -144,7 +147,7 @@ export default {
 }
 
 .aegean .select-item {
-	color: #4B5563;
+	color: var(--grey-dark);
 	cursor: pointer;
 	font-size: var(--font-sm);
 	padding: var(--spacing-2) var(--spacing-4);

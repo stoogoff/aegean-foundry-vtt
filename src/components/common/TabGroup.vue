@@ -71,7 +71,7 @@ export default {
 }
 
 .aegean .tab-item {
-  color: #4B5563;
+  color: var(--grey-dark);
   cursor: pointer;
   display: inline-block;
   font-size: var(--font-sm);

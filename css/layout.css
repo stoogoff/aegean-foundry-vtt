@@ -13,10 +13,6 @@
 :root {
 	--border: 1px solid black;
 
-	--grey-light: #E5E7EB;
-	--grey-mid: #9CA3AF;
-	--grey-dark: #374151;
-
 	--grey-50: #F9FAFB;
 	--grey-100: #F3F4F6;
 	--grey-200: #E5E7EB;
@@ -40,10 +36,19 @@
 	--font-lg: 1.125rem;
 	--font-xl: 1.5rem;
 
+	--grey-light: #E5E7EB;
+	--grey-mid: #9CA3AF;
+	--grey-dark: #374151;
+
 	--base-bg: white;
 	--base-fg: black;
 	--invert-bg: black;
-	--invert-fg: white;
+	--invert-hover: #1F2937;
+	--invert-fg: #D1D5DB;
+	--invert-fg-hover: white;
+
+	--input-hover-bg: rgba(0,0,0,0.1);
+	--input-focus-border: 1px solid blue;
 }
 
 /* general styling */
@@ -75,10 +80,11 @@ input[type=text] {
 	width: 100%;
 }
 input[type=text]:hover {
-	background-color: rgba(0,0,0,0.1);
+	background-color: var(--input-hover-bg);
 }
 input[type=text]:focus {
-	background-color: rgba(0,0,0,0.1);
+	background-color: var(--input-hover-bg);
+	outline: var(--input-focus-border);
 	box-shadow: none;
 }
 
@@ -127,7 +133,7 @@ input[type=text]:focus {
 	background-color: var(--invert-bg);
 	border: 1px solid var(--grey-mid);
 	border-radius: 0.2rem;
-	color: #D1D5DB;
+	color: var(--invert-fg);
 	font-weight: bold;
 	padding: var(--spacing-1) var(--spacing-4);
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
@@ -135,8 +141,8 @@ input[type=text]:focus {
 }
 .aegean .btn:hover {
 	background-color: VAR(--grey-dark);
-	border-color: var(--invert-bg);
-	color: var(--invert-fg);
+	border-color: var(--invert-bg-hover);
+	color: var(--invert-fg-hover);
 }
 
 .aegean .table {

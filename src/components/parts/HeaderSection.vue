@@ -45,7 +45,7 @@ export default {
 	margin-bottom: var(--spacing-2);
 }
 .character-portrait {
-	background-color: rgb(200,200,200);
+	background-color: var(--grey-light);
 }
 
 </style>
