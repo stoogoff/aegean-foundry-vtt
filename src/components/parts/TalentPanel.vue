@@ -18,7 +18,7 @@ export default {
 }
 
 </script>
-<style scoped>
+<style>
 
 .talent {
   border-bottom: 1px solid #9CA3AF;

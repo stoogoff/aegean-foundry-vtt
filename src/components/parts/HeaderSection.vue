@@ -1,7 +1,7 @@
 <template>
-	<header>
+	<header class="character-info">
 		<div>
-			<img :src="actor.img" />
+			<img class="character-portrait" :src="actor.img" />
 		</div>
 		<div>
 			<!-- TODO Aegean Logo -->
@@ -36,14 +36,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
-header {
+.aegean .character-info {
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: 200px auto;
 	margin-bottom: 0.5rem;
 }
+.character-portrait {
+	background-color: rgb(200,200,200);
+}
+
 
 /*img {
 	max-width: 200px;

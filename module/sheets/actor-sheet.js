@@ -15,7 +15,7 @@ export class AegeanActorSheet extends ActorSheet {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			classes: ['Aegean', 'sheet', 'actor'],
+			classes: ['aegean', 'sheet', 'actor'],
 			template: 'systems/aegean/templates/actor/actor-character-sheet.html',
 			width: 800,
 			height: 600
@@ -24,7 +24,7 @@ export class AegeanActorSheet extends ActorSheet {
 
 	/** @override */
 	get template() {
-		return `systems/aegean/templates/actor/actor-${this.actor.data.type}-sheet.html`
+		return `systems/aegean/templates/actor/actor-${this.actor.type}-sheet.html`
 	}
 
 	/* -------------------------------------------- */
@@ -32,8 +32,12 @@ export class AegeanActorSheet extends ActorSheet {
 	/** @override */
 	getData() {
 		const context = super.getData()
+
+		context.actor = this.actor.toObject(false)
+		context.actor.id = context.actor.id ?? context.actor._id
+
 		console.log('AEGEAN ActorSheet::getData', context)
-		console.log('AEGEAN ActorSheet::actor', this.actor.toObject())
+
 		return context
 	}
 
@@ -84,7 +88,7 @@ export class AegeanActorSheet extends ActorSheet {
 		})
 		// Run Vue's render, assign it to our prop for tracking.
 		.then(rendered => {
-			this.vueRoot = this.vueApp.mount(`[data-appid='${this.appId}'] .aegean-vue`)
+			this.vueRoot = this.vueApp.mount(`[data-appid='${this.appId}'] .vue`)
 			this.activateVueListeners($(this.form), false)
 		})
 

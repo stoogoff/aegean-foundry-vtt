@@ -1,77 +1,123 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-/* Global styles */
-.window-app {
-  font-family: "Roboto", sans-serif;
-}
 
+/* not sure what this is... */
 .rollable:hover, .rollable:focus {
-  color: #000;
-  text-shadow: 0 0 10px red;
-  cursor: pointer;
+	color: #000;
+	text-shadow: 0 0 10px red;
+	cursor: pointer;
 }
 
-.flex {
-  display: flex;
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&display=swap');
+
+
+:root {
+	--spacing-1: 0.25rem;
+	--spacing-2: 0.5rem;
+	--spacing-3: 0.75rem;
+	--spacing-4: 1rem;
+	--spacing-5: 1.25rem;
 }
 
-.grid {
-  display: grid;
-  gap: 1rem;
-}
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+/* general styling */
+.aegean .window-content {
+	font-family: 'Josefin Sans', sans-serif;
+	background-color: white;
+	background-image: none;
+	color: black;
 }
 
-.column-panel {
-  grid-template-columns: 612px auto;
+.aegean h2 {
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 600;
+	color: #374151;
+	font-size: 1.125rem;
+	line-height: 1.75em;
+	letter-spacing: 0.05em;
+	margin: var(--spacing-3) 0;
+	border: 0;
 }
 
-.text-right {
-  text-align: right;
+input[type=text] {
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+	display: block;
+	width: 100%;
 }
-.text-left {
-  text-align: left;
+input[type=text]:hover {
+	background-color: rgba(0,0,0,0.1);
 }
-
-.skills {
-  border: 1px solid black;
-  padding: 0.5rem;
-  margin-top: 1rem;
-}
-
-.box-column {
-  margin-top: 1rem;
-}
-.box-column .box-input {
-  margin-bottom: 1rem;
+input[type=text]:focus {
+	background-color: rgba(0,0,0,0.1);
+	box-shadow: none;
 }
 
-.btn {
-  text-transform: uppercase;
-  background-color: black;
-  border: 1px solid #9CA3AF;
-  border-radius: 0.2rem;
-  color: #D1D5DB;
-  font-weight: bold;
-  padding: 0.25rem 1rem;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+/* grid and flex layout */
+.aegean .grid {
+	display: grid;
+	gap: var(--spacing-4);
 }
-.btn:hover {
-  background-color: #374151;
-  border-color: black;
-  color: white;
+.aegean .grid-cols-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.aegean .grid-cols-3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.aegean .grid-cols-4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.aegean .grid-cols-5 {
+	grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-table {
-  width: 100%;
+.aegean .column-panel {
+	grid-template-columns: 612px auto;
+}
+
+.aegean .text-right {
+	text-align: right;
+}
+.aegean .text-left {
+	text-align: left;
+}
+.aegean .text-centre {
+	text-align: center;
+}
+
+.aegean .box-column {
+	margin-top: var(--spacing-4);
+}
+.aegean .box-column .box-input {
+	margin-bottom: var(--spacing-4);
+}
+
+/* buttons */
+.aegean .btn {
+	text-transform: uppercase;
+	background-color: black;
+	border: 1px solid #9CA3AF;
+	border-radius: 0.2rem;
+	color: #D1D5DB;
+	font-weight: bold;
+	padding: var(--spacing-1) var(--spacing-4);
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.aegean .btn:hover {
+	background-color: #374151;
+	border-color: black;
+	color: white;
+}
+
+.aegean .table {
+	width: 100%;
+}
+
+
+/* this should go elsewhere */
+.aegean .skills {
+	border: var(--border);
+	padding: var(--spacing-2);
+	margin-top: var(--spacing-4);
 }

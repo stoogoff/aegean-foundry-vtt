@@ -1,13 +1,13 @@
 
 export const AEGEAN = {
-	Characteristics: [
+	characteristics: [
 		'Might',
 		'Reflexes',
 		'Cool',
 		'Insight',
 		'Cunning',
 	],
-	Skills: [
+	skills: [
 		'Accuracy',
 		'Athletics',
 		'Awareness',
@@ -24,7 +24,7 @@ export const AEGEAN = {
 		'Survival',
 		'Vigour',
 	],
-	Backgrounds: [
+	backgrounds: [
 		'Criminal',
 		'Farmer',
 		'Herder',
@@ -34,11 +34,11 @@ export const AEGEAN = {
 		'Priest',
 		'Soldier',
 	],
-	Heritages: [
+	heritages: [
 		'Divine',
 		'Mortal',
 	],
-	Parents: [
+	parents: [
 		'Aphrodite',
 		'Apollo',
 		'Ares',

@@ -15,9 +15,9 @@
 				<skill-input
 					v-for="sk in skills"
 					:key="sk"
-					:label="`aegean.Skills.${sk}`"
+					:label="`aegean.skills.${sk}`"
 					v-model="character.skills[sk]"
-					:specialisations="character.specialisations[sk] || []"
+					:specialisations="[]"
 				/>
 			</div>
 			<div class="box-column">
@@ -45,6 +45,16 @@ export default {
 	components: {
 		BoxInput,
 		SkillInput,
+	},
+
+	computed: {
+		characteristics() {
+			return this.$config.characteristics
+		},
+
+		skills() {
+			return this.$config.skills
+		},
 	},
 }
 

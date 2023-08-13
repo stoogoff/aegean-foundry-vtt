@@ -6,22 +6,20 @@
 				<character-stats :actor="context.actor" />
 			</tab-panel>
 			<tab-panel title="Combat">
-				Weapons, defence, combat moves / summary, wounds
+				<p>Weapons, defence, combat moves / summary, wounds</p>
 			</tab-panel>
 			<tab-panel title="Equipment">
 				<p>Equipment here</p>
 				<!-- equipment :actor="context.actor" /-->
 			</tab-panel>
 			<tab-panel title="Talents">
-				<p>Talents</p>
-				<!-- talents-gifts :actor="context.actor" / -->
+				<talents-gifts :actor="context.actor" />
 			</tab-panel>
 			<tab-panel title="Background">
-				<p>Background</p>
-				<!-- background :actor="context.actor" / -->
+				<background :actor="context.actor" />
 			</tab-panel>
 		</tab-group>
-		<button @click="test">TEST</button>
+		<button class="btn" @click="test">TEST</button>
 		<div>
 			{{ context.actor.name }}
 		</div>
@@ -67,7 +65,7 @@ export default {
 }
 
 </script>
-<style scoped>
+<style>
 
 .character-sheet {
 	background-color: white;

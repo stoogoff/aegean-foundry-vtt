@@ -8,7 +8,7 @@
 				@click="toggleActive"
 				@keypress.enter="toggleActive"
 				@keypress.space.prevent="toggleActive"
-			>{{ $filters.localise(value) }}</div>
+			>{{ $filters.localise(modelValue) }}</div>
 			<transition
 				name="select"
 				@enter="start"
@@ -87,7 +87,7 @@ export default {
 		},
 
 		isSelected(item) {
-			return item === this.value
+			return item === this.modelValue
 		},
 
 		start(el) {
@@ -101,14 +101,14 @@ export default {
 }
 
 </script>
-<style scoped>
+<style>
 
-.select-input {
+.aegean .select-input {
 	display: flex;
 	padding: 0.125rem 0;
 }
 
-.select-input label {
+.aegean .select-input label {
 	display: block;
 	margin-top: 0.5rem;
 	margin-right: 0.125rem;
@@ -117,23 +117,23 @@ export default {
 	white-space: nowrap;
 }
 
-.select-input > div {
+.aegean .select-input > div {
 	position: relative;
 	width: 100%;
 }
 
-.select-trigger {
+.aegean .select-trigger {
 	border-bottom: 1px solid black;
 	cursor: pointer;
 	padding: 0.25rem 0.5rem 0;
 	height: 32px;
 	background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>chevron-down</title><path d="M5.84,9.59L11.5,15.25L17.16,9.59L16.45,8.89L11.5,13.84L6.55,8.89L5.84,9.59Z" /></svg>') right center no-repeat;
 }
-.select-trigger:focus {
+.aegean .select-trigger:focus {
 	outline: 1px solid blue;
 }
 
-.select-dropdown {
+.aegean .select-dropdown {
 	border: 1px solid black;
 	border-top-width: 0;
 	position: absolute;
@@ -143,18 +143,18 @@ export default {
 	z-index: 100;
 }
 
-.select-item {
+.aegean .select-item {
 	color: #4B5563;
 	cursor: pointer;
 	font-size: 14px;
 	padding: 0.5rem 1rem;
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
-.select-item:hover {
+.aegean .select-item:hover {
 	background-color: #E5E7EB;
 	color: black;
 }
-.select-item.active {
+.aegean .select-item.active {
 	background-color: #E5E7EB;
 	color: black;
 	font-weight: bold;

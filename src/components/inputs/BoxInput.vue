@@ -14,12 +14,12 @@ export default {
 }
 
 </script>
-<style scoped>
+<style>
 
-.box-input {
+.aegean .box-input {
 	border: 1px solid black;
 }
-.box-input label {
+.aegean .box-input label {
 	text-transform: uppercase;
 	background-color: black;
 	color: white;
@@ -30,11 +30,10 @@ export default {
 	font-size: 16px;
 	max-height: 20px;
 }
-.box-input input[type=text] {
-	margin-top: 0.25rem;
+.aegean .box-input input[type=text] {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	font-size: 30px;
-	display: block;
-	width: 100%;
 	text-align: center;
 }
 

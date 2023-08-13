@@ -30,16 +30,16 @@ export default {
 }
 
 </script>
-<style scoped>
+<style>
 
-.skill-input {
+.aegean .skill-input {
 	grid-template-columns: 300px auto;
 }
 
-.skill {
+.aegean .skill {
 	display: flex;
 }
-.skill label {
+.aegean .skill label {
 	display: block;
 	margin-top: 0.5rem;
 	margin-right: 0.125rem;
@@ -48,25 +48,23 @@ export default {
 	position: relative;
 	top: 0.25rem;
 }
-.skill input[type=text] {
+.aegean .skill input[type=text] {
 	border-bottom: 1px solid black;
 	padding: 0.25rem 0.5rem 0;
-	display: block;
-	width: 100%;
 	text-align: right;
 }
-ul.specialisations {
+.aegean ul.specialisations {
 	list-style-type: none;
 	margin: 0.25rem 0 0 0;
 	padding: 0;
 }
-ul.specialisations li {
+.aegean ul.specialisations li {
 	display: inline-block;
 	padding: 0.125rem 0.25rem;
 	margin-right: 0.25rem;
 	background-color: rgb(200,200,200);
 }
-ul.specialisations li:last-child {
+.aegean ul.specialisations li:last-child {
 	margin-right: 0;
 }
 

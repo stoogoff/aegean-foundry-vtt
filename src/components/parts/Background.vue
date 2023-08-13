@@ -3,18 +3,18 @@
 		<div>
 			<select-input
 				label="aegean.character.Heritage"
-				:items="$config.Heritages"
+				:items="heritages"
 				v-model="character.background.Heritage"
 			/>
 			<select-input
 				label="aegean.character.Parent"
-				:items="$config.Parents"
+				:items="parents"
 				v-model="character.background.Parent"
 				v-if="character.background.Heritage === 'Divine'"
 			/>
 			<select-input
 				label="aegean.character.Background"
-				:items="$config.Backgrounds"
+				:items="backgrounds"
 				v-model="character.background.Background"
 			/>
 		</div>
@@ -37,6 +37,20 @@ export default {
 	components: {
 		SelectInput,
 	},
+
+	computed: {
+		heritages() {
+			return this.$config.heritages
+		},
+
+		backgrounds() {
+			return this.$config.backgrounds
+		},
+
+		parents() {
+			return this.$config.parents
+		},
+	}
 }
 
 </script>

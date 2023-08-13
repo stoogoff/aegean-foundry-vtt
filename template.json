@@ -3,48 +3,56 @@
 		"types": ["character"],
 		"templates": {
 			"characteristics": {
-				"Might": 0,
-				"Reflexes": 0,
-				"Cool": 0,
-				"Insight": 0,
-				"Cunning": 0
+				"characteristics": {
+					"Might": 0,
+					"Reflexes": 0,
+					"Cool": 0,
+					"Insight": 0,
+					"Cunning": 0
+				}
 			},
 			"skills": {
-				"Accuracy": 0,
-				"Athletics": 0,
-				"Awareness": 0,
-				"Brawl": 0,
-				"Craft": 0,
-				"Diplomacy": 0,
-				"Knowledge": 0,
-				"Lore": 0,
-				"Manipulation": 0,
-				"Medicine": 0,
-				"Melee": 0,
-				"Perform": 0,
-				"Ride": 0,
-				"Survival": 0,
-				"Vigour": 0
+				"skills": {
+					"Accuracy": 0,
+					"Athletics": 0,
+					"Awareness": 0,
+					"Brawl": 0,
+					"Craft": 0,
+					"Diplomacy": 0,
+					"Knowledge": 0,
+					"Lore": 0,
+					"Manipulation": 0,
+					"Medicine": 0,
+					"Melee": 0,
+					"Perform": 0,
+					"Ride": 0,
+					"Survival": 0,
+					"Vigour": 0
+				}
 			},
 			"defence": {
-				"Armour": 0,
-				"Shield": {
-					"value": 0,
-					"used": false
-				},
-				"Parry": {
-					"value": 0,
-					"used": false
+				"defence": {
+					"Armour": 0,
+					"Shield": {
+						"value": 0,
+						"used": false
+					},
+					"Parry": {
+						"value": 0,
+						"used": false
+					}
 				}
 			},
 			"baseAttributes": {
-				"Risk": 0,
-				"Endurance": 0,
-				"Standing": 0
+				"attributes": {
+					"Risk": 0,
+					"Endurance": 0,
+					"Standing": 0
+				}
 			}
 		},
 		"character": {
-			"template": ["characteristics", "skills", "defence", "baseAttributes"],
+			"templates": ["characteristics", "skills", "defence", "baseAttributes"],
 			"background": {
 				"Home": "",
 				"Heritage": "",

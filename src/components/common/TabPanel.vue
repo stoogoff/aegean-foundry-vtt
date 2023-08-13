@@ -5,6 +5,8 @@
 </template>
 <script>
 
+import { register } from './tab-controller'
+
 export default {
 	name: 'TabPanel',
 
@@ -21,9 +23,24 @@ export default {
 
 	data() {
 		return {
-			active: false
+			active: false,
 		}
-	}
+	},
+
+
+	mounted() {
+		register(active => {
+			this.active = active === this.title
+		})
+	},
 }
 
 </script>
+<style>
+
+.aegean .tab-panel {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+</style>
