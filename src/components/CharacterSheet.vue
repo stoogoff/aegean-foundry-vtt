@@ -2,26 +2,27 @@
 	<article class="character-sheet">
 		<header-section :actor="context.actor" />
 		<tab-group>
-			<tab-panel title="Stats">
-				<character-stats :actor="context.actor" />
+			<tab-panel title="aegean.ui.Stats">
+				<character-stats :actor="context.document" />
 			</tab-panel>
-			<tab-panel title="Combat">
+			<tab-panel title="aegean.ui.Combat">
 				<p>Weapons, defence, combat moves / summary, wounds</p>
 			</tab-panel>
-			<tab-panel title="Equipment">
+			<tab-panel title="aegean.ui.Equipment">
 				<p>Equipment here</p>
-				<!-- equipment :actor="context.actor" /-->
+				<!-- equipment :actor="context.document" /-->
 			</tab-panel>
-			<tab-panel title="Talents">
-				<talents-gifts :actor="context.actor" />
+			<tab-panel title="aegean.ui.Talents">
+				<talents-gifts :actor="context.document" />
 			</tab-panel>
-			<tab-panel title="Background">
-				<background :actor="context.actor" />
+			<tab-panel title="aegean.ui.Background">
+				<background :actor="context.document" />
 			</tab-panel>
 		</tab-group>
 		<button class="btn" @click="test">TEST</button>
 		<div>
-			{{ context.actor.name }}
+			<div>context.actor.name = {{ context.actor.name }}</div>
+			<div>context.actor.system.characteristics.Might = {{ context.actor.system.characteristics.Might }}</div>
 		</div>
 	</article>
 </template>

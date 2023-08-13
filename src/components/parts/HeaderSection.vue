@@ -48,9 +48,4 @@ export default {
 	background-color: rgb(200,200,200);
 }
 
-
-/*img {
-	max-width: 200px;
-}*/
-
 </style>

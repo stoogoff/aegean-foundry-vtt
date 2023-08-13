@@ -6,13 +6,13 @@
 					v-for="(tab, idx) in tabs"
 					:key="`tab_${idx}`"
 					class="tab-item"
-					:class="{ active: tab.active, disabled: tab.disabled }"
+					:class="{ active: tab === activeTab, disabled: tab.disabled }"
 					@keypress.enter="activate(tab)"
 					@keypress.space.prevent="activate(tab)"
 					@click="activate(tab)"
 					tabindex="0"
 				>
-					{{ tab }}
+					{{ $filters.localise(tab) }}
 				</li>
 			</ul>
 		</div>
@@ -34,9 +34,14 @@ export default {
 		},
 	},
 
+	data() {
+		return {
+			activeTab: '',
+		}
+	},
+
 	mounted() {
-		nextTick(() => this.activate(this.active))
-		console.log(this.tabs)
+		nextTick(() => this.activate(this.active || this.tabs[0]))
 	},
 
 	computed: {
@@ -47,7 +52,7 @@ export default {
 
 	methods: {
 		activate(tab) {
-			console.log('activate tab', tab)
+			this.activeTab = tab
 			activate(tab)
 		},
 	},

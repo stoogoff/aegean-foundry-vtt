@@ -33,8 +33,8 @@ export class AegeanActorSheet extends ActorSheet {
 	getData() {
 		const context = super.getData()
 
-		context.actor = this.actor.toObject(false)
-		context.actor.id = context.actor.id ?? context.actor._id
+		//context.actor = this.actor.toObject()
+		//context.actor.id = context.actor.id ?? context.actor._id
 
 		console.log('AEGEAN ActorSheet::getData', context)
 

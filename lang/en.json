@@ -79,6 +79,13 @@
 			"Skills": "Skills",
 			"Talents": "Talents",
 			"Title": "Title"
+		},
+		"ui": {
+			"Stats": "Stats",
+			"Combat": "Combat",
+			"Equipment": "Equipment",
+			"Talents": "Talents",
+			"Background": "Background"
 		}
 	}
 }
