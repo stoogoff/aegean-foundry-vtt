@@ -22,7 +22,7 @@ export default {
 .aegean .box-input label {
 	text-transform: uppercase;
 	background-color: var(--invert-bg);
-	color: var(--inver-fg);
+	color: var(--invert-fg);
 	display: block;
 	padding: var(--spacing-1);
 	text-align: center;
