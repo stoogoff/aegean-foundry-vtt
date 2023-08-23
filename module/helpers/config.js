@@ -48,4 +48,21 @@ export const AEGEAN = {
 		'Poseidon',
 		'Zeus',
 	],
+	careers: [
+		'Athlete',
+		'Citizen',
+		'Merchant',
+		'Performer',
+		'Physician',
+		'Scholar',
+		'Scout',
+		'Soldier',
+		'Wrestler',
+	],
+	mysteryCults: [
+		'Cult of Haides',
+		'Cult of Hekate',
+		'Eleusinian Mysteries',
+		'Kouretes',
+	],
 }
