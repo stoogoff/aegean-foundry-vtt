@@ -1,15 +1,12 @@
 
-import { CharacterSheet } from '../../dist/components.vue.es.js'
-import { createApp } from '../lib/vue.esm-browser.js'
-import { AEGEAN } from '../helpers/config.js'
+import SheetView from './sheet-view.js'
 
 export class AegeanActorSheet extends ActorSheet {
 
 	constructor(...args) {
 		super(...args)
 
-		this.vueApp = null
-		this.vueRoot = null
+		this.sheetView = null
 	}
 
 	/** @override */
@@ -30,7 +27,7 @@ export class AegeanActorSheet extends ActorSheet {
 	/* -------------------------------------------- */
 
 	/** @override */
-	getData() {
+	/*getData() {
 		const context = super.getData()
 
 		//context.actor = this.actor.toObject()
@@ -39,67 +36,41 @@ export class AegeanActorSheet extends ActorSheet {
 		console.log('AEGEAN ActorSheet::getData', context)
 
 		return context
-	}
+	}*/
 
-	render(force=false, options={}) {
+	render(force = false, options = {}) {
 		const context = this.getData()
 
-		// Render the vue application after loading. We'll need to destroy this
-		// later in the this.close() method for the sheet.
-		if (!this.vueApp) {
-			this.vueApp = createApp({
-				data() {
-					return {
-						context,
-					}
-				},
-				components: {
-					CharacterSheet,
-				},
-				methods: {
-					updateContext(newContext) {
-						// We can't just replace the object outright without destroying the
-						// reactivity, so this instead updates the keys individually.
-						for (let key of Object.keys(this.context)) {
-							this.context[key] = newContext[key]
-						}
-					}
-				}
-			})
-			this.vueApp.config.globalProperties.$config = AEGEAN
-			this.vueApp.config.globalProperties.$filters = {
-				localise(value) {
-					return game.i18n.localize(value)
-				}
-			}
+		if(!this.sheetView) {
+			this.sheetView = new SheetView(context)
 		}
-		// Otherwise, perform update routines on the app.
 		else {
-			// Pass new values from this.getData() into the app.
-			this.vueRoot.updateContext(context)
+			this.sheetView.update(context)
 			this.activateVueListeners($(this.form), true)
+
 			return
 		}
 
 		this._render(force, options).catch(err => {
-			err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`
 			console.error(err)
+
+			err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`
 			this._state = Application.RENDER_STATES.ERROR
 		})
-		// Run Vue's render, assign it to our prop for tracking.
 		.then(rendered => {
-			this.vueRoot = this.vueApp.mount(`[data-appid='${this.appId}'] .vue`)
+			this.sheetView.mount(this.appId)
 			this.activateVueListeners($(this.form), false)
 		})
 
 		this.object.apps[this.appId] = this
+
 		return this
 	}
 
 	async close(options={}) {
-		this.vueApp.unmount()
-		this.vueApp = null
-		this.vueRoot = null
+		this.sheetView.unmount()
+		this.sheetView = null
+
 		return super.close(options)
 	}
 
