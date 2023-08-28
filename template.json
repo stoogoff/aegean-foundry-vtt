@@ -5,23 +5,23 @@
 			"characteristics": {
 				"characteristics": {
 					"Might": {
-						"value": "aegean.characteristics.Might",
+						"label": "aegean.characteristics.Might",
 						"value": 0
 					},
 					"Reflexes": {
-						"value": "aegean.characteristics.Reflexes",
+						"label": "aegean.characteristics.Reflexes",
 						"value": 0
 					},
 					"Cool": {
-						"value": "aegean.characteristics.Cool",
+						"label": "aegean.characteristics.Cool",
 						"value": 0
 					},
 					"Insight": {
-						"value": "aegean.characteristics.Insight",
+						"label": "aegean.characteristics.Insight",
 						"value": 0
 					},
 					"Cunning": {
-						"value": "aegean.characteristics.Cunning",
+						"label": "aegean.characteristics.Cunning",
 						"value": 0
 					}
 				}
@@ -181,7 +181,7 @@
 				"Oracle": {
 					"label": "aegean.attributes.Oracle",
 					"value": 0
-				},
+				}
 			}
 		}
 	},
@@ -201,20 +201,20 @@
 			"equipment": {
 				"Availability": {
 					"label": "aegean.equipment.Availability",
-					"value": "",
+					"value": ""
 				},
 				"Weight": {
 					"label": "aegean.equipment.Weight",
-					"value": 0,
+					"value": 0
 				},
 				"Price": {
 					"label": "aegean.equipment.Price",
-					"value": 0,
+					"value": 0
 				},
 				"Properties": {
 					"label": "aegean.equipment.Properties",
-					"value": [],
-				},
+					"value": []
+				}
 			}
 		},
 		"Talent": {
