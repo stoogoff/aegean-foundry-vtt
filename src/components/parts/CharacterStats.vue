@@ -22,10 +22,10 @@
 			</div>
 			<div class="box-column">
 				<h2>{{ $filters.localise("aegean.system.Attributes") }}</h2>
-				<box-input label="character.attributes.Glory.label" v-model="character.attributes.Glory.value" />
-				<box-input label="character.attributes.Hubris.label" v-model="character.attributes.Hubris.value" />
-				<box-input label="character.attributes.XP.label" v-model="character.attributes.XP.value" />
-				<box-input label="character.attributes.Scars.label" v-model="character.attributes.Scars.value" />
+				<box-input :label="character.attributes.Glory.label" v-model="character.attributes.Glory.value" />
+				<box-input :label="character.attributes.Hubris.label" v-model="character.attributes.Hubris.value" />
+				<box-input :label="character.attributes.XP.label" v-model="character.attributes.XP.value" />
+				<box-input :label="character.attributes.Scars.label" v-model="character.attributes.Scars.value" />
 			</div>
 		</div>
 	</section>

@@ -3,20 +3,20 @@
 		<header-section :actor="context.actor" />
 		<tab-group>
 			<tab-panel title="aegean.ui.Stats">
-				<character-stats :actor="context.document" />
+				<character-stats :actor="context.actor" />
 			</tab-panel>
 			<tab-panel title="aegean.ui.Combat">
 				<p>Weapons, defence, combat moves / summary, wounds</p>
 			</tab-panel>
 			<tab-panel title="aegean.ui.Equipment">
 				<p>Equipment here</p>
-				<!-- equipment :actor="context.document" /-->
+				<!-- equipment :actor="context.actor" /-->
 			</tab-panel>
 			<tab-panel title="aegean.ui.Talents">
-				<talents-gifts :actor="context.document" />
+				<talents-gifts :actor="context.actor" />
 			</tab-panel>
 			<tab-panel title="aegean.ui.Background">
-				<background :actor="context.document" />
+				<background :actor="context.actor" />
 			</tab-panel>
 		</tab-group>
 		<button-action @click="test">TEST</button-action>
@@ -60,6 +60,10 @@ export default {
 		CharacterStats,
 		Equipment,
 		TalentsGifts,
+	},
+
+	mounted() {
+		console.log(this.context)
 	},
 
 	methods: {

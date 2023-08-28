@@ -6,12 +6,12 @@
 		<div>
 			<!-- TODO Aegean Logo -->
 			<form-input label="aegean.character.Character" v-model="actor.name" />
-			<form-input label="aegean.character.Home" v-model="character.background.Home" />
+			<form-input :label="character.background.Home.label" v-model="character.background.Home.value" />
 			<div class="grid grid-cols-4">
-				<box-input label="aegean.attributes.Risk" v-model="character.attributes.Risk" />
-				<box-input label="aegean.attributes.Endurance" v-model="character.attributes.Endurance" />
-				<box-input label="aegean.attributes.Resolve" v-model="character.attributes.Resolve" />
-				<box-input label="aegean.attributes.Oracle" v-model="character.attributes.Oracle" />
+				<box-input :label="character.attributes.Risk.label" v-model="character.attributes.Risk.value" />
+				<box-input :label="character.attributes.Endurance.label" v-model="character.attributes.Endurance.value" />
+				<box-input :label="character.attributes.Resolve.label" v-model="character.attributes.Resolve.value" />
+				<box-input :label="character.attributes.Oracle.label" v-model="character.attributes.Oracle.value" />
 			</div>
 		</div>
 	</header>

@@ -7,10 +7,6 @@ export default {
 		}
 	},
 
-	mounted() {
-		console.log(this.actor)
-	},
-
 	computed: {
 		character() {
 			return this.actor.system;
