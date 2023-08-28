@@ -49,10 +49,12 @@ export default {
 	},
 
 	components: {
+		// ui components
 		ButtonAction,
 		TabGroup,
 		TabPanel,
 
+		// tab components
 		Background,
 		HeaderSection,
 		CharacterStats,

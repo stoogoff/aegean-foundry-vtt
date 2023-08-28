@@ -2,30 +2,30 @@
 	<section class="grid grid-cols-2">
 		<div>
 			<select-input
-				label="aegean.character.Heritage"
+				label="aegean.character.Heritage.label"
 				:items="heritages"
-				v-model="character.background.Heritage"
+				v-model="character.background.Heritage.value"
 			/>
 			<select-input
-				label="aegean.character.Parent"
+				label="aegean.character.Parent.label"
 				:items="parents"
-				v-model="character.background.Parent"
+				v-model="character.background.Parent.value"
 				v-if="character.background.Heritage === 'Divine'"
 			/>
 			<select-input
-				label="aegean.character.Background"
+				label="aegean.character.Background.label"
 				:items="backgrounds"
-				v-model="character.background.Background"
+				v-model="character.background.Background.value"
 			/>
 			<multi-select-input
-				label="Careers"
+				label="aegean.character.Careers.label"
 				:items="careers"
-				v-model="character.background.Careers"
+				v-model="character.background.Careers.value"
 			/>
 			<multi-select-input
-				label="Mystery Cults"
+				label="aegean.character.MysteryCults.label"
 				:items="mysteryCults"
-				v-model="character.background.MysteryCults"
+				v-model="character.background.MysteryCults.value"
 			/>
 		</div>
 		<div>

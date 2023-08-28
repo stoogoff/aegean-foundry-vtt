@@ -4,40 +4,105 @@
 		"templates": {
 			"characteristics": {
 				"characteristics": {
-					"Might": 0,
-					"Reflexes": 0,
-					"Cool": 0,
-					"Insight": 0,
-					"Cunning": 0
+					"Might": {
+						"value": "aegean.characteristics.Might",
+						"value": 0
+					},
+					"Reflexes": {
+						"value": "aegean.characteristics.Reflexes",
+						"value": 0
+					},
+					"Cool": {
+						"value": "aegean.characteristics.Cool",
+						"value": 0
+					},
+					"Insight": {
+						"value": "aegean.characteristics.Insight",
+						"value": 0
+					},
+					"Cunning": {
+						"value": "aegean.characteristics.Cunning",
+						"value": 0
+					}
 				}
 			},
 			"skills": {
 				"skills": {
-					"Accuracy": 0,
-					"Athletics": 0,
-					"Awareness": 0,
-					"Brawl": 0,
-					"Craft": 0,
-					"Diplomacy": 0,
-					"Knowledge": 0,
-					"Lore": 0,
-					"Manipulation": 0,
-					"Medicine": 0,
-					"Melee": 0,
-					"Perform": 0,
-					"Ride": 0,
-					"Survival": 0,
-					"Vigour": 0
+					"Accuracy": {
+						"label": "aegean.skills.Accuracy",
+						"value": 0
+					},
+					"Athletics": {
+						"label": "aegean.skills.Athletics",
+						"value": 0
+					},
+					"Awareness": {
+						"label": "aegean.skills.Awareness",
+						"value": 0
+					},
+					"Brawl": {
+						"label": "aegean.skills.Brawl",
+						"value": 0
+					},
+					"Craft": {
+						"label": "aegean.skills.Craft",
+						"value": 0
+					},
+					"Diplomacy": {
+						"label": "aegean.skills.Diplomacy",
+						"value": 0
+					},
+					"Knowledge": {
+						"label": "aegean.skills.Knowledge",
+						"value": 0
+					},
+					"Lore": {
+						"label": "aegean.skills.Lore",
+						"value": 0
+					},
+					"Manipulation": {
+						"label": "aegean.skills.Manipulation",
+						"value": 0
+					},
+					"Medicine": {
+						"label": "aegean.skills.Medicine",
+						"value": 0
+					},
+					"Melee": {
+						"label": "aegean.skills.Melee",
+						"value": 0
+					},
+					"Perform": {
+						"label": "aegean.skills.Perform",
+						"value": 0
+					},
+					"Ride": {
+						"label": "aegean.skills.Ride",
+						"value": 0
+					},
+					"Survival": {
+						"label": "aegean.skills.Survival",
+						"value": 0
+					},
+					"Vigour": {
+						"label": "aegean.skills.Vigour",
+						"value": 0
+					}
 				}
 			},
 			"defence": {
 				"defence": {
-					"Armour": 0,
+					"Armour": {
+						"label": "aegean.combat.Armour",
+						"value": 0
+					},
 					"Shield": {
+						"label": "aegean.combat.Shield",
 						"value": 0,
 						"used": false
 					},
 					"Parry": {
+						"label": "aegean.combat.Parry",
 						"value": 0,
 						"used": false
 					}
@@ -45,74 +110,160 @@
 			},
 			"baseAttributes": {
 				"attributes": {
-					"Risk": 0,
-					"Endurance": 0,
-					"Standing": 0
+					"Risk": {
+						"label": "aegean.attributes.Risk",
+						"value": 0
+					},
+					"Endurance": {
+						"label": "aegean.attributes.Endurance",
+						"value": 0
+					},
+					"Standing": {
+						"label": "aegean.attributes.Standing",
+						"value": 0
+					}
 				}
 			}
 		},
 		"character": {
 			"templates": ["characteristics", "skills", "defence", "baseAttributes"],
 			"background": {
-				"Home": "",
-				"Heritage": "",
-				"Parent": "",
-				"Background": "",
-				"Fate": "",
-				"Careers": [],
-				"MysteryCults": []
+				"Home": {
+					"label": "aegean.character.Home",
+					"value": ""
+				},
+				"Heritage": {
+					"label": "aegean.character.Heritage",
+					"value": ""
+				},
+				"Parent": {
+					"label": "aegean.character.Parent",
+					"value": ""
+				},
+				"Background": {
+					"label": "aegean.character.Background",
+					"value": ""
+				},
+				"Fate": {
+					"label": "aegean.character.Fate",
+					"value": ""
+				},
+				"Careers": {
+					"label": "aegean.character.Careers",
+					"value": []
+				},
+				"MysteryCults": {
+					"label": "aegean.character.MysteryCults",
+					"value": []
+				}
 			},
 			"attributes": {
-				"Resolve": 0,
-				"Glory": 0,
-				"Hubris": 0,
-				"XP": 0,
-				"Scars": 0,
-				"Oracle": 0
-			},
-			"talents": []
+				"Resolve": {
+					"label": "aegean.attributes.Resolve",
+					"value": 0
+				},
+				"Glory": {
+					"label": "aegean.attributes.Glory",
+					"value": 0
+				},
+				"Hubris": {
+					"label": "aegean.attributes.Hubris",
+					"value": 0
+				},
+				"XP": {
+					"label": "aegean.attributes.XP",
+					"value": 0
+				},
+				"Scars": {
+					"label": "aegean.attributes.Scars",
+					"value": 0
+				},
+				"Oracle": {
+					"label": "aegean.attributes.Oracle",
+					"value": 0
+				},
+			}
 		}
 	},
 	"Item": {
-		"types": ["property", "talent", "equipment", "armour", "weapons"],
+		"types": ["Property", "Talent", "Equipment", "Armour", "Weapon"],
 		"templates": {
 			"base": {
-				"Title": "",
-				"Description": ""
+				"Title": {
+					"label": "aegean.system.Title",
+					"value": ""
+				},
+				"Description": {
+					"label": "aegean.system.Description",
+					"value": ""
+				}
 			},
 			"equipment": {
-				"Availability": "",
-				"Weight": 0,
-				"Price": 0,
-				"Properties": []
+				"Availability": {
+					"label": "aegean.equipment.Availability",
+					"value": "",
+				},
+				"Weight": {
+					"label": "aegean.equipment.Weight",
+					"value": 0,
+				},
+				"Price": {
+					"label": "aegean.equipment.Price",
+					"value": 0,
+				},
+				"Properties": {
+					"label": "aegean.equipment.Properties",
+					"value": [],
+				},
 			}
 		},
-		"talent": {
-			"template": ["base"]
+		"Talent": {
+			"templates": ["base"]
 		},
-		"property": {
-			"template": ["base"],
+		"Property": {
+			"templates": ["base"],
 			"stats": {
-				"Rank": 0
+				"Rank": {
+					"label": "aegean.system.Rank",
+					"value": 0
+				}
 			}
 		},
-		"equipment": {
-			"template": ["base", "equipment"]
+		"Equipment": {
+			"templates": ["base", "equipment"]
 		},
-		"weapon": {
-			"template": ["base", "equipment"],
+		"Weapon": {
+			"templates": ["base", "equipment"],
 			"stats": {
-				"Skill": "",
-				"Reach": 0,
-				"Range": "",
-				"Damage": 0
+				"Skill": {
+					"label": "aegean.system.Skill",
+					"value": ""
+				},
+				"Reach": {
+					"label": "aegean.combat.Reach",
+					"value": 0
+				},
+				"Range": {
+					"label": "aegean.combat.Range",
+					"value": ""
+				},
+				"Damage": {
+					"label": "aegean.combat.Damage",
+					"value": 0
+				}
 			}
 		},
-		"armour": {
-			"template": ["base", "equipment"],
+		"Armour": {
+			"templates": ["base", "equipment"],
 			"stats": {
-				"Location": "",
-				"Armour": 0
+				"Location": {
+					"label": "aegean.combat.Location",
+					"value": ""
+				},
+				"Armour": {
+					"label": "aegean.combat.Armour",
+					"value": 0
+				}
 			}
 		}
 	}

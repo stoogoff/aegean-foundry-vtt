@@ -27,11 +27,11 @@
 			</table>
 		</div>
 		<div class="box-column">
-			<box-input label="aegean.attributes.Standing" v-model="character.attributes.Standing" />
-			<box-input label="aegean.system.Drakhmae" v-model="character.equipment.Drakhmae" />
-			<box-input label="aegean.attributes.Encumbrance" v-model="character.equipment.Encumbrance" />
-			<box-input label="aegean.equipment.Ammo" v-model="character.equipment.AmmoLoads" />
-			<box-input label="aegean.equipment.Doses" v-model="character.equipment.HerbalistDoses" />
+			<box-input label="character.attributes.Standing.label" v-model="character.attributes.Standing.value" />
+			<box-input label="character.equipment.Drakhmae.label" v-model="character.equipment.Drakhmae.value" />
+			<box-input label="character.equipment.Encumbrance.label" v-model="character.equipment.Encumbrance.value" />
+			<box-input label="character.equipment.AmmoLoads.label" v-model="character.equipment.AmmoLoads.value" />
+			<box-input label="character.equipment.HerbalistDoses.label" v-model="character.equipment.HerbalistDoses.value" />
 		</div>
 	</section>
 </template>

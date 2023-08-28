@@ -5,8 +5,8 @@
 			<box-input
 				v-for="ch in characteristics"
 				:key="ch"
-				:label="`aegean.characteristics.${ch}`"
-				v-model="character.characteristics[ch]"
+				:label="character.characteristics[ch].label"
+				v-model="character.characteristics[ch].value"
 			/>
 		</div>
 		<div class="grid column-panel">
@@ -15,17 +15,17 @@
 				<skill-input
 					v-for="sk in skills"
 					:key="sk"
-					:label="`aegean.skills.${sk}`"
-					v-model="character.skills[sk]"
+					:label="character.skills[sk].label"
+					v-model="character.skills[sk].value"
 					:specialisations="[]"
 				/>
 			</div>
 			<div class="box-column">
 				<h2>{{ $filters.localise("aegean.system.Attributes") }}</h2>
-				<box-input label="aegean.attributes.Glory" v-model="character.attributes.Glory" />
-				<box-input label="aegean.attributes.Hubris" v-model="character.attributes.Hubris" />
-				<box-input label="aegean.attributes.XP" v-model="character.attributes.XP" />
-				<box-input label="aegean.attributes.Scars" v-model="character.attributes.Scars" />
+				<box-input label="character.attributes.Glory.label" v-model="character.attributes.Glory.value" />
+				<box-input label="character.attributes.Hubris.label" v-model="character.attributes.Hubris.value" />
+				<box-input label="character.attributes.XP.label" v-model="character.attributes.XP.value" />
+				<box-input label="character.attributes.Scars.label" v-model="character.attributes.Scars.value" />
 			</div>
 		</div>
 	</section>
