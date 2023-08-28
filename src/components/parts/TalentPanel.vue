@@ -20,11 +20,11 @@ export default {
 </script>
 <style>
 
-.talent {
+.aegean .talent {
   border-bottom: 1px solid var(--grey-mid);
   margin-bottom: var(--spacing-4);
 }
-.talent:last-of-type {
+.aegean .talent:last-of-type {
   border-bottom: 0;
 }
 

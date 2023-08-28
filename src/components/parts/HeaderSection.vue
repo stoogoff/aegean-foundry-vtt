@@ -44,7 +44,8 @@ export default {
 	grid-template-columns: 200px auto;
 	margin-bottom: var(--spacing-2);
 }
-.character-portrait {
+
+.aegean .character-portrait {
 	background-color: var(--grey-light);
 }
 

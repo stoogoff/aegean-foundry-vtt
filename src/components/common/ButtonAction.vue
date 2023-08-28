@@ -1,6 +1,6 @@
 <template>
 	<button
-		class="btn border font-sans font-bold uppercase text-sm text-center mr-1 mb-1 rounded shadow outline-none focus:outline-none ease-linear transition-all duration-150"
+		class="btn"
 		:class="{
 			'full-width': block,
 			'outlined': outlined,
@@ -44,21 +44,46 @@ export default {
 </script>
 <style>
 
-.aegean .btn.disabled {
-	@apply cursor-default shadow-none hover:shadow-none;
+.aegean .btn {
+	text-transform: uppercase;
+	background-color: var(--invert-bg);
+	border: 1px solid var(--grey-mid);
+	border-radius: 0.2rem;
+	color: var(--invert-fg);
+	font-weight: bold;
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	display: inline-block;
 }
+.aegean .btn:hover {
+	background-color: var(--grey-dark);
+	border-color: var(--invert-bg);
+	color: var(--invert-fg-hover);
+}
+
+.aegean .btn.disabled, .aegean .btn.disabled:hover {
+	cursor: not-allowed;
+	background-color: var(--grey-light);
+	color: var(--grey-mid);
+	border-color: var(--grey-mid);
+	box-shadow: none;
+}
+
 .aegean .btn.enabled {
-	@apply hover:shadow-lg cursor-pointer;
+	cursor: pointer;
 }
 
 .aegean .btn.full-width {
-	@apply block w-full;
+	display: block;
+	width: 100%;
 }
 .aegean .btn.small {
-	@apply px-3 py-1 text-xs;
+	font-size: var(--font-sm);
+	padding: var(--spacing) var(--spacing-2);
 }
 .aegean .btn.medium {
-	@apply px-6 py-3;
+	font-size: var(--font-mid);
+	padding: var(--spacing-1) var(--spacing-4);
 }
 
 </style>

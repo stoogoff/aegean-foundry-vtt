@@ -6,7 +6,7 @@
 		</div>
 		<div class="grid grid-cols-3">
 			<span
-				v-for="(item, idx) in value"
+				v-for="(item, idx) in modelValue"
 				:key="`item_${idx}`"
 				class="chip"
 			>{{ item }}</span>
@@ -15,11 +15,17 @@
 </template>
 <script>
 
-import Vue from 'vue'
+import ButtonAction from '../common/ButtonAction.vue'
+import SelectInput from './SelectInput.vue'
 import TextInput from './text-input'
 
-export default Vue.component('MultiSelectInput', {
+export default {
 	mixins: [ TextInput ],
+
+	components: {
+		ButtonAction,
+		SelectInput,
+	},
 
 	props: {
 		items: {
@@ -36,31 +42,31 @@ export default Vue.component('MultiSelectInput', {
 
 	computed: {
 		canAdd() {
-			return !!this.selectedItem && this.value.indexOf(this.selectedItem) === -1
+			return !!this.selectedItem && this.modelValue.indexOf(this.selectedItem) === -1
 		},
 	},
 
 	methods: {
 		addItem() {
 			if(!this.selectedItem) return
-			if(this.value.indexOf(this.selectedItem) !== -1) return
+			if(this.modelValue.indexOf(this.selectedItem) !== -1) return
 
-			this.$emit('input', [ ...this.value, this.selectedItem ])
-			//this.updateModel([ ...this.selectedItems, this.selectedItem ])
+			this.updateModel([ ...this.modelValue, this.selectedItem ])
 
 			this.selectedItem = ''
 		},
 	},
-})
+}
 
 </script>
 <style>
 
-.chip {
-	background-color: #E5E7EB;
-	padding: 0.25rem 0.5rem;
+.aegean .chip {
+	background-color: var(--grey-light);
+	padding: var(--spacing-1) var(--spacing-2);
 	display: inline-block;
 	text-align: center;
+	font-size: var(--font-sm);
 }
 
 </style>

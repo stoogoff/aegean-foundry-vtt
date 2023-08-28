@@ -10,7 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&display=swap');
 
 
-:root {
+.aegean {
 	--border: 1px solid black;
 
 	--grey-50: #F9FAFB;
@@ -125,24 +125,6 @@
 }
 .aegean .box-column .box-input {
 	margin-bottom: var(--spacing-4);
-}
-
-/* buttons */
-.aegean .btn {
-	text-transform: uppercase;
-	background-color: var(--invert-bg);
-	border: 1px solid var(--grey-mid);
-	border-radius: 0.2rem;
-	color: var(--invert-fg);
-	font-weight: bold;
-	padding: var(--spacing-1) var(--spacing-4);
-	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-.aegean .btn:hover {
-	background-color: VAR(--grey-dark);
-	border-color: var(--invert-bg-hover);
-	color: var(--invert-fg-hover);
 }
 
 .aegean .table {

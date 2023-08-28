@@ -20,12 +20,12 @@
 			<multi-select-input
 				label="Careers"
 				:items="careers"
-				v-model="character.careers"
+				v-model="character.background.Careers"
 			/>
 			<multi-select-input
 				label="Mystery Cults"
 				:items="mysteryCults"
-				v-model="character.mysteryCults"
+				v-model="character.background.MysteryCults"
 			/>
 		</div>
 		<div>
@@ -48,6 +48,7 @@
 import Character from './character'
 
 import SelectInput from '../inputs/SelectInput.vue'
+import MultiSelectInput from '../inputs/MultiSelectInput.vue'
 
 export default {
 	name: 'Background',
@@ -55,6 +56,7 @@ export default {
 	mixins: [ Character ],
 
 	components: {
+		MultiSelectInput,
 		SelectInput,
 	},
 
@@ -69,6 +71,14 @@ export default {
 
 		parents() {
 			return this.$config.parents
+		},
+
+		careers() {
+			return this.$config.careers
+		},
+
+		mysteryCults() {
+			return this.$config.mysteryCults
 		},
 	}
 }
