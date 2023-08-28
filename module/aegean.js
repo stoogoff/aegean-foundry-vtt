@@ -6,7 +6,8 @@ import { AegeanItemSheet } from './sheets/item-sheet.js'
 import { AEGEAN } from './helpers/config.js'
 
 Hooks.once('init', async function() {
-	console.log('AEGEAN hook::init')
+	console.log('Aegean | Init hook')
+
 	// Add utility classes to the global game object so that they're more easily
 	// accessible in global contexts.
 	game.Aegean = {

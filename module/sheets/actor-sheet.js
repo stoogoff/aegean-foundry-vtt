@@ -1,5 +1,5 @@
 
-import SheetView from './sheet-view.js'
+import { SheetView } from './sheet-view.js'
 
 export class AegeanActorSheet extends ActorSheet {
 
@@ -33,7 +33,7 @@ export class AegeanActorSheet extends ActorSheet {
 		//context.actor = this.actor.toObject()
 		//context.actor.id = context.actor.id ?? context.actor._id
 
-		console.log('AEGEAN ActorSheet::getData', context)
+		console.log('Aegean | ActorSheet::getData', context)
 
 		return context
 	}*/
@@ -67,7 +67,7 @@ export class AegeanActorSheet extends ActorSheet {
 		return this
 	}
 
-	async close(options={}) {
+	async close(options = {}) {
 		this.sheetView.unmount()
 		this.sheetView = null
 

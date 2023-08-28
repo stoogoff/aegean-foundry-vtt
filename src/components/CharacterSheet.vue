@@ -19,7 +19,7 @@
 				<background :actor="context.document" />
 			</tab-panel>
 		</tab-group>
-		<button class="btn" @click="test">TEST</button>
+		<button-action @click="test">TEST</button-action>
 		<div>
 			<div>context.actor.name = {{ context.actor.name }}</div>
 			<div>context.actor.system.characteristics.Might = {{ context.actor.system.characteristics.Might }}</div>
@@ -28,6 +28,7 @@
 </template>
 <script>
 
+import ButtonAction from './common/ButtonAction.vue'
 import TabGroup from './common/TabGroup.vue'
 import TabPanel from './common/TabPanel.vue'
 
@@ -48,6 +49,7 @@ export default {
 	},
 
 	components: {
+		ButtonAction,
 		TabGroup,
 		TabPanel,
 
@@ -61,6 +63,7 @@ export default {
 	methods: {
 		test() {
 			console.log(this.context)
+			return false
 		}
 	},
 }

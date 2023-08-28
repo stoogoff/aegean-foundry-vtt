@@ -72,17 +72,17 @@
 	border: 0;
 }
 
-input[type=text] {
+.aegean input[type=text] {
 	border: 0;
 	border-radius: 0;
 	background-color: transparent;
 	display: block;
 	width: 100%;
 }
-input[type=text]:hover {
+.aegean input[type=text]:hover {
 	background-color: var(--input-hover-bg);
 }
-input[type=text]:focus {
+.aegean input[type=text]:focus {
 	background-color: var(--input-hover-bg);
 	outline: var(--input-focus-border);
 	box-shadow: none;
