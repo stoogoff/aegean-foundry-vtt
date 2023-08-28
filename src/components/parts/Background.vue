@@ -17,9 +17,29 @@
 				:items="backgrounds"
 				v-model="character.background.Background"
 			/>
+			<multi-select-input
+				label="Careers"
+				:items="careers"
+				v-model="character.careers"
+			/>
+			<multi-select-input
+				label="Mystery Cults"
+				:items="mysteryCults"
+				v-model="character.mysteryCults"
+			/>
 		</div>
 		<div>
-			Col
+			<div class="boxed">
+				<h3>Relationships</h3>
+				<div
+					v-for="(relationship, idx) in character.relationships"
+					:key="`relationship_${idx}`"
+				>
+					{{ relationship.name }}
+				</div>
+			</div>
+			Favour
+			Disfavour
 		</div>
 	</section>
 </template>
