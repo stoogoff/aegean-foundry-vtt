@@ -1,0 +1,10 @@
+<header class="character-info">
+	<div>
+		<img class="character-portrait" src="{{ actor.img }}" />
+	</div>
+	<div>
+		<!-- TODO Aegean Logo -->
+		{{> systems/aegean/templates/partials/form-input.hbs label="aegean.character.Character" value=actor.name }}
+		{{> systems/aegean/templates/partials/form-input.hbs label="character.background.Home.label" value=system.background.Home.value }}
+	</div>
+</header>

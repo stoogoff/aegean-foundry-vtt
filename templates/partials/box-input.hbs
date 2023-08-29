@@ -1,0 +1,4 @@
+<div class="box-input">
+	<input type="text" :value="modelValue" @input="updateModel($event.target.value)" />
+	<label>{{ $filters.localise(label) }}</label>
+</div>

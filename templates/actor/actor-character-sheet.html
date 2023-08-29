@@ -1,4 +1,5 @@
-<form class="{{cssClass}} {{actor.type}} vue" autocomplete="off">
-  <character-sheet :context="context">Failed to render Vue component.</character-sheet>
+<form class="{{cssClass}} {{actor.type}}" autocomplete="off">
+	<article class="character-sheet">
+		{{> systems/aegean/templates/actor/partials/header-section.hbs }}
+	</article>
 </form>
-

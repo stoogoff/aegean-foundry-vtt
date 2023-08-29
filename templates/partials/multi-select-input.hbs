@@ -1,0 +1,13 @@
+<div>
+	<div>
+		<select-input :label="label" :items="items" v-model="selectedItem" />
+		<button-action small @click="addItem" :disabled="!canAdd">Add</button-action>
+	</div>
+	<div class="grid grid-cols-3">
+		<span
+			v-for="(item, idx) in modelValue"
+			:key="`item_${idx}`"
+			class="chip"
+		>{{ item }}</span>
+	</div>
+</div>

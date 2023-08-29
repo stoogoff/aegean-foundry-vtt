@@ -1,0 +1,35 @@
+<section class="tab-panel equipment grid column-panel">
+	<div>
+		<h2>{{ localize "aegean.system.Equipment" }}</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>{{ localize "aegean.system.Name" }}</th>
+					<th>{{ localize "aegean.equipment.Availability" }}</th>
+					<th>{{ localize "aegean.equipment.Price" }}</th>
+					<th>{{ localize "aegean.equipment.Weight" }}</th>
+					<th>{{ localize "aegean.equipment.Properties" }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr
+					v-for="(item, idx) in items"
+					:key="`item_${idx}`"
+				>
+					<td>{{ item.title }}</td>
+					<td>{{ item.availability }}</td>
+					<td class="text-right">{{ item.price }}</td>
+					<td class="text-right">{{ item.weight | fraction }}</td>
+					<td>{{ (item.properties || []) | join }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="box-column">
+		<box-input label="character.attributes.Standing.label" v-model="character.attributes.Standing.value" />
+		<box-input label="character.equipment.Drakhmae.label" v-model="character.equipment.Drakhmae.value" />
+		<box-input label="character.equipment.Encumbrance.label" v-model="character.equipment.Encumbrance.value" />
+		<box-input label="character.equipment.AmmoLoads.label" v-model="character.equipment.AmmoLoads.value" />
+		<box-input label="character.equipment.HerbalistDoses.label" v-model="character.equipment.HerbalistDoses.value" />
+	</div>
+</section>
