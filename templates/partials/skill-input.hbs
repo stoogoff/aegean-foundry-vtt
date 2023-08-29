@@ -1,12 +1,14 @@
 <div class="skill-input grid">
 	<div class="skill">
-		<label>{{ $filters.localise(label) }}</label>
-		<input type="text" :value="modelValue" @input="updateModel($event.target.value)" />
+		<label for="{{ name }}">{{ localize label }}</label>
+		<input type="text" value="{{ value }}" name="{{ name }}" id="{{ name }}" />
 	</div>
+	{{!--
 	<ul class="specialisations">
 		<li
 			v-for="spec in specialisations"
 			:key="spec"
 		>{{ spec }}</li>
 	</ul>
+	--}}
 </div>

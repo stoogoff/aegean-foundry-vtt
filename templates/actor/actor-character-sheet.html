@@ -1,5 +1,18 @@
 <form class="{{cssClass}} {{actor.type}}" autocomplete="off">
 	<article class="character-sheet">
 		{{> systems/aegean/templates/actor/partials/header-section.hbs }}
+
+		<div class="tab-group">
+			<ul>
+				<li class="tab-item">{{ localize "aegean.ui.Stats" }}</li>
+				<li class="tab-item">{{ localize "aegean.ui.Combat" }}</li>
+				<li class="tab-item">{{ localize "aegean.ui.Equipment" }}</li>
+				<li class="tab-item">{{ localize "aegean.ui.Talents" }}</li>
+				<li class="tab-item">{{ localize "aegean.ui.Background" }}</li>
+			</ul>
+		</div>
+		<div class="tab-content">
+			{{> systems/aegean/templates/actor/partials/character-stats.hbs }}
+		</div>
 	</article>
 </form>

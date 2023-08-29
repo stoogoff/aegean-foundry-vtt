@@ -1,4 +1,4 @@
 <div class="box-input">
-	<input type="text" :value="modelValue" @input="updateModel($event.target.value)" />
-	<label>{{ $filters.localise(label) }}</label>
+	<input type="text" value="{{ value }}" name="{{ name }}" id="{{ name }}" />
+	<label for="{{ name }}">{{ localize label }}</label>
 </div>

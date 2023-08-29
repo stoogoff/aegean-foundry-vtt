@@ -1,4 +1,6 @@
 
+import { AEGEAN } from '../helpers/config.js'
+
 export class AegeanActorSheet extends ActorSheet {
 
 	constructor(...args) {
@@ -33,6 +35,14 @@ export class AegeanActorSheet extends ActorSheet {
 
 		console.log('Aegean | ActorSheet::getData', context)
 
+		context.system = this.actor.toObject(false).system
+		context.config = AEGEAN
+
 		return context
+	}
+
+	activateListeners(html) {
+		console.log('Aegean | activateListeners', html)
+		super.activateListeners(html)
 	}
 }

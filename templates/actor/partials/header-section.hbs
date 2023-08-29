@@ -4,7 +4,40 @@
 	</div>
 	<div>
 		<!-- TODO Aegean Logo -->
-		{{> systems/aegean/templates/partials/form-input.hbs label="aegean.character.Character" value=actor.name }}
-		{{> systems/aegean/templates/partials/form-input.hbs label="character.background.Home.label" value=system.background.Home.value }}
+		{{> systems/aegean/templates/partials/form-input.hbs
+			label="aegean.character.Character"
+			value=actor.name
+			name="name"
+		}}
+		{{> systems/aegean/templates/partials/form-input.hbs
+			label=system.background.Home.label
+			value=system.background.Home.value
+			name="system.background.Home.value"
+		}}
+		<div class="grid grid-cols-4">
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.attributes.Risk.label
+				value=system.attributes.Risk.value
+				name="system.attributes.Risk.value"
+			}}
+
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.attributes.Endurance.label
+				value=system.attributes.Endurance.value
+				name="system.attributes.Endurance.value"
+			}}
+
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.attributes.Resolve.label
+				value=system.attributes.Resolve.value
+				name="system.attributes.Resolve.value"
+			}}
+
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.attributes.Oracle.label
+				value=system.attributes.Oracle.value
+				name="system.attributes.Oracle.value"
+			}}
+		</div>
 	</div>
 </header>

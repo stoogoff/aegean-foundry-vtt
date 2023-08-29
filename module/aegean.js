@@ -24,6 +24,30 @@ Hooks.once('init', async function() {
 	Actors.registerSheet('Aegean', AegeanActorSheet, { label: 'Aegean Character Sheet', makeDefault: true })
 	//Items.unregisterSheet('core', ItemSheet)
 	//Items.registerSheet('Aegean', AegeanItemSheet, { makeDefault: true })
+
+	loadTemplates([
+		// global partials
+		'systems/aegean/templates/partials/box-input.hbs',
+		'systems/aegean/templates/partials/form-input.hbs',
+		//'systems/aegean/templates/partials/multi-select-input.hbs',
+		//'systems/aegean/templates/partials/select-input.hbs',
+		'systems/aegean/templates/partials/skill-input.hbs',
+
+		// actor partials
+		//'systems/aegean/templates/actor/partials/background.hbs',
+		'systems/aegean/templates/actor/partials/character-stats.hbs',
+		//'systems/aegean/templates/actor/partials/equipment.hbs',
+		'systems/aegean/templates/actor/partials/header-section.hbs',
+		//'systems/aegean/templates/actor/partials/talents.hbs',
+	])
+
+	Handlebars.registerHelper('concat', function() {
+		const args = Array.from(arguments)
+
+		args.pop()
+
+		return args.join('')
+	})
 })
 
 
