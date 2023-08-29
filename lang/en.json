@@ -54,7 +54,8 @@
 			"Parry": "Parry",
 			"Range": "Range",
 			"Reach": "Reach",
-			"Shield": "Shield"
+			"Shield": "Shield",
+			"Weapons": "Weapons"
 		},
 		"equipment": {
 			"Ammo": "Ammo",
@@ -66,6 +67,7 @@
 			"Weight": "Weight"
 		},
 		"system": {
+			"Active": "Active",
 			"Attributes": "Attributes",
 			"Characteristics": "Characteristics",
 			"Description": "Description",
@@ -73,8 +75,9 @@
 			"Equipment": "Equipment",
 			"Gifts": "Gifts",
 			"GiftsTalents": "Gifts and Talents",
+			"Multiple": "Multiple",
 			"Name": "Name",
-			"Rank": "Rank",
+			"Ranked": "Ranked",
 			"Skill": "Skill",
 			"Skills": "Skills",
 			"Talents": "Talents",

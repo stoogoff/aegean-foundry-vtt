@@ -1,0 +1,22 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<article class="armour-sheet">
+		{{> systems/aegean/templates/item/partials/header-section.hbs }}
+		{{> systems/aegean/templates/item/partials/equipment.hbs }}
+		<div>
+			<h3>{{ localize aegean.combat.Armour }}</h3>
+
+			{{> systems/aegean/templates/partials/select-input.hbs
+				label=system.stats.Location.label
+				value=system.stats.Location.value
+				name="system.stats.Location.value"
+				options=config.locations
+			}}
+
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.stats.Armour.label
+				value=system.stats.Armour.value
+				name="system.stats.Armour.value"
+			}}
+		</div>
+	</article>
+</form>

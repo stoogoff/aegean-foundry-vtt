@@ -2,13 +2,6 @@
 import { AEGEAN } from '../helpers/config.js'
 
 export class AegeanActorSheet extends ActorSheet {
-
-	constructor(...args) {
-		super(...args)
-
-		this.sheetView = null
-	}
-
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -41,8 +34,8 @@ export class AegeanActorSheet extends ActorSheet {
 		return context
 	}
 
-	activateListeners(html) {
+	/*activateListeners(html) {
 		console.log('Aegean | activateListeners', html)
 		super.activateListeners(html)
-	}
+	}*/
 }

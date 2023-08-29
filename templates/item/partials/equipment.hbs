@@ -1,0 +1,20 @@
+<div class="equipment">
+	{{> systems/aegean/templates/partials/select-input.hbs
+		label=system.equipment.Availability.label
+		value=system.equipment.Availability.value
+		name="system.equipment.Availability.value"
+		options=config.availability
+	}}
+
+	{{> systems/aegean/templates/partials/box-input.hbs
+		label=system.equipment.Weight.label
+		value=system.equipment.Weight.value
+		name="system.equipment.Weight.value"
+	}}
+
+	{{> systems/aegean/templates/partials/box-input.hbs
+		label=system.equipment.Price.label
+		value=system.equipment.Price.value
+		name="system.equipment.Price.value"
+	}}
+</div>

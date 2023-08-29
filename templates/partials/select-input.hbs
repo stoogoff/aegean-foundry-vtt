@@ -1,36 +1,10 @@
 <div class="select-input">
-	<label>{{ $filters.localise(label) }}</label>
-	<div>
-		<div
-			class="select-trigger"
-			tabindex="0"
-			@click="toggleActive"
-			@keypress.enter="toggleActive"
-			@keypress.space.prevent="toggleActive"
-		>{{ $filters.localise(modelValue) }}</div>
-		<transition
-			name="select"
-			@enter="start"
-			@after-enter="end"
-			@before-leave="start"
-			@after-leave="end"
-		>
-			<div class="select-dropdown" v-show="active">
-				<div
-					v-for="(item, idx) in items"
-					:key="idx"
-					@click="select(item)"
-					@keypress.enter="select(item)"
-					@keypress.space.prevent="select(item)"
-					class="select-item"
-					:class="{
-						'active': isSelected(item)
-					}"
-					tabindex="0"
-				>
-					{{ item }}
-				</div>
-			</div>
-		</transition>
-	</div>
+	<label for="{{ name }}">{{ localize label }}</label>
+	<select name="{{ name }}" id="{{ name }}">
+		{{#select value}}
+			{{#each options}}
+				<option value="{{ . }}">{{ . }}</option>
+			{{/each}}
+		{{/select}}
+	</select>
 </div>

@@ -22,15 +22,16 @@ Hooks.once('init', async function() {
 
 	Actors.unregisterSheet('core', ActorSheet)
 	Actors.registerSheet('Aegean', AegeanActorSheet, { label: 'Aegean Character Sheet', makeDefault: true })
-	//Items.unregisterSheet('core', ItemSheet)
-	//Items.registerSheet('Aegean', AegeanItemSheet, { makeDefault: true })
+	Items.unregisterSheet('core', ItemSheet)
+	Items.registerSheet('Aegean', AegeanItemSheet, { makeDefault: true })
 
 	loadTemplates([
 		// global partials
 		'systems/aegean/templates/partials/box-input.hbs',
+		'systems/aegean/templates/partials/checkbox.hbs',
 		'systems/aegean/templates/partials/form-input.hbs',
 		//'systems/aegean/templates/partials/multi-select-input.hbs',
-		//'systems/aegean/templates/partials/select-input.hbs',
+		'systems/aegean/templates/partials/select-input.hbs',
 		'systems/aegean/templates/partials/skill-input.hbs',
 
 		// actor partials
@@ -39,6 +40,10 @@ Hooks.once('init', async function() {
 		//'systems/aegean/templates/actor/partials/equipment.hbs',
 		'systems/aegean/templates/actor/partials/header-section.hbs',
 		//'systems/aegean/templates/actor/partials/talents.hbs',
+
+		// item partials
+		'systems/aegean/templates/item/partials/header-section.hbs',
+		'systems/aegean/templates/item/partials/equipment.hbs',
 	])
 
 	Handlebars.registerHelper('concat', function() {

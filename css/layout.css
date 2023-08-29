@@ -105,6 +105,12 @@
 .aegean .grid-cols-5 {
 	grid-template-columns: repeat(5, minmax(0, 1fr));
 }
+.aegean .grid-cols-1-3-split {
+	grid-template-columns: 1fr 3fr;
+}
+.aegean .grid-cols-3-1-split {
+	grid-template-columns: 3fr 1fr;
+}
 
 .aegean .column-panel {
 	grid-template-columns: 612px auto;
@@ -131,6 +137,9 @@
 	width: 100%;
 }
 
+.aegean .editor {
+	min-height: 50px;
+}
 
 /* this should go elsewhere */
 .aegean .skills {

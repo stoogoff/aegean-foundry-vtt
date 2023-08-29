@@ -1,0 +1,35 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<article class="weapon-sheet">
+		{{> systems/aegean/templates/item/partials/header-section.hbs }}
+		{{> systems/aegean/templates/item/partials/equipment.hbs }}
+		<div>
+			<h3>{{ localize aegean.combat.Weapons }}</h3>
+
+			{{> systems/aegean/templates/partials/select-input.hbs
+				label=system.stats.Skill.label
+				value=system.stats.Skill.value
+				name="system.stats.Skill.value"
+				options=config.skills
+			}}
+
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.stats.Damage.label
+				value=system.stats.Damage.value
+				name="system.stats.Damage.value"
+			}}
+
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.stats.Reach.label
+				value=system.stats.Reach.value
+				name="system.stats.Reach.value"
+			}}
+
+			{{> systems/aegean/templates/partials/select-input.hbs
+				label=system.stats.Range.label
+				value=system.stats.Range.value
+				name="system.stats.Range.value"
+				options=config.rangeBands
+			}}
+		</div>
+	</article>
+</form>

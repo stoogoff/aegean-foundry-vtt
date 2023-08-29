@@ -1,0 +1,17 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<article class="property-sheet">
+		{{> systems/aegean/templates/item/partials/header-section.hbs }}
+		<div>
+			{{> systems/aegean/templates/partials/checkbox.hbs
+				label=system.stats.Ranked.label
+				value=system.stats.Ranked.value
+				name="system.stats.Ranked.value"
+			}}
+			{{> systems/aegean/templates/partials/checkbox.hbs
+				label=system.stats.Active.label
+				value=system.stats.Active.value
+				name="system.stats.Active.value"
+			}}
+		</div>
+	</article>
+</form>

@@ -1,0 +1,11 @@
+<header class="item-info">
+	<div>
+		<!-- TODO Aegean Logo -->
+		{{> systems/aegean/templates/partials/form-input.hbs
+			label="aegean.system.Title"
+			value=item.name
+			name="name"
+		}}
+		{{editor system.Description.value target="system.Description.value" button=true owner=owner editable=editable}}
+	</div>
+</header>

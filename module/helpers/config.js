@@ -65,4 +65,21 @@ export const AEGEAN = {
 		'Eleusinian Mysteries',
 		'Kouretes',
 	],
+	availability: [
+		'Common',
+		'Uncommon',
+		'Rare',
+	],
+	locations: [
+		'Head',
+		'Body',
+		'Legs',
+	],
+	rangeBands: [
+		'Engaged',
+		'Short',
+		'Medium',
+		'Long',
+		'Extreme',
+	]
 }

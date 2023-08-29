@@ -186,53 +186,65 @@
 		}
 	},
 	"Item": {
-		"types": ["Property", "Talent", "Equipment", "Armour", "Weapon"],
+		"types": ["property", "talent", "equipment", "armour", "weapon"],
 		"templates": {
 			"base": {
-				"Title": {
-					"label": "aegean.system.Title",
-					"value": ""
-				},
 				"Description": {
 					"label": "aegean.system.Description",
 					"value": ""
 				}
 			},
 			"equipment": {
-				"Availability": {
-					"label": "aegean.equipment.Availability",
-					"value": ""
-				},
-				"Weight": {
-					"label": "aegean.equipment.Weight",
-					"value": 0
-				},
-				"Price": {
-					"label": "aegean.equipment.Price",
-					"value": 0
-				},
-				"Properties": {
-					"label": "aegean.equipment.Properties",
-					"value": []
+				"equipment": {
+					"Availability": {
+						"label": "aegean.equipment.Availability",
+						"value": ""
+					},
+					"Weight": {
+						"label": "aegean.equipment.Weight",
+						"value": 0
+					},
+					"Price": {
+						"label": "aegean.equipment.Price",
+						"value": 0
+					},
+					"Properties": {
+						"label": "aegean.equipment.Properties",
+						"value": []
+					}
 				}
 			}
 		},
-		"Talent": {
-			"templates": ["base"]
-		},
-		"Property": {
+		"talent": {
 			"templates": ["base"],
 			"stats": {
-				"Rank": {
-					"label": "aegean.system.Rank",
-					"value": 0
+				"Ranked": {
+					"label": "aegean.system.Ranked",
+					"value": false
+				},
+				"Multiple": {
+					"label": "aegean.system.Multiple",
+					"value": false
 				}
 			}
 		},
-		"Equipment": {
+		"property": {
+			"templates": ["base"],
+			"stats": {
+				"Ranked": {
+					"label": "aegean.system.Ranked",
+					"value": false
+				},
+				"Active": {
+					"label": "aegean.system.Active",
+					"value": false
+				}
+			}
+		},
+		"equipment": {
 			"templates": ["base", "equipment"]
 		},
-		"Weapon": {
+		"weapon": {
 			"templates": ["base", "equipment"],
 			"stats": {
 				"Skill": {
@@ -253,7 +265,7 @@
 				}
 			}
 		},
-		"Armour": {
+		"armour": {
 			"templates": ["base", "equipment"],
 			"stats": {
 				"Location": {
