@@ -1,0 +1,99 @@
+
+/* Inputs */
+
+.aegean input[type=text] {
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+	display: block;
+	width: 100%;
+}
+.aegean input[type=text]:hover {
+	background-color: var(--input-hover-bg);
+}
+.aegean input[type=text]:focus {
+	background-color: var(--input-hover-bg);
+	outline: var(--input-focus-border);
+	box-shadow: none;
+}
+
+/* Box input */
+.aegean .box-input {
+	border: var(--border);
+}
+.aegean .box-input label {
+	text-transform: uppercase;
+	background-color: var(--invert-bg);
+	color: var(--invert-fg);
+	display: block;
+	padding: var(--spacing-1);
+	text-align: center;
+	line-height: 1;
+	font-size: var(--font-md);
+	max-height: 20px;
+}
+.aegean .box-input input[type=text] {
+	padding-top: var(--spacing-4);
+	padding-bottom: var(--spacing-4);
+	font-size: 30px;
+	text-align: center;
+}
+
+/* Form input */
+.aegean .form-input {
+	display: flex;
+	padding: var(--spacing-2) 0;
+}
+
+.aegean .form-input label {
+	display: block;
+	margin-top: var(--spacing-2);
+	margin-right: var(--spacing);
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: var(--font-mid);
+	position: relative;
+	top: var(--spacing-1);
+}
+.aegean .form-input input[type=text] {
+	border-bottom: var(--border);
+	padding: var(--spacing-1) var(--spacing-2) 0;
+}
+
+/* Skill input */
+.aegean .skill-input {
+	grid-template-columns: 300px auto;
+}
+
+.aegean .skill {
+	display: flex;
+}
+.aegean .skill label {
+	display: block;
+	margin-top: var(--spacing-2);
+	margin-right: var(--spacing);
+	font-weight: bold;
+	font-size: var(--font-mid);
+	position: relative;
+	top: var(--spacing-1);
+}
+.aegean .skill input[type=text] {
+	border-bottom: 1px solid black;
+	padding: var(--spacing-1) var(--spacing-2) 0;
+	text-align: right;
+}
+.aegean ul.specialisations {
+	list-style-type: none;
+	margin: var(--spacing-1) 0 0 0;
+	padding: 0;
+}
+.aegean ul.specialisations li {
+	display: inline-block;
+	padding: var(--spacing) var(--spacing-1);
+	margin-right: var(--spacing-1);
+	background-color: var(--grey-light);
+	border-radius: 0.1rem;
+}
+.aegean ul.specialisations li:last-child {
+	margin-right: 0;
+}

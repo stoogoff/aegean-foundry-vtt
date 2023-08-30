@@ -72,22 +72,6 @@
 	border: 0;
 }
 
-.aegean input[type=text] {
-	border: 0;
-	border-radius: 0;
-	background-color: transparent;
-	display: block;
-	width: 100%;
-}
-.aegean input[type=text]:hover {
-	background-color: var(--input-hover-bg);
-}
-.aegean input[type=text]:focus {
-	background-color: var(--input-hover-bg);
-	outline: var(--input-focus-border);
-	box-shadow: none;
-}
-
 /* grid and flex layout */
 .aegean .grid {
 	display: grid;

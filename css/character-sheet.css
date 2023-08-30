@@ -1,0 +1,14 @@
+
+/* Character sheet */
+.aegean .character-sheet {
+	background-color: white;
+}
+
+/* Talents */
+.aegean .character-sheet .talent {
+	border-bottom: 1px solid var(--grey-mid);
+	margin-bottom: var(--spacing-4);
+}
+.aegean .character-sheet .talent:last-of-type {
+	border-bottom: 0;
+}
