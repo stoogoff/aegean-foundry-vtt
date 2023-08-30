@@ -2,40 +2,14 @@
 import { AEGEAN } from '../helpers/config.js'
 
 export class AegeanItemSheet extends ItemSheet {
-
-	/** @override */
-	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
-			classes: ["aegean", "sheet", "item"],
-			width: 520,
-			height: 480,
-			tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
-		});
-	}
-
-	/** @override */
-	get template() {
-		const path = "systems/aegean/templates/item";
-		// Return a single sheet for all item types.
-		// return `${path}/item-sheet.html`;
-
-		// Alternatively, you could use the following return statement to do a
-		// unique item sheet by type, like `weapon-sheet.html`.
-		return `${path}/item-${this.item.data.type}-sheet.html`;
-	}
-
-	/* -------------------------------------------- */
-
-	/** @override */
 	async getData() {
-		// Retrieve base data structure.
 		const context = super.getData();
-
-		console.log('Aegean | ItemSheet::getData', context)
 
 		context.system = this.item.toObject(false).system
 		context.system.Description.value = await TextEditor.enrichHTML(context.system.Description.value, { async: true });
 		context.config = AEGEAN
+
+		console.log('Aegean | ItemSheet::getData', context)
 
 		/*// Use a safe clone of the item data for further operations.
 		const itemData = context.item.data;
@@ -54,9 +28,6 @@ export class AegeanItemSheet extends ItemSheet {
 		return context;
 	}
 
-	/* -------------------------------------------- */
-
-	/** @override */
 	activateListeners(html) {
 		super.activateListeners(html);
 

@@ -55,6 +55,7 @@
 			"Range": "Range",
 			"Reach": "Reach",
 			"Shield": "Shield",
+			"Weapon": "Weapon",
 			"Weapons": "Weapons"
 		},
 		"equipment": {
@@ -80,15 +81,17 @@
 			"Ranked": "Ranked",
 			"Skill": "Skill",
 			"Skills": "Skills",
+			"Talent": "Talent",
 			"Talents": "Talents",
 			"Title": "Title"
 		},
 		"ui": {
-			"Stats": "Stats",
+			"Background": "Background",
+			"CharacterSheet": "Character Sheet",
 			"Combat": "Combat",
 			"Equipment": "Equipment",
-			"Talents": "Talents",
-			"Background": "Background"
+			"Stats": "Stats",
+			"Talents": "Talents"
 		}
 	}
 }

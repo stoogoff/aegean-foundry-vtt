@@ -1,15 +1,22 @@
 
+// models
 import { AegeanActor } from './documents/actor.js'
 import { AegeanItem } from './documents/item.js'
+
+// sheets
 import { AegeanActorSheet } from './sheets/actor-sheet.js'
-import { AegeanItemSheet } from './sheets/item-sheet.js'
+import { AegeanArmourSheet } from './sheets/armour-sheet.js'
+import { AegeanEquipmentSheet } from './sheets/equipment-sheet.js'
+import { AegeanPropertySheet } from './sheets/property-sheet.js'
+import { AegeanTalentSheet } from './sheets/talent-sheet.js'
+import { AegeanWeaponSheet } from './sheets/weapon-sheet.js'
+
+// helpers
 import { AEGEAN } from './helpers/config.js'
 
 Hooks.once('init', async function() {
-	console.log('Aegean | Init hook')
+	console.log('Aegean | Hook::init')
 
-	// Add utility classes to the global game object so that they're more easily
-	// accessible in global contexts.
 	game.Aegean = {
 		AegeanActor,
 		AegeanItem,
@@ -21,9 +28,38 @@ Hooks.once('init', async function() {
 	CONFIG.Item.documentClass = AegeanItem
 
 	Actors.unregisterSheet('core', ActorSheet)
-	Actors.registerSheet('Aegean', AegeanActorSheet, { label: 'Aegean Character Sheet', makeDefault: true })
+	Actors.registerSheet('Aegean', AegeanActorSheet, {
+		label: game.i18n.localize('aegean.ui.CharacterSheet'),
+		makeDefault: true,
+	})
+
 	Items.unregisterSheet('core', ItemSheet)
-	Items.registerSheet('Aegean', AegeanItemSheet, { makeDefault: true })
+	//Items.registerSheet('Aegean', AegeanItemSheet, { makeDefault: true })
+	Items.registerSheet('Aegean', AegeanArmourSheet, {
+		label: game.i18n.localize('aegean.combat.Armour'),
+		types: ['armour'],
+		makeDefault: true,
+	})
+	Items.registerSheet('Aegean', AegeanEquipmentSheet, {
+		label: game.i18n.localize('aegean.system.Equipment'),
+		types: ['equipment'],
+		makeDefault: true,
+	})
+	Items.registerSheet('Aegean', AegeanPropertySheet, {
+		label: game.i18n.localize('aegean.equipment.Property'),
+		types: ['property'],
+		makeDefault: true,
+	})
+	Items.registerSheet('Aegean', AegeanTalentSheet, {
+		label: game.i18n.localize('aegean.system.Talent'),
+		types: ['talent'],
+		makeDefault: true,
+	})
+	Items.registerSheet('Aegean', AegeanWeaponSheet, {
+		label: game.i18n.localize('aegean.combat.Weapon'),
+		types: ['weapon'],
+		makeDefault: true,
+	})
 
 	loadTemplates([
 		// global partials
@@ -57,7 +93,7 @@ Hooks.once('init', async function() {
 
 
 Hooks.once('ready', async function() {
-	console.log('AEGEAN hook::ready')
+	console.log('Aegean | Hook::ready')
 	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
 	Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot))
 })
