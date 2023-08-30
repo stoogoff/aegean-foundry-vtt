@@ -61,6 +61,7 @@
 		"equipment": {
 			"Ammo": "Ammo",
 			"Availability": "Availability",
+			"AvailabilityNote": "Common items can be found in any village across the Aegean. Uncommon items can only be found in large cities. Rare items are almost never available in the agora.",
 			"Doses": "Doses",
 			"Price": "Price",
 			"Properties": "Properties",
@@ -69,6 +70,7 @@
 		},
 		"system": {
 			"Active": "Active",
+			"ActivePropertyNote": "If a property is Active the character must *invoke the Fates* to gain its benefits.",
 			"Attributes": "Attributes",
 			"Characteristics": "Characteristics",
 			"Description": "Description",
@@ -79,6 +81,8 @@
 			"Multiple": "Multiple",
 			"Name": "Name",
 			"Ranked": "Ranked",
+			"RankedPropertyNote": "Ranked properties increase in power the higher rank they have.",
+			"RankedTalentNote": "Ranked talents can be bought multiple times and increase in power as more ranks are bought.",
 			"Skill": "Skill",
 			"Skills": "Skills",
 			"Talent": "Talent",
@@ -89,7 +93,6 @@
 			"Background": "Background",
 			"CharacterSheet": "Character Sheet",
 			"Combat": "Combat",
-			"Equipment": "Equipment",
 			"Stats": "Stats",
 			"Talents": "Talents"
 		}

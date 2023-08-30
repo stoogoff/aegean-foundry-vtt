@@ -17,6 +17,15 @@
 	box-shadow: none;
 }
 
+.aegean label.label {
+	display: block;
+	margin-top: var(--spacing-2);
+	margin-right: var(--spacing-2);
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: var(--font-mid);
+}
+
 /* Box input */
 .aegean .box-input {
 	border: var(--border);
@@ -45,19 +54,22 @@
 	padding: var(--spacing-2) 0;
 }
 
-.aegean .form-input label {
-	display: block;
-	margin-top: var(--spacing-2);
-	margin-right: var(--spacing);
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: var(--font-mid);
-	position: relative;
-	top: var(--spacing-1);
-}
 .aegean .form-input input[type=text] {
 	border-bottom: var(--border);
 	padding: var(--spacing-1) var(--spacing-2) 0;
+}
+
+/* Select input */
+.aegean .select-input {
+	padding: var(--spacing-1) 0;
+}
+.aegean .select-input select {
+	display: block;
+	margin-top: var(--spacing-1);
+	width: 100%;
+	background-color: var(--base-bg);
+	color: var(--base-fg);
+	border: var(--border);
 }
 
 /* Skill input */
@@ -96,4 +108,10 @@
 }
 .aegean ul.specialisations li:last-child {
 	margin-right: 0;
+}
+
+/* Built-in editor */
+.aegean .editor {
+	margin-bottom: var(--spacing-1);
+	min-height: 50px;
 }

@@ -7,7 +7,7 @@ export class AegeanArmourSheet extends AegeanItemSheet {
 			classes: ['aegean', 'sheet', 'armour'],
 			template: 'systems/aegean/templates/item/armour-sheet.html',
 			width: 520,
-			height: 480,
+			height: 520,
 			tabs: [],
 		})
 	}

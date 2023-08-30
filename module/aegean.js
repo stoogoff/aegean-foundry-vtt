@@ -69,6 +69,7 @@ Hooks.once('init', async function() {
 		//'systems/aegean/templates/partials/multi-select-input.hbs',
 		'systems/aegean/templates/partials/select-input.hbs',
 		'systems/aegean/templates/partials/skill-input.hbs',
+		'systems/aegean/templates/partials/tab-panel.hbs',
 
 		// actor partials
 		//'systems/aegean/templates/actor/partials/background.hbs',

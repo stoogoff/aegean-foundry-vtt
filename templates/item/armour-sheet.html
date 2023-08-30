@@ -1,22 +1,40 @@
 <form class="{{cssClass}}" autocomplete="off">
 	<article class="armour-sheet">
 		{{> systems/aegean/templates/item/partials/header-section.hbs }}
-		{{> systems/aegean/templates/item/partials/equipment.hbs }}
-		<div>
-			<h3>{{ localize aegean.combat.Armour }}</h3>
 
-			{{> systems/aegean/templates/partials/select-input.hbs
-				label=system.stats.Location.label
-				value=system.stats.Location.value
-				name="system.stats.Location.value"
-				options=config.locations
+		<div class="tab-group">
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="aegean.system.Equipment"
+				label="aegean.system.Equipment"
+				group="tab_armour"
+				checked=true
 			}}
+				{{> systems/aegean/templates/item/partials/equipment.hbs }}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 
-			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.stats.Armour.label
-				value=system.stats.Armour.value
-				name="system.stats.Armour.value"
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="aegean.combat.Armour"
+				label="aegean.combat.Armour"
+				group="tab_armour"
 			}}
+				<div class="grid column-panel">
+					<div>
+						{{> systems/aegean/templates/partials/select-input.hbs
+							label=system.stats.Location.label
+							value=system.stats.Location.value
+							name="system.stats.Location.value"
+							options=config.locations
+						}}
+					</div>
+					<aside>
+						{{> systems/aegean/templates/partials/box-input.hbs
+							label=system.stats.Armour.label
+							value=system.stats.Armour.value
+							name="system.stats.Armour.value"
+						}}
+					</aside>
+				</div>
+			{{/systems/aegean/templates/partials/tab-panel.hbs}}
 		</div>
 	</article>
 </form>

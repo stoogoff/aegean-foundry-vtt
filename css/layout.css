@@ -68,8 +68,14 @@
 	font-size: var(--font-lg);
 	line-height: 1.75em;
 	letter-spacing: 0.05em;
-	margin: var(--spacing-3) 0;
+	margin: var(--spacing-2) 0 var(--spacing-1);
 	border: 0;
+	background: url(../assets/meander.svg) left 40% repeat-x;
+}
+.aegean h2 span {
+	display: inline-block;
+	padding: var(--spacing) var(--spacing-4);
+	background-color: var(--base-bg);
 }
 
 /* grid and flex layout */
@@ -96,10 +102,18 @@
 	grid-template-columns: 3fr 1fr;
 }
 
+/* Large panel with box-input sidebar */
 .aegean .column-panel {
-	grid-template-columns: 612px auto;
+	grid-template-columns: auto 120px;
+}
+.aegean .column-panel aside {
+	margin-top: var(--spacing-4);
+}
+.aegean .column-panel aside .box-input {
+	margin-bottom: var(--spacing-4);
 }
 
+/* Text alignment */
 .aegean .text-right {
 	text-align: right;
 }
@@ -110,19 +124,15 @@
 	text-align: center;
 }
 
-.aegean .box-column {
-	margin-top: var(--spacing-4);
-}
-.aegean .box-column .box-input {
-	margin-bottom: var(--spacing-4);
+/* Common utilities */
+.aegean .note {
+	font-size: var(--font-sm);
+	font-style: italic;
+	line-height: 1.1em;
 }
 
 .aegean .table {
 	width: 100%;
-}
-
-.aegean .editor {
-	min-height: 50px;
 }
 
 /* this should go elsewhere */

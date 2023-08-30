@@ -1,17 +1,23 @@
 <form class="{{cssClass}}" autocomplete="off">
 	<article class="property-sheet">
 		{{> systems/aegean/templates/item/partials/header-section.hbs }}
-		<div>
-			{{> systems/aegean/templates/partials/checkbox.hbs
-				label=system.stats.Ranked.label
-				value=system.stats.Ranked.value
-				name="system.stats.Ranked.value"
-			}}
-			{{> systems/aegean/templates/partials/checkbox.hbs
-				label=system.stats.Active.label
-				value=system.stats.Active.value
-				name="system.stats.Active.value"
-			}}
+		<div class="grid grid-cols-2">
+			<div>
+				{{> systems/aegean/templates/partials/checkbox.hbs
+					label=system.stats.Ranked.label
+					value=system.stats.Ranked.value
+					name="system.stats.Ranked.value"
+				}}
+				<p class="note">{{ localize "aegean.system.RankedPropertyNote" }}</p>
+			</div>
+			<div>
+				{{> systems/aegean/templates/partials/checkbox.hbs
+					label=system.stats.Active.label
+					value=system.stats.Active.value
+					name="system.stats.Active.value"
+				}}
+				<p class="note">{{ localize "aegean.system.ActivePropertyNote" }}</p>
+			</div>
 		</div>
 	</article>
 </form>
