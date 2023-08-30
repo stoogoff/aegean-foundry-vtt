@@ -7,13 +7,14 @@
 			options=config.heritages
 		}}
 
-		<!-- TODO if parent is divine -->
-		{{> systems/aegean/templates/partials/select-input.hbs
-			label=system.background.Parent.label
-			value=system.background.Parent.value
-			name="system.background.Parent.value"
-			options=config.parents
-		}}
+		{{#if system.hasDivineHeritage}}
+			{{> systems/aegean/templates/partials/select-input.hbs
+				label=system.background.Parent.label
+				value=system.background.Parent.value
+				name="system.background.Parent.value"
+				options=config.parents
+			}}
+		{{/if}}
 
 		{{> systems/aegean/templates/partials/select-input.hbs
 			label=system.background.Background.label

@@ -1,13 +1,23 @@
 <form class="{{cssClass}}" autocomplete="off">
 	<article class="talent-sheet">
 		{{> systems/aegean/templates/item/partials/header-section.hbs }}
-		<div>
-			{{> systems/aegean/templates/partials/checkbox.hbs
-				label=system.stats.Ranked.label
-				value=system.stats.Ranked.value
-				name="system.stats.Ranked.value"
-			}}
-			<p class="note">{{ localize "aegean.system.RankedTalentNote" }}</p>
+		<div class="grid grid-cols-2">
+			<div>
+				{{> systems/aegean/templates/partials/checkbox.hbs
+					label=system.stats.Ranked.label
+					value=system.stats.Ranked.value
+					name="system.stats.Ranked.value"
+				}}
+				<p class="note">{{ localize "aegean.system.RankedTalentNote" }}</p>
+			</div>
+			<div>
+				{{> systems/aegean/templates/partials/checkbox.hbs
+					label=system.stats.Multiple.label
+					value=system.stats.Multiple.value
+					name="system.stats.Multiple.value"
+				}}
+				<p class="note">{{ localize "aegean.system.MultipleTalentNote" }}</p>
+			</div>
 		</div>
 	</article>
 </form>

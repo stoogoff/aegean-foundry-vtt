@@ -1,8 +1,24 @@
-/**
- * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
- * @extends {Actor}
- */
+
+import { sum } from '../helpers/list.js'
+import { isEquipment } from '../helpers/utils.js'
+
 export class AegeanActor extends Actor {
+	get talents() {
+		return this.items.filter(item => item.type === 'talent')
+	}
+
+	get armour() {
+		return this.items.filter(item => item.type === 'armour')
+	}
+
+	get weapons() {
+		return this.items.filter(item => item.type === 'weapon')
+	}
+
+	get equipment() {
+		return this.items.filter(item => isEquipment(item.type))
+	}
+
 	prepareData() {
 	// Prepare data for the actor. Calling the super version of this executes
 	// the following, in order: data reset (to clear active effects),
@@ -14,11 +30,11 @@ export class AegeanActor extends Actor {
 	}
 
 	/** @override */
-	prepareBaseData() {
+	/*prepareBaseData() {
 		// Data modifications in this step occur before processing embedded
 		// documents or derived data.
 		return super.prepareBaseData()
-	}
+	}*/
 
 	/**
 	 * @override
@@ -30,7 +46,14 @@ export class AegeanActor extends Actor {
 	 * is queried and has a roll executed directly from it).
 	 */
 	prepareDerivedData() {
-		console.log(this.data)
+		console.log('Aegean | prepareDerivedData')
+
+		this.system.hasDivineHeritage = this.system.background.Heritage.value === 'Divine'
+		
+		this.system.encumbrance = this.equipment
+			.map(item => parseInt(item.system.equipment.Weight.value)).reduce(sum, 0)
+
+
 		/*const actorData = this.data;
 		const data = actorData.data;
 		const flags = actorData.flags.Aegean || {};

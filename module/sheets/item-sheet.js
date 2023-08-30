@@ -1,5 +1,6 @@
 
 import { AEGEAN } from '../helpers/config.js'
+import { isEquipment } from '../helpers/utils.js'
 
 export class AegeanItemSheet extends ItemSheet {
 	async getData() {
@@ -35,5 +36,22 @@ export class AegeanItemSheet extends ItemSheet {
 		if (!this.isEditable) return;
 
 		// Roll handlers, click handlers, etc. would go here.
+	}
+
+	// THIS DOESN'T SEEM TO FIRE!
+	async _onDrop(event, data) {
+		let dragData = JSON.parse(event.dataTransfer.getData('text/plain'))
+
+		// load the item by uuid (remove the Item prefix)
+		const dragItem = game.items.get(dragData.uuid.replace('Item.', ''))
+
+		console.log('Aegean | ItemSheet::_onDropItem => dragData', dragData)
+		console.log('Aegean | ItemSheet::_onDropItem => dragItem', dragItem)
+
+		console.log(this.item.type)
+
+		if(isEquipment(this.item.type)) {
+
+		}
 	}
 }

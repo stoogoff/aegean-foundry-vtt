@@ -146,6 +146,7 @@
 
 .aegean table {
 	width: 100%;
+	background-color: var(--base-bg);
 }
 .aegean table th {
 	text-transform: uppercase;

@@ -16,6 +16,10 @@
 	outline: var(--input-focus-border);
 	box-shadow: none;
 }
+.aegean input[type=text][readonly]:hover {
+	background-color: transparent;
+	cursor: default;
+}
 
 .aegean label.label {
 	display: block;

@@ -81,6 +81,7 @@ Hooks.once('init', async function() {
 		// item partials
 		'systems/aegean/templates/item/partials/header-section.hbs',
 		'systems/aegean/templates/item/partials/equipment.hbs',
+		'systems/aegean/templates/item/partials/properties.hbs',
 	])
 
 	Handlebars.registerHelper('concat', function() {

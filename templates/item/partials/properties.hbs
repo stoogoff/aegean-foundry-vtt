@@ -1,0 +1,12 @@
+<div class="talents">
+	{{#if properties}}
+		{{#each properties as |property key|}}
+			<div class="talent">
+				<h3 class="text-left">{{ property.name }}</h3>
+				{{{ property.system.Description.value }}}
+			</div>
+		{{/each}}
+	{{else}}
+		<p class="note">{{ localize "aegean.equipment.PropertiesNone" }}</p>
+	{{/if}}
+</div>

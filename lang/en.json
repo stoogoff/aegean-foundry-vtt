@@ -34,7 +34,6 @@
 			"Home": "Home"
 		},
 		"attributes": {
-			"Encumbrance": "Encumbrance",
 			"Endurance": "Endurance",
 			"Fate": "Fate",
 			"Glory": "Glory",
@@ -63,8 +62,10 @@
 			"Availability": "Availability",
 			"AvailabilityNote": "Common items can be found in any village across the Aegean. Uncommon items can only be found in large cities. Rare items are almost never available in the agora.",
 			"Doses": "Doses",
+			"Encumbrance": "Encumbrance",
 			"Price": "Price",
 			"Properties": "Properties",
+			"PropertiesNone": "This item has no properties.",
 			"Property": "Property",
 			"Weight": "Weight"
 		},
@@ -83,6 +84,8 @@
 			"Ranked": "Ranked",
 			"RankedPropertyNote": "Ranked properties increase in power the higher rank they have.",
 			"RankedTalentNote": "Ranked talents can be bought multiple times and increase in power as more ranks are bought.",
+			"Multiple": "Multiple",
+			"MultipleTalentNote": "Talents marked Multiple can be bought multiple times and how they upgrade is described in the text.",
 			"Skill": "Skill",
 			"Skills": "Skills",
 			"Talent": "Talent",

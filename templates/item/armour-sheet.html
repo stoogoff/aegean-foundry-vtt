@@ -4,7 +4,7 @@
 
 		<div class="tab-group">
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
-				id="aegean.system.Equipment"
+				id="armour_equipment"
 				label="aegean.system.Equipment"
 				group="tab_armour"
 				checked=true
@@ -13,7 +13,7 @@
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
-				id="aegean.combat.Armour"
+				id="armour_armour"
 				label="aegean.combat.Armour"
 				group="tab_armour"
 			}}
@@ -35,6 +35,14 @@
 					</aside>
 				</div>
 			{{/systems/aegean/templates/partials/tab-panel.hbs}}
+
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="armour_properties"
+				label="aegean.equipment.Properties"
+				group="tab_armour"
+			}}
+				{{> systems/aegean/templates/item/partials/properties.hbs }}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 		</div>
 	</article>
 </form>

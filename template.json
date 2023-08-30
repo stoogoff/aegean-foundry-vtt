@@ -221,6 +221,10 @@
 				"Ranked": {
 					"label": "aegean.system.Ranked",
 					"value": false
+				},
+				"Multiple": {
+					"label": "aegean.system.Multiple",
+					"value": false
 				}
 			}
 		},

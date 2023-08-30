@@ -1,4 +1,4 @@
 <div class="box-input">
-	<input type="text" value="{{ value }}" name="{{ name }}" id="{{ name }}" />
+	<input type="text" value="{{ value }}" name="{{ name }}" id="{{ name }}" {{#if readonly }}readonly{{/if}} />
 	<label for="{{ name }}">{{ localize label }}</label>
 </div>

@@ -1,5 +1,6 @@
 
 import { AEGEAN } from '../helpers/config.js'
+import { sortByProperty } from '../helpers/list.js'
 
 export class AegeanActorSheet extends ActorSheet {
 	/** @override */
@@ -23,22 +24,15 @@ export class AegeanActorSheet extends ActorSheet {
 	getData() {
 		const context = super.getData()
 
-		//context.actor = this.actor.toObject()
-		//context.actor.id = context.actor.id ?? context.actor._id
-
 		console.log('Aegean | ActorSheet::getData', context)
 
 		const actor = this.actor.toObject(false)
 
 		context.system = actor.system
-		context.talents = actor.items.filter(item => item.type === 'talent')
-		context.armour = actor.items.filter(item => item.type === 'armour')
-		context.weapons = actor.items.filter(item => item.type === 'weapon')
-		context.equipment = [
-			...actor.items.filter(item => item.type === 'equipment'),
-			...context.armour,
-			...context.weapons,
-		]
+		context.talents = this.actor.talents
+		context.armour = this.actor.armour
+		context.weapons = this.actor.weapons
+		context.equipment = this.actor.equipment.sort(sortByProperty('name'))
 		context.config = AEGEAN
 
 		return context
@@ -49,21 +43,37 @@ export class AegeanActorSheet extends ActorSheet {
 		super.activateListeners(html)
 	}*/
 
-	async _onDrop(event, data) {
-		let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
+	// prevent dropping actors onto each other
+	async _onDropActor() {}
 
-		console.log('Aegean | onDrop::dragData', { ...dragData })
-		console.log('Aegean | onDrop::event', { ...event })
-		console.log('Aegean | onDrop::data', { ...data })
+	async _onDropItem(event, data) {
+		let dragData = JSON.parse(event.dataTransfer.getData('text/plain'))
 
-		// TODO prevent dropping properties on a character
+		// load the item by uuid (remove the Item prefix)
+		const dragItem = game.items.get(dragData.uuid.replace('Item.', ''))
 
-		/*if (dragData.type === "itemDrop") {
-			this.actor.createEmbeddedDocuments("Item", [dragData.item]);
-		} else {
-			super._onDrop(event, data);
-		}*/
+		console.log('Aegean | ActorSheet::_onDropItem => dragData', dragData)
+		console.log('Aegean | ActorSheet::_onDropItem => dragItem', dragItem)
 
-		super._onDrop(event, data)
+		if(!dragItem) return
+
+		switch(dragItem.type) {
+			// properties can't be dropped on a character
+			case 'property':
+				return
+
+			// talents can only be dropped on a character once,
+			// unless they're ranked or multiple
+			case 'talent':
+				console.log(this.actor.talents)
+
+				if(!dragItem.system.stats.Ranked.value && !dragItem.system.stats.Multiple.value) {
+					const existing = this.actor.talents.find(talent => talent.flags.core.sourceId === dragData.uuid)
+
+					if(existing) return
+				}
+		}
+
+		super._onDropItem(event, data)
 	}
 }
