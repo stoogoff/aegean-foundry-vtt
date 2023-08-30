@@ -1,37 +1,43 @@
-<section class="tab-panel background grid grid-cols-2">
+<div class="background grid grid-cols-2">
 	<div>
-		<select-input
-			:label="character.background.Heritage.label"
-			:items="heritages"
-			v-model="character.background.Heritage.value"
-		/>
-		<select-input
-			:label="character.background.Parent.label"
-			:items="parents"
-			v-model="character.background.Parent.value"
-			v-if="character.background.Heritage === 'Divine'"
-		/>
-		<select-input
-			:label="character.background.Background.label"
-			:items="backgrounds"
-			v-model="character.background.Background.value"
-		/>
-		<multi-select-input
-			:label="character.background.Careers.label"
+		{{> systems/aegean/templates/partials/select-input.hbs
+			label=system.background.Heritage.label
+			value=system.background.Heritage.value
+			name="system.background.Heritage.value"
+			options=config.heritages
+		}}
+
+		<!-- TODO if parent is divine -->
+		{{> systems/aegean/templates/partials/select-input.hbs
+			label=system.background.Parent.label
+			value=system.background.Parent.value
+			name="system.background.Parent.value"
+			options=config.parents
+		}}
+
+		{{> systems/aegean/templates/partials/select-input.hbs
+			label=system.background.Background.label
+			value=system.background.Background.value
+			name="system.background.Background.value"
+			options=config.backgrounds
+		}}
+
+		<!-- multi-select-input
+			:label="system.background.Careers.label"
 			:items="careers"
-			v-model="character.background.Careers.value"
+			v-model="system.background.Careers.value"
 		/>
 		<multi-select-input
-			:label="character.background.MysteryCults.label"
+			:label="system.background.MysteryCults.label"
 			:items="mysteryCults"
-			v-model="character.background.MysteryCults.value"
-		/>
+			v-model="system.background.MysteryCults.value"
+		/ -->
 	</div>
 	<div>
-		<div class="boxed">
+		<!-- div class="boxed">
 			<h3>Relationships</h3>
 			<div
-				v-for="(relationship, idx) in character.relationships"
+				v-for="(relationship, idx) in system.relationships"
 				:key="`relationship_${idx}`"
 			>
 				{{ relationship.name }}
@@ -39,5 +45,5 @@
 		</div>
 		Favour
 		Disfavour
-	</div>
-</section>
+	</div -->
+</div>

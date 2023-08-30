@@ -4,6 +4,18 @@
 	background-color: white;
 }
 
+.aegean .character-sheet .character-info {
+	display: grid;
+	gap: var(--spacing-4);
+	grid-template-columns: 200px auto;
+	margin-bottom: var(--spacing-2);
+}
+
+.aegean .character-sheet .character-portrait {
+	background-color: var(--grey-light);
+}
+
+
 /* Talents */
 .aegean .character-sheet .talent {
 	border-bottom: 1px solid var(--grey-mid);

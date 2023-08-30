@@ -28,7 +28,17 @@ export class AegeanActorSheet extends ActorSheet {
 
 		console.log('Aegean | ActorSheet::getData', context)
 
-		context.system = this.actor.toObject(false).system
+		const actor = this.actor.toObject(false)
+
+		context.system = actor.system
+		context.talents = actor.items.filter(item => item.type === 'talent')
+		context.armour = actor.items.filter(item => item.type === 'armour')
+		context.weapons = actor.items.filter(item => item.type === 'weapon')
+		context.equipment = [
+			...actor.items.filter(item => item.type === 'equipment'),
+			...context.armour,
+			...context.weapons,
+		]
 		context.config = AEGEAN
 
 		return context
@@ -38,4 +48,22 @@ export class AegeanActorSheet extends ActorSheet {
 		console.log('Aegean | activateListeners', html)
 		super.activateListeners(html)
 	}*/
+
+	async _onDrop(event, data) {
+		let dragData = JSON.parse(event.dataTransfer.getData("text/plain"));
+
+		console.log('Aegean | onDrop::dragData', { ...dragData })
+		console.log('Aegean | onDrop::event', { ...event })
+		console.log('Aegean | onDrop::data', { ...data })
+
+		// TODO prevent dropping properties on a character
+
+		/*if (dragData.type === "itemDrop") {
+			this.actor.createEmbeddedDocuments("Item", [dragData.item]);
+		} else {
+			super._onDrop(event, data);
+		}*/
+
+		super._onDrop(event, data)
+	}
 }

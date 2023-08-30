@@ -1,5 +1,5 @@
-<section class="tab-panel character-stats">
-	<h2>{{ localize "aegean.system.Characteristics" }}</h2>
+<div class="character-stats">
+	<h2><span>{{ localize "aegean.system.Characteristics" }}</span></h2>
 	<div class="grid grid-cols-5">
 		{{#each system.characteristics as |ch key|}}
 			{{> systems/aegean/templates/partials/box-input.hbs
@@ -11,7 +11,7 @@
 	</div>
 	<div class="grid column-panel">
 		<div class="skills">
-			<h2>{{ localize "aegean.system.Skills" }}</h2>
+			<h3>{{ localize "aegean.system.Skills" }}</h3>
 			{{#each system.skills as |skill key|}}
 				{{> systems/aegean/templates/partials/skill-input.hbs
 					label=skill.label
@@ -20,8 +20,8 @@
 				}}
 			{{/each}}
 		</div>
-		<div class="box-column">
-			<h2>{{ localize "aegean.system.Attributes" }}</h2>
+		<aside>
+			<h3>{{ localize "aegean.system.Attributes" }}</h3>
 			{{> systems/aegean/templates/partials/box-input.hbs
 				label=system.attributes.Glory.label
 				value=system.attributes.Glory.value
@@ -42,6 +42,6 @@
 				value=system.attributes.Scars.value
 				name="system.attributes.Scars.value"
 			}}
-		</div>
+		</aside>
 	</div>
-</section>
+</div>

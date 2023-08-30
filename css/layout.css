@@ -70,12 +70,25 @@
 	letter-spacing: 0.05em;
 	margin: var(--spacing-2) 0 var(--spacing-1);
 	border: 0;
-	background: url(../assets/meander.svg) left 40% repeat-x;
+	background: url(../assets/meander.svg) left 0 repeat-x;
+	background-size: 60% 100%;
+	padding: 0;
 }
 .aegean h2 span {
 	display: inline-block;
 	padding: var(--spacing) var(--spacing-4);
 	background-color: var(--base-bg);
+}
+.aegean h3 {
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 600;
+	color: var(--grey-dark);
+	font-size: var(--font-mid);
+	line-height: 1.5em;
+	letter-spacing: 0.05em;
+	margin: var(--spacing-1) 0 var(--spacing);
+	border: 0;
 }
 
 /* grid and flex layout */
@@ -131,8 +144,15 @@
 	line-height: 1.1em;
 }
 
-.aegean .table {
+.aegean table {
 	width: 100%;
+}
+.aegean table th {
+	text-transform: uppercase;
+	background-color: var(--invert-bg);
+	color: var(--invert-fg);
+	font-size: var(--font-sm);
+	padding: var(--spacing-1);
 }
 
 /* this should go elsewhere */

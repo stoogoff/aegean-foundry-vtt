@@ -1,9 +1,9 @@
 <section class="tab-panel talents">
 	<h2>{{ localize "aegean.system.GiftsTalents" }}</h2>
-	{{!-- #each talents}}
+	{{#each talents as |talent key|}}
 		<div class="talent">
 			<h3>{{ talent.title }}</h3>
 			<p>{{ talent.description }}</p>
 		</div>
-	{{/each --}}
+	{{/each}}
 </section>

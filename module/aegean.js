@@ -72,11 +72,11 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/partials/tab-panel.hbs',
 
 		// actor partials
-		//'systems/aegean/templates/actor/partials/background.hbs',
+		'systems/aegean/templates/actor/partials/background.hbs',
 		'systems/aegean/templates/actor/partials/character-stats.hbs',
-		//'systems/aegean/templates/actor/partials/equipment.hbs',
+		'systems/aegean/templates/actor/partials/equipment.hbs',
 		'systems/aegean/templates/actor/partials/header-section.hbs',
-		//'systems/aegean/templates/actor/partials/talents.hbs',
+		'systems/aegean/templates/actor/partials/talents.hbs',
 
 		// item partials
 		'systems/aegean/templates/item/partials/header-section.hbs',
