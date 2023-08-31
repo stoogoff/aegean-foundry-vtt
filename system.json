@@ -30,6 +30,7 @@
 		"css/layout.css",
 		"css/inputs.css",
 		"css/tabs.css",
+		"css/actions.css",
 		"css/character-sheet.css"
 	],
 	"packs": [],

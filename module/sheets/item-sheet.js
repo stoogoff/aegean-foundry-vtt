@@ -7,13 +7,17 @@ export class AegeanItemSheet extends ItemSheet {
 		const context = super.getData();
 		const item = this.item.toObject(false)
 
-		console.log(item)
-
 		context.system = item.system
 		context.system.Description.value = await TextEditor.enrichHTML(context.system.Description.value, { async: true })
 
 		if(isEquipment(item.type)) {
-			context.properties = item.system.equipment.Properties.value || []
+			const currentProperties = item.system.equipment.Properties.value
+			console.log('game.items', game.items)
+			const allProperties = game.items.filter(item => item.type === 'property')
+
+			console.log('allProperties', allProperties)
+
+			context.properties = currentProperties.map(prop => ({ rating: prop.rating, property: game.items.get(prop.id) }))
 		}
 
 		context.config = AEGEAN
@@ -44,9 +48,45 @@ export class AegeanItemSheet extends ItemSheet {
 
 		// enable drag drop for items
 		html.on('drop', this._onDrop.bind(this))
+
+		// enable delete actions
+		html.find('.delete-property').click(this._deleteProperty.bind(this))
+
+		// enable updating ratings
+		html.find('.rating-input').change(this._updateRating.bind(this))
+	}
+
+	_deleteProperty(event) {
+		const deleteId = $(event.currentTarget).attr('data-id')
+
+		console.log('Aegean | ItemSheet::_deleteProperty => deleteId', deleteId)
+
+		const updatedProperties = this.item.system.equipment.Properties.value.filter(({ id }) => id !== deleteId)
+
+		this.item.update({
+			'system.equipment.Properties.value': updatedProperties
+		})
+	}
+
+	_updateRating(event) {
+		const updateId = $(event.currentTarget).attr('data-id')
+		const updatedValue = $(event.currentTarget).val()
+
+		console.log('Aegean | ItemSheet::_updateRating => updateId, updatedValue', updateId, updatedValue)
+
+		const updatedProperty = this.item.system.equipment.Properties.value.find(({ id }) => id === updateId)
+
+		updatedProperty.rating = updatedValue
+
+		this.item.update({
+			'system.equipment.Properties.value': this.item.system.equipment.Properties.value
+		})
 	}
 
 	async _onDrop(event, data) {
+		if(!event.originalEvent) return
+		if(!event.originalEvent.dataTransfer) return
+
 		let dragData = JSON.parse(event.originalEvent.dataTransfer.getData('text/plain'))
 
 		console.log('Aegean | ItemSheet::_onDrop => dragData', dragData)
@@ -59,12 +99,26 @@ export class AegeanItemSheet extends ItemSheet {
 		console.log('Aegean | ItemSheet::_onDrop => dragItem', dragItem)
 
 		if(isEquipment(this.item.type) && dragItem.type === 'property') {
-			// TODO if the property exists don't add it unless...
-			// TODO the property is ranked, in which case increase its rank
+			const currentProperties = this.item.system.equipment.Properties.value
+			const existing = currentProperties.find(property => property.id === dragItem.id)
 
-			this.item.update({
-				'system.equipment.Properties.value': [ dragItem ]
-			})
+			// the property already exists
+			if(existing) {
+				// it's not ranked so don't add it
+				if(dragItem.system.stats.Ranked.value !== true) return
+
+				// increase the rank and update
+				existing.rating++
+
+				this.item.update({
+					'system.equipment.Properties.value': [ ...currentProperties ]
+				})
+			}
+			else {
+				this.item.update({
+					'system.equipment.Properties.value': [ ...currentProperties, { id: dragItem.id, rating: 1 } ]
+				})
+			}
 		}
 	}
 }

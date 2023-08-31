@@ -114,6 +114,11 @@
 	margin-right: 0;
 }
 
+/* Property rating */
+.rating-input {
+	max-width: 30px;
+}
+
 /* Built-in editor */
 .aegean .editor {
 	margin-bottom: var(--spacing-1);

@@ -1,0 +1,13 @@
+
+.aegean .action {
+	display: inline-block;
+	padding: var(--spacing-1) var(--spacing-2);
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+	border: 1px solid var(--base-bg);
+	border-radius: 0.2rem;
+}
+.aegean .action:hover {
+	background-color: var(--grey-light);
+	border-color: var(--grey-mid);
+}
