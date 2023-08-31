@@ -5,9 +5,17 @@ import { isEquipment } from '../helpers/utils.js'
 export class AegeanItemSheet extends ItemSheet {
 	async getData() {
 		const context = super.getData();
+		const item = this.item.toObject(false)
 
-		context.system = this.item.toObject(false).system
-		context.system.Description.value = await TextEditor.enrichHTML(context.system.Description.value, { async: true });
+		console.log(item)
+
+		context.system = item.system
+		context.system.Description.value = await TextEditor.enrichHTML(context.system.Description.value, { async: true })
+
+		if(isEquipment(item.type)) {
+			context.properties = item.system.equipment.Properties.value || []
+		}
+
 		context.config = AEGEAN
 
 		console.log('Aegean | ItemSheet::getData', context)
@@ -30,28 +38,33 @@ export class AegeanItemSheet extends ItemSheet {
 	}
 
 	activateListeners(html) {
-		super.activateListeners(html);
+		super.activateListeners(html)
 
-		// Everything below here is only needed if the sheet is editable
-		if (!this.isEditable) return;
+		if (!this.isEditable) return
 
-		// Roll handlers, click handlers, etc. would go here.
+		// enable drag drop for items
+		html.on('drop', this._onDrop.bind(this))
 	}
 
-	// THIS DOESN'T SEEM TO FIRE!
 	async _onDrop(event, data) {
-		let dragData = JSON.parse(event.dataTransfer.getData('text/plain'))
+		let dragData = JSON.parse(event.originalEvent.dataTransfer.getData('text/plain'))
+
+		console.log('Aegean | ItemSheet::_onDrop => dragData', dragData)
+
+		if(!dragData.uuid.startsWith('Item.')) return
 
 		// load the item by uuid (remove the Item prefix)
 		const dragItem = game.items.get(dragData.uuid.replace('Item.', ''))
 
-		console.log('Aegean | ItemSheet::_onDropItem => dragData', dragData)
-		console.log('Aegean | ItemSheet::_onDropItem => dragItem', dragItem)
+		console.log('Aegean | ItemSheet::_onDrop => dragItem', dragItem)
 
-		console.log(this.item.type)
+		if(isEquipment(this.item.type) && dragItem.type === 'property') {
+			// TODO if the property exists don't add it unless...
+			// TODO the property is ranked, in which case increase its rank
 
-		if(isEquipment(this.item.type)) {
-
+			this.item.update({
+				'system.equipment.Properties.value': [ dragItem ]
+			})
 		}
 	}
 }

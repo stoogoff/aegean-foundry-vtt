@@ -1,11 +1,29 @@
-<div class="talents">
+<div class="properties">
 	{{#if properties}}
-		{{#each properties as |property key|}}
-			<div class="talent">
-				<h3 class="text-left">{{ property.name }}</h3>
-				{{{ property.system.Description.value }}}
-			</div>
-		{{/each}}
+		<table>
+			<thead>
+				<tr>
+					<th>{{ localize "aegean.equipment.Property" }}</th>
+					<th>{{ localize "aegean.system.Active" }}</th>
+					<th>{{ localize "aegean.system.Rating" }}</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each properties as |property key|}}
+					<tr>
+						<td>{{ property.name }}</td>
+						<td>{{ property.system.stats.Active.value }}</td>
+						<td>
+							{{#if property.system.stats.Ranked.value}}
+								<input type="text" />
+							{{/if}}
+						</td>
+						<td>Delete</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
 	{{else}}
 		<p class="note">{{ localize "aegean.equipment.PropertiesNone" }}</p>
 	{{/if}}
