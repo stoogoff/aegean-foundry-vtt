@@ -1,8 +1,21 @@
-/**
- * Extend the basic Item with some very simple modifications.
- * @extends {Item}
- */
+
+import { isEquipment } from '../helpers/utils.js'
+
 export class AegeanItem extends Item {
+  get properties() {
+    if(isEquipment(this.type)) {
+      const currentProperties = this.system.equipment.Properties.value
+
+      return currentProperties.map(prop => ({ rating: prop.rating, property: game.items.get(prop.id) }))
+    }
+
+    return []
+  }
+
+  get shortProperties() {
+    return this.properties.map(({ rating, property }) => property.system.stats.Ranked.value ? `${property.name} ${rating}` : property.name)
+  }
+
   /**
    * Augment the basic Item data model with additional dynamic data.
    */

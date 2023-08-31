@@ -30,7 +30,11 @@
 	--spacing-3: 0.75rem;
 	--spacing-4: 1rem;
 	--spacing-5: 1.25rem;
+	--spacing-6: 1.5rem;
+	--spacing-7: 1.75rem;
+	--spacing-8: 2rem;
 
+	--font-xs: 0.6rem;
 	--font-sm: 0.8rem;
 	--font-mid: 1rem;
 	--font-lg: 1.125rem;
@@ -157,6 +161,7 @@
 }
 .aegean table td {
 	padding: var(--spacing) var(--spacing-2);
+	border-bottom: var(--border);
 }
 
 /* this should go elsewhere */

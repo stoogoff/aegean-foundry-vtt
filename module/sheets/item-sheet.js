@@ -7,36 +7,12 @@ export class AegeanItemSheet extends ItemSheet {
 		const context = super.getData();
 		const item = this.item.toObject(false)
 
+		context.config = AEGEAN
 		context.system = item.system
 		context.system.Description.value = await TextEditor.enrichHTML(context.system.Description.value, { async: true })
-
-		if(isEquipment(item.type)) {
-			const currentProperties = item.system.equipment.Properties.value
-			console.log('game.items', game.items)
-			const allProperties = game.items.filter(item => item.type === 'property')
-
-			console.log('allProperties', allProperties)
-
-			context.properties = currentProperties.map(prop => ({ rating: prop.rating, property: game.items.get(prop.id) }))
-		}
-
-		context.config = AEGEAN
+		context.properties = this.item.properties
 
 		console.log('Aegean | ItemSheet::getData', context)
-
-		/*// Use a safe clone of the item data for further operations.
-		const itemData = context.item.data;
-
-		// Retrieve the roll data for TinyMCE editors.
-		context.rollData = {};
-		let actor = this.object?.parent ?? null;
-		if (actor) {
-			context.rollData = actor.getRollData();
-		}
-
-		// Add the actor's data to context.data for easier access, as well as flags.
-		context.data = itemData.data;
-		context.flags = itemData.flags;*/
 
 		return context;
 	}

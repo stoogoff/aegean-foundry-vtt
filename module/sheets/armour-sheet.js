@@ -9,11 +9,6 @@ export class AegeanArmourSheet extends AegeanItemSheet {
 			width: 520,
 			height: 520,
 			tabs: [],
-			dragDrop: [
-				{
-					dragSelector: '.item-list .list-item',
-				},
-			],
 		})
 	}
 }

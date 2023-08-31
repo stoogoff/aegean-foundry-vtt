@@ -7,7 +7,8 @@
 					<th class="text-left">{{ localize "aegean.equipment.Availability" }}</th>
 					<th class="text-right">{{ localize "aegean.equipment.Price" }}</th>
 					<th class="text-right">{{ localize "aegean.equipment.Weight" }}</th>
-					<th class="text-right">{{ localize "aegean.equipment.Properties" }}</th>
+					<th class="text-left">{{ localize "aegean.equipment.Properties" }}</th>
+					<th>&nbsp;</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -17,7 +18,8 @@
 						<td>{{ item.system.equipment.Availability.value }}</td>
 						<td class="text-right">{{ item.system.equipment.Price.value }}</td>
 						<td class="text-right">{{ item.system.equipment.Weight.value }}</td>
-						<td></td>
+						<td>{{join item.shortProperties}}</td>
+						<td>{{> systems/aegean/templates/partials/action.hbs action="delete-equipment" id=item.id icon="fa-trash" }}</td>
 					</tr>
 				{{/each}}
 			</tbody>
@@ -25,14 +27,9 @@
 	</div>
 	<aside>
 		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.attributes.Standing.label
-			value=system.attributes.Standing.value
-			name="system.attributes.Standing.value"
-		}}
-		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.equipment.Drakhmae.label
-			value=system.equipment.Drakhmae.value
-			name="system.equipment.Drakhmae.value"
+			label=system.consumables.Drakhmae.label
+			value=system.consumables.Drakhmae.value
+			name="system.consumables.Drakhmae.value"
 		}}
 		{{> systems/aegean/templates/partials/box-input.hbs
 			label="aegean.equipment.Encumbrance"
@@ -40,14 +37,14 @@
 			readonly=true
 		}}
 		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.equipment.AmmoLoads.label
-			value=system.equipment.AmmoLoads.value
-			name="system.equipment.AmmoLoads.value"
+			label=system.consumables.AmmoLoads.label
+			value=system.consumables.AmmoLoads.value
+			name="system.consumables.AmmoLoads.value"
 		}}
 		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.equipment.HerbalistDoses.label
-			value=system.equipment.HerbalistDoses.value
-			name="system.equipment.HerbalistDoses.value"
+			label=system.consumables.HerbalistDoses.label
+			value=system.consumables.HerbalistDoses.value
+			name="system.consumables.HerbalistDoses.value"
 		}}
 	</aside>
 </div>

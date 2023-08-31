@@ -182,6 +182,20 @@
 					"label": "aegean.attributes.Oracle",
 					"value": 0
 				}
+			},
+			"consumables": {
+				"Drakhmae": {
+					"label": "aegean.system.Drakhmae",
+					"value": 0
+				},
+				"AmmoLoads": {
+					"label": "aegean.system.AmmoLoads",
+					"value": 0
+				},
+				"HerbalistDoses": {
+					"label": "aegean.system.HerbalistDoses",
+					"value": 0
+				}
 			}
 		}
 	},

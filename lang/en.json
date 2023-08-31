@@ -72,6 +72,7 @@
 		"system": {
 			"Active": "Active",
 			"ActivePropertyNote": "If a property is Active the character must *invoke the Fates* to gain its benefits.",
+			"AmmoLoads": "Ammo",
 			"Attributes": "Attributes",
 			"Characteristics": "Characteristics",
 			"Description": "Description",
@@ -79,6 +80,7 @@
 			"Equipment": "Equipment",
 			"Gifts": "Gifts",
 			"GiftsTalents": "Gifts and Talents",
+			"HerbalistDoses": "Doses",
 			"Multiple": "Multiple",
 			"Name": "Name",
 			"Ranked": "Ranked",
@@ -91,6 +93,7 @@
 			"Skills": "Skills",
 			"Talent": "Talent",
 			"Talents": "Talents",
+			"TalentsNone": "This character has no Gifts or Talents.",
 			"Title": "Title"
 		},
 		"ui": {

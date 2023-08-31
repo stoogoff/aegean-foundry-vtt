@@ -63,6 +63,8 @@ Hooks.once('init', async function() {
 
 	loadTemplates([
 		// global partials
+		'systems/aegean/templates/partials/accordion.hbs',
+		'systems/aegean/templates/partials/action.hbs',
 		'systems/aegean/templates/partials/box-input.hbs',
 		'systems/aegean/templates/partials/checkbox.hbs',
 		'systems/aegean/templates/partials/form-input.hbs',
@@ -90,6 +92,10 @@ Hooks.once('init', async function() {
 		args.pop()
 
 		return args.join('')
+	})
+
+	Handlebars.registerHelper('join', function(array) {
+		return array.join(', ')
 	})
 })
 

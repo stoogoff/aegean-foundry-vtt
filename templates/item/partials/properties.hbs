@@ -27,7 +27,7 @@
 								n/a
 							{{/if}}
 						</td>
-						<td><span class="action delete-property" data-id="{{ prop.property.id }}"><i class="fas fa-trash"></i></span></td>
+						<td>{{> systems/aegean/templates/partials/action.hbs action="delete-property" id=prop.property.id icon="fa-trash" }}</td>
 					</tr>
 				{{/each}}
 			</tbody>

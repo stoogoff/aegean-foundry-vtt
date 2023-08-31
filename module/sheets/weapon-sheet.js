@@ -9,11 +9,6 @@ export class AegeanWeaponSheet extends AegeanItemSheet {
 			width: 520,
 			height: 480,
 			tabs: [],
-			dragDrop: [
-				{
-					dragSelector: '.item-list .item',
-				},
-			],
 		})
 	}
 }

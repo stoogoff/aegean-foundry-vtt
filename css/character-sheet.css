@@ -15,12 +15,13 @@
 	background-color: var(--grey-light);
 }
 
-
-/* Talents */
-.aegean .character-sheet .talent {
-	border-bottom: 1px solid var(--grey-mid);
-	margin-bottom: var(--spacing-4);
+.talents .accordion-activator {
+	display: flex;
+	align-items: center;
 }
-.aegean .character-sheet .talent:last-of-type {
-	border-bottom: 0;
+.talents .accordion-activator .action-bar {
+	flex-grow: 2;
+}
+.talents .accordion-activator .action {
+	float: right;
 }

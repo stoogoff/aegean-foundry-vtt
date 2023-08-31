@@ -1,0 +1,46 @@
+
+/* Accordions */
+
+.accordion {
+	margin-bottom: var(--spacing-4);
+	padding-bottom: var(--spacing-2);
+	border-bottom: 1px solid var(--grey-mid);
+}
+
+.accordion .accordion-activator label {
+	cursor: pointer;
+	color: var(--grey-dark);
+	text-transform: uppercase;
+}
+.accordion .accordion-activator::before {
+	content: "";
+	font-family: FontAwesome;
+	font-weight: bold;
+	font-size: var(--font-xs);
+	color: var(--grey-mid);
+	margin-right: var(--spacing-2);
+	position: relative;
+	top: -3px;
+	left: 2px;
+	transition: rotate 0.5s ease-in-out;
+}
+
+.accordion input[type=checkbox] {
+	display: none;
+}
+
+.accordion-content {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease-in-out;
+	padding-left: var(--spacing-4);
+	box-sizing: border-box;
+}
+
+.accordion input[type=checkbox]:checked + .accordion-activator + .accordion-content {
+	max-height: 1000px;
+}
+
+.accordion input[type=checkbox]:checked + .accordion-activator:before {
+	transform: rotate(90deg);
+}

@@ -1,8 +1,20 @@
 <div class="talents">
-	{{#each talents as |talent key|}}
-		<div class="talent">
-			<h3 class="text-left">{{ talent.name }}</h3>
-			{{{ talent.system.Description.value }}}
-		</div>
-	{{/each}}
+	{{#if talents}}
+		{{#each talents as |talent key|}}
+			<div class="accordion">
+				<input type="checkbox" id="{{ talent.id }}" />
+				<div class="accordion-activator">
+					<label for="{{ talent.id }}">{{ talent.name }}</label>
+					<div class="action-bar">
+						{{> systems/aegean/templates/partials/action.hbs action="delete-talent" id=talent.id icon="fa-trash"}}
+					</div>
+				</div>
+				<div class="accordion-content">
+					{{{ talent.system.Description.value }}}
+				</div>
+			</div>
+		{{/each}}
+	{{else}}
+		<p class="note">{{ localize "aegean.system.TalentsNone" }}</p>
+	{{/if}}
 </div>
