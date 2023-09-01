@@ -121,10 +121,7 @@
 
 /* Large panel with box-input sidebar */
 .aegean .column-panel {
-	grid-template-columns: auto 120px;
-}
-.aegean .column-panel aside {
-	margin-top: var(--spacing-4);
+	grid-template-columns: auto 141px;
 }
 .aegean .column-panel aside .box-input {
 	margin-bottom: var(--spacing-4);
@@ -151,6 +148,7 @@
 .aegean table {
 	width: 100%;
 	background-color: var(--base-bg);
+	margin-top: 0;
 }
 .aegean table th {
 	text-transform: uppercase;

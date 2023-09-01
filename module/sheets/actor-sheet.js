@@ -9,7 +9,12 @@ export class AegeanActorSheet extends ActorSheet {
 			classes: ['aegean', 'sheet', 'actor'],
 			template: 'systems/aegean/templates/actor/actor-character-sheet.html',
 			width: 800,
-			height: 600
+			height: 600,
+			tabs: [{
+				navSelector: '.tab-group',
+				contentSelector: '.tab-panel',
+				initial: 'character_stats',
+			}],
 		})
 	}
 

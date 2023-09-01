@@ -10,6 +10,9 @@
 	border-top: var(--border);
 	order: 99;
 }
+.aegean .tab-panel.active {
+	display: block;
+}
 
 /* Group */
 .aegean .tab-group {
@@ -38,11 +41,7 @@
 	display: none;
 }
 
-.aegean .tab-group input[type=radio]:checked + .tab-item {
+.aegean .tab-group .tab-item.active {
 	background-color: var(--invert-bg);
 	color: var(--invert-fg);
-}
-
-.aegean .tab-group input[type=radio]:checked + .tab-item + .tab-panel {
-	display: block;
 }

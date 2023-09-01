@@ -8,7 +8,11 @@ export class AegeanArmourSheet extends AegeanItemSheet {
 			template: 'systems/aegean/templates/item/armour-sheet.html',
 			width: 520,
 			height: 520,
-			tabs: [],
+			tabs: [{
+				navSelector: '.tab-group',
+				contentSelector: '.tab-panel',
+				initial: 'armour_equipment',
+			}],
 		})
 	}
 }

@@ -1,5 +1,4 @@
-<input type="radio" id="{{ id }}" name="{{ group }}" {{#if checked}}checked{{/if}} />
-<label class="tab-item" for="{{ id }}">{{ localize label }}</label>
-<section class="tab-panel">
+<label class="tab-item" data-tab="{{ id }}" for="{{ id }}">{{ localize label }}{{#if count}} ({{ count }}){{/if}}</label>
+<section class="tab-panel" data-tab="{{ id }}">
 	{{> @partial-block }}
 </section>

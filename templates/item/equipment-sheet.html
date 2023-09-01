@@ -6,8 +6,6 @@
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="equipment_equipment"
 				label="aegean.system.Equipment"
-				group="tab_equipment"
-				checked=true
 			}}
 				{{> systems/aegean/templates/item/partials/equipment.hbs }}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
@@ -15,7 +13,7 @@
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="equipment_properties"
 				label="aegean.equipment.Properties"
-				group="tab_equipment"
+				count=properties.length
 			}}
 				{{> systems/aegean/templates/item/partials/properties.hbs }}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}

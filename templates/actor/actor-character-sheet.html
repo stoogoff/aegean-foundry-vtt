@@ -3,43 +3,40 @@
 		{{> systems/aegean/templates/actor/partials/header-section.hbs }}
 
 		<div class="tab-group">
+			<!-- stats -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="character_stats"
 				label="aegean.ui.Stats"
-				group="tab_character_stats"
-				checked=true
 			}}
 				{{> systems/aegean/templates/actor/partials/character-stats.hbs }}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
-
+			<!-- combat -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="character_combat"
 				label="aegean.ui.Combat"
-				group="tab_character_stats"
 			}}
 				Combat
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
-
+			<!-- equipment -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="character_equipment"
 				label="aegean.system.Equipment"
-				group="tab_character_stats"
+				count=equipment.length
 			}}
 				{{> systems/aegean/templates/actor/partials/equipment.hbs }}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
-
+			<!-- talents -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="character_talents"
 				label="aegean.ui.Talents"
-				group="tab_character_stats"
+				count=talents.length
 			}}
 				{{> systems/aegean/templates/actor/partials/talents.hbs }}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
-
+			<!-- background -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="character_background"
 				label="aegean.ui.Background"
-				group="tab_character_stats"
 			}}
 				{{> systems/aegean/templates/actor/partials/background.hbs }}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
