@@ -97,6 +97,7 @@
 			"Title": "Title"
 		},
 		"ui": {
+			"Add": "Add",
 			"Background": "Background",
 			"CharacterSheet": "Character Sheet",
 			"Combat": "Combat",

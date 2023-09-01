@@ -4,7 +4,7 @@
 .accordion {
 	margin-bottom: var(--spacing-4);
 	padding-bottom: var(--spacing-2);
-	border-bottom: 1px solid var(--grey-mid);
+	border-bottom: var(--border-light);
 }
 
 .accordion .accordion-bar .accordion-activator {

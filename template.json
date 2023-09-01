@@ -148,12 +148,8 @@
 					"label": "aegean.character.Fate",
 					"value": ""
 				},
-				"Careers": {
-					"label": "aegean.character.Careers",
-					"value": []
-				},
-				"MysteryCults": {
-					"label": "aegean.character.MysteryCults",
+				"Relationships": {
+					"label": "aegean.character.Relationships",
 					"value": []
 				}
 			},

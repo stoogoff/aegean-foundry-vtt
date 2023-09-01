@@ -19,13 +19,27 @@
 	margin-top: var(--spacing-8);
 }
 
-.talents .accordion-bar {
+/* Talents overrides */
+.aegean .talents .accordion-bar {
 	display: flex;
 	align-items: center;
 }
-.talents .accordion-bar .action-bar {
+.aegean .talents .accordion-bar .action-bar {
 	flex-grow: 2;
 }
-.talents .accordion-bar .action {
+.aegean .talents .accordion-bar .action {
 	float: right;
+}
+
+.aegean .relationships ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.aegean .relationships ul li {
+	border-bottom: var(--border-light);
+	padding: var(--spacing-1) 0;
+}
+.aegean .relationships ul li:last-child {
+	border: 0;
 }

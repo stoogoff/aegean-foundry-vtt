@@ -57,10 +57,7 @@ export class AegeanActorSheet extends ActorSheet {
 
 		// enable accordions
 		html.find('.accordion-activator').click(event => {
-			console.log('Aegean | accordion activator')
-
 			$(event.currentTarget).closest('.accordion').toggleClass('active')
-			//event.currentTarget.classList.toggle('active')
 		})
 	}
 

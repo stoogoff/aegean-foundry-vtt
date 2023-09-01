@@ -11,8 +11,6 @@
 
 
 .aegean {
-	--border: 1px solid black;
-
 	--grey-50: #F9FAFB;
 	--grey-100: #F3F4F6;
 	--grey-200: #E5E7EB;
@@ -53,6 +51,9 @@
 
 	--input-hover-bg: rgba(0,0,0,0.1);
 	--input-focus-border: 1px solid blue;
+
+	--border: 1px solid black;
+	--border-light: 1px solid var(--grey-mid);
 }
 
 /* general styling */
@@ -119,6 +120,13 @@
 	grid-template-columns: 3fr 1fr;
 }
 
+.aegean .flex {
+	display: flex;
+}
+.aegean .flex-end {
+	justify-content: flex-end;
+}
+
 /* Large panel with box-input sidebar */
 .aegean .column-panel {
 	grid-template-columns: auto 141px;
@@ -127,7 +135,7 @@
 	margin-bottom: var(--spacing-4);
 }
 
-/* Text alignment */
+/* Text modifiers */
 .aegean .text-right {
 	text-align: right;
 }
@@ -137,6 +145,27 @@
 .aegean .text-centre {
 	text-align: center;
 }
+.aegean .uppercase {
+	text-transform: uppercase;
+}
+.aegean .lowercase {
+	text-transform: lowercase;
+}
+.font-xs {
+	font-size: var(--font-xs);
+}
+.font-sm {
+	font-size: var(--font-sm);
+}
+.font-mid {
+	font-size: var(--font-mid);
+}
+.font-lg {
+	font-size: var(--font-lg);
+}
+.font-xl {
+	font-size: var(--font-xl);
+}
 
 /* Common utilities */
 .aegean .note {
@@ -144,7 +173,12 @@
 	font-style: italic;
 	line-height: 1.1em;
 }
+.aegean .boxed {
+	border: var(--border);
+	padding: var(--spacing-2);
+}
 
+/* Tables */
 .aegean table {
 	width: 100%;
 	background-color: var(--base-bg);
