@@ -13,3 +13,12 @@
 	background-color: var(--grey-light);
 	border-color: var(--grey-mid);
 }
+
+.aegean .action.disabled {
+	cursor: default;
+	color: var(--grey-mid);
+}
+.aegean .action.disabled:hover {
+	background-color: var(--base-bg);
+	border-color: var(--base-bg);
+}

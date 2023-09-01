@@ -1,5 +1,5 @@
 
-import { isEquipment } from '../helpers/utils.js'
+import { isEquipment, parseObject } from '../helpers/utils.js'
 
 export class AegeanItem extends Item {
   get properties() {
@@ -14,6 +14,10 @@ export class AegeanItem extends Item {
 
   get shortProperties() {
     return this.properties.map(({ rating, property }) => property.system.stats.Ranked.value ? `${property.name} ${rating}` : property.name)
+  }
+
+  getValueFromKey(key) {
+    return parseObject(key, this)
   }
 
   /**

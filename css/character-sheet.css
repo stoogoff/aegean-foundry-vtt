@@ -30,16 +30,3 @@
 .aegean .talents .accordion-bar .action {
 	float: right;
 }
-
-.aegean .relationships ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-.aegean .relationships ul li {
-	border-bottom: var(--border-light);
-	padding: var(--spacing-1) 0;
-}
-.aegean .relationships ul li:last-child {
-	border: 0;
-}

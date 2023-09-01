@@ -1,4 +1,10 @@
 <div class="form-input">
 	<label for="{{ name }}" class="label">{{ localize label }}</label>
-	<input type="text" value="{{ value }}" name="{{ name }}" id="{{ name }}" />
+	<input
+		type="text"
+		value="{{ value }}"
+		name="{{ name }}"
+		id="{{ name }}"
+		{{#if placeholder}}placeholder="{{ localize placeholder }}"{{/if}}
+	/>
 </div>

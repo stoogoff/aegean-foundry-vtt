@@ -1,4 +1,4 @@
-<span class="action {{ action }}" data-id="{{ id }}">
+<span class="action {{ action }} {{#if disabled}}disabled{{/if}}" data-id="{{ id }}">
 	<i class="fas {{ icon }}"></i>
 	{{#if text}}
 		<span class="uppercase font-sm">{{ localize text }}</span>

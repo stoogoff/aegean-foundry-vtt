@@ -196,6 +196,23 @@
 	border-bottom: var(--border);
 }
 
+/* Lists */
+.aegean ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.aegean ul li {
+	border-bottom: var(--border-light);
+	padding: var(--spacing-1) var(--spacing-2);
+}
+.aegean ul li:last-child {
+	border: 0;
+}
+
+
+
+
 /* this should go elsewhere */
 .aegean .skills {
 	border: var(--border);

@@ -6,6 +6,7 @@ import { AegeanItem } from './documents/item.js'
 // sheets
 import { AegeanActorSheet } from './sheets/actor-sheet.js'
 import { AegeanArmourSheet } from './sheets/armour-sheet.js'
+import { AegeanDeitySheet } from './sheets/deity-sheet.js'
 import { AegeanEquipmentSheet } from './sheets/equipment-sheet.js'
 import { AegeanPropertySheet } from './sheets/property-sheet.js'
 import { AegeanTalentSheet } from './sheets/talent-sheet.js'
@@ -40,6 +41,11 @@ Hooks.once('init', async function() {
 		types: ['armour'],
 		makeDefault: true,
 	})
+	Items.registerSheet('Aegean', AegeanDeitySheet, {
+		label: game.i18n.localize('aegean.system.Deity'),
+		types: ['deity'],
+		makeDefault: true,
+	})
 	Items.registerSheet('Aegean', AegeanEquipmentSheet, {
 		label: game.i18n.localize('aegean.system.Equipment'),
 		types: ['equipment'],
@@ -68,7 +74,8 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/partials/box-input.hbs',
 		'systems/aegean/templates/partials/checkbox.hbs',
 		'systems/aegean/templates/partials/form-input.hbs',
-		//'systems/aegean/templates/partials/multi-select-input.hbs',
+		'systems/aegean/templates/partials/multi-select-input.hbs',
+		'systems/aegean/templates/partials/multi-text-input.hbs',
 		'systems/aegean/templates/partials/select-input.hbs',
 		'systems/aegean/templates/partials/skill-input.hbs',
 		'systems/aegean/templates/partials/tab-panel.hbs',
@@ -97,6 +104,17 @@ Hooks.once('init', async function() {
 	Handlebars.registerHelper('join', function(array) {
 		return array.join(', ')
 	})
+
+	Handlebars.registerHelper('join', function(array) {
+		return array.join(', ')
+	})
+
+	// comparison functions
+	Handlebars.registerHelper('eq', (val1, val2) => val1 === val2)
+	Handlebars.registerHelper('lt', (val1, val2) => val1 < val2)
+	Handlebars.registerHelper('lte', (val1, val2) => val1 <= val2)
+	Handlebars.registerHelper('gt', (val1, val2) => val1 > val2)
+	Handlebars.registerHelper('gte', (val1, val2) => val1 >= val2)
 })
 
 

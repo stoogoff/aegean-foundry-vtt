@@ -1,11 +1,7 @@
-<div class="multi-select-input">
-	<div class="select-input form-input ">
+<div class="multi-text-input">
+	<div class="form-input">
 		<label class="label" for="{{ name }}">{{ localize label }}</label>
-		<select id="{{ name }}">
-			{{#each options}}
-				<option value="{{ . }}">{{ . }}</option>
-			{{/each}}
-		</select>
+		<input type="text" id="{{ name }}" />
 		{{> systems/aegean/templates/partials/action.hbs action="add-multi-select" id=name icon="fa-plus" disabled=(gte selection.length limit)}}
 	</div>
 	<ul class="multi-input-display">

@@ -196,7 +196,7 @@
 		}
 	},
 	"Item": {
-		"types": ["property", "talent", "equipment", "armour", "weapon"],
+		"types": ["property", "talent", "equipment", "armour", "weapon", "deity"],
 		"templates": {
 			"base": {
 				"Description": {
@@ -285,6 +285,27 @@
 				"Armour": {
 					"label": "aegean.combat.Armour",
 					"value": 0
+				}
+			}
+		},
+		"deity": {
+			"templates": ["base"],
+			"stats": {
+				"Skills": {
+					"label": "aegean.system.Skills",
+					"value": []
+				},
+				"Specialisation": {
+					"label": "aegean.system.Specialisation",
+					"value": ""
+				},
+				"Characteristics": {
+					"label": "aegean.system.Characteristics",
+					"value": []
+				},
+				"Symbols": {
+					"label": "aegean.system.Symbols",
+					"value": []
 				}
 			}
 		}

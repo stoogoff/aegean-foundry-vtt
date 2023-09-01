@@ -1,0 +1,53 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<article class="deity-sheet">
+		{{> systems/aegean/templates/item/partials/header-section.hbs }}
+
+		<div class="tab-group">
+			<!-- stats -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="deity_stats"
+				label="aegean.ui.Stats"
+			}}
+				<div class="grid grid-cols-2">
+					<div>
+						{{> systems/aegean/templates/partials/multi-select-input.hbs
+							label=system.stats.Skills.label
+							selection=system.stats.Skills.value
+							name="system_stats_Skills_value"
+							options=config.skills
+							limit=3
+						}}
+						<p class="note">{{ localize "aegean.system.DeitySkillSelectNote" }}</p>
+					</div>
+					<div>
+						{{> systems/aegean/templates/partials/multi-select-input.hbs
+							label=system.stats.Characteristics.label
+							selection=system.stats.Characteristics.value
+							name="system_stats_Characteristics_value"
+							options=config.characteristics
+							limit=2
+						}}
+						<p class="note">{{ localize "aegean.system.DeityCharacteristicSelectNote" }}</p>
+					</div>
+				</div>
+
+				{{> systems/aegean/templates/partials/form-input.hbs
+					label=system.stats.Specialisation.label
+					value=system.stats.Specialisation.value
+					name="system.stats.Specialisation.value"
+					placeholder="aegean.ui.SpecialisationPlaceholder"
+				}}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			<!-- symbols -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="deity_symbols"
+				label="aegean.ui.Symbols"
+			}}
+				{{> systems/aegean/templates/partials/multi-text-input.hbs
+					label=system.stats.Symbols.label
+					selection=system.stats.Symbols.value
+					name="system_stats_Symbols_value"
+				}}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+	</article>
+</form>

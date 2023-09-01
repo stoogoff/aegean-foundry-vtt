@@ -63,17 +63,21 @@
 	padding: var(--spacing-1) var(--spacing-2) 0;
 }
 
-/* Select input */
-.aegean .select-input {
-	padding: var(--spacing-1) 0;
-}
+/* Select and multi select inputs */
 .aegean .select-input select {
 	display: block;
-	margin-top: var(--spacing-1);
 	width: 100%;
 	background-color: var(--base-bg);
 	color: var(--base-fg);
 	border: var(--border);
+}
+.aegean .multi-select-input select {
+	margin-right: var(--spacing-2);
+}
+.aegean .multi-input-display li {
+	display: grid;
+	grid-template-columns: auto 30px;
+	align-items: center;
 }
 
 /* Skill input */
@@ -123,7 +127,6 @@
 .aegean .editor {
 	margin-bottom: var(--spacing-1);
 	min-height: 50px;
-	border-bottom: var(--border);
 }
 .aegean .tox {
 	min-height: 150px;
