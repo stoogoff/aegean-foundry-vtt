@@ -7,12 +7,12 @@
 	border-bottom: 1px solid var(--grey-mid);
 }
 
-.accordion .accordion-activator label {
+.accordion .accordion-bar .accordion-activator {
 	cursor: pointer;
 	color: var(--grey-dark);
 	text-transform: uppercase;
 }
-.accordion .accordion-activator::before {
+.accordion .accordion-bar::before {
 	content: "";
 	font-family: FontAwesome;
 	font-weight: bold;
@@ -25,10 +25,6 @@
 	transition: rotate 0.5s ease-in-out;
 }
 
-.accordion input[type=checkbox] {
-	display: none;
-}
-
 .accordion-content {
 	max-height: 0;
 	overflow: hidden;
@@ -37,10 +33,10 @@
 	box-sizing: border-box;
 }
 
-.accordion input[type=checkbox]:checked + .accordion-activator + .accordion-content {
+.accordion.active .accordion-content {
 	max-height: 1000px;
 }
 
-.accordion input[type=checkbox]:checked + .accordion-activator:before {
+.accordion.active .accordion-bar:before {
 	transform: rotate(90deg);
 }

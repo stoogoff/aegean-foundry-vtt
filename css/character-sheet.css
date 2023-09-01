@@ -15,13 +15,17 @@
 	background-color: var(--grey-light);
 }
 
-.talents .accordion-activator {
+.aegean .character-stats .column-panel aside h3 {
+	margin-top: var(--spacing-8);
+}
+
+.talents .accordion-bar {
 	display: flex;
 	align-items: center;
 }
-.talents .accordion-activator .action-bar {
+.talents .accordion-bar .action-bar {
 	flex-grow: 2;
 }
-.talents .accordion-activator .action {
+.talents .accordion-bar .action {
 	float: right;
 }

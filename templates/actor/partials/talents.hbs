@@ -2,9 +2,8 @@
 	{{#if talents}}
 		{{#each talents as |talent key|}}
 			<div class="accordion">
-				<input type="checkbox" id="{{ talent.id }}" />
-				<div class="accordion-activator">
-					<label for="{{ talent.id }}">{{ talent.name }}</label>
+				<div class="accordion-bar">
+					<span class="accordion-activator">{{ talent.name }}</span>
 					<div class="action-bar">
 						{{> systems/aegean/templates/partials/action.hbs action="delete-talent" id=talent.id icon="fa-trash"}}
 					</div>

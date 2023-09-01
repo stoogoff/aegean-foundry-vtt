@@ -91,7 +91,7 @@
 	font-size: var(--font-mid);
 	line-height: 1.5em;
 	letter-spacing: 0.05em;
-	margin: var(--spacing-1) 0 var(--spacing);
+	margin: var(--spacing-2) 0 var(--spacing);
 	border: 0;
 }
 

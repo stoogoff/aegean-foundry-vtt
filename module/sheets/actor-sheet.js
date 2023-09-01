@@ -10,11 +10,13 @@ export class AegeanActorSheet extends ActorSheet {
 			template: 'systems/aegean/templates/actor/actor-character-sheet.html',
 			width: 800,
 			height: 600,
-			tabs: [{
-				navSelector: '.tab-group',
-				contentSelector: '.tab-panel',
-				initial: 'character_stats',
-			}],
+			tabs: [
+				{
+					navSelector: '.tab-group',
+					contentSelector: '.tab-panel',
+					initial: 'character_stats',
+				},
+			],
 		})
 	}
 
@@ -26,7 +28,7 @@ export class AegeanActorSheet extends ActorSheet {
 	/* -------------------------------------------- */
 
 	/** @override */
-	getData() {
+	async getData() {
 		const context = super.getData()
 		const actor = this.actor.toObject(false)
 
@@ -36,6 +38,8 @@ export class AegeanActorSheet extends ActorSheet {
 		context.armour = this.actor.armour
 		context.weapons = this.actor.weapons
 		context.equipment = this.actor.equipment.sort(sortByProperty('name'))
+
+		context.system.background.Fate.value = await TextEditor.enrichHTML(context.system.background.Fate.value, { async: true })
 
 		console.log('Aegean | ActorSheet::getData', context)
 
@@ -50,6 +54,14 @@ export class AegeanActorSheet extends ActorSheet {
 		// enable delete actions
 		html.find('.delete-equipment').click(this._deleteItem.bind(this))
 		html.find('.delete-talent').click(this._deleteItem.bind(this))
+
+		// enable accordions
+		html.find('.accordion-activator').click(event => {
+			console.log('Aegean | accordion activator')
+
+			$(event.currentTarget).closest('.accordion').toggleClass('active')
+			//event.currentTarget.classList.toggle('active')
+		})
 	}
 
 	_deleteItem(event) {

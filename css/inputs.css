@@ -123,4 +123,8 @@
 .aegean .editor {
 	margin-bottom: var(--spacing-1);
 	min-height: 50px;
+	border-bottom: var(--border);
+}
+.aegean .tox {
+	min-height: 150px;
 }
