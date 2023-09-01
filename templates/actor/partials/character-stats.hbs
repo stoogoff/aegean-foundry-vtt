@@ -11,14 +11,21 @@
 	</div>
 	<div class="grid column-panel">
 		<div class="skills">
-			<h3 class="text-left">{{ localize "aegean.system.Skills" }}</h3>
-			{{#each system.skills as |skill key|}}
-				{{> systems/aegean/templates/partials/skill-input.hbs
-					label=skill.label
-					value=skill.value
-					name=(concat "system.skills." key ".value")
-				}}
-			{{/each}}
+			<div class="grid grid-cols-2">
+				<div>
+					<h3 class="text-left">{{ localize "aegean.system.Skills" }}</h3>
+					{{#each system.skills as |skill key|}}
+						{{> systems/aegean/templates/partials/skill-input.hbs
+							label=skill.label
+							value=skill.value
+							name=(concat "system.skills." key ".value")
+						}}
+					{{/each}}
+				</div>
+				<div>
+					<h3 class="text-right">{{ localize "aegean.system.Specialisations" }}</h3>
+				</div>
+			</div>
 		</div>
 		<aside>
 			<h3>{{ localize "aegean.system.Attributes" }}</h3>

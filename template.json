@@ -306,6 +306,10 @@
 				"Symbols": {
 					"label": "aegean.system.Symbols",
 					"value": []
+				},
+				"Parent": {
+					"label": "aegean.system.DivineParent",
+					"value": false
 				}
 			}
 		}

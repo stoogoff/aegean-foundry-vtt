@@ -8,7 +8,11 @@ export class AegeanTalentSheet extends AegeanItemSheet {
 			template: 'systems/aegean/templates/item/talent-sheet.html',
 			width: 520,
 			height: 480,
-			tabs: [],
+			tabs: [{
+				navSelector: '.tab-group',
+				contentSelector: '.tab-panel',
+				initial: 'talent_talent',
+			}],
 		})
 	}
 }

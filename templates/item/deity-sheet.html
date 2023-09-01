@@ -30,12 +30,18 @@
 						<p class="note">{{ localize "aegean.system.DeityCharacteristicSelectNote" }}</p>
 					</div>
 				</div>
-
+				<!-- specialisation -->
 				{{> systems/aegean/templates/partials/form-input.hbs
 					label=system.stats.Specialisation.label
 					value=system.stats.Specialisation.value
 					name="system.stats.Specialisation.value"
 					placeholder="aegean.ui.SpecialisationPlaceholder"
+				}}
+				<!-- can be a parent or not -->
+				{{> systems/aegean/templates/partials/checkbox.hbs
+					label=system.stats.Parent.label
+					value=system.stats.Parent.value
+					name="system.stats.Parent.value"
 				}}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 			<!-- symbols -->
