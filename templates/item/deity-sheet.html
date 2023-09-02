@@ -48,6 +48,7 @@
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="deity_symbols"
 				label="aegean.ui.Symbols"
+				count=system.stats.Symbols.value.length
 			}}
 				{{> systems/aegean/templates/partials/multi-text-input.hbs
 					label=system.stats.Symbols.label

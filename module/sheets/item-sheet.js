@@ -28,8 +28,18 @@ export class AegeanItemSheet extends ItemSheet {
 		// enable delete actions
 		html.find('.delete-property').click(this._deleteProperty.bind(this))
 
-		// enable updating ratings
+		// enable updating ratings for equipment properties
 		html.find('.rating-input').change(this._updateRating.bind(this))
+
+		// enable checkboxes as having them in tabs breaks them for some reason
+		html.find('input[type=checkbox]').click(event => {
+			const key = $(event.currentTarget).attr('name')
+			const checked = $(event.currentTarget).is(':checked')
+
+			this.item.update({
+				[key]: checked
+			})
+		})
 	}
 
 	_deleteProperty(event) {
