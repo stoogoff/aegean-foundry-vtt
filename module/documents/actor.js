@@ -19,6 +19,10 @@ export class AegeanActor extends Actor {
 		return this.items.filter(item => isEquipment(item.type))
 	}
 
+	get advantages() {
+		return this.items.filter(item => item.type === 'advantage')
+	}
+
 	prepareData() {
 	// Prepare data for the actor. Calling the super version of this executes
 	// the following, in order: data reset (to clear active effects),

@@ -34,17 +34,6 @@
 			<label class="label">{{ localize "aegean.attributes.Fate" }}</label>
 			{{editor system.background.Fate.value target="system.background.Fate.value" button=true owner=owner editable=editable}}
 		</div>
-
-		<!-- multi-select-input
-			:label="system.background.Careers.label"
-			:items="careers"
-			v-model="system.background.Careers.value"
-		/>
-		<multi-select-input
-			:label="system.background.MysteryCults.label"
-			:items="mysteryCults"
-			v-model="system.background.MysteryCults.value"
-		/ -->
 	</div>
 	<div>
 		<div class="boxed relationships">
@@ -59,17 +48,13 @@
 				<li>
 					<i class="fas fa-caret-down"></i>
 					Kallikrates
-					{{> systems/aegean/templates/partials/action.hbs action="edit-relationship" id="kallikraates" icon="fa-pen-to-square"}}
-					{{> systems/aegean/templates/partials/action.hbs action="delete-relationship" id="kallikraates" icon="fa-trash" }}
+					{{> systems/aegean/templates/partials/action.hbs action="edit-relationship" id="kallikrates" icon="fa-pen-to-square"}}
+					{{> systems/aegean/templates/partials/action.hbs action="delete-relationship" id="kallikrates" icon="fa-trash" }}
 				</li>
 			</ul>
 			<div class="flex flex-end">
 				{{> systems/aegean/templates/partials/action.hbs action="add-relationship" id="relationship_add" icon="fa-plus" text="aegean.ui.Add" }}
 			</div>
-
-			{{!-- #each system.background.Relationships.value}}
-
-			{{/each --}}
 		</div>
 	</div>
 </div>

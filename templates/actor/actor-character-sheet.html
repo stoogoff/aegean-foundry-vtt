@@ -40,6 +40,16 @@
 			}}
 				{{> systems/aegean/templates/actor/partials/background.hbs }}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			<!-- advantages -->
+			{{#if advantages}}
+				{{#> systems/aegean/templates/partials/tab-panel.hbs
+					id="character_advantages"
+					label="aegean.ui.Advantages"
+					count=advantages.length
+				}}
+					{{> systems/aegean/templates/actor/partials/advantages.hbs }}
+				{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			{{/if}}
 		</div>
 	</article>
 </form>

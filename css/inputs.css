@@ -112,7 +112,7 @@
 	padding: var(--spacing) var(--spacing-1);
 	margin-right: var(--spacing-1);
 	background-color: var(--grey-light);
-	border-radius: 0.1rem;
+	border-radius: var(--border-radius);
 }
 .aegean ul.specialisations li:last-child {
 	margin-right: 0;
@@ -121,7 +121,6 @@
 /* Property rating */
 .rating-input {
 	max-width: 30px;
-	text-align: right;
 }
 
 /* Built-in editor */

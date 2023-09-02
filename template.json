@@ -196,7 +196,7 @@
 		}
 	},
 	"Item": {
-		"types": ["property", "talent", "equipment", "armour", "weapon", "deity"],
+		"types": ["advantage", "armour", "deity", "equipment", "property", "talent", "weapon"],
 		"templates": {
 			"base": {
 				"Description": {
@@ -222,6 +222,15 @@
 						"label": "aegean.equipment.Properties",
 						"value": []
 					}
+				}
+			}
+		},
+		"advantage": {
+			"templates": ["base"],
+			"stats": {
+				"Cost": {
+					"label": "aegean.system.Cost",
+					"value": 0
 				}
 			}
 		},

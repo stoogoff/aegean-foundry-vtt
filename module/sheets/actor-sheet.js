@@ -34,11 +34,12 @@ export class AegeanActorSheet extends ActorSheet {
 
 		context.config = AEGEAN
 		context.system = actor.system
-		context.talents = this.actor.talents
+		context.advantages = this.actor.advantages
 		context.armour = this.actor.armour
-		context.weapons = this.actor.weapons
-		context.equipment = this.actor.equipment.sort(sortByProperty('name'))
 		context.deities = game.items.filter(item => item.type === 'deity' && item.system.stats.Parent.value).map(({ name }) => name)
+		context.equipment = this.actor.equipment.sort(sortByProperty('name'))
+		context.talents = this.actor.talents
+		context.weapons = this.actor.weapons
 
 		context.system.background.Fate.value = await TextEditor.enrichHTML(context.system.background.Fate.value, { async: true })
 
@@ -55,6 +56,7 @@ export class AegeanActorSheet extends ActorSheet {
 		// enable delete actions
 		html.find('.delete-equipment').click(this._deleteItem.bind(this))
 		html.find('.delete-talent').click(this._deleteItem.bind(this))
+		html.find('.delete-adv').click(this._deleteItem.bind(this))
 
 		// enable accordions
 		html.find('.accordion-activator').click(event => {

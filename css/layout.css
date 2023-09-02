@@ -32,11 +32,11 @@
 	--spacing-7: 1.75rem;
 	--spacing-8: 2rem;
 
-	--font-xs: 0.6rem;
-	--font-sm: 0.8rem;
-	--font-mid: 1rem;
-	--font-lg: 1.125rem;
-	--font-xl: 1.5rem;
+	--font-xs: 0.55rem;
+	--font-sm: 0.75rem;
+	--font-mid: 0.9rem;
+	--font-lg: 1.1rem;
+	--font-xl: 1.4rem;
 
 	--grey-light: #E5E7EB;
 	--grey-mid: #9CA3AF;
@@ -54,6 +54,7 @@
 
 	--border: 1px solid black;
 	--border-light: 1px solid var(--grey-mid);
+	--border-radius: 0.2rem;
 }
 
 /* general styling */
@@ -210,7 +211,15 @@
 	border: 0;
 }
 
-
+/* Chips, highlighted labels */
+.aegean .chip {
+	font-size: var(--font-sm);
+	background-color: var(--grey-light);
+	color: var(--grey-dark);
+	text-transform: uppercase;
+	border-radius: var(--border-radius);
+	padding: var(--spacing) var(--spacing-1);
+}
 
 
 /* this should go elsewhere */

@@ -72,9 +72,11 @@
 		"system": {
 			"Active": "Active",
 			"ActivePropertyNote": "If a property is Active the character must *invoke the Fates* to gain its benefits.",
+			"Advantage": "Advantage",
 			"AmmoLoads": "Ammo",
 			"Attributes": "Attributes",
 			"Characteristics": "Characteristics",
+			"Cost": "Cost",
 			"Description": "Description",
 			"Deity": "Deity",
 			"DeityCharacteristicSelectNote": "Select one or two characteristics that provide a bonus during character generation.",
@@ -104,6 +106,7 @@
 		},
 		"ui": {
 			"Add": "Add",
+			"Advantages": "Advantages",
 			"Background": "Background",
 			"CharacterSheet": "Character Sheet",
 			"Combat": "Combat",

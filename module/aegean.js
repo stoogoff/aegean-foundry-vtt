@@ -5,6 +5,7 @@ import { AegeanItem } from './documents/item.js'
 
 // sheets
 import { AegeanActorSheet } from './sheets/actor-sheet.js'
+import { AegeanAdvantageSheet } from './sheets/advantage-sheet.js'
 import { AegeanArmourSheet } from './sheets/armour-sheet.js'
 import { AegeanDeitySheet } from './sheets/deity-sheet.js'
 import { AegeanEquipmentSheet } from './sheets/equipment-sheet.js'
@@ -36,6 +37,12 @@ Hooks.once('init', async function() {
 
 	Items.unregisterSheet('core', ItemSheet)
 	//Items.registerSheet('Aegean', AegeanItemSheet, { makeDefault: true })
+
+	Items.registerSheet('Aegean', AegeanAdvantageSheet, {
+		label: game.i18n.localize('aegean.system.Advantage'),
+		types: ['advantage'],
+		makeDefault: true,
+	})
 	Items.registerSheet('Aegean', AegeanArmourSheet, {
 		label: game.i18n.localize('aegean.combat.Armour'),
 		types: ['armour'],
@@ -81,6 +88,7 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/partials/tab-panel.hbs',
 
 		// actor partials
+		'systems/aegean/templates/actor/partials/advantages.hbs',
 		'systems/aegean/templates/actor/partials/background.hbs',
 		'systems/aegean/templates/actor/partials/character-stats.hbs',
 		'systems/aegean/templates/actor/partials/equipment.hbs',

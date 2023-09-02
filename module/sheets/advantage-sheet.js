@@ -1,11 +1,11 @@
 
 import { AegeanItemSheet } from './item-sheet.js'
 
-export class AegeanTalentSheet extends AegeanItemSheet {
+export class AegeanAdvantageSheet extends AegeanItemSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			classes: ['aegean', 'sheet', 'talent'],
-			template: 'systems/aegean/templates/item/talent-sheet.html',
+			classes: ['aegean', 'sheet', 'advantage'],
+			template: 'systems/aegean/templates/item/advantage-sheet.html',
 			width: 520,
 			height: 480,
 			tabs: [],

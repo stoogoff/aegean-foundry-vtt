@@ -20,17 +20,17 @@
 }
 
 /* Talents overrides */
-.aegean .talents .accordion-bar {
+.aegean .character-sheet .accordion-bar {
 	display: flex;
 	align-items: center;
 }
-.aegean .talents .accordion-bar .action-bar {
+.aegean .character-sheet .accordion-bar .action-bar {
 	flex-grow: 2;
 }
-.aegean .talents .accordion-bar .action {
+.aegean .character-sheet .accordion-bar .action {
 	float: right;
 }
 
-.aegean .talent-rating-input {
+.aegean .character-sheet .rating-input {
 	margin-left: var(--spacing-2);
 }
