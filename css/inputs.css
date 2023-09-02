@@ -121,6 +121,7 @@
 /* Property rating */
 .rating-input {
 	max-width: 30px;
+	text-align: right;
 }
 
 /* Built-in editor */

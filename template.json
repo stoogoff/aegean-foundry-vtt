@@ -235,6 +235,10 @@
 				"Multiple": {
 					"label": "aegean.system.Multiple",
 					"value": false
+				},
+				"Rating": {
+					"label": "aegean.system.Rating",
+					"value": 1
 				}
 			}
 		},

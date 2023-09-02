@@ -30,3 +30,7 @@
 .aegean .talents .accordion-bar .action {
 	float: right;
 }
+
+.aegean .talent-rating-input {
+	margin-left: var(--spacing-2);
+}

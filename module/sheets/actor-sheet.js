@@ -60,12 +60,27 @@ export class AegeanActorSheet extends ActorSheet {
 		html.find('.accordion-activator').click(event => {
 			$(event.currentTarget).closest('.accordion').toggleClass('active')
 		})
+
+		// enable updating ratings for talents
+		html.find('.rating-input').change(this._updateRating.bind(this))
 	}
 
 	_deleteItem(event) {
 		const deleteId = $(event.currentTarget).attr('data-id')
 
 		this.actor.deleteEmbeddedDocuments('Item', [ deleteId ])
+	}
+
+	_updateRating(event) {
+		const target = $(event.currentTarget)
+		const talentId = target.attr('data-id')
+		const key = target.attr('name')
+		const value = target.val()
+		const talent = this.actor.talents.find(talent => talent.id === talentId)
+
+		talent.update({
+			[key]: value
+		})
 	}
 
 	async _onDropItem(event, data) {
