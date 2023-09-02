@@ -22,3 +22,7 @@
 	background-color: var(--base-bg);
 	border-color: var(--base-bg);
 }
+
+.aegean .action-bar .chip {
+	margin-top: var(--spacing-1);
+}

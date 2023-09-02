@@ -108,7 +108,7 @@
 		},
 		"ui": {
 			"Add": "Add",
-			"Advantages": "Advantages",
+			"AdvantagesDisadvantages": "Advantages / Disadvantages",
 			"Background": "Background",
 			"CharacterSheet": "Character Sheet",
 			"Combat": "Combat",

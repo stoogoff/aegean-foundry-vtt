@@ -227,6 +227,7 @@
 	text-transform: uppercase;
 	border-radius: var(--border-radius);
 	padding: var(--spacing) var(--spacing-1);
+	display: inline-block;
 }
 
 
