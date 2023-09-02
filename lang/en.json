@@ -77,13 +77,15 @@
 			"Attributes": "Attributes",
 			"Characteristics": "Characteristics",
 			"Cost": "Cost",
-			"Description": "Description",
 			"Deity": "Deity",
 			"DeityCharacteristicSelectNote": "Select one or two characteristics that provide a bonus during character generation.",
 			"DeitySkillSelectNote": "Select three skills that provide a bonus during character generation.",
+			"Description": "Description",
+			"Disfavour" : "Disfavour",
 			"DivineParent": "Divine Parent?",
 			"Drakhmae": "Drakhmae",
 			"Equipment": "Equipment",
+			"Favour" : "Favour",
 			"Gifts": "Gifts",
 			"GiftsTalents": "Gifts and Talents",
 			"HerbalistDoses": "Doses",
@@ -94,6 +96,7 @@
 			"RankedPropertyNote": "Ranked properties increase in power the higher rank they have.",
 			"RankedTalentNote": "Ranked talents can be bought multiple times and increase in power as more ranks are bought.",
 			"Rating": "Rating",
+			"Relationship": "Relationship",
 			"Skill": "Skill",
 			"Skills": "Skills",
 			"Specialisation": "Specialisation",
@@ -101,7 +104,6 @@
 			"Symbols": "Symbols",
 			"Talent": "Talent",
 			"Talents": "Talents",
-			"TalentsNone": "This character has no Gifts or Talents.",
 			"Title": "Title"
 		},
 		"ui": {
@@ -113,7 +115,8 @@
 			"SpecialisationPlaceholder": "Skill: Specialisation",
 			"Stats": "Stats",
 			"Symbols": "Symbols",
-			"Talents": "Talents"
+			"Talents": "Talents",
+			"TheGods": "The Gods"
 		}
 	}
 }

@@ -23,6 +23,10 @@ export class AegeanActor extends Actor {
 		return this.items.filter(item => item.type === 'advantage')
 	}
 
+	get gods() {
+		return this.items.filter(item => item.type === 'deity')
+	}
+
 	prepareData() {
 	// Prepare data for the actor. Calling the super version of this executes
 	// the following, in order: data reset (to clear active effects),

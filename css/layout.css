@@ -128,6 +128,13 @@
 	justify-content: flex-end;
 }
 
+.aegean .float-left {
+	float: left;
+}
+.aegean .float-right {
+	float: right;
+}
+
 /* Large panel with box-input sidebar */
 .aegean .column-panel {
 	grid-template-columns: auto 141px;
@@ -214,6 +221,7 @@
 /* Chips, highlighted labels */
 .aegean .chip {
 	font-size: var(--font-sm);
+	line-height: 1em;
 	background-color: var(--grey-light);
 	color: var(--grey-dark);
 	text-transform: uppercase;

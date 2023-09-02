@@ -26,13 +26,25 @@
 				{{> systems/aegean/templates/actor/partials/equipment.hbs }}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 			<!-- talents -->
-			{{#> systems/aegean/templates/partials/tab-panel.hbs
-				id="character_talents"
-				label="aegean.ui.Talents"
-				count=talents.length
-			}}
-				{{> systems/aegean/templates/actor/partials/talents.hbs }}
-			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			{{#if talents}}
+				{{#> systems/aegean/templates/partials/tab-panel.hbs
+					id="character_talents"
+					label="aegean.ui.Talents"
+					count=talents.length
+				}}
+					{{> systems/aegean/templates/actor/partials/talents.hbs }}
+				{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			{{/if}}
+			<!-- the gods -->
+			{{#if gods}}
+				{{#> systems/aegean/templates/partials/tab-panel.hbs
+					id="character_deities"
+					label="aegean.ui.TheGods"
+					count=gods.length
+				}}
+					{{> systems/aegean/templates/actor/partials/the-gods.hbs }}
+				{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			{{/if}}
 			<!-- background -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="character_background"

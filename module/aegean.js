@@ -94,6 +94,7 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/actor/partials/equipment.hbs',
 		'systems/aegean/templates/actor/partials/header-section.hbs',
 		'systems/aegean/templates/actor/partials/talents.hbs',
+		'systems/aegean/templates/actor/partials/the-gods.hbs',
 
 		// item partials
 		'systems/aegean/templates/item/partials/header-section.hbs',

@@ -1,28 +1,24 @@
 <div class="talents">
-	{{#if talents}}
-		{{#each talents as |talent key|}}
-			<div class="accordion">
-				<div class="accordion-bar">
-					<span class="accordion-activator">{{ talent.name }}</span>
-					<div class="action-bar">
-						{{#if talent.system.stats.Ranked.value}}
-							<input
-								type="number"
-								name="system.stats.Rating.value"
-								value="{{ talent.system.stats.Rating.value }}"
-								class="rating-input"
-								data-id="{{ talent.id }}"
-							/>
-						{{/if}}
-						{{> systems/aegean/templates/partials/action.hbs action="delete-talent" id=talent.id icon="fa-trash"}}
-					</div>
-				</div>
-				<div class="accordion-content">
-					{{{ talent.system.Description.value }}}
+	{{#each talents as |talent key|}}
+		<div class="accordion">
+			<div class="accordion-bar">
+				<span class="accordion-activator">{{ talent.name }}</span>
+				<div class="action-bar">
+					{{#if talent.system.stats.Ranked.value}}
+						<input
+							type="number"
+							name="system.stats.Rating.value"
+							value="{{ talent.system.stats.Rating.value }}"
+							class="rating-input"
+							data-id="{{ talent.id }}"
+						/>
+					{{/if}}
+					{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=talent.id icon="fa-trash"}}
 				</div>
 			</div>
-		{{/each}}
-	{{else}}
-		<p class="note">{{ localize "aegean.system.TalentsNone" }}</p>
-	{{/if}}
+			<div class="accordion-content">
+				{{{ talent.system.Description.value }}}
+			</div>
+		</div>
+	{{/each}}
 </div>

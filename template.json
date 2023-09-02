@@ -323,6 +323,10 @@
 				"Parent": {
 					"label": "aegean.system.DivineParent",
 					"value": false
+				},
+				"Relationship": {
+					"label": "aegean.system.Relationship",
+					"value": ""
 				}
 			}
 		}

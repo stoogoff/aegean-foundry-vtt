@@ -36,8 +36,9 @@ export class AegeanActorSheet extends ActorSheet {
 		context.system = actor.system
 		context.advantages = this.actor.advantages
 		context.armour = this.actor.armour
-		context.deities = game.items.filter(item => item.type === 'deity' && item.system.stats.Parent.value).map(({ name }) => name)
 		context.equipment = this.actor.equipment.sort(sortByProperty('name'))
+		context.gods = this.actor.gods
+		context.parents = game.items.filter(item => item.type === 'deity' && item.system.stats.Parent.value).map(({ name }) => name)
 		context.talents = this.actor.talents
 		context.weapons = this.actor.weapons
 
@@ -54,17 +55,16 @@ export class AegeanActorSheet extends ActorSheet {
 		if (!this.isEditable) return
 
 		// enable delete actions
-		html.find('.delete-equipment').click(this._deleteItem.bind(this))
-		html.find('.delete-talent').click(this._deleteItem.bind(this))
-		html.find('.delete-adv').click(this._deleteItem.bind(this))
+		html.find('.delete-action').click(this._deleteItem.bind(this))
 
 		// enable accordions
 		html.find('.accordion-activator').click(event => {
 			$(event.currentTarget).closest('.accordion').toggleClass('active')
 		})
 
-		// enable updating ratings for talents
-		html.find('.rating-input').change(this._updateRating.bind(this))
+		// enable updating linked item properties
+		html.find('.rating-input').change(this._updateItemProperty(this.actor.talents).bind(this))
+		html.find('.set-favour').change(this._updateItemProperty(this.actor.gods).bind(this))
 	}
 
 	_deleteItem(event) {
@@ -73,16 +73,21 @@ export class AegeanActorSheet extends ActorSheet {
 		this.actor.deleteEmbeddedDocuments('Item', [ deleteId ])
 	}
 
-	_updateRating(event) {
-		const target = $(event.currentTarget)
-		const talentId = target.attr('data-id')
-		const key = target.attr('name')
-		const value = target.val()
-		const talent = this.actor.talents.find(talent => talent.id === talentId)
+	_updateItemProperty(list) {
+		return event => {
+			const target = $(event.currentTarget)
+			const dataId = target.attr('data-id')
+			const key = target.attr('name')
+			const value = target.val()
 
-		talent.update({
-			[key]: value
-		})
+			console.log('Aegean | ActorSheet::_updateItemProperty => dataId, key, value', dataId, key, value)
+
+			const obj = list.find(({ id }) => id === dataId)
+
+			obj.update({
+				[key]: value
+			})			
+		}
 	}
 
 	async _onDropItem(event, data) {

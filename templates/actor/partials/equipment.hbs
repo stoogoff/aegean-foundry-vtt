@@ -19,7 +19,7 @@
 						<td class="text-right">{{ item.system.equipment.Price.value }}</td>
 						<td class="text-right">{{ item.system.equipment.Weight.value }}</td>
 						<td>{{join item.shortProperties}}</td>
-						<td>{{> systems/aegean/templates/partials/action.hbs action="delete-equipment" id=item.id icon="fa-trash" }}</td>
+						<td>{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=item.id icon="fa-trash" }}</td>
 					</tr>
 				{{/each}}
 			</tbody>
