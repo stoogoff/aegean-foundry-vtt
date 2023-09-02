@@ -38,15 +38,24 @@
 	--font-lg: 1.1rem;
 	--font-xl: 1.4rem;
 
-	--grey-light: #E5E7EB;
-	--grey-mid: #9CA3AF;
-	--grey-dark: #374151;
+	--grey-light: var(--grey-200);
+	--grey-mid: var(--grey-400);
+	--grey-dark: var(--grey-700);
+
+	--danger-dark: #991b1b;
+	--danger-light: #fecaca;
+
+	--warning-dark: #9a3412;
+	--warning-light: #fed7aa;
+
+	--safe-dark: #075985;
+	--safe-light: #bae6fd;
 
 	--base-bg: white;
 	--base-fg: black;
 	--invert-bg: black;
-	--invert-hover: #1F2937;
-	--invert-fg: #D1D5DB;
+	--invert-hover: var(--grey-800);
+	--invert-fg: var(--grey-300);
 	--invert-fg-hover: white;
 
 	--input-hover-bg: rgba(0,0,0,0.1);
@@ -174,6 +183,18 @@
 .font-xl {
 	font-size: var(--font-xl);
 }
+.grey-light {
+	color: var(--grey-200);
+}
+.grey-mid {
+	color: var(--grey-400);
+}
+.grey-dark {
+	color: var(--grey-700);
+}
+.black {
+	color: black;
+}
 
 /* Common utilities */
 .aegean .note {
@@ -228,6 +249,14 @@
 	border-radius: var(--border-radius);
 	padding: var(--spacing) var(--spacing-1);
 	display: inline-block;
+}
+.aegean .chip.danger {
+	background-color: var(--danger-light);
+	color: var(--danger-dark);
+}
+.aegean .chip.warning {
+	background-color: var(--warning-light);
+	color: var(--warning-dark);
 }
 
 

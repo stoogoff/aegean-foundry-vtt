@@ -104,7 +104,9 @@
 			"Symbols": "Symbols",
 			"Talent": "Talent",
 			"Talents": "Talents",
-			"Title": "Title"
+			"Title": "Title",
+			"Threshold": "Threshold",
+			"Vulnerable": "Vulnerable"
 		},
 		"ui": {
 			"Add": "Add",

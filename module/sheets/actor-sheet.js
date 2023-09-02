@@ -34,6 +34,8 @@ export class AegeanActorSheet extends ActorSheet {
 
 		context.config = AEGEAN
 		context.system = actor.system
+		context.flags = actor.flags.aegean
+
 		context.advantages = this.actor.advantages
 		context.armour = this.actor.armour
 		context.equipment = this.actor.equipment.sort(sortByProperty('name'))
@@ -65,6 +67,9 @@ export class AegeanActorSheet extends ActorSheet {
 		// enable updating linked item properties
 		html.find('.rating-input').change(this._updateItemProperty(this.actor.talents).bind(this))
 		html.find('.set-favour').change(this._updateItemProperty(this.actor.gods).bind(this))
+
+		// enable clicking on the risk track
+		html.find('.risk .track .boxed').click(this._setRisk.bind(this))
 	}
 
 	_deleteItem(event) {
@@ -87,6 +92,16 @@ export class AegeanActorSheet extends ActorSheet {
 			obj.update({
 				[key]: value
 			})			
+		}
+	}
+
+	_setRisk(event) {
+		const target = $(event.currentTarget)
+
+		if(!target.hasClass('current')) {
+			this.actor.update({
+				'system.attributes.Risk.value': parseInt(target.attr('data-value'))
+			})
 		}
 	}
 

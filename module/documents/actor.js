@@ -33,7 +33,7 @@ export class AegeanActor extends Actor {
 	// prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
 	// prepareDerivedData().
 		const data = super.prepareData()
-		console.log('AEGEAN Actor::prepareData', data)
+		console.log('Aegean | Actor::prepareData', data)
 		return data
 	}
 
@@ -54,22 +54,24 @@ export class AegeanActor extends Actor {
 	 * is queried and has a roll executed directly from it).
 	 */
 	prepareDerivedData() {
-		console.log('Aegean | prepareDerivedData')
+		const flags = {}
 
-		this.system.hasDivineHeritage = this.system.background.Heritage.value === 'Divine'
+		flags.hasDivineHeritage = this.system.background.Heritage.value === 'Divine'
 		
-		this.system.encumbrance = this.equipment
+		flags.encumbrance = this.equipment
 			.map(item => parseInt(item.system.equipment.Weight.value)).reduce(sum, 0)
 
+		flags.cumbersome = this.equipment.flatMap(
+			({ properties }) => properties.filter(({ property }) => property.name === 'Cumbersome')
+		).map(({ rating }) => parseInt(rating)).reduce(sum, 0)
 
-		/*const actorData = this.data;
-		const data = actorData.data;
-		const flags = actorData.flags.Aegean || {};
+		flags.endurance = this.system.attributes.Endurance.value - flags.cumbersome
+		flags.vulnerable = this.system.attributes.Risk.value > flags.endurance
+		flags.threshold = this.system.attributes.Risk.value === flags.endurance
 
-		// Make separate methods for each Actor type (character, npc, etc.) to keep
-		// things organized.
-		this._prepareCharacterData(actorData);
-		this._prepareNpcData(actorData);*/
+		console.log('Aegean | Actor::prepareDerivedData', flags)
+
+		this.flags.aegean = flags
 	}
 
 	/**

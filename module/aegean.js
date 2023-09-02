@@ -114,8 +114,34 @@ Hooks.once('init', async function() {
 		return array.join(', ')
 	})
 
-	Handlebars.registerHelper('join', function(array) {
-		return array.join(', ')
+	// repeat a block a number of times
+	Handlebars.registerHelper('range', (count, options) => {
+		const buffer = []
+		const data = options.data ? Handlebars.createFrame(options.data) : {}
+
+		for(let i = 0; i < count; ++i) {
+			data.first = i === 0
+			data.last = i === i - 1
+			data.index = i
+
+			buffer.push(options.fn(this, { data: data }))
+		}
+
+		return buffer.join('')
+	})
+	Handlebars.registerHelper('range-reverse', (count, options) => {
+		const buffer = []
+		const data = options.data ? Handlebars.createFrame(options.data) : {}
+
+		for(let i = count; i >= 0; --i) {
+			data.first = i === 0
+			data.last = i === i - 1
+			data.index = i
+
+			buffer.push(options.fn(this, { data: data }))
+		}
+
+		return buffer.join('')
 	})
 
 	// comparison functions

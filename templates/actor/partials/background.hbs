@@ -16,7 +16,7 @@
 				options=config.heritages
 			}}
 			<!-- parent -->
-			{{#if system.hasDivineHeritage}}
+			{{#if actor.flags.aegean.hasDivineHeritage}}
 				{{> systems/aegean/templates/partials/select-input.hbs
 					label=system.background.Parent.label
 					value=system.background.Parent.value

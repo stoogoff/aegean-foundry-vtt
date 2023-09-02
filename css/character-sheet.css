@@ -35,3 +35,61 @@
 .aegean .character-sheet .accordion-bar .action {
 	float: right;
 }
+
+/* Risk */
+.aegean .character-sheet .risk {
+	margin-top: var(--spacing-4);
+}
+.aegean .character-sheet .risk h3 {
+	margin-top: 0;
+}
+
+.aegean .character-sheet .risk .track {
+	margin: var(--spacing-3) 0;
+}
+
+/* Risk boxes and hover state */
+.aegean .risk .boxed {
+	color: var(--grey-dark);
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+	font-size: var(--font-sm);
+	line-height: 1rem;
+}
+.aegean .risk .boxed:hover, .aegean .risk .boxed.endurance:hover {
+	background-color: var(--grey-light);
+	color: var(--base-fg);
+	border-color: var(--grey-dark);
+}
+
+/* Highlight active boxes */
+.aegean .risk .boxed.active {
+	color: var(--invert-fg);
+	background-color: var(--grey-dark);
+	border-color: black;
+}
+.aegean .risk .boxed.active.danger {
+	color: var(--danger-light);
+	background-color: var(--danger-dark);
+	border-color: var(--danger-dark);
+}
+/* Show current value */
+.aegean .risk .boxed.current {
+	cursor: default;
+	color: white;
+	background-color: black;
+}
+.aegean .risk .boxed.current.endurance, .aegean .risk .boxed.active.endurance {
+	color: var(--safe-light);
+	border-color: black;
+	background-color: var(--safe-dark);
+}
+
+/* Show current Endurance (-Cumbersome) */
+.aegean .risk .boxed.endurance {
+	color: var(--safe-dark);
+	border-color: var(--safe-dark);
+	background-color: var(--safe-light);
+	font-weight: bold;
+	border-width: 2px !important;
+}
