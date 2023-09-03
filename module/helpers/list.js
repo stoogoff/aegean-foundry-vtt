@@ -7,4 +7,6 @@ export const sortByProperty = prop =>
 		return a == b ? 0 : (a < b ? -1 : 1)
 	}
 
-export const sum = (a, b) => a + b
+export const add = (a, b) => a + b
+
+export const subtract = (a, b) => a - b

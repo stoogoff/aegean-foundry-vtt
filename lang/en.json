@@ -1,4 +1,15 @@
 {
+	"TYPES": {
+		"Item": {
+			"advantage": "Advantage",
+			"armour": "Armour",
+			"deity": "Deity",
+			"equipment": "Equipment",
+			"property": "Property",
+			"talent": "Talent",
+			"weapon": "Weapon"
+		}
+	},
 	"aegean": {
 		"characteristics": {
 			"Might": "Might",
@@ -75,6 +86,7 @@
 			"Advantage": "Advantage",
 			"AmmoLoads": "Ammo",
 			"Attributes": "Attributes",
+			"Characteristic": "Characteristic",
 			"Characteristics": "Characteristics",
 			"Cost": "Cost",
 			"Deity": "Deity",
@@ -84,11 +96,13 @@
 			"Disfavour" : "Disfavour",
 			"DivineParent": "Divine Parent?",
 			"Drakhmae": "Drakhmae",
+			"Encumbered": "Encumbered",
 			"Equipment": "Equipment",
 			"Favour" : "Favour",
 			"Gifts": "Gifts",
 			"GiftsTalents": "Gifts and Talents",
 			"HerbalistDoses": "Doses",
+			"Modifiers": "Modifiers",
 			"Multiple": "Multiple",
 			"MultipleTalentNote": "Talents marked Multiple can be bought multiple times and how they upgrade is described in the text.",
 			"Name": "Name",
@@ -98,6 +112,7 @@
 			"Rating": "Rating",
 			"Relationship": "Relationship",
 			"Skill": "Skill",
+			"SkillCheck": "Skill Check",
 			"Skills": "Skills",
 			"Specialisation": "Specialisation",
 			"Specialisations": "Specialisations",
@@ -115,6 +130,7 @@
 			"CharacterSheet": "Character Sheet",
 			"Combat": "Combat",
 			"SpecialisationPlaceholder": "Skill: Specialisation",
+			"Roll": "Roll",
 			"Stats": "Stats",
 			"Symbols": "Symbols",
 			"Talents": "Talents",

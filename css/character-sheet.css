@@ -38,14 +38,17 @@
 
 /* Risk */
 .aegean .character-sheet .risk {
-	margin-top: var(--spacing-4);
+	margin-top: var(--spacing-2);
 }
 .aegean .character-sheet .risk h3 {
 	margin-top: 0;
 }
 
 .aegean .character-sheet .risk .track {
-	margin: var(--spacing-3) 0;
+	margin: var(--spacing-2) 0 var(--spacing-3);
+	display: grid;
+	grid-template-columns: repeat(13, minmax(0, 1fr));
+	gap: var(--spacing-1);
 }
 
 /* Risk boxes and hover state */
@@ -55,6 +58,7 @@
 	transition: background-color 0.2s ease-in-out;
 	font-size: var(--font-sm);
 	line-height: 1rem;
+	text-align: center;
 }
 .aegean .risk .boxed:hover, .aegean .risk .boxed.endurance:hover {
 	background-color: var(--grey-light);

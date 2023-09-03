@@ -32,7 +32,8 @@
 		"css/tabs.css",
 		"css/accordions.css",
 		"css/actions.css",
-		"css/character-sheet.css"
+		"css/character-sheet.css",
+		"css/roll-dialog.css"
 	],
 	"packs": [],
 	"languages": [

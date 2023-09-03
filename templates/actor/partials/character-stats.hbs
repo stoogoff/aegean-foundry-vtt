@@ -30,6 +30,16 @@
 		<aside>
 			<h3>{{ localize "aegean.system.Attributes" }}</h3>
 			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.attributes.Standing.label
+				value=system.attributes.Standing.value
+				name="system.attributes.Standing.value"
+			}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.attributes.Endurance.label
+				value=system.attributes.Endurance.value
+				name="system.attributes.Endurance.value"
+			}}
+			{{> systems/aegean/templates/partials/box-input.hbs
 				label=system.attributes.Glory.label
 				value=system.attributes.Glory.value
 				name="system.attributes.Glory.value"

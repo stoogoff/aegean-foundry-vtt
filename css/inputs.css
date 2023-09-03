@@ -1,7 +1,7 @@
 
 /* Inputs */
 
-.aegean input[type=text] {
+.aegean input[type=text], .aegean input[type=number] {
 	border: 0;
 	border-radius: 0;
 	background-color: transparent;
@@ -58,20 +58,22 @@
 	padding: var(--spacing-2) 0;
 }
 
-.aegean .form-input input[type=text] {
+.aegean .form-input input[type=text], .aegean .form-input input[type=number] {
 	border-bottom: var(--border);
 	padding: var(--spacing-1) var(--spacing-2) 0;
 }
 
 /* Select and multi select inputs */
-.aegean .select-input select {
-	display: block;
-	width: 100%;
+.aegean select {
 	background-color: var(--base-bg);
 	color: var(--base-fg);
 	border: var(--border);
 }
-.aegean .multi-select-input select {
+.aegean .select-input select {
+	display: block;
+	width: 100%;
+}
+.aegean .multi-select-input select, .aegean .multi-select-input input {
 	margin-right: var(--spacing-2);
 }
 .aegean .multi-input-display li {

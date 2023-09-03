@@ -1,9 +1,9 @@
 
 import { AEGEAN } from '../helpers/config.js'
 import { sortByProperty } from '../helpers/list.js'
+import { RollDialog } from '../dialogs/roll-dialog.js'
 
 export class AegeanActorSheet extends ActorSheet {
-	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'actor'],
@@ -70,6 +70,19 @@ export class AegeanActorSheet extends ActorSheet {
 
 		// enable clicking on the risk track
 		html.find('.risk .track .boxed').click(this._setRisk.bind(this))
+
+		// display roll dialogue
+		html.find('.roll').click(this._createRollDialog.bind(this))
+	}
+
+	_createRollDialog() {
+		const context = this.actor.getRollData()
+
+		context.config = AEGEAN
+
+		console.log('Aegean | ActorSheet::_createRollDialog => context', context)
+
+		RollDialog.show(context)
 	}
 
 	_deleteItem(event) {

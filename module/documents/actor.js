@@ -1,6 +1,7 @@
 
-import { sum } from '../helpers/list.js'
+import { add } from '../helpers/list.js'
 import { isEquipment } from '../helpers/utils.js'
+import { AEGEAN } from '../helpers/config.js'
 
 export class AegeanActor extends Actor {
 	get talents() {
@@ -54,32 +55,37 @@ export class AegeanActor extends Actor {
 	 * is queried and has a roll executed directly from it).
 	 */
 	prepareDerivedData() {
+		this.flags.aegean = this._getDerivedData()
+
+		console.log('Aegean | Actor::prepareDerivedData', this.flags.aegean)
+	}
+
+	_getDerivedData() {
 		const flags = {}
 
 		flags.hasDivineHeritage = this.system.background.Heritage.value === 'Divine'
 		
 		flags.encumbrance = this.equipment
-			.map(item => parseInt(item.system.equipment.Weight.value)).reduce(sum, 0)
+			.map(item => parseInt(item.system.equipment.Weight.value)).reduce(add, 0)
 
 		flags.cumbersome = this.equipment.flatMap(
 			({ properties }) => properties.filter(({ property }) => property.name === 'Cumbersome')
-		).map(({ rating }) => parseInt(rating)).reduce(sum, 0)
+		).map(({ rating }) => parseInt(rating)).reduce(add, 0)
 
 		flags.endurance = this.system.attributes.Endurance.value - flags.cumbersome
 		flags.vulnerable = this.system.attributes.Risk.value > flags.endurance
 		flags.threshold = this.system.attributes.Risk.value === flags.endurance
+		flags.encumbered = flags.encumbrance > parseInt(this.system.characteristics.Might.value) + AEGEAN.encumbrance		
 
-		console.log('Aegean | Actor::prepareDerivedData', flags)
-
-		this.flags.aegean = flags
+		return flags
 	}
 
-	/**
-	 * Override getRollData() that's supplied to rolls.
-	 */
 	getRollData() {
 		const data = super.getRollData()
-		console.log('AEGEAN Actor::getRollData', data)
+
+		data.flags = this._getDerivedData()
+
+		console.log('Aegean | Actor::getRollData', data)
 
 		return data
 	}

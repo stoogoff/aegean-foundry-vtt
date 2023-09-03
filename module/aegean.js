@@ -36,40 +36,32 @@ Hooks.once('init', async function() {
 	})
 
 	Items.unregisterSheet('core', ItemSheet)
-	//Items.registerSheet('Aegean', AegeanItemSheet, { makeDefault: true })
 
 	Items.registerSheet('Aegean', AegeanAdvantageSheet, {
-		label: game.i18n.localize('aegean.system.Advantage'),
 		types: ['advantage'],
 		makeDefault: true,
 	})
 	Items.registerSheet('Aegean', AegeanArmourSheet, {
-		label: game.i18n.localize('aegean.combat.Armour'),
 		types: ['armour'],
 		makeDefault: true,
 	})
 	Items.registerSheet('Aegean', AegeanDeitySheet, {
-		label: game.i18n.localize('aegean.system.Deity'),
 		types: ['deity'],
 		makeDefault: true,
 	})
 	Items.registerSheet('Aegean', AegeanEquipmentSheet, {
-		label: game.i18n.localize('aegean.system.Equipment'),
 		types: ['equipment'],
 		makeDefault: true,
 	})
 	Items.registerSheet('Aegean', AegeanPropertySheet, {
-		label: game.i18n.localize('aegean.equipment.Property'),
 		types: ['property'],
 		makeDefault: true,
 	})
 	Items.registerSheet('Aegean', AegeanTalentSheet, {
-		label: game.i18n.localize('aegean.system.Talent'),
 		types: ['talent'],
 		makeDefault: true,
 	})
 	Items.registerSheet('Aegean', AegeanWeaponSheet, {
-		label: game.i18n.localize('aegean.combat.Weapon'),
 		types: ['weapon'],
 		makeDefault: true,
 	})
@@ -86,6 +78,7 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/partials/select-input.hbs',
 		'systems/aegean/templates/partials/skill-input.hbs',
 		'systems/aegean/templates/partials/tab-panel.hbs',
+		'systems/aegean/templates/partials/value-select.hbs',
 
 		// actor partials
 		'systems/aegean/templates/actor/partials/advantages.hbs',
@@ -93,6 +86,7 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/actor/partials/character-stats.hbs',
 		'systems/aegean/templates/actor/partials/equipment.hbs',
 		'systems/aegean/templates/actor/partials/header-section.hbs',
+		'systems/aegean/templates/actor/partials/risk.hbs',
 		'systems/aegean/templates/actor/partials/talents.hbs',
 		'systems/aegean/templates/actor/partials/the-gods.hbs',
 

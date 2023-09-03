@@ -81,5 +81,6 @@ export const AEGEAN = {
 		'Medium',
 		'Long',
 		'Extreme',
-	]
+	],
+	encumbrance: 2,
 }

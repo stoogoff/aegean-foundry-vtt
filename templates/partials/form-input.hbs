@@ -1,7 +1,7 @@
 <div class="form-input">
 	<label for="{{ name }}" class="label">{{ localize label }}</label>
 	<input
-		type="text"
+		type="{{#if type}}{{ type }}{{else}}text{{/if}}"
 		value="{{ value }}"
 		name="{{ name }}"
 		id="{{ name }}"

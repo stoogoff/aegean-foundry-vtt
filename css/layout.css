@@ -247,7 +247,7 @@
 	color: var(--grey-dark);
 	text-transform: uppercase;
 	border-radius: var(--border-radius);
-	padding: var(--spacing) var(--spacing-1);
+	padding: var(--spacing-1) var(--spacing-2) var(--spacing);
 	display: inline-block;
 }
 .aegean .chip.danger {

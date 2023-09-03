@@ -1,6 +1,6 @@
-<span class="action {{ action }} {{#if disabled}}disabled{{/if}}" data-id="{{ id }}">
+<span class="action {{ action }} {{#if disabled}}disabled{{/if}}" {{#if id}}data-id="{{ id }}"{{/if}}>
 	<i class="fas {{ icon }}"></i>
 	{{#if text}}
-		<span class="uppercase font-sm">{{ localize text }}</span>
+		<span class="text uppercase">{{ localize text }}</span>
 	{{/if}}
 </span>

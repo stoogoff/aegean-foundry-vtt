@@ -9,50 +9,22 @@
 			value=actor.name
 			name="name"
 		}}
-		<div class="grid grid-cols-4">
-			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Standing.label
-				value=system.attributes.Standing.value
-				name="system.attributes.Standing.value"
-			}}
-			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Endurance.label
-				value=system.attributes.Endurance.value
-				name="system.attributes.Endurance.value"
-			}}
-			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Resolve.label
-				value=system.attributes.Resolve.value
-				name="system.attributes.Resolve.value"
-			}}
-			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Oracle.label
-				value=system.attributes.Oracle.value
-				name="system.attributes.Oracle.value"
-			}}
-		</div>
-		<div class="boxed risk">
-			<div class="grid grid-cols-2">
-				<h3 class="text-left">{{ localize "aegean.attributes.Endurance"}}:
-					<span class="black font-lg">{{ flags.endurance }} ({{ system.attributes.Endurance.value }})</span>
-				</h3>
-				<h3 class="text-left">{{ localize "aegean.attributes.Risk"}}: <span class="black font-lg">{{ system.attributes.Risk.value }}</span></h3>
-			</div>
-				{{#if flags.vulnerable }}<span class="chip danger">{{ localize "aegean.system.Vulnerable" }}</span>{{/if}}
-				{{#if flags.threshold }}<span class="chip warning">{{ localize "aegean.system.Threshold" }}</span>{{/if}}
-			<!-- Cumbersome {{ flags.cumbersome}} -->
+		<div class="grid grid-cols-3-1-split">
+			{{> systems/aegean/templates/actor/partials/risk.hbs}}
 
-			<div class="track">
-				{{#range 15}}
-					<span
-						class="boxed
-							{{#if (lt @index ../system.attributes.Risk.value)}}active{{/if}}
-							{{#if (eq @index ../system.attributes.Risk.value)}}current{{/if}}
-							{{#if (gt @index ../flags.endurance)}}danger{{/if}}
-							{{#if (eq @index ../flags.endurance)}}endurance{{/if}}
-						"
-						data-value="{{ @index }}">{{ @index }}</span>
-				{{/range}}
+			<div>
+				{{> systems/aegean/templates/partials/box-input.hbs
+					label=system.attributes.Resolve.label
+					value=system.attributes.Resolve.value
+					name="system.attributes.Resolve.value"
+				}}
+				{{> systems/aegean/templates/partials/box-input.hbs
+					label=system.attributes.Oracle.label
+					value=system.attributes.Oracle.value
+					name="system.attributes.Oracle.value"
+				}}
+
+				{{> systems/aegean/templates/partials/action.hbs action="roll" icon="fa-dice-d10" text="aegean.ui.Roll"}}
 			</div>
 		</div>
 	</div>

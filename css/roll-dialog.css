@@ -1,0 +1,6 @@
+
+/* Roll dialogue */
+.dialog .window-content {
+	background-color: var(--base-bg);
+	background-image: none;
+}
