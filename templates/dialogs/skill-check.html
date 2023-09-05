@@ -13,7 +13,18 @@
 		<div class="select-input form-input">
 			<label class="label" for="modifiers">{{ localize "aegean.system.Modifiers" }}</label>
 			<input type="number" class="value-text" name="modifiers" id="modifiers" />
-			<strong class="chip" chip id="modifiers_value" data-value="0">0D</strong>
+			<strong class="chip"><span id="modifiers_value" data-value="0">0</span>D</strong>
+		</div>
+	</div>
+	<div class="multi-select-input">
+		<div class="select-input form-input">
+			<label class="label" for="difficulty">{{ localize "aegean.system.Difficulty" }}</label>
+			<select id="difficulty" name="difficulty" class="difficulty-select">
+				{{#each config.difficulties}}
+					<option value="{{ . }}">{{ . }}</option>
+				{{/each}}
+			</select>
+			<strong class="chip" chip id="difficulty_value" data-difficulty="0">0</strong>
 		</div>
 	</div>
 </div>

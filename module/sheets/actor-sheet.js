@@ -1,7 +1,7 @@
 
 import { AEGEAN } from '../helpers/config.js'
 import { sortByProperty } from '../helpers/list.js'
-import { RollDialog } from '../dialogs/roll-dialog.js'
+import { SkillCheck } from '../dialogs/skill-check.js'
 
 export class AegeanActorSheet extends ActorSheet {
 	static get defaultOptions() {
@@ -78,11 +78,12 @@ export class AegeanActorSheet extends ActorSheet {
 	_createRollDialog() {
 		const context = this.actor.getRollData()
 
+		context.actor = this.actor.toObject(false)
 		context.config = AEGEAN
 
 		console.log('Aegean | ActorSheet::_createRollDialog => context', context)
 
-		RollDialog.show(context)
+		SkillCheck.show(context)
 	}
 
 	_deleteItem(event) {

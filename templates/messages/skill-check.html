@@ -1,0 +1,28 @@
+<div class="aegean">
+	<div class="roll skill-check">
+		<h3>{{ localize "aegean.system.SkillCheck" }}</h3>
+
+		<div>
+			Rolling <strong>{{ characteristic }} ({{ skill }})</strong>
+			{{#if (gt difficulty 0)}}
+				with a Difficulty of {{ difficulty }}
+			{{/if}}
+		</div>
+
+		<div class="alert warning">{{ dice.successes }} Success{{#if (gt dice.successes 1)}}es{{/if}}{{#if (eq dice.successes 0)}}es{{/if}}</div>
+
+		{{#if dice.bonuses}}
+			<div class="alert safe">{{ dice.bonuses }}x 10{{#if (gt dice.bonuses 1)}}s{{/if}}</div>
+		{{/if}}
+
+		{{#if (gte dice.successes 1)}}
+			<div class="alert good">SUCCESS!</div>
+		{{/if}}
+
+		<div class="grid grid-cols-6">
+			{{#each dice.result }}
+				<span class="chip {{#if bonus}}bonus{{else}}{{#if success}}safe{{/if}}{{/if}}">{{ result }}</span>
+			{{/each}}
+		</div>
+	</div>
+</div>

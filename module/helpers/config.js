@@ -83,4 +83,9 @@ export const AEGEAN = {
 		'Extreme',
 	],
 	encumbrance: 2,
+	dice: {
+		success: 8,
+		bonus: 10,
+	},
+	difficulties: [0, 1, 2, 3, 4, 5],
 }

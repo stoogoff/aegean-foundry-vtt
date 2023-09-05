@@ -1,0 +1,14 @@
+
+/* Chat messages */
+.aegean .roll {
+	background-color: var(--base-bg);
+}
+
+.aegean .roll .chip, .aegean .roll .alert {
+	text-align: center;
+	padding: var(--spacing-1);
+}
+.aegean .roll .alert {
+	padding: var(--spacing-2);
+	font-size: var(--font-mid);
+}

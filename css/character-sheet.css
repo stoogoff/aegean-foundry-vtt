@@ -1,7 +1,7 @@
 
 /* Character sheet */
 .aegean .character-sheet {
-	background-color: white;
+	background-color: var(--base-bg);
 }
 
 .aegean .character-sheet .character-info {
