@@ -16,6 +16,9 @@
 			<strong class="chip"><span id="modifiers_value" data-value="0">0</span>D</strong>
 		</div>
 	</div>
+	{{#if flags.vulnerable}}
+		<div><span class="chip danger">{{ localize "aegean.system.Vulnerable" }}</span></div>
+	{{/if}}
 	<div class="multi-select-input">
 		<div class="select-input form-input">
 			<label class="label" for="difficulty">{{ localize "aegean.system.Difficulty" }}</label>

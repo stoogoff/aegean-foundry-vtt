@@ -21,9 +21,11 @@ export class SkillCheck extends Dialog {
 					icon: '<i class="fas fa-dice-d10"></i>',
 					label: game.i18n.localize('aegean.ui.Roll'),
 					callback: async html => {
-						const dice = html.find('[data-value]').map(function() {
+						let dice = html.find('[data-value]').map(function() {
 							return parseInt($(this).attr('data-value'))
 						}).get().reduce(add, 0)
+
+						if(context.flags.vulnerable) ++dice
 
 						const difficulty = html.find('[data-difficulty]').attr('data-difficulty')
 
