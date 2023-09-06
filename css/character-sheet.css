@@ -97,3 +97,27 @@
 	font-weight: bold;
 	border-width: 2px !important;
 }
+
+/* Skills and specialisatiobs */
+.aegean .skills {
+	border: var(--border);
+	padding: var(--spacing-2);
+	margin-top: var(--spacing-4);
+}
+
+.aegean .specialisations {
+	height: 26px;
+	align-items: center;
+}
+.aegean .specialisations ul, .aegean .specialisations input[type=text] {
+	flex-grow: 2;
+}
+.aegean .specialisations input[type=text] {
+	background-color: var(--grey-light);
+}
+
+.aegean .specialisations ul li {
+	border-bottom: 0;
+}
+
+

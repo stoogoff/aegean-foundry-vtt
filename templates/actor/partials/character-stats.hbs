@@ -24,6 +24,21 @@
 				</div>
 				<div>
 					<h3 class="text-right">{{ localize "aegean.system.Specialisations" }}</h3>
+					{{#each system.skills as |skill key|}}
+						<div class="specialisations flex flex-end">
+							<input
+								type="text"
+								name="specialisations"
+								placeholder="{{ localize "aegean.ui.CommaSeparated" }}"
+								value="{{ lookup ../system.specialisations.value key }}" />
+							<ul>
+								{{#each (lookup ../system.specialisations.value key) }}
+									<li class="chip">{{ . }}</li>
+								{{/each}}
+							</ul>
+							{{> systems/aegean/templates/partials/action.hbs action="add-spec" icon="fa-pen-to-square" id=key}}
+						</div>
+					{{/each}}
 				</div>
 			</div>
 		</div>

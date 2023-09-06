@@ -145,7 +145,11 @@
 					"value": ""
 				},
 				"Fate": {
-					"label": "aegean.character.Fate",
+					"label": "aegean.attributes.Fate",
+					"value": ""
+				},
+				"Notes": {
+					"label": "aegean.ui.Notes",
 					"value": ""
 				},
 				"Relationships": {
@@ -178,6 +182,10 @@
 					"label": "aegean.attributes.Oracle",
 					"value": 0
 				}
+			},
+			"specialisations": {
+				"label": "aegean.system.Specialisations",
+				"value": {}
 			},
 			"consumables": {
 				"Drakhmae": {

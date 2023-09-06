@@ -33,7 +33,7 @@
 }
 
 /* Dice roll action */
-.action.roll {
+.aegean .action.roll {
 	border-color: var(--grey-mid);
 	background-color: var(--grey-light);
 	margin-top: var(--spacing-4);
@@ -41,11 +41,11 @@
 	text-align: center;
 	padding: var(--spacing-2) var(--spacing-4);
 }
-.action.roll .text {
+.aegean .action.roll .text {
 	font-size: var(--font-mid);
 }
 
-.action.roll:hover {
+.aegean .action.roll:hover {
 	color: var(--invert-fg);
 	background-color: var(--invert-bg);
 	border-color: black;

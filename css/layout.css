@@ -278,10 +278,3 @@
 	color: var(--good-dark);
 }
 
-
-/* this should go elsewhere */
-.aegean .skills {
-	border: var(--border);
-	padding: var(--spacing-2);
-	margin-top: var(--spacing-4);
-}

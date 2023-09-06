@@ -33,12 +33,17 @@
 			}}
 
 			<div>
-				<label class="label">{{ localize "aegean.attributes.Fate" }}</label>
+				<label class="label">{{ localize system.background.Fate.label }}</label>
 				{{editor system.background.Fate.value target="system.background.Fate.value" button=true owner=owner editable=editable}}
 			</div>
 		</div>
 		<div>
-			<div class="boxed relationships">
+			<div class="boxed">
+				<label class="label">{{ localize system.background.Notes.label }}</label>
+				{{editor system.background.Notes.value target="system.background.Notes.value" button=true owner=owner editable=editable}}
+			</div>
+
+			<!-- div class="boxed relationships">
 				<h3>Relationships</h3>
 				<ul>
 					<li>
@@ -57,7 +62,7 @@
 				<div class="flex flex-end">
 					{{> systems/aegean/templates/partials/action.hbs action="add-relationship" id="relationship_add" icon="fa-plus" text="aegean.ui.Add" }}
 				</div>
-			</div>
+			</div -->
 		</div>
 	</div>
 	{{#if advantages}}

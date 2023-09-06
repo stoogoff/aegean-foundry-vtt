@@ -73,6 +73,10 @@ export class AegeanActorSheet extends ActorSheet {
 
 		// display roll dialogue
 		html.find('.roll').click(this._createRollDialog.bind(this))
+
+		// skill specialisations and hide the inputs
+		html.find('.add-spec').click(this._editSpecs.bind(this))
+		html.find('.specialisations input').hide()
 	}
 
 	_createRollDialog() {
@@ -117,6 +121,27 @@ export class AegeanActorSheet extends ActorSheet {
 				'system.attributes.Risk.value': parseInt(target.attr('data-value'))
 			})
 		}
+	}
+
+	_editSpecs(event) {
+		const target = $(event.currentTarget)
+		const parent = target.parent('.specialisations')
+		const skill = target.attr('data-id')
+
+		console.log(`Aegean | ActorSheet::_onEditSpecs => skill='${skill}'`)
+
+		parent.find('ul').hide()
+		parent.find('input').show().blur(blurEvent => {
+			const specialisations = this.actor.system.specialisations.value
+
+			specialisations[skill] = $(blurEvent.currentTarget).val().split(',').map(val => val.trim()).filter(val => val !== '')
+
+			console.log('Aegean | ActorSheet::_onEditSpecs => specialisations', specialisations)
+
+			this.actor.update({
+				'system.specialisations.value': specialisations
+			})
+		})
 	}
 
 	async _onDropItem(event, data) {

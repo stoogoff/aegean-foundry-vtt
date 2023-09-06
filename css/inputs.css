@@ -121,9 +121,12 @@
 }
 
 /* Property rating */
-.rating-input {
+.aegean input.rating-input {
 	max-width: 30px;
 	text-align: right !important;
+	display: inline-block;
+	border: var(--border-light);
+	border-radius: var(--border-radius);
 }
 
 /* Built-in editor */
