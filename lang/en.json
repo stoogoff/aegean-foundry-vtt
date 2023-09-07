@@ -89,6 +89,7 @@
 			"Characteristic": "Characteristic",
 			"Characteristics": "Characteristics",
 			"Cost": "Cost",
+			"Defence": "Defence",
 			"Deity": "Deity",
 			"DeityCharacteristicSelectNote": "Select one or two characteristics that provide a bonus during character generation.",
 			"DeitySkillSelectNote": "Select three skills that provide a bonus during character generation.",
@@ -122,22 +123,37 @@
 			"Talents": "Talents",
 			"Title": "Title",
 			"Threshold": "Threshold",
-			"Vulnerable": "Vulnerable"
+			"Vulnerable": "Vulnerable",
+			"Wounds": "Wounds"
 		},
 		"ui": {
 			"Add": "Add",
 			"AdvantagesDisadvantages": "Advantages / Disadvantages",
+			"ApplyDamage": "Apply Damage",
 			"Background": "Background",
 			"CharacterSheet": "Character Sheet",
 			"CommaSeparated": "comma separated",
 			"Combat": "Combat",
 			"Notes": "Notes",
 			"Roll": "Roll",
+			"RollWound": "Roll Wound",
 			"SpecialisationPlaceholder": "Skill: Specialisation",
 			"Stats": "Stats",
 			"Symbols": "Symbols",
 			"Talents": "Talents",
 			"TheGods": "The Gods"
+		},
+		"wounds": {
+			"NoEffect": "No long term effect.",
+			"Hubris": "Immediately add 1 Hubris to the GM’s Hubris pool.There are no other long term effects.",
+			"Characteristic": "Choose a characteristic. All skill checks using this characteristic suffer a -1D penalty.",
+			"SkillCheckPenalty": "All skill checks suffer a -1D penalty.",
+			"SkillCheckDifficulty": "All skill checks are made at +1 Difficulty.",
+			"Reaction": "The character loses their Reaction.",
+			"Maneuver": "The character loses their Maneuver. They can still convert their Action to a Maneuver if needed.",
+			"Stunned": "The character is Stunned and suffers all of the effects of the Stunned condition.",
+			"Incapacitated": "Incapacitated.",
+			"Dying": "Close to Death."
 		}
 	}
 }

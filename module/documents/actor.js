@@ -55,12 +55,12 @@ export class AegeanActor extends Actor {
 	 * is queried and has a roll executed directly from it).
 	 */
 	prepareDerivedData() {
-		this.flags.aegean = this._getDerivedData()
+		this.flags.aegean = this.getDerivedData()
 
 		console.log('Aegean | Actor::prepareDerivedData', this.flags.aegean)
 	}
 
-	_getDerivedData() {
+	getDerivedData() {
 		const flags = {}
 
 		flags.hasDivineHeritage = this.system.background.Heritage.value === 'Divine'
@@ -83,7 +83,7 @@ export class AegeanActor extends Actor {
 	getRollData() {
 		const data = super.getRollData()
 
-		data.flags = this._getDerivedData()
+		data.flags = this.getDerivedData()
 
 		console.log('Aegean | Actor::getRollData', data)
 

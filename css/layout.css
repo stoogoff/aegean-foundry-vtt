@@ -174,31 +174,31 @@
 .aegean .lowercase {
 	text-transform: lowercase;
 }
-.font-xs {
+.aegean .font-xs {
 	font-size: var(--font-xs);
 }
-.font-sm {
+.aegean .font-sm {
 	font-size: var(--font-sm);
 }
-.font-mid {
+.aegean .font-mid {
 	font-size: var(--font-mid);
 }
-.font-lg {
+.aegean .font-lg {
 	font-size: var(--font-lg);
 }
-.font-xl {
+.aegean .font-xl {
 	font-size: var(--font-xl);
 }
-.grey-light {
+.aegean .grey-light {
 	color: var(--grey-200);
 }
-.grey-mid {
+.aegean .grey-mid {
 	color: var(--grey-400);
 }
-.grey-dark {
+.aegean .grey-dark {
 	color: var(--grey-700);
 }
-.black {
+.aegean .black {
 	color: black;
 }
 

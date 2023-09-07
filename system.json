@@ -28,10 +28,10 @@
 	],
 	"styles": [
 		"css/layout.css",
+		"css/inputs.css",
 		"css/accordions.css",
 		"css/actions.css",
 		"css/character-sheet.css",
-		"css/inputs.css",
 		"css/messages.css",
 		"css/roll-dialog.css",
 		"css/tabs.css"

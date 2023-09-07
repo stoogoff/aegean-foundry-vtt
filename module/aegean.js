@@ -84,6 +84,7 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/actor/partials/advantages.hbs',
 		'systems/aegean/templates/actor/partials/background.hbs',
 		'systems/aegean/templates/actor/partials/character-stats.hbs',
+		'systems/aegean/templates/actor/partials/combat.hbs',
 		'systems/aegean/templates/actor/partials/equipment.hbs',
 		'systems/aegean/templates/actor/partials/header-section.hbs',
 		'systems/aegean/templates/actor/partials/risk.hbs',
@@ -140,6 +141,7 @@ Hooks.once('init', async function() {
 
 	// comparison functions
 	Handlebars.registerHelper('eq', (val1, val2) => val1 === val2)
+	Handlebars.registerHelper('ne', (val1, val2) => val1 !== val2)
 	Handlebars.registerHelper('lt', (val1, val2) => val1 < val2)
 	Handlebars.registerHelper('lte', (val1, val2) => val1 <= val2)
 	Handlebars.registerHelper('gt', (val1, val2) => val1 > val2)

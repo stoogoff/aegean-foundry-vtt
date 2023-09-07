@@ -1,7 +1,8 @@
 
 import { AEGEAN } from '../helpers/config.js'
-import { sortByProperty } from '../helpers/list.js'
+import { sortByProperty, add } from '../helpers/list.js'
 import { SkillCheck } from '../dialogs/skill-check.js'
+import { woundRoll } from '../helpers/wounds.js'
 
 export class AegeanActorSheet extends ActorSheet {
 	static get defaultOptions() {
@@ -77,6 +78,11 @@ export class AegeanActorSheet extends ActorSheet {
 		// skill specialisations and hide the inputs
 		html.find('.add-spec').click(this._editSpecs.bind(this))
 		html.find('.specialisations input').hide()
+
+		// wounds and damage
+		html.find('.damage-action').click(this._applyDamage.bind(this))
+		html.find('.heal-wound').click(this._healWound.bind(this))
+		html.find('.remove-wound').click(this._removeWound.bind(this))
 	}
 
 	_createRollDialog() {
@@ -88,6 +94,40 @@ export class AegeanActorSheet extends ActorSheet {
 		console.log('Aegean | ActorSheet::_createRollDialog => context', context)
 
 		SkillCheck.show(context)
+	}
+
+	_applyDamage(event) {
+		const value = parseInt($(event.currentTarget).parent('.action-bar').find('.damage-value').val())
+
+		console.log(`Aegean | ActorSheet::_applyDamage => value=${value}`)
+
+		this.applyDamage(value)
+	}
+
+	_healWound(event) {
+		const woundId = $(event.currentTarget).attr('data-id')
+
+		console.log(`Aegean | ActorSheet::_healWound => woundId=${woundId}`)
+
+		const wound = (this.actor.system.attributes.Wounds.value || []).find(({ id }) => id === woundId)
+
+		wound.healed = true
+
+		this.actor.update({
+			'system.attributes.Wounds.value': [ ...this.actor.system.attributes.Wounds.value ]
+		})
+	}
+
+	_removeWound(event) {
+		const woundId = $(event.currentTarget).attr('data-id')
+
+		console.log(`Aegean | ActorSheet::_removeWound => woundId=${woundId}`)
+
+		const wounds = (this.actor.system.attributes.Wounds.value || []).filter(({ id }) => id !== woundId)
+
+		this.actor.update({
+			'system.attributes.Wounds.value': wounds
+		})
 	}
 
 	_deleteItem(event) {
@@ -117,9 +157,7 @@ export class AegeanActorSheet extends ActorSheet {
 		const target = $(event.currentTarget)
 
 		if(!target.hasClass('current')) {
-			this.actor.update({
-				'system.attributes.Risk.value': parseInt(target.attr('data-value'))
-			})
+			this.setRisk(parseInt(target.attr('data-value')))
 		}
 	}
 
@@ -174,5 +212,85 @@ export class AegeanActorSheet extends ActorSheet {
 		}
 
 		super._onDropItem(event, data)
+	}
+
+	// methods for applying damage
+	// ideally these would be on the actor
+
+	// apply damage by subtracting armour
+	applyDamage(damage) {
+		const armour = parseInt(this.actor.system.defence.Armour.value)
+		const modifiedDamage = damage - armour
+
+		if(modifiedDamage > 0) {
+			console.log(`Aegean | ActorSheet::applyDamage => modifiedDamage=${modifiedDamage}`)
+
+			this.addRisk(modifiedDamage)
+		}
+	}
+
+	// roll a wound
+	async applyWound(newWound) {
+		// get the value of all current wounds and add to the new wound
+		const totalWounds = (this.actor.system.attributes.Wounds.value || []).map(({ value }) => value).reduce(add, 0)
+
+		console.log(`Aegean | ActorSheet::applyWound => newWound=${newWound}, totalWounds=${totalWounds}`)
+
+		const wound = await woundRoll(totalWounds, newWound)
+
+		this.actor.update({
+			'system.attributes.Wounds.value': [ ...this.actor.system.attributes.Wounds.value, wound]
+		})
+	}
+
+	setRisk(newRisk) {
+		console.log(`Aegean | ActorSheet::setRisk => newRisk=${newRisk}`)
+
+		const flags = this.actor.getDerivedData()
+		const currentRisk = parseInt(this.actor.system.attributes.Risk.value)
+
+		if(flags.vulnerable && newRisk > currentRisk) {
+			this.applyWound(newRisk - currentRisk)
+		}
+		else {
+			this.actor.update({
+				'system.attributes.Risk.value': newRisk
+			})
+
+			// if character is now vulnerable apply a 1 point Wound
+			if(newRisk > flags.endurance) {
+				console.log('Aegean | ActorSheet::addRisk => NOW VULNERABLE apply 1 point wound')
+
+				this.applyWound(1)
+			}
+		}
+	}
+
+	// set Risk to the given value and apply a wound if this makes the character vulnerable
+	addRisk(riskToAdd) {
+		const flags = this.actor.getDerivedData()
+
+		// if the character is vulnerable, roll a wound instead
+		if(flags.vulnerable) {
+			console.log('Aegean | ActorSheet::addRisk => VULNERABLE')
+
+			this.applyWound(riskToAdd)
+		}
+		else {
+			const newRisk = parseInt(this.actor.system.attributes.Risk.value) + riskToAdd
+
+			console.log(`Aegean | ActorSheet::addRisk => newRisk=${newRisk}`)
+
+			this.actor.update({
+				'system.attributes.Risk.value': newRisk
+			})
+
+			// if character is now vulnerable apply a 1 point Wound
+			if(newRisk > flags.endurance) {
+				console.log('Aegean | ActorSheet::addRisk => NOW VULNERABLE apply 1 point wound')
+
+				this.applyWound(1)
+			}
+		}
 	}
 }

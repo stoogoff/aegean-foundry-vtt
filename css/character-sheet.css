@@ -120,4 +120,36 @@
 	border-bottom: 0;
 }
 
+/* Combat and wounds */
+.aegean .character-sheet input.damage-value { /* TODO this is the same as .rating-input */
+	max-width: 30px;
+	text-align: right !important;
+	display: inline-block;
+	border: var(--border-light);
+	border-radius: var(--border-radius);
+}
 
+.aegean .character-sheet .damage-bar {
+	border-bottom: var(--border-light);
+	padding-bottom: var(--spacing-2);
+}
+
+.aegean .character-sheet .wounds li {
+	display: flex;
+}
+.aegean .character-sheet .wounds li .boxed {
+	margin-right: var(--spacing-2);
+	width: 30px;
+	max-height: 30px;
+	text-align: center;
+}
+.aegean .character-sheet .wounds li p {
+	flex-grow: 3;
+}
+.aegean .character-sheet .wounds li div {
+	min-width: 70px;
+	max-width: 70px;
+}
+.aegean .character-sheet .wounds li p.healed {
+	text-decoration: line-through;
+}

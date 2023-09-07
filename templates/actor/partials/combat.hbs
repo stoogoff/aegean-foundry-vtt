@@ -1,0 +1,53 @@
+<div class="combat grid column-panel">
+	<div>
+		<div class="action-bar damage-bar">
+			<input
+				type="number"
+				name="damage"
+				value="0"
+				class="damage-value"
+			/>
+			{{> systems/aegean/templates/partials/action.hbs action="damage-action" icon="fa-sword" text="aegean.ui.ApplyDamage" }}
+		</div>
+		<div>
+			<h2><span>{{ localize "aegean.system.Wounds" }}</span></h2>
+			<ul class="wounds">
+				{{#each system.attributes.Wounds.value as | wound key |}}
+					<li>
+						<span class="boxed">{{ wound.value }}</span>
+						<p{{#if wound.healed}} class="healed"{{/if}}>{{ localize wound.penalty }}</p>
+						<div>
+							{{> systems/aegean/templates/partials/action.hbs action="heal-wound" id=wound.id icon="fa-user-injured" }}
+							{{> systems/aegean/templates/partials/action.hbs action="remove-wound" id=wound.id icon="fa-trash" }}
+						</div>
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+
+		<p><span class="chip">>> TODO: COMBAT ACTIONS <<</span></p>
+		<p><span class="chip">>> TODO: COMBAT MANEUVERS <<</span></p>
+		<p><span class="chip">>> TODO: RECOVERY ROLL <<</span></p>
+	</div>
+	<aside>
+		<h3>{{ localize "aegean.system.Defence" }}</h3>
+		<!-- armour -->
+		{{> systems/aegean/templates/partials/box-input.hbs
+			label=system.defence.Armour.label
+			value=system.defence.Armour.value
+			name="system.defence.Armour.value"
+		}}
+		<!-- shield -->
+		{{> systems/aegean/templates/partials/box-input.hbs
+			label=system.defence.Shield.label
+			value=system.defence.Shield.value
+			name="system.defence.Shield.value"
+		}}
+		<!-- parry -->
+		{{> systems/aegean/templates/partials/box-input.hbs
+			label=system.defence.Parry.label
+			value=system.defence.Parry.value
+			name="system.defence.Parry.value"
+		}}
+	</aside>
+</div>

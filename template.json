@@ -181,6 +181,10 @@
 				"Oracle": {
 					"label": "aegean.attributes.Oracle",
 					"value": 0
+				},
+				"Wounds": {
+					"label": "aegean.system.Wounds",
+					"value": []
 				}
 			},
 			"specialisations": {
