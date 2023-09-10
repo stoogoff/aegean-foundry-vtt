@@ -208,7 +208,7 @@
 		}
 	},
 	"Item": {
-		"types": ["advantage", "armour", "deity", "equipment", "property", "talent", "weapon"],
+		"types": ["advantage", "armour", "career", "deity", "equipment", "property", "talent", "weapon"],
 		"templates": {
 			"base": {
 				"Description": {
@@ -339,6 +339,19 @@
 				"Relationship": {
 					"label": "aegean.system.Relationship",
 					"value": ""
+				}
+			}
+		},
+		"career": {
+			"tempaltes": ["base"],
+			"Stats": {
+				"Skills": {
+					"label": "aegean.system.Skills",
+					"value": []
+				},
+				"Specialisation": {
+					"label": "aegean.system.Specialisation",
+					"value": {}
 				}
 			}
 		}

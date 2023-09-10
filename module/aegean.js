@@ -7,6 +7,7 @@ import { AegeanItem } from './documents/item.js'
 import { AegeanActorSheet } from './sheets/actor-sheet.js'
 import { AegeanAdvantageSheet } from './sheets/advantage-sheet.js'
 import { AegeanArmourSheet } from './sheets/armour-sheet.js'
+import { AegeanCareerSheet } from './sheets/career-sheet.js'
 import { AegeanDeitySheet } from './sheets/deity-sheet.js'
 import { AegeanEquipmentSheet } from './sheets/equipment-sheet.js'
 import { AegeanPropertySheet } from './sheets/property-sheet.js'
@@ -43,6 +44,10 @@ Hooks.once('init', async function() {
 	})
 	Items.registerSheet('Aegean', AegeanArmourSheet, {
 		types: ['armour'],
+		makeDefault: true,
+	})
+	Items.registerSheet('Aegean', AegeanCareerSheet, {
+		types: ['career'],
 		makeDefault: true,
 	})
 	Items.registerSheet('Aegean', AegeanDeitySheet, {

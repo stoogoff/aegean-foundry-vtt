@@ -3,8 +3,10 @@
 		"Item": {
 			"advantage": "Advantage",
 			"armour": "Armour",
+			"career": "Career",
 			"deity": "Deity",
 			"equipment": "Equipment",
+			"mysteryCult": "Mystery Cult",
 			"property": "Property",
 			"talent": "Talent",
 			"weapon": "Weapon"
@@ -92,7 +94,6 @@
 			"Defence": "Defence",
 			"Deity": "Deity",
 			"DeityCharacteristicSelectNote": "Select one or two characteristics that provide a bonus during character generation.",
-			"DeitySkillSelectNote": "Select three skills that provide a bonus during character generation.",
 			"Description": "Description",
 			"Difficulty": "Difficulty",
 			"Disfavour" : "Disfavour",
@@ -137,6 +138,7 @@
 			"Notes": "Notes",
 			"Roll": "Roll",
 			"RollWound": "Roll Wound",
+			"SkillSelectNote": "Select three skills that provide a bonus during character generation.",
 			"SpecialisationPlaceholder": "Skill: Specialisation",
 			"Stats": "Stats",
 			"Symbols": "Symbols",
