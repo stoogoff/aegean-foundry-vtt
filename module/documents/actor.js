@@ -60,8 +60,13 @@ export class AegeanActor extends Actor {
 		})
 	}
 
+	// set Risk to the given value
+	// apply as Wound if the character is vulnerable instead
+	// if the character is now vulnerable apply a Wound
 	setRisk(newRisk) {
 		console.log(`Aegean | Actor::setRisk => newRisk=${newRisk}`)
+
+		if(newRisk < 0) newRisk = 0
 
 		const flags = this.getDerivedData()
 		const currentRisk = parseInt(this.system.attributes.Risk.value)
@@ -83,7 +88,9 @@ export class AegeanActor extends Actor {
 		}
 	}
 
-	// set Risk to the given value and apply a wound if this makes the character vulnerable
+	// increase Risk by the given value
+	// apply as Wound if the character is vulnerable instead
+	// if the character is now vulnerable apply a Wound
 	addRisk(riskToAdd) {
 		const flags = this.getDerivedData()
 
@@ -167,6 +174,8 @@ export class AegeanActor extends Actor {
 		const data = super.getRollData()
 
 		data.flags = this.getDerivedData()
+		data.actor = this.toObject(false)
+		data.config = AEGEAN
 
 		console.log('Aegean | Actor::getRollData', data)
 

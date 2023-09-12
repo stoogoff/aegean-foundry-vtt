@@ -34,6 +34,7 @@ export class SkillCheck extends Dialog {
 
 						// send results to chat
 						const content = await renderTemplate('systems/aegean/templates/messages/skill-check.html', {
+							title: "aegean.system.SkillCheck",
 							dice: result,
 							difficulty,
 							characteristic: html.find('[name=characteristic]').val(),
@@ -61,7 +62,7 @@ export class SkillCheck extends Dialog {
 		this.context = context
 		this.selection = selection
 
-		console.log('Aegean | RollDialog::constructor => context, selection', context, selection)
+		console.log('Aegean | SkillCheck::constructor => context, selection', context, selection)
 	}
 
 	activateListeners(html) {
@@ -105,7 +106,7 @@ export class SkillCheck extends Dialog {
 		const value = target.val()
 		const dice = value === '' ? 0 : 1
 
-		console.log(`Aegean | RollDialog::_applySpec => key=${key}, value=${value}, dice=${dice}`)
+		console.log(`Aegean | SkillCheck::_applySpec => key=${key}, value=${value}, dice=${dice}`)
 
 		this._setDiceValue(target, key, dice, 'data-value', 'D')
 	}
@@ -116,7 +117,7 @@ export class SkillCheck extends Dialog {
 		const value = target.val()
 		const dice = this.context[`${key}s`][value].value
 
-		console.log(`Aegean | RollDialog::_updateFromContext => key=${key}, value=${value}, dice=${dice}`)
+		console.log(`Aegean | SkillCheck::_updateFromContext => key=${key}, value=${value}, dice=${dice}`)
 
 		this._setDiceValue(target, key, dice, 'data-value', 'D')
 
@@ -129,7 +130,7 @@ export class SkillCheck extends Dialog {
 			const key = target.attr('name')
 			const dice = target.val()
 
-			console.log(`Aegean | RollDialog::_updateFromValue => key=${key}, dice=${dice}`)
+			console.log(`Aegean | SkillCheck::_updateFromValue => key=${key}, dice=${dice}`)
 
 			this._setDiceValue(target, key, dice, attr)
 		}

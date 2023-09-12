@@ -1,0 +1,15 @@
+<div class="roll-dialog">
+	{{> systems/aegean/templates/partials/value-text.hbs
+		label="aegean.system.Characteristic"
+		name="characteristic"
+		readonly=true
+	}}
+	{{> systems/aegean/templates/partials/value-text.hbs
+		label="aegean.system.Skill"
+		name="skill"
+		readonly=true
+	}}
+	{{#if flags.vulnerable}}
+		<div class="mb-4"><span class="chip danger">{{ localize "aegean.system.Vulnerable" }} +1D</span></div>
+	{{/if}}
+</div>

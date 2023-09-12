@@ -202,6 +202,91 @@
 	color: black;
 }
 
+/* Spacing */
+.aegean .mt-1 {
+	margin-top: var(--spacing-1);
+}
+.aegean .mb-1 {
+	margin-bottom: var(--spacing-1);
+}
+.aegean .mr-1 {
+	margin-right: var(--spacing-1);
+}
+.aegean .ml-1 {
+	margin-left: var(--spacing-1);
+}
+.aegean .mx-1 {
+	margin-left: var(--spacing-1);
+	margin-right: var(--spacing-1);
+}
+.aegean .my-1 {
+	margin-top: var(--spacing-1);
+	margin-bottom: var(--spacing-1);
+}
+
+.aegean .mt-2 {
+	margin-top: var(--spacing-2);
+}
+.aegean .mb-2 {
+	margin-bottom: var(--spacing-2);
+}
+.aegean .mr-2 {
+	margin-right: var(--spacing-2);
+}
+.aegean .ml-2 {
+	margin-left: var(--spacing-2);
+}
+.aegean .mx-2 {
+	margin-left: var(--spacing-2);
+	margin-right: var(--spacing-2);
+}
+.aegean .my-2 {
+	margin-top: var(--spacing-2);
+	margin-bottom: var(--spacing-2);
+}
+
+.aegean .mt-3 {
+	margin-top: var(--spacing-3);
+}
+.aegean .mb-3 {
+	margin-bottom: var(--spacing-3);
+}
+.aegean .mr-3 {
+	margin-right: var(--spacing-3);
+}
+.aegean .ml-3 {
+	margin-left: var(--spacing-3);
+}
+.aegean .mx-3 {
+	margin-left: var(--spacing-3);
+	margin-right: var(--spacing-3);
+}
+.aegean .my-3 {
+	margin-top: var(--spacing-3);
+	margin-bottom: var(--spacing-3);
+}
+
+.aegean .mt-4 {
+	margin-top: var(--spacing-4);
+}
+.aegean .mb-4 {
+	margin-bottom: var(--spacing-4);
+}
+.aegean .mr-4 {
+	margin-right: var(--spacing-4);
+}
+.aegean .ml-4 {
+	margin-left: var(--spacing-4);
+}
+.aegean .mx-4 {
+	margin-left: var(--spacing-4);
+	margin-right: var(--spacing-4);
+}
+.aegean .my-4 {
+	margin-top: var(--spacing-4);
+	margin-bottom: var(--spacing-4);
+}
+
 /* Common utilities */
 .aegean .note {
 	font-size: var(--font-sm);

@@ -1,6 +1,6 @@
 <div class="aegean">
 	<div class="roll skill-check">
-		<h3>{{ localize "aegean.system.SkillCheck" }}</h3>
+		<h3>{{ localize title }}</h3>
 
 		<div>
 			Rolling <strong>{{ characteristic }} ({{ skill }})</strong>
@@ -21,7 +21,7 @@
 
 		<div class="grid grid-cols-6">
 			{{#each dice.result }}
-				<span class="chip {{#if bonus}}bonus{{else}}{{#if success}}safe{{/if}}{{/if}}">{{ result }}</span>
+				<span class="chip {{#if bonus}}good{{else}}{{#if success}}safe{{/if}}{{/if}}">{{ result }}</span>
 			{{/each}}
 		</div>
 	</div>

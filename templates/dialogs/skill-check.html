@@ -13,13 +13,11 @@
 		label="aegean.system.Specialisation"
 		name="specialisation"
 	}}
-	<div class="multi-select-input">
-		<div class="select-input form-input">
-			<label class="label" for="modifier">{{ localize "aegean.system.Modifiers" }}</label>
-			<input type="number" class="value-text" name="modifier" id="modifier" />
-			<strong class="chip"><span id="modifier_value" data-value="0">0</span>D</strong>
-		</div>
-	</div>
+	{{> systems/aegean/templates/partials/value-text.hbs
+		label="aegean.system.Modifiers"
+		name="modifier"
+		type="number"
+	}}
 	{{#if flags.vulnerable}}
 		<div><span class="chip danger">{{ localize "aegean.system.Vulnerable" }} +1D</span></div>
 	{{/if}}

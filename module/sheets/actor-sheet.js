@@ -2,6 +2,7 @@
 import { AEGEAN } from '../helpers/config.js'
 import { sortByProperty, add } from '../helpers/list.js'
 import { SkillCheck } from '../dialogs/skill-check.js'
+import { RecoveryRoll } from '../dialogs/recovery-roll.js'
 
 export class AegeanActorSheet extends ActorSheet {
 	static get defaultOptions() {
@@ -72,7 +73,7 @@ export class AegeanActorSheet extends ActorSheet {
 		html.find('.risk .track .boxed').click(this._setRisk.bind(this))
 
 		// display roll dialogue
-		html.find('.roll').click(this._createRollDialog.bind(this))
+		html.find('.roll').click(this._skillCheckDialog.bind(this))
 
 		// skill specialisations and hide the inputs
 		html.find('.add-spec').click(this._editSpecs.bind(this))
@@ -85,20 +86,23 @@ export class AegeanActorSheet extends ActorSheet {
 		html.find('.recovery-action').click(this._recoveryRollDialog.bind(this))
 	}
 
-	_createRollDialog(selection) {
+	_skillCheckDialog() {
 		const context = this.actor.getRollData()
 
-		context.actor = this.actor.toObject(false)
-		context.config = AEGEAN
+		console.log('Aegean | ActorSheet::_skillCheckDialog => context', context)
 
-		console.log('Aegean | ActorSheet::_createRollDialog => context', context)
-
-		SkillCheck.show(context, selection)
+		SkillCheck.show(context)
 	}
 
 	_recoveryRollDialog() {
-		this._createRollDialog({
-			skill: 'Vigour',
+		const context = this.actor.getRollData()
+
+		console.log('Aegean | ActorSheet::_recoveryRollDialog => context', context)
+
+		RecoveryRoll.show(context, result => {
+			const newRisk = parseInt(this.actor.system.attributes.Risk.value) - result
+
+			this.actor.setRisk(newRisk)
 		})
 	}
 

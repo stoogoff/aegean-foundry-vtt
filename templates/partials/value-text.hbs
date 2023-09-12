@@ -1,0 +1,13 @@
+<div class="multi-select-input" id="{{ name }}_block">
+	<div class="select-input form-input">
+		<label class="label" for="{{ name }}">{{ localize label }}</label>
+		<input
+			type="{{#if type}}{{ type }}{{else}}text{{/if}}"
+			class="value-text"
+			name="{{ name }}"
+			id="{{ name }}"
+			{{#if readonly }}readonly{{/if}}
+		/>
+		<strong class="chip"><span id="{{ name }}_value" data-value="0">0</span>D</strong>
+	</div>
+</div>
