@@ -85,7 +85,7 @@ export class AegeanActorSheet extends ActorSheet {
 		html.find('.recovery-action').click(this._recoveryRollDialog.bind(this))
 	}
 
-	_createRollDialog() {
+	_createRollDialog(selection) {
 		const context = this.actor.getRollData()
 
 		context.actor = this.actor.toObject(false)
@@ -93,11 +93,13 @@ export class AegeanActorSheet extends ActorSheet {
 
 		console.log('Aegean | ActorSheet::_createRollDialog => context', context)
 
-		SkillCheck.show(context)
+		SkillCheck.show(context, selection)
 	}
 
 	_recoveryRollDialog() {
-
+		this._createRollDialog({
+			skill: 'Vigour',
+		})
 	}
 
 	_applyDamage(event) {

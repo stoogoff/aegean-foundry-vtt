@@ -1,19 +1,23 @@
 <div class="roll-dialog">
 	{{> systems/aegean/templates/partials/value-select.hbs
 		label="aegean.system.Characteristic"
-		name="characteristics"
+		name="characteristic"
 		options=config.characteristics
 	}}
 	{{> systems/aegean/templates/partials/value-select.hbs
 		label="aegean.system.Skill"
-		name="skills"
+		name="skill"
 		options=config.skills
+	}}
+	{{> systems/aegean/templates/partials/value-select.hbs
+		label="aegean.system.Specialisation"
+		name="specialisation"
 	}}
 	<div class="multi-select-input">
 		<div class="select-input form-input">
-			<label class="label" for="modifiers">{{ localize "aegean.system.Modifiers" }}</label>
-			<input type="number" class="value-text" name="modifiers" id="modifiers" />
-			<strong class="chip"><span id="modifiers_value" data-value="0">0</span>D</strong>
+			<label class="label" for="modifier">{{ localize "aegean.system.Modifiers" }}</label>
+			<input type="number" class="value-text" name="modifier" id="modifier" />
+			<strong class="chip"><span id="modifier_value" data-value="0">0</span>D</strong>
 		</div>
 	</div>
 	{{#if flags.vulnerable}}
