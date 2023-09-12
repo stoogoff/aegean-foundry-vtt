@@ -2,6 +2,7 @@
 import { add } from '../helpers/list.js'
 import { isEquipment } from '../helpers/utils.js'
 import { AEGEAN } from '../helpers/config.js'
+import { woundRoll } from '../helpers/wounds.js'
 
 export class AegeanActor extends Actor {
 	get talents() {
@@ -26,6 +27,88 @@ export class AegeanActor extends Actor {
 
 	get gods() {
 		return this.items.filter(item => item.type === 'deity')
+	}
+
+
+	// methods for applying damage
+
+	// apply damage by subtracting armour
+	applyDamage(damage) {
+		const armour = parseInt(this.system.defence.Armour.value)
+		const modifiedDamage = damage - armour
+
+		if(modifiedDamage > 0) {
+			console.log(`Aegean | Actor::applyDamage => modifiedDamage=${modifiedDamage}`)
+
+			this.addRisk(modifiedDamage)
+		}
+	}
+
+	// roll a wound
+	async applyWound(newWound) {
+		// get the value of all current wounds and add to the new wound
+		const totalWounds = (this.system.attributes.Wounds.value || []).map(({ value }) => value).reduce(add, 0)
+		const currentScars = parseInt(this.system.attributes.Scars.value)
+
+		console.log(`Aegean | Actor::applyWound => newWound=${newWound}, totalWounds=${totalWounds}`)
+
+		const wound = await woundRoll(totalWounds, newWound)
+
+		this.update({
+			'system.attributes.Wounds.value': [ ...this.system.attributes.Wounds.value, wound],
+			'system.attributes.Scars.value': currentScars + wound.value,
+		})
+	}
+
+	setRisk(newRisk) {
+		console.log(`Aegean | Actor::setRisk => newRisk=${newRisk}`)
+
+		const flags = this.getDerivedData()
+		const currentRisk = parseInt(this.system.attributes.Risk.value)
+
+		if(flags.vulnerable && newRisk > currentRisk) {
+			this.applyWound(newRisk - currentRisk)
+		}
+		else {
+			this.update({
+				'system.attributes.Risk.value': newRisk
+			})
+
+			// if character is now vulnerable apply a 1 point Wound
+			if(newRisk > flags.endurance) {
+				console.log('Aegean | Actor::addRisk => NOW VULNERABLE apply 1 point wound')
+
+				this.applyWound(1)
+			}
+		}
+	}
+
+	// set Risk to the given value and apply a wound if this makes the character vulnerable
+	addRisk(riskToAdd) {
+		const flags = this.getDerivedData()
+
+		// if the character is vulnerable, roll a wound instead
+		if(flags.vulnerable) {
+			console.log('Aegean | Actor::addRisk => VULNERABLE')
+
+			this.applyWound(riskToAdd)
+		}
+		else {
+			const newRisk = parseInt(this.system.attributes.Risk.value) + riskToAdd
+
+			console.log(`Aegean | Actor::addRisk => newRisk=${newRisk}`)
+
+			this.update({
+				'system.attributes.Risk.value': newRisk
+			})
+
+			// if character is now vulnerable apply a 1 point Wound
+			if(newRisk > flags.endurance) {
+				console.log('Aegean | Actor::addRisk => NOW VULNERABLE apply 1 point wound')
+
+				this.applyWound(1)
+			}
+		}
 	}
 
 	prepareData() {
