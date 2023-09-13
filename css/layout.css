@@ -363,3 +363,9 @@
 	color: var(--good-dark);
 }
 
+/* Divider */
+.aegean .divider {
+	border-left: var(--border-light);
+	display: inline-block;
+	height: 12px;
+}
