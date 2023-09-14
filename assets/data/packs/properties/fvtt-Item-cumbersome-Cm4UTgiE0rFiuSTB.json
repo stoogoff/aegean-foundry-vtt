@@ -1,0 +1,22 @@
+{
+  "name": "Cumbersome",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This item is especially heavy or awkward to use. A character&rsquo;s Endurance is reduced by the Cumbersome rating of each item they are carrying.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": true
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

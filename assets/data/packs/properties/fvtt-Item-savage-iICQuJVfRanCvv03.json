@@ -1,0 +1,22 @@
+{
+  "name": "Savage",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This weapon causes nasty wounds. When activated, any damage that isn&rsquo;t reduced by armour counts as double.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": false
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": true
+      }
+    }
+  },
+  "effects": []
+}

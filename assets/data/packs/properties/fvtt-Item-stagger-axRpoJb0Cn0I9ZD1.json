@@ -1,0 +1,22 @@
+{
+  "name": "Stagger",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>Any character who suffers a successful Harm Action when this property is activated, whether or not they gain Risk or suffer a Wound, must immediately succeed at a Might (Athletics) Resistance roll with a Difficulty of the attacker&rsquo;s Might. If they fail they are knocked Prone.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": false
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": true
+      }
+    }
+  },
+  "effects": []
+}

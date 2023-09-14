@@ -4,5 +4,5 @@
 	"description": "Aegean RPG system for FoundryVTT",
 	"author": "Stoo Goff",
 	"license": "MIT",
-	"private": true,
+	"private": true
 }

@@ -1,0 +1,22 @@
+{
+  "name": "Rich",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This item is richly decorated and impressively ornate. In social interactions where wealth would impress, the character adds dice equal to the Rich rating on any skill checks. In situations where an overt display of wealth might hinder discussions, the Rich rating instead applies a penalty.</p>\n<p>The ratings of all items with the Rich property can be added together but a maximum of +/-3D can be gained this way.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": true
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

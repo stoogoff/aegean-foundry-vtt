@@ -36,7 +36,32 @@
 		"css/roll-dialog.css",
 		"css/tabs.css"
 	],
-	"packs": [],
+	"packFolders": [
+		{
+			"name": "Aegean Core",
+			"folders": [
+				{
+					"name": "Properties",
+					"packs": ["properties"]
+				}
+			]
+		}
+	],
+	"packs": [
+		{
+			"name": "properties",
+			"label": "Properties",
+			"system": "aegean",
+			"path": ".packs/properties.db",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"TRUSTED": "OBSERVER",
+				"ASSISTANT": "OWNER",
+				"GAMEMASTER": "OWNER"
+			}
+		}
+	],
 	"languages": [
 		{
 			"lang": "en",
@@ -47,5 +72,5 @@
 	"url": "https://github.com/stoogoff/aegean-foundry-vtt/",
 	"manifest": "https://github.com/stoogoff/aegean-foundry-vtt/releases/latest/download/system.json",
 	"download": "https://github.com/stoogoff/aegean-foundry-vtt/releases/download/v0.0.1/aegean.zip",
-	"license": "MIT"
+	"license": "LICENSE"
 }
