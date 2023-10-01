@@ -68,6 +68,15 @@
 			"Weapon": "Weapon",
 			"Weapons": "Weapons"
 		},
+		"actions": {
+			"Defend": "Defend",
+			"Disarm": "Disarm",
+			"Disengage": "Disengage",
+			"Harm": "Harm",
+			"Misdirect": "Misdirect",
+			"Pin": "Pin",
+			"Taunt": "Taunt"
+		},
 		"equipment": {
 			"Ammo": "Ammo",
 			"Availability": "Availability",

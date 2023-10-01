@@ -13,7 +13,7 @@
 		</div>
 		<div>
 			<h2><span>{{ localize "aegean.system.Attacks" }}</span></h2>
-			<table class="mb-4">
+			<table class="mb-2">
 				<thead>
 					<tr>
 						<th class="text-left">{{ localize "aegean.system.Name" }}</th>
@@ -52,7 +52,16 @@
 				</tbody>
 			</table>
 
-			<h2><span>{{ localize "aegean.system.Wounds" }}</span></h2>
+			<div class="action-bar combat-actions mb-4">
+				{{> systems/aegean/templates/partials/action.hbs action="defend-roll" id="defend" text="aegean.actions.Defend" }}
+				{{> systems/aegean/templates/partials/action.hbs action="disarm-roll" id="disarm" text="aegean.actions.Disarm" }}
+				{{> systems/aegean/templates/partials/action.hbs action="disengage-roll" id="disengage" text="aegean.actions.Disengage" }}
+				{{> systems/aegean/templates/partials/action.hbs action="misdirect-roll" id="misdirect" text="aegean.actions.Misdirect" }}
+				{{> systems/aegean/templates/partials/action.hbs action="pin-roll" id="pin" text="aegean.actions.Pin" }}
+				{{> systems/aegean/templates/partials/action.hbs action="taunt-roll" id="taunt" text="aegean.actions.Taunt" }}
+			</div>
+
+			<h2 class="mt-4"><span>{{ localize "aegean.system.Wounds" }}</span></h2>
 			<ul class="wounds">
 				{{#if system.attributes.Wounds.value}}
 					{{#each system.attributes.Wounds.value as | wound key |}}
@@ -70,9 +79,6 @@
 				{{/if}}
 			</ul>
 		</div>
-
-		<p><span class="chip">>> TODO: COMBAT ACTIONS <<</span></p>
-		<p><span class="chip">>> TODO: COMBAT MANEUVERS <<</span></p>
 	</div>
 	<aside>
 		<h3>{{ localize "aegean.system.Defence" }}</h3>

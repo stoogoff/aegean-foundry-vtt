@@ -10,7 +10,7 @@ export class SkillCheck extends BaseRoll {
 		})
 	}
 
-	static async show(context, selection) {
+	static async show(context, selection, callback) {
 		const content = await renderTemplate('systems/aegean/templates/dialogs/skill-check.html', context)
 		const dialog = new SkillCheck({
 			title: game.i18n.localize('aegean.system.SkillCheck'),
@@ -20,7 +20,9 @@ export class SkillCheck extends BaseRoll {
 					icon: '<i class="fas fa-dice-d10"></i>',
 					label: game.i18n.localize('aegean.ui.Roll'),
 					callback: async html => {
-						await calculateResultAndSendToChat(html, context, 'aegean.ui.SkillCheck')
+						const result = await calculateResultAndSendToChat(html, context, 'aegean.system.SkillCheck')
+
+						if(callback) callback(result.successes)
 					},
 				},
 			},

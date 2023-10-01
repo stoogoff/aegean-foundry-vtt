@@ -4,6 +4,7 @@ import { sortByProperty, add } from '../helpers/list.js'
 import { AttackRoll } from '../dialogs/attack-roll.js'
 import { RecoveryRoll } from '../dialogs/recovery-roll.js'
 import { SkillCheck } from '../dialogs/skill-check.js'
+import Actions from '../helpers/actions.js'
 
 export class AegeanActorSheet extends ActorSheet {
 	static get defaultOptions() {
@@ -88,6 +89,9 @@ export class AegeanActorSheet extends ActorSheet {
 
 		// display attack dialogue
 		html.find('.attack').click(this._attackDialog.bind(this))
+
+		// combat actions
+		html.find('.combat-actions .action').click(this._combatAction.bind(this))
 	}
 
 	_skillCheckDialog() {
@@ -98,15 +102,26 @@ export class AegeanActorSheet extends ActorSheet {
 		SkillCheck.show(context)
 	}
 
+	_combatAction() {
+		const actionId = $(event.currentTarget).attr('data-id')
+
+		console.log('Aegean | ActorSheet::_combatAction => actionId', actionId)
+
+		const context = this.actor.getRollData()
+		const selection = Actions[actionId].selection()
+
+		SkillCheck.show(context, selection, result => {
+			Actions[actionId].effect(this.actor, result)
+		})
+	}
+
 	_recoveryRollDialog() {
 		const context = this.actor.getRollData()
 
 		console.log('Aegean | ActorSheet::_recoveryRollDialog => context', context)
 
 		RecoveryRoll.show(context, result => {
-			const newRisk = parseInt(this.actor.system.attributes.Risk.value) - result
-
-			this.actor.setRisk(newRisk)
+			this.actor.reduceRisk(result)
 		})
 	}
 
