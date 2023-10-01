@@ -1,8 +1,7 @@
 
-import { add } from '../helpers/list.js'
-import { roll } from '../helpers/dice-roller.js'
+import BaseRoll, { calculateResultAndSendToChat } from './base-roll.js'
 
-export class SkillCheck extends Dialog {
+export class SkillCheck extends BaseRoll {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'dialog'],
@@ -21,31 +20,7 @@ export class SkillCheck extends Dialog {
 					icon: '<i class="fas fa-dice-d10"></i>',
 					label: game.i18n.localize('aegean.ui.Roll'),
 					callback: async html => {
-						let dice = html.find('[data-value]').map(function() {
-							return parseInt($(this).attr('data-value'))
-						}).get().reduce(add, 0)
-
-						if(context.flags.vulnerable) ++dice
-
-						const difficulty = html.find('[data-difficulty]').attr('data-difficulty')
-
-						// dice syntax: /roll 5d10cs>=8
-						const result = await roll(dice, difficulty)
-
-						// send results to chat
-						const content = await renderTemplate('systems/aegean/templates/messages/skill-check.html', {
-							title: "aegean.system.SkillCheck",
-							dice: result,
-							difficulty,
-							characteristic: html.find('[name=characteristic]').val(),
-							skill: html.find('[name=skill]').val(),
-						})
-
-						ChatMessage.create({
-							title: game.i18n.localize('aegean.system.SkillCheck'),
-							content,
-							speaker: ChatMessage.getSpeaker({ actor: context.actor }),
-						})
+						await calculateResultAndSendToChat(html, context, 'aegean.ui.SkillCheck')
 					},
 				},
 			},
@@ -96,21 +71,6 @@ export class SkillCheck extends Dialog {
 		this._updateSpecList()
 	}
 
-	_setDiceValue(target, key, dice, attr, suffix = '') {
-		target.parent().find(`#${key}_value`).text(`${dice}${suffix}`).attr(attr, dice)
-	}
-
-	_applySpec(event) {
-		const target = $(event.currentTarget)
-		const key = target.attr('name')
-		const value = target.val()
-		const dice = value === '' ? 0 : 1
-
-		console.log(`Aegean | SkillCheck::_applySpec => key=${key}, value=${value}, dice=${dice}`)
-
-		this._setDiceValue(target, key, dice, 'data-value', 'D')
-	}
-
 	_updateFromContext(event) {
 		const target = $(event.currentTarget)
 		const key = target.attr('name')
@@ -122,37 +82,5 @@ export class SkillCheck extends Dialog {
 		this._setDiceValue(target, key, dice, 'data-value', 'D')
 
 		if(key === 'skill') this._updateSpecList()
-	}
-
-	_updateFromValue(attr) {
-		return event => {
-			const target = $(event.currentTarget)
-			const key = target.attr('name')
-			const dice = target.val()
-
-			console.log(`Aegean | SkillCheck::_updateFromValue => key=${key}, dice=${dice}`)
-
-			this._setDiceValue(target, key, dice, attr)
-		}
-	}
-
-	_updateSpecList() {
-		const selectedSkill = $('#skill').val()
-
-		if(selectedSkill in this.context.specialisations.value) {
-			const specs = this.context.specialisations.value[selectedSkill]
-
-			$('#specialisation').empty().append($('<option />'))
-
-			specs.forEach(spec => $('#specialisation').append($('<option></option>', {
-				text: spec,
-				value: spec,
-			})))
-
-			$('#specialisation_block').show()
-		}
-		else {
-			$('#specialisation_block').hide()
-		}
 	}
 }

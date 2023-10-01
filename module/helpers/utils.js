@@ -23,3 +23,35 @@ export const parseObject = (input, scope, debug = false) => {
 
 	return buffer
 }
+
+export const UNARMED_STRIKE = {
+	_id: 'brawling',
+	name: 'Brawling',
+	shortProperties: [],
+	system: {
+		equipment: {
+			Properties: {
+				label: 'aegean.equipment.Properties',
+				value: [],
+			},
+		},
+		stats: {
+			Skill: {
+				label: 'aegean.system.Skill',
+				value: 'Brawl',
+			},
+			Reach: {
+				label: 'aegean.combat.Reach',
+				value: '0–1',
+			},
+			Range: {
+				label: 'aegean.combat.Range',
+				value: 'Engaged',
+			},
+			Damage: {
+				label: 'aegean.combat.Damage',
+				value: 2,
+			},
+		},
+	},
+}

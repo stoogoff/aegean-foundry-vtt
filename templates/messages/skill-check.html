@@ -19,6 +19,10 @@
 			<div class="alert good">SUCCESS!</div>
 		{{/if}}
 
+		{{#if (gt damage 0)}}
+			<div class="alert danger">{{ damage }} DAMAGE!</div>
+		{{/if}}
+
 		<div class="grid grid-cols-6">
 			{{#each dice.result }}
 				<span class="chip {{#if bonus}}good{{else}}{{#if success}}safe{{/if}}{{/if}}">{{ result }}</span>

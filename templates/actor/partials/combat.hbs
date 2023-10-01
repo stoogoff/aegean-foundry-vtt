@@ -12,6 +12,46 @@
 			{{> systems/aegean/templates/partials/action.hbs action="recovery-action" icon="fa-user-injured" text="aegean.ui.RollRecovery" }}
 		</div>
 		<div>
+			<h2><span>{{ localize "aegean.system.Attacks" }}</span></h2>
+			<table class="mb-4">
+				<thead>
+					<tr>
+						<th class="text-left">{{ localize "aegean.system.Name" }}</th>
+						<th class="text-left">{{ localize "aegean.system.Skill" }}</th>
+						<th class="text-right">{{ localize "aegean.combat.Reach" }} / {{ localize "aegean.combat.Range" }}</th>
+						<th class="text-right">{{ localize "aegean.combat.Damage" }}</th>
+						<th class="text-left">{{ localize "aegean.equipment.Properties" }}</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each weapons as |item key|}}
+						<tr>
+							<td>{{ item.name }}</td>
+							<td>{{ item.system.stats.Skill.value }}</td>
+							<td class="text-right">
+								{{#if (eq item.system.stats.Range.value 'Engaged') }}
+									{{ item.system.stats.Reach.value }}
+								{{else}}
+									{{ item.system.stats.Range.value }}
+								{{/if}}
+							</td>
+							<td class="text-right">{{ item.system.stats.Damage.value }}</td>
+							<td>
+								{{#if item.shortProperties}}
+									{{join item.shortProperties}}
+								{{else}}
+									&mdash;
+								{{/if}}
+							</td>
+							<td>
+								{{> systems/aegean/templates/partials/action.hbs action="attack" id=item._id icon="fa-swords" }}
+							</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+
 			<h2><span>{{ localize "aegean.system.Wounds" }}</span></h2>
 			<ul class="wounds">
 				{{#if system.attributes.Wounds.value}}

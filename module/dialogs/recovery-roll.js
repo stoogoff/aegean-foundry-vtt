@@ -1,8 +1,9 @@
 
-import { add, max, sortByProperty } from '../helpers/list.js'
+import { sortByProperty } from '../helpers/list.js'
 import { roll } from '../helpers/dice-roller.js'
+import BaseRoll, { calculateResultAndSendToChat } from './base-roll.js'
 
-export class RecoveryRoll extends Dialog {
+export class RecoveryRoll extends BaseRoll {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'dialog'],
@@ -21,29 +22,7 @@ export class RecoveryRoll extends Dialog {
 					icon: '<i class="fas fa-dice-d10"></i>',
 					label: game.i18n.localize('aegean.ui.Roll'),
 					callback: async html => {
-						let dice = html.find('[data-value]').map(function() {
-							return parseInt($(this).attr('data-value'))
-						}).get().reduce(add, 0)
-
-						if(context.flags.vulnerable) ++dice
-
-						// dice syntax: /roll 5d10cs>=8
-						const result = await roll(dice, 0)
-
-						// send results to chat
-						const content = await renderTemplate('systems/aegean/templates/messages/skill-check.html', {
-							title: "aegean.ui.RecoveryRoll",
-							dice: result,
-							difficulty: 0,
-							characteristic: html.find('[name=characteristic]').val(),
-							skill: html.find('[name=skill]').val(),
-						})
-
-						ChatMessage.create({
-							title: game.i18n.localize('aegean.ui.RecoveryRoll'),
-							content,
-							speaker: ChatMessage.getSpeaker({ actor: context.actor }),
-						})
+						const result = await calculateResultAndSendToChat(html, context, 'aegean.ui.RecoveryRoll')
 
 						if(callback) callback(result.successes)
 					},
@@ -67,7 +46,7 @@ export class RecoveryRoll extends Dialog {
 	activateListeners(html) {
 		super.activateListeners(html)
 
-		html.find('.value-text').change(this._updateFromValue.bind(this))
+		html.find('.value-text').change(this._updateFromValue().bind(this))
 
 		// get heighest characteristc
 		const [ characteristic, ] = Object.values(this.context.characteristics).sort(sortByProperty('value')).reverse()
@@ -83,19 +62,5 @@ export class RecoveryRoll extends Dialog {
 
 		html.find('#skill').val(game.i18n.localize(skill.label) + spec)
 		html.find('#skill_value').attr('data-value', skillValue).text(skillValue)
-	}
-
-	_setDiceValue(target, key, dice, attr, suffix = '') {
-		target.parent().find(`#${key}_value`).text(`${dice}${suffix}`).attr(attr, dice)
-	}
-
-	_updateFromValue(event) {
-		const target = $(event.currentTarget)
-		const key = target.attr('name')
-		const dice = target.val()
-
-		console.log(`Aegean | Recovery::_updateFromValue => key=${key}, dice=${dice}`)
-
-		this._setDiceValue(target, key, dice, 'data-value')
 	}
 }

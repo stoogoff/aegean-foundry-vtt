@@ -1,5 +1,14 @@
 
-const fs = require('fs')
+const fvtt = require('@foundryvtt/foundryvtt-cli')
+
+fvtt.compilePack('assets/data/packs/properties', 'packs/properties').then(() => {
+	console.log('Complete?')
+})
+
+
+
+
+/*const fs = require('fs')
 const path = require('path')
 
 const READ_DIR = path.join(__dirname, 'assets/data/packs')
@@ -32,5 +41,5 @@ packDirs.forEach(dir => {
 
 	setTimeout(() => fs.writeFileSync(newFile, output.join('\n'), { encoding: 'utf8', flag: 'w' }), 1000)
 })
-
+*/
 

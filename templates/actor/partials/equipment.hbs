@@ -18,7 +18,13 @@
 						<td>{{ item.system.equipment.Availability.value }}</td>
 						<td class="text-right">{{ item.system.equipment.Price.value }}</td>
 						<td class="text-right">{{ item.system.equipment.Weight.value }}</td>
-						<td>{{join item.shortProperties}}</td>
+						<td>
+							{{#if item.shortProperties}}
+								{{join item.shortProperties}}
+							{{else}}
+								&mdash;
+							{{/if}}
+						</td>
 						<td>{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=item.id icon="fa-trash" }}</td>
 					</tr>
 				{{/each}}

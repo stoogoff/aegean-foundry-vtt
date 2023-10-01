@@ -1,8 +1,9 @@
 
 import { AEGEAN } from '../helpers/config.js'
 import { sortByProperty, add } from '../helpers/list.js'
-import { SkillCheck } from '../dialogs/skill-check.js'
+import { AttackRoll } from '../dialogs/attack-roll.js'
 import { RecoveryRoll } from '../dialogs/recovery-roll.js'
+import { SkillCheck } from '../dialogs/skill-check.js'
 
 export class AegeanActorSheet extends ActorSheet {
 	static get defaultOptions() {
@@ -43,7 +44,7 @@ export class AegeanActorSheet extends ActorSheet {
 		context.gods = this.actor.gods
 		context.parents = game.items.filter(item => item.type === 'deity' && item.system.stats.Parent.value).map(({ name }) => name)
 		context.talents = this.actor.talents
-		context.weapons = this.actor.weapons
+		context.weapons = this.actor.weapons.sort(sortByProperty('name'))
 
 		context.system.background.Fate.value = await TextEditor.enrichHTML(context.system.background.Fate.value, { async: true })
 
@@ -84,6 +85,9 @@ export class AegeanActorSheet extends ActorSheet {
 		html.find('.heal-wound').click(this._healWound.bind(this))
 		html.find('.remove-wound').click(this._removeWound.bind(this))
 		html.find('.recovery-action').click(this._recoveryRollDialog.bind(this))
+
+		// display attack dialogue
+		html.find('.attack').click(this._attackDialog.bind(this))
 	}
 
 	_skillCheckDialog() {
@@ -104,6 +108,17 @@ export class AegeanActorSheet extends ActorSheet {
 
 			this.actor.setRisk(newRisk)
 		})
+	}
+
+	_attackDialog() {
+		const context = this.actor.getRollData()
+		const attackId = $(event.currentTarget).attr('data-id')
+
+		context.weapon = this.actor.weapons.find(({ _id }) => _id === attackId)
+
+		console.log('Aegean | ActorSheet::_attackDialog => context, attackId', context, attackId)
+
+		AttackRoll.show(context)
 	}
 
 	_applyDamage(event) {

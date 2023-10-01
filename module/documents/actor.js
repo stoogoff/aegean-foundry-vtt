@@ -1,6 +1,6 @@
 
 import { add } from '../helpers/list.js'
-import { isEquipment } from '../helpers/utils.js'
+import { isEquipment, UNARMED_STRIKE } from '../helpers/utils.js'
 import { AEGEAN } from '../helpers/config.js'
 import { woundRoll } from '../helpers/wounds.js'
 
@@ -14,7 +14,7 @@ export class AegeanActor extends Actor {
 	}
 
 	get weapons() {
-		return this.items.filter(item => item.type === 'weapon')
+		return [ ...this.items.filter(item => item.type === 'weapon'), UNARMED_STRIKE ]
 	}
 
 	get equipment() {
