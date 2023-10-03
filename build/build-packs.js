@@ -12,7 +12,7 @@ async function run() {
 	const dest = path.join(__dirname, '../packs/properties')
 
 	console.log(source)
-	//await compilePack(source, dest)
+	await compilePack(source, dest, { log: true })
 	console.log('Complete?')
 }
 
