@@ -52,7 +52,7 @@
 			"name": "properties",
 			"label": "Properties",
 			"system": "aegean",
-			"path": ".packs/properties.db",
+			"path": "packs/properties",
 			"type": "Item",
 			"ownership": {
 				"PLAYER": "OBSERVER",
