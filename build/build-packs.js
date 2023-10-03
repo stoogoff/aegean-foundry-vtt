@@ -1,11 +1,22 @@
 
-const fvtt = require('@foundryvtt/foundryvtt-cli')
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-fvtt.compilePack('assets/data/packs/properties', 'packs/properties').then(() => {
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+import { compilePack } from '@foundryvtt/foundryvtt-cli'
+
+async function run() {
+	const source = path.join(__dirname, '../assets/data/packs/properties')
+	const dest = path.join(__dirname, '../packs/properties')
+
+	console.log(source)
+	//await compilePack(source, dest)
 	console.log('Complete?')
-})
+}
 
-
+run()
 
 
 /*const fs = require('fs')
