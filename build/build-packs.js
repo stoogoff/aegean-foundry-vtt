@@ -7,12 +7,14 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 
-async function run() {
-	const source = join(__dirname, '../assets/data/packs/properties')
-	const dest = join(__dirname, '../packs/properties')
+async function run(targets) {
+	await Promise.all(targets.map(async target => {
+		console.log(`Packing: ${target}`)
+		const source = join(__dirname, `../assets/data/packs/${target}`)
+		const dest = join(__dirname, `../packs/${target}`)
 
-	await compilePack(source, dest, { log: true })
+		return await compilePack(source, dest, { log: true })
+	}))
 }
 
-// TODO add array of folders to read: ['properties', 'equipment'] etc
-run()
+run(['properties'])
