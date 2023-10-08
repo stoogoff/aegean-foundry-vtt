@@ -1,5 +1,6 @@
 
 import { AEGEAN } from '../helpers/config.js'
+import { isPC } from '../helpers/utils.js'
 import BaseRoll, { calculateResultAndSendToChat } from './base-roll.js'
 
 export class AttackRoll extends BaseRoll {
@@ -72,8 +73,10 @@ export class AttackRoll extends BaseRoll {
 		html.find('#skill').val(game.i18n.localize(skill.label))
 		html.find('#skill_value').attr('data-value', skillValue).text(skillValue)
 
-		html.find('#specialisation').change(this._applySpec.bind(this))
+		if(isPC(this.context.actor.type)) {
+			html.find('#specialisation').change(this._applySpec.bind(this))
 
-		this._updateSpecList()
+			this._updateSpecList()
+		}
 	}
 }

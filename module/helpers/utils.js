@@ -1,6 +1,10 @@
 
 export const isEquipment = type => type === 'weapon' || type === 'equipment' || type === 'armour'
 
+export const isAdversary = type => type === 'legend' || type === 'champion' || type === 'minion'
+
+export const isPC = type => type === 'character'
+
 export const parseObject = (input, scope, debug = false) => {
 	const parts = input.trim().split(/\./g)
 	let buffer = scope

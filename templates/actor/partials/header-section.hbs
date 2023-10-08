@@ -3,7 +3,6 @@
 		<img class="character-portrait" src="{{ actor.img }}" data-edit="img" title="{{ name }}" />
 	</div>
 	<div>
-		<!-- TODO Aegean Logo -->
 		{{> systems/aegean/templates/partials/form-input.hbs
 			label="aegean.character.Character"
 			value=actor.name
@@ -13,16 +12,18 @@
 			{{> systems/aegean/templates/actor/partials/risk.hbs}}
 
 			<div>
-				{{> systems/aegean/templates/partials/box-input.hbs
-					label=system.attributes.Resolve.label
-					value=system.attributes.Resolve.value
-					name="system.attributes.Resolve.value"
-				}}
-				{{> systems/aegean/templates/partials/box-input.hbs
-					label=system.attributes.Oracle.label
-					value=system.attributes.Oracle.value
-					name="system.attributes.Oracle.value"
-				}}
+				{{#if (isPC actor)}}
+					{{> systems/aegean/templates/partials/box-input.hbs
+						label=system.attributes.Resolve.label
+						value=system.attributes.Resolve.value
+						name="system.attributes.Resolve.value"
+					}}
+					{{> systems/aegean/templates/partials/box-input.hbs
+						label=system.attributes.Oracle.label
+						value=system.attributes.Oracle.value
+						name="system.attributes.Oracle.value"
+					}}
+				{{/if}}
 
 				{{> systems/aegean/templates/partials/action.hbs action="roll" icon="fa-dice-d10" text="aegean.ui.Roll"}}
 			</div>

@@ -1,7 +1,17 @@
 {
 	"Actor": {
-		"types": ["character"],
+		"types": ["character", "legend"],
 		"templates": {
+			"adversary": {
+				"Description": {
+					"label": "aegean.system.Description",
+					"value": ""
+				},
+				"Tactics": {
+					"label": "aegean.system.Tactics",
+					"value": ""
+				}
+			},
 			"characteristics": {
 				"characteristics": {
 					"Might": {
@@ -203,6 +213,18 @@
 				"HerbalistDoses": {
 					"label": "aegean.system.HerbalistDoses",
 					"value": 0
+				}
+			}
+		},
+		"legend": {
+			"templates": ["characteristics", "skills", "defence", "baseAttributes", "adversary"],
+			"defence": {
+				"defence": {
+					"Dodge": {
+						"label": "aegean.combat.Dodge",
+						"value": 0,
+						"used": false
+					}
 				}
 			}
 		}

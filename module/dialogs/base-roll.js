@@ -1,6 +1,7 @@
 
 import { add } from '../helpers/list.js'
 import { roll } from '../helpers/dice-roller.js'
+import { isPC } from '../helpers/utils.js'
 
 export default class BaseRoll extends Dialog {
 	_setDiceValue(target, key, dice, attr, suffix = '') {
@@ -31,6 +32,8 @@ export default class BaseRoll extends Dialog {
 	}
 
 	_updateSpecList() {
+		if(!isPC(this.context.actor.type)) return
+
 		const selectedSkill = $('#skill').val()
 
 		if(selectedSkill in this.context.specialisations.value) {

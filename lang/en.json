@@ -1,10 +1,15 @@
 {
 	"TYPES": {
+		"Actor": {
+			"character": "Character",
+			"legend": "Legend"
+		},
 		"Item": {
 			"advantage": "Advantage",
 			"armour": "Armour",
 			"deity": "Deity",
 			"equipment": "Equipment",
+			"legend": "Legend",
 			"property": "Property",
 			"talent": "Talent",
 			"weapon": "Weapon"
@@ -90,6 +95,7 @@
 			"Weight": "Weight"
 		},
 		"system": {
+			"Abilities": "Abilities",
 			"Active": "Active",
 			"ActivePropertyNote": "If a property is Active the character must *invoke the Fates* to gain its benefits.",
 			"Advantage": "Advantage",
@@ -129,6 +135,7 @@
 			"Specialisation": "Specialisation",
 			"Specialisations": "Specialisations",
 			"Symbols": "Symbols",
+			"Tactics": "Tactics",
 			"Talent": "Talent",
 			"Talents": "Talents",
 			"Title": "Title",
@@ -145,6 +152,7 @@
 			"CharacterSheet": "Character Sheet",
 			"CommaSeparated": "comma separated",
 			"Combat": "Combat",
+			"LegendSheet": "Adversary Legend Sheet",
 			"Notes": "Notes",
 			"NoWounds": "No wounds. Yet!",
 			"RecoveryRoll": "Recovery Roll",
@@ -154,7 +162,6 @@
 			"SpecialisationPlaceholder": "Skill: Specialisation",
 			"Stats": "Stats",
 			"Symbols": "Symbols",
-			"Talents": "Talents",
 			"TheGods": "The Gods"
 		},
 		"wounds": {

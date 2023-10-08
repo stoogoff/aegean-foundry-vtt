@@ -1,5 +1,6 @@
 
 import { sortByProperty } from '../helpers/list.js'
+import { isPC } from '../helpers/utils.js'
 import { roll } from '../helpers/dice-roller.js'
 import BaseRoll, { calculateResultAndSendToChat } from './base-roll.js'
 
@@ -52,7 +53,7 @@ export class RecoveryRoll extends BaseRoll {
 		const [ characteristic, ] = Object.values(this.context.characteristics).sort(sortByProperty('value')).reverse()
 		const skill = this.context.skills.Vigour
 
-		const hasRecovery = 'Vigour' in this.context.specialisations.value && this.context.specialisations.value.Vigour.find(val => val === 'Recovery') !== undefined
+		const hasRecovery = isPC(this.context.actor.type) && 'Vigour' in this.context.specialisations.value && this.context.specialisations.value.Vigour.find(val => val === 'Recovery') !== undefined
 
 		const spec = hasRecovery ? ': Recovery' : ''
 		const skillValue = parseInt(skill.value) + (hasRecovery ? 1 : 0)

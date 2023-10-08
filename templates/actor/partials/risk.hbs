@@ -1,7 +1,10 @@
 <div class="risk">
 	<div class="grid grid-cols-2">
 		<h3 class="text-left">{{ localize "aegean.attributes.Endurance"}}:
-			<span class="black font-lg">{{ flags.endurance }}</span> <small>of</small> <span class="black font-lg">{{ system.attributes.Endurance.value }}</span>
+			<span class="black font-lg">{{ flags.endurance }}</span>
+			{{#if (ne flags.endurance system.attributes.Endurance.value)}}
+				<small>of</small> <span class="black font-lg">{{ system.attributes.Endurance.value }}</span>
+			{{/if}}
 		</h3>
 		<h3 class="text-left">{{ localize "aegean.attributes.Risk"}}: <span class="black font-lg">{{ system.attributes.Risk.value }}</span></h3>
 	</div>

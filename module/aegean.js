@@ -4,7 +4,8 @@ import { AegeanActor } from './documents/actor.js'
 import { AegeanItem } from './documents/item.js'
 
 // sheets
-import { AegeanActorSheet } from './sheets/actor-sheet.js'
+import { AegeanCharacterSheet } from './sheets/character-sheet.js'
+import { AegeanLegendSheet } from './sheets/legend-sheet.js'
 import { AegeanAdvantageSheet } from './sheets/advantage-sheet.js'
 import { AegeanArmourSheet } from './sheets/armour-sheet.js'
 import { AegeanDeitySheet } from './sheets/deity-sheet.js'
@@ -15,6 +16,7 @@ import { AegeanWeaponSheet } from './sheets/weapon-sheet.js'
 
 // helpers
 import { AEGEAN } from './helpers/config.js'
+import { isPC, isAdversary, isEquipment } from './helpers/utils.js'
 
 Hooks.once('init', async function() {
 	console.log('Aegean | Hook::init')
@@ -30,9 +32,14 @@ Hooks.once('init', async function() {
 	CONFIG.Item.documentClass = AegeanItem
 
 	Actors.unregisterSheet('core', ActorSheet)
-	Actors.registerSheet('Aegean', AegeanActorSheet, {
+	Actors.registerSheet('Aegean', AegeanCharacterSheet, {
 		label: game.i18n.localize('aegean.ui.CharacterSheet'),
+		types: ['character'],
 		makeDefault: true,
+	})
+	Actors.registerSheet('Aegean', AegeanLegendSheet, {
+		label: game.i18n.localize('aegean.ui.LegendSheet'),
+		types: ['legend'],
 	})
 
 	Items.unregisterSheet('core', ItemSheet)
@@ -83,6 +90,7 @@ Hooks.once('init', async function() {
 
 		// actor partials
 		'systems/aegean/templates/actor/partials/advantages.hbs',
+		'systems/aegean/templates/actor/partials/adversary-background.hbs',
 		'systems/aegean/templates/actor/partials/background.hbs',
 		'systems/aegean/templates/actor/partials/character-stats.hbs',
 		'systems/aegean/templates/actor/partials/combat.hbs',
@@ -141,12 +149,17 @@ Hooks.once('init', async function() {
 	})
 
 	// comparison functions
-	Handlebars.registerHelper('eq', (val1, val2) => val1 === val2)
-	Handlebars.registerHelper('ne', (val1, val2) => val1 !== val2)
+	Handlebars.registerHelper('eq', (val1, val2) => val1 == val2)
+	Handlebars.registerHelper('ne', (val1, val2) => val1 != val2)
 	Handlebars.registerHelper('lt', (val1, val2) => val1 < val2)
 	Handlebars.registerHelper('lte', (val1, val2) => val1 <= val2)
 	Handlebars.registerHelper('gt', (val1, val2) => val1 > val2)
 	Handlebars.registerHelper('gte', (val1, val2) => val1 >= val2)
+
+	// actor / item type check functions
+	Handlebars.registerHelper('isPC', actor => isPC(actor.type))
+	Handlebars.registerHelper('isAdversary', actor => isAdversary(actor.type))
+	Handlebars.registerHelper('isEquipment', item => isEquipment(item.type))
 })
 
 

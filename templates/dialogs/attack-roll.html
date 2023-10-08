@@ -9,10 +9,12 @@
 		name="skill"
 		readonly=true
 	}}
-	{{> systems/aegean/templates/partials/value-select.hbs
-		label="aegean.system.Specialisation"
-		name="specialisation"
-	}}
+	{{#if (isPC actor) }}
+		{{> systems/aegean/templates/partials/value-select.hbs
+			label="aegean.system.Specialisation"
+			name="specialisation"
+		}}
+	{{/if}}
 	{{> systems/aegean/templates/partials/value-text.hbs
 		label="aegean.system.Modifiers"
 		name="modifier"

@@ -18,31 +18,23 @@
 				{{> systems/aegean/templates/actor/partials/combat.hbs }}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 			<!-- equipment -->
-			{{#> systems/aegean/templates/partials/tab-panel.hbs
-				id="character_equipment"
-				label="aegean.system.Equipment"
-				count=equipment.length
-			}}
-				{{> systems/aegean/templates/actor/partials/equipment.hbs }}
-			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			{{#if equipment}}
+				{{#> systems/aegean/templates/partials/tab-panel.hbs
+					id="character_equipment"
+					label="aegean.system.Equipment"
+					count=equipment.length
+				}}
+					{{> systems/aegean/templates/actor/partials/equipment.hbs }}
+				{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			{{/if}}
 			<!-- talents -->
 			{{#if talents}}
 				{{#> systems/aegean/templates/partials/tab-panel.hbs
 					id="character_talents"
-					label="aegean.system.Talents"
+					label="aegean.system.Abilities"
 					count=talents.length
 				}}
 					{{> systems/aegean/templates/actor/partials/talents.hbs }}
-				{{/systems/aegean/templates/partials/tab-panel.hbs }}
-			{{/if}}
-			<!-- the gods -->
-			{{#if gods}}
-				{{#> systems/aegean/templates/partials/tab-panel.hbs
-					id="character_deities"
-					label="aegean.ui.TheGods"
-					count=gods.length
-				}}
-					{{> systems/aegean/templates/actor/partials/the-gods.hbs }}
 				{{/systems/aegean/templates/partials/tab-panel.hbs }}
 			{{/if}}
 			<!-- background -->
@@ -50,7 +42,7 @@
 				id="character_background"
 				label="aegean.ui.Background"
 			}}
-				{{> systems/aegean/templates/actor/partials/background.hbs }}
+				{{> systems/aegean/templates/actor/partials/adversary-background.hbs }}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 		</div>
 	</article>

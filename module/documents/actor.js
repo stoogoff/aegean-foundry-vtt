@@ -1,6 +1,6 @@
 
 import { add } from '../helpers/list.js'
-import { isEquipment, UNARMED_STRIKE } from '../helpers/utils.js'
+import { isEquipment, isPC, UNARMED_STRIKE } from '../helpers/utils.js'
 import { AEGEAN } from '../helpers/config.js'
 import { woundRoll } from '../helpers/wounds.js'
 
@@ -160,19 +160,27 @@ export class AegeanActor extends Actor {
 	getDerivedData() {
 		const flags = {}
 
-		flags.hasDivineHeritage = this.system.background.Heritage.value === 'Divine'
-		
-		flags.encumbrance = this.equipment
-			.map(item => parseInt(item.system.equipment.Weight.value)).reduce(add, 0)
+		if(isPC(this.type)) {
+			flags.hasDivineHeritage = this.system.background.Heritage.value === 'Divine'
+			
+			flags.encumbrance = this.equipment
+				.map(item => parseInt(item.system.equipment.Weight.value)).reduce(add, 0)
 
-		flags.cumbersome = this.equipment.flatMap(
-			({ properties }) => properties.filter(({ property }) => property.name === 'Cumbersome')
-		).map(({ rating }) => parseInt(rating)).reduce(add, 0)
+			flags.cumbersome = this.equipment.flatMap(
+				({ properties }) => properties.filter(({ property }) => property.name === 'Cumbersome')
+			).map(({ rating }) => parseInt(rating)).reduce(add, 0)
 
-		flags.endurance = this.system.attributes.Endurance.value - flags.cumbersome
-		flags.vulnerable = this.system.attributes.Risk.value > flags.endurance
-		flags.threshold = this.system.attributes.Risk.value === flags.endurance
-		flags.encumbered = flags.encumbrance > parseInt(this.system.characteristics.Might.value) + AEGEAN.encumbrance		
+			flags.endurance = this.system.attributes.Endurance.value - flags.cumbersome
+			flags.vulnerable = this.system.attributes.Risk.value > flags.endurance
+			flags.threshold = this.system.attributes.Risk.value === flags.endurance
+			flags.encumbered = flags.encumbrance > parseInt(this.system.characteristics.Might.value) + AEGEAN.encumbrance		
+		}
+
+		if(this.type === 'legend') {
+			flags.endurance = this.system.attributes.Endurance.value
+			flags.vulnerable = this.system.attributes.Risk.value > flags.endurance
+			flags.threshold = this.system.attributes.Risk.value === flags.endurance
+		}
 
 		return flags
 	}
