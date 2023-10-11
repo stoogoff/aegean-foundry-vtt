@@ -39,7 +39,7 @@ export class AegeanCharacterSheet extends AegeanActorSheet {
 
 		context.system.background.Fate.value = await TextEditor.enrichHTML(context.system.background.Fate.value, { async: true })
 
-		console.log('Aegean | ActorSheet::getData', context)
+		console.log('Aegean | CharacterSheet::getData', context)
 
 		return context
 	}
@@ -50,7 +50,6 @@ export class AegeanCharacterSheet extends AegeanActorSheet {
 		if (!this.isEditable) return
 
 		// enable updating linked item properties
-		html.find('.rating-input').change(this._updateItemProperty(this.actor.talents).bind(this))
 		html.find('.set-favour').change(this._updateItemProperty(this.actor.gods).bind(this))
 
 		// skill specialisations and hide the inputs
@@ -58,29 +57,12 @@ export class AegeanCharacterSheet extends AegeanActorSheet {
 		html.find('.specialisations input').hide()
 	}
 
-	_updateItemProperty(list) {
-		return event => {
-			const target = $(event.currentTarget)
-			const dataId = target.attr('data-id')
-			const key = target.attr('name')
-			const value = target.val()
-
-			console.log('Aegean | ActorSheet::_updateItemProperty => dataId, key, value', dataId, key, value)
-
-			const obj = list.find(({ id }) => id === dataId)
-
-			obj.update({
-				[key]: value
-			})			
-		}
-	}
-
 	_editSpecs(event) {
 		const target = $(event.currentTarget)
 		const parent = target.parent('.specialisations')
 		const skill = target.attr('data-id')
 
-		console.log(`Aegean | ActorSheet::_onEditSpecs => skill='${skill}'`)
+		console.log(`Aegean | CharacterSheet::_onEditSpecs => skill='${skill}'`)
 
 		parent.find('ul').hide()
 		parent.find('input').show().blur(blurEvent => {
@@ -88,7 +70,7 @@ export class AegeanCharacterSheet extends AegeanActorSheet {
 
 			specialisations[skill] = $(blurEvent.currentTarget).val().split(',').map(val => val.trim()).filter(val => val !== '')
 
-			console.log('Aegean | ActorSheet::_onEditSpecs => specialisations', specialisations)
+			console.log('Aegean | CharacterSheet::_onEditSpecs => specialisations', specialisations)
 
 			this.actor.update({
 				'system.specialisations.value': specialisations

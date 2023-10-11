@@ -1,3 +1,10 @@
 <div class="background">
-	Adversary Background
+	<div class="mb-4">
+		<label class="label">{{ localize system.background.Description.label }}</label>
+		{{editor system.background.Description.value target="system.background.Description.value" button=true owner=owner editable=editable}}
+	</div>
+	<div>
+		<label class="label">{{ localize system.background.Tactics.label }}</label>
+		{{editor system.background.Tactics.value target="system.background.Tactics.value" button=true owner=owner editable=editable}}
+	</div>
 </div>

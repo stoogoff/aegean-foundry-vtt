@@ -34,14 +34,15 @@ export class AegeanLegendSheet extends AegeanActorSheet {
 		context.flags = actor.flags.aegean
 
 		//context.advantages = this.actor.advantages
-		//context.armour = this.actor.armour
-		//context.equipment = this.actor.equipment.sort(sortByProperty('name'))
+		context.armour = this.actor.armour
+		context.equipment = this.actor.equipment.sort(sortByProperty('name'))
 		//context.gods = this.actor.gods
 		//context.parents = game.items.filter(item => item.type === 'deity' && item.system.stats.Parent.value).map(({ name }) => name)
 		context.talents = this.actor.talents
 		context.weapons = this.actor.weapons.sort(sortByProperty('name'))
 
-		//context.system.background.Fate.value = await TextEditor.enrichHTML(context.system.background.Fate.value, { async: true })
+		context.system.background.Description.value = await TextEditor.enrichHTML(context.system.background.Description.value, { async: true })
+		context.system.background.Tactics.value = await TextEditor.enrichHTML(context.system.background.Tactics.value, { async: true })
 
 		console.log('Aegean | LegendSheet::getData', context)
 

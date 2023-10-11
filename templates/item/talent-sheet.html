@@ -18,6 +18,14 @@
 				}}
 				<p class="note">{{ localize "aegean.system.MultipleTalentNote" }}</p>
 			</div>
+			<div>
+				{{> systems/aegean/templates/partials/checkbox.hbs
+					label="aegean.system.Active"
+					value=system.stats.Active.value
+					name="system.stats.Active.value"
+				}}
+				<p class="note">{{ localize "aegean.system.ActiveTalentNote" }}</p>
+			</div>
 		</div>
 	</article>
 </form>

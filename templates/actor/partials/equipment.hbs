@@ -32,25 +32,33 @@
 		</table>
 	</div>
 	<aside>
-		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.consumables.Drakhmae.label
-			value=system.consumables.Drakhmae.value
-			name="system.consumables.Drakhmae.value"
-		}}
-		{{> systems/aegean/templates/partials/box-input.hbs
-			label="aegean.equipment.Encumbrance"
-			value=flags.encumbrance
-			readonly=true
-		}}
-		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.consumables.AmmoLoads.label
-			value=system.consumables.AmmoLoads.value
-			name="system.consumables.AmmoLoads.value"
-		}}
-		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.consumables.HerbalistDoses.label
-			value=system.consumables.HerbalistDoses.value
-			name="system.consumables.HerbalistDoses.value"
-		}}
+		{{#if (isPC actor)}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.consumables.Drakhmae.label
+				value=system.consumables.Drakhmae.value
+				name="system.consumables.Drakhmae.value"
+			}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label="aegean.equipment.Encumbrance"
+				value=flags.encumbrance
+				readonly=true
+			}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.consumables.AmmoLoads.label
+				value=system.consumables.AmmoLoads.value
+				name="system.consumables.AmmoLoads.value"
+			}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.consumables.HerbalistDoses.label
+				value=system.consumables.HerbalistDoses.value
+				name="system.consumables.HerbalistDoses.value"
+			}}
+		{{else}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label=system.attributes.Standing.label
+				value=system.attributes.Standing.value
+				name="system.attributes.Standing.value"
+			}}
+		{{/if}}
 	</aside>
 </div>

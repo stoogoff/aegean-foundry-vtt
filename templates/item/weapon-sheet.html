@@ -17,13 +17,13 @@
 				<div class="grid column-panel">
 					<div>
 						{{> systems/aegean/templates/partials/select-input.hbs
-							label=system.stats.Skill.label
+							label="aegean.system.Skill"
 							value=system.stats.Skill.value
 							name="system.stats.Skill.value"
 							options=config.skills
 						}}
 						{{> systems/aegean/templates/partials/select-input.hbs
-							label=system.stats.Range.label
+							label="aegean.combat.Range"
 							value=system.stats.Range.value
 							name="system.stats.Range.value"
 							options=config.rangeBands
@@ -31,12 +31,12 @@
 					</div>
 					<aside>
 						{{> systems/aegean/templates/partials/box-input.hbs
-							label=system.stats.Damage.label
+							label="aegean.combat.Damage"
 							value=system.stats.Damage.value
 							name="system.stats.Damage.value"
 						}}
 						{{> systems/aegean/templates/partials/box-input.hbs
-							label=system.stats.Reach.label
+							label="aegean.combat.Reach"
 							value=system.stats.Reach.value
 							name="system.stats.Reach.value"
 						}}

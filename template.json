@@ -3,13 +3,15 @@
 		"types": ["character", "legend"],
 		"templates": {
 			"adversary": {
-				"Description": {
-					"label": "aegean.system.Description",
-					"value": ""
-				},
-				"Tactics": {
-					"label": "aegean.system.Tactics",
-					"value": ""
+				"background": {
+					"Description": {
+						"label": "aegean.system.Description",
+						"value": ""
+					},
+					"Tactics": {
+						"label": "aegean.system.Tactics",
+						"value": ""
+					}
 				}
 			},
 			"characteristics": {
@@ -115,7 +117,12 @@
 						"label": "aegean.combat.Parry",
 						"value": 0,
 						"used": false
-					}
+					},
+					"Dodge": {
+						"label": "aegean.combat.Dodge",
+						"value": 0,
+						"used": false
+					}					
 				}
 			},
 			"baseAttributes": {
@@ -217,16 +224,7 @@
 			}
 		},
 		"legend": {
-			"templates": ["characteristics", "skills", "defence", "baseAttributes", "adversary"],
-			"defence": {
-				"defence": {
-					"Dodge": {
-						"label": "aegean.combat.Dodge",
-						"value": 0,
-						"used": false
-					}
-				}
-			}
+			"templates": ["characteristics", "skills", "defence", "baseAttributes", "adversary"]
 		}
 	},
 	"Item": {
@@ -282,6 +280,10 @@
 				"Rating": {
 					"label": "aegean.system.Rating",
 					"value": 1
+				},
+				"Active": {
+					"label": "aegean.system.Active",
+					"value": false
 				}
 			}
 		},

@@ -97,11 +97,13 @@
 		"system": {
 			"Abilities": "Abilities",
 			"Active": "Active",
+			"ActiveTalentNote": "Mainly for adversary abilities. If a talent is Active the character must *invoke the Fates* to gain its benefits.",
 			"ActivePropertyNote": "If a property is Active the character must *invoke the Fates* to gain its benefits.",
 			"Advantage": "Advantage",
 			"AmmoLoads": "Ammo",
 			"Attacks": "Attacks",
 			"Attributes": "Attributes",
+			"Category": "Category",
 			"Characteristic": "Characteristic",
 			"Characteristics": "Characteristics",
 			"Cost": "Cost",

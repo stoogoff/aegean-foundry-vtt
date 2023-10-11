@@ -24,6 +24,9 @@ export class AegeanActorSheet extends ActorSheet {
 
 		if (!this.isEditable) return
 
+		// enable updating linked item properties
+		html.find('.rating-input').change(this._updateItemProperty(this.actor.talents).bind(this))
+
 		// enable delete actions
 		html.find('.delete-action').click(this._deleteItem.bind(this))
 
@@ -56,6 +59,23 @@ export class AegeanActorSheet extends ActorSheet {
 		SkillCheck.show(context, selection, result => {
 			Actions[actionId].effect(this.actor, result)
 		})
+	}
+
+	_updateItemProperty(list) {
+		return event => {
+			const target = $(event.currentTarget)
+			const dataId = target.attr('data-id')
+			const key = target.attr('name')
+			const value = target.val()
+
+			console.log('Aegean | ActorSheet::_updateItemProperty => dataId, key, value', dataId, key, value)
+
+			const obj = list.find(({ id }) => id === dataId)
+
+			obj.update({
+				[key]: value
+			})			
+		}
 	}
 
 	_setRisk(event) {
