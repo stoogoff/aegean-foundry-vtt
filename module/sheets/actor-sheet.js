@@ -86,6 +86,7 @@ export class AegeanActorSheet extends ActorSheet {
 		html.find('.heal-wound').click(this._healWound.bind(this))
 		html.find('.remove-wound').click(this._removeWound.bind(this))
 		html.find('.recovery-action').click(this._recoveryRollDialog.bind(this))
+		html.find('.adjust-wound-value').change(this._adjustWoundValue.bind(this))
 
 		// display attack dialogue
 		html.find('.attack').click(this._attackDialog.bind(this))
@@ -154,6 +155,24 @@ export class AegeanActorSheet extends ActorSheet {
 		console.log('Aegean | ActorSheet::_healWound => wound=', wound)
 
 		wound.healed = !wound.healed
+
+		this.actor.update({
+			'system.attributes.Wounds.value': [ ...this.actor.system.attributes.Wounds.value ]
+		})
+	}
+
+	_adjustWoundValue(event) {
+		const target = $(event.currentTarget)
+		const woundId = target.attr('data-id')
+		const woundValue = target.val()
+
+		console.log(`Aegean | ActorSheet::_adjustWoundValue => woundId=${woundId}`)
+
+		const wound = (this.actor.system.attributes.Wounds.value || []).find(({ id }) => id === woundId)
+
+		console.log('Aegean | ActorSheet::_adjustWoundValue => wound=', wound)
+
+		wound.value = woundValue
 
 		this.actor.update({
 			'system.attributes.Wounds.value': [ ...this.actor.system.attributes.Wounds.value ]
