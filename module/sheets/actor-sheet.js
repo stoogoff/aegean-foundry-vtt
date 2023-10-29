@@ -151,7 +151,9 @@ export class AegeanActorSheet extends ActorSheet {
 
 		const wound = (this.actor.system.attributes.Wounds.value || []).find(({ id }) => id === woundId)
 
-		wound.healed = true
+		console.log('Aegean | ActorSheet::_healWound => wound=', wound)
+
+		wound.healed = !wound.healed
 
 		this.actor.update({
 			'system.attributes.Wounds.value': [ ...this.actor.system.attributes.Wounds.value ]
