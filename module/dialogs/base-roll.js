@@ -66,8 +66,6 @@ export const calculateResultAndSendToChat = async (html, context, title) => {
 	// calculate damage if a weapon is included in the context
 	let damage = 0
 
-	console.log(context.weapon)
-
 	if(context.weapon) {
 		damage = parseInt(context.weapon.system.stats.Damage.value) + result.successes
 	}
