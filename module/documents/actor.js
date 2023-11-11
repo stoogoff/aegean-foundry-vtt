@@ -14,7 +14,12 @@ export class AegeanActor extends Actor {
 	}
 
 	get weapons() {
-		return [ ...this.items.filter(item => item.type === 'weapon'), UNARMED_STRIKE ]
+		const weapons = this.items.filter(item => item.type === 'weapon')
+
+		if(isPC(this.type))
+			return [ ...weapons, UNARMED_STRIKE ]
+
+		return [ ...weapons, ...this.items.filter(item => item.type === 'attack') ]
 	}
 
 	get equipment() {

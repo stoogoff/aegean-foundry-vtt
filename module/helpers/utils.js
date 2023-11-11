@@ -1,6 +1,8 @@
 
 export const isEquipment = type => type === 'weapon' || type === 'equipment' || type === 'armour'
 
+export const canHaveProperties = type => type === 'attack' || type === 'weapon' || type === 'equipment' || type === 'armour'
+
 export const isAdversary = type => type === 'legend' || type === 'champion' || type === 'minion'
 
 export const isPC = type => type === 'character'

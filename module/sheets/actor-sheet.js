@@ -3,6 +3,7 @@ import { AttackRoll } from '../dialogs/attack-roll.js'
 import { RecoveryRoll } from '../dialogs/recovery-roll.js'
 import { SkillCheck } from '../dialogs/skill-check.js'
 import Actions from '../helpers/actions.js'
+import { isPC, UNARMED_STRIKE } from '../helpers/utils.js'
 
 export class AegeanActorSheet extends ActorSheet {
 	activateListeners(html) {
@@ -195,6 +196,10 @@ export class AegeanActorSheet extends ActorSheet {
 
 					if(existing) return
 				}
+
+			// don't add an attack to a PC
+			case 'attack':
+				if(isPC(this.actor.type)) return
 		}
 
 		super._onDropItem(event, data)

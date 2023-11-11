@@ -11,6 +11,9 @@
 					"Tactics": {
 						"label": "aegean.system.Tactics",
 						"value": ""
+					},
+					"ArcaneLore": {
+						"value": ""
 					}
 				}
 			},
@@ -228,12 +231,32 @@
 		}
 	},
 	"Item": {
-		"types": ["advantage", "armour", "deity", "equipment", "property", "talent", "weapon"],
+		"types": ["advantage", "armour", "attack", "deity", "equipment", "property", "talent", "weapon"],
 		"templates": {
 			"base": {
 				"Description": {
 					"label": "aegean.system.Description",
 					"value": ""
+				}
+			},
+			"combat": {
+				"stats": {
+					"Skill": {
+						"label": "aegean.system.Skill",
+						"value": ""
+					},
+					"Reach": {
+						"label": "aegean.combat.Reach",
+						"value": 0
+					},
+					"Range": {
+						"label": "aegean.combat.Range",
+						"value": ""
+					},
+					"Damage": {
+						"label": "aegean.combat.Damage",
+						"value": 0
+					}
 				}
 			},
 			"equipment": {
@@ -303,26 +326,17 @@
 		"equipment": {
 			"templates": ["base", "equipment"]
 		},
-		"weapon": {
-			"templates": ["base", "equipment"],
-			"stats": {
-				"Skill": {
-					"label": "aegean.system.Skill",
-					"value": ""
-				},
-				"Reach": {
-					"label": "aegean.combat.Reach",
-					"value": 0
-				},
-				"Range": {
-					"label": "aegean.combat.Range",
-					"value": ""
-				},
-				"Damage": {
-					"label": "aegean.combat.Damage",
-					"value": 0
+		"attack": {
+			"templates": ["base", "combat"],
+			"equipment": {
+				"Properties": {
+					"label": "aegean.equipment.Properties",
+					"value": []
 				}
 			}
+		},
+		"weapon": {
+			"templates": ["base", "equipment", "combat"]
 		},
 		"armour": {
 			"templates": ["base", "equipment"],

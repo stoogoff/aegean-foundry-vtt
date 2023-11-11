@@ -4,12 +4,13 @@ import { AegeanActor } from './documents/actor.js'
 import { AegeanItem } from './documents/item.js'
 
 // sheets
-import { AegeanCharacterSheet } from './sheets/character-sheet.js'
-import { AegeanLegendSheet } from './sheets/legend-sheet.js'
 import { AegeanAdvantageSheet } from './sheets/advantage-sheet.js'
 import { AegeanArmourSheet } from './sheets/armour-sheet.js'
+import { AegeanAttackSheet } from './sheets/attack-sheet.js'
+import { AegeanCharacterSheet } from './sheets/character-sheet.js'
 import { AegeanDeitySheet } from './sheets/deity-sheet.js'
 import { AegeanEquipmentSheet } from './sheets/equipment-sheet.js'
+import { AegeanLegendSheet } from './sheets/legend-sheet.js'
 import { AegeanPropertySheet } from './sheets/property-sheet.js'
 import { AegeanTalentSheet } from './sheets/talent-sheet.js'
 import { AegeanWeaponSheet } from './sheets/weapon-sheet.js'
@@ -52,6 +53,10 @@ Hooks.once('init', async function() {
 		types: ['armour'],
 		makeDefault: true,
 	})
+	Items.registerSheet('Aegean', AegeanAttackSheet, {
+		types: ['attack'],
+		makeDefault: true,
+	})
 	Items.registerSheet('Aegean', AegeanDeitySheet, {
 		types: ['deity'],
 		makeDefault: true,
@@ -91,6 +96,7 @@ Hooks.once('init', async function() {
 		// actor partials
 		'systems/aegean/templates/actor/partials/advantages.hbs',
 		'systems/aegean/templates/actor/partials/adversary-background.hbs',
+		'systems/aegean/templates/actor/partials/adversary-stats.hbs',
 		'systems/aegean/templates/actor/partials/background.hbs',
 		'systems/aegean/templates/actor/partials/character-stats.hbs',
 		'systems/aegean/templates/actor/partials/combat.hbs',

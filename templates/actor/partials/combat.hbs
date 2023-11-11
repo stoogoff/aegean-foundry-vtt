@@ -46,6 +46,7 @@
 							</td>
 							<td>
 								{{> systems/aegean/templates/partials/action.hbs action="attack" id=item._id icon="fa-swords" }}
+								{{#unless (isPC @root.actor)}}{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=item.id icon="fa-trash" }}{{/unless}}
 							</td>
 						</tr>
 					{{/each}}

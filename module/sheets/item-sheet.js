@@ -1,6 +1,6 @@
 
 import { AEGEAN } from '../helpers/config.js'
-import { isEquipment } from '../helpers/utils.js'
+import { canHaveProperties } from '../helpers/utils.js'
 
 export class AegeanItemSheet extends ItemSheet {
 	async getData() {
@@ -84,7 +84,7 @@ export class AegeanItemSheet extends ItemSheet {
 
 		console.log('Aegean | ItemSheet::_onDrop => dragItem', dragItem)
 
-		if(isEquipment(this.item.type) && dragItem.type === 'property') {
+		if(canHaveProperties(this.item.type) && dragItem.type === 'property') {
 			const currentProperties = this.item.system.equipment.Properties.value
 			const existing = currentProperties.find(property => property.id === dragItem.id)
 

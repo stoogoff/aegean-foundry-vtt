@@ -41,8 +41,9 @@ export class AegeanLegendSheet extends AegeanActorSheet {
 		context.talents = this.actor.talents
 		context.weapons = this.actor.weapons.sort(sortByProperty('name'))
 
-		context.system.background.Description.value = await TextEditor.enrichHTML(context.system.background.Description.value, { async: true })
-		context.system.background.Tactics.value = await TextEditor.enrichHTML(context.system.background.Tactics.value, { async: true })
+		if(context.system.background.Description) context.system.background.Description.value = await TextEditor.enrichHTML(context.system.background.Description.value, { async: true })
+		if(context.system.background.Tactics) context.system.background.Tactics.value = await TextEditor.enrichHTML(context.system.background.Tactics.value, { async: true })
+		if(context.system.background.ArcaneLore) context.system.background.ArcaneLore.value = await TextEditor.enrichHTML(context.system.background.ArcaneLore.value, { async: true })
 
 		console.log('Aegean | LegendSheet::getData', context)
 

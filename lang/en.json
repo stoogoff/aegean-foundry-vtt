@@ -7,6 +7,7 @@
 		"Item": {
 			"advantage": "Advantage",
 			"armour": "Armour",
+			"attack": "Attack",
 			"deity": "Deity",
 			"equipment": "Equipment",
 			"legend": "Legend",
@@ -63,6 +64,7 @@
 		},
 		"combat": {
 			"Armour": "Armour",
+			"Attack": "Attack",
 			"Damage": "Damage",
 			"Dodge": "Dodge",
 			"Location": "Location",
@@ -101,6 +103,7 @@
 			"ActivePropertyNote": "If a property is Active the character must *invoke the Fates* to gain its benefits.",
 			"Advantage": "Advantage",
 			"AmmoLoads": "Ammo",
+			"ArcaneLore": "Arcane Lore",
 			"Attacks": "Attacks",
 			"Attributes": "Attributes",
 			"Category": "Category",

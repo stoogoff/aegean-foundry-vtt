@@ -1,0 +1,40 @@
+<div class="adversary-stats">
+	<div class="grid column-panel">
+		<div class="grid grid-cols-2">
+			<div>
+				<h3 class="text-left">{{ localize "aegean.system.Characteristics" }}</h3>
+				{{#each system.characteristics as |ch key|}}
+					{{> systems/aegean/templates/partials/skill-input.hbs
+						label=ch.label
+						value=ch.value
+						name=(concat "system.characteristics." key ".value")
+					}}
+				{{/each}}
+			</div>
+
+			<div>
+				<h3 class="text-left">{{ localize "aegean.system.Skills" }}</h3>
+				{{#each system.skills as |skill key|}}
+					{{> systems/aegean/templates/partials/skill-input.hbs
+						label=skill.label
+						value=skill.value
+						name=(concat "system.skills." key ".value")
+					}}
+				{{/each}}
+			</div>
+		</div>
+		<aside>
+			<h3>{{ localize "aegean.system.Attributes" }}</h3>
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label="aegean.attributes.Standing"
+				value=system.attributes.Standing.value
+				name="system.attributes.Standing.value"
+			}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label="aegean.attributes.Endurance"
+				value=system.attributes.Endurance.value
+				name="system.attributes.Endurance.value"
+			}}
+		</aside>
+	</div>
+</div>
