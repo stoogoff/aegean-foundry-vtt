@@ -1,6 +1,6 @@
 {
 	"Actor": {
-		"types": ["character", "legend"],
+		"types": ["character", "legend", "champion", "minion"],
 		"templates": {
 			"adversary": {
 				"background": {
@@ -228,6 +228,23 @@
 		},
 		"legend": {
 			"templates": ["characteristics", "skills", "defence", "baseAttributes", "adversary"]
+		},
+		"champion": {
+			"templates": ["characteristics", "skills", "defence", "baseAttributes", "adversary"],
+			"stats": {
+				"Wounds": {
+					"label": "aegean.system.Wounds",
+					"value": 2
+				}
+			}
+		},
+		"minion": {
+			"templates": ["characteristics", "skills", "defence", "baseAttributes", "adversary"],
+			"group": {
+				"Size": {
+					"value": 1
+				}
+			}
 		}
 	},
 	"Item": {

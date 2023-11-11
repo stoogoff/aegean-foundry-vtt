@@ -21,6 +21,7 @@
 		{{/range}}
 	</div>
 	<div class="flags">
+		{{#if flags.defeated }}<span class="chip danger">{{ localize "aegean.system.Defeated" }}</span>{{/if}}
 		{{#if flags.vulnerable }}<span class="chip danger">{{ localize "aegean.system.Vulnerable" }}</span>{{/if}}
 		{{#if flags.threshold }}<span class="chip warning">{{ localize "aegean.system.Threshold" }}</span>{{/if}}
 		{{#if flags.encumbered }}<span class="chip warning">{{ localize "aegean.system.Encumbered" }}</span>{{/if}}

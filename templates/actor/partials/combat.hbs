@@ -62,23 +62,25 @@
 				{{> systems/aegean/templates/partials/action.hbs action="taunt-roll" id="taunt" text="aegean.actions.Taunt" }}
 			</div>
 
-			<h2 class="mt-4"><span>{{ localize "aegean.system.Wounds" }}</span></h2>
-			<ul class="wounds">
-				{{#if system.attributes.Wounds.value}}
-					{{#each system.attributes.Wounds.value as | wound key |}}
-						<li>
-							<input type="text" data-id="{{ wound.id }}" value="{{ wound.value }}" class="bordered-input mr-2 adjust-wound-value" />
-							<p{{#if wound.healed}} class="healed"{{/if}}>{{ localize wound.penalty }}</p>
-							<div>
-								{{> systems/aegean/templates/partials/action.hbs action="heal-wound" id=wound.id icon="fa-user-injured" }}
-								{{> systems/aegean/templates/partials/action.hbs action="remove-wound" id=wound.id icon="fa-trash" }}
-							</div>
-						</li>
-					{{/each}}
-				{{else}}
-					{{ localize "aegean.ui.NoWounds" }}
-				{{/if}}
-			</ul>
+			{{#if (or (isPC actor) (isLegend actor))}}
+				<h2 class="mt-4"><span>{{ localize "aegean.system.Wounds" }}</span></h2>
+				<ul class="wounds">
+					{{#if system.attributes.Wounds.value}}
+						{{#each system.attributes.Wounds.value as | wound key |}}
+							<li>
+								<input type="text" data-id="{{ wound.id }}" value="{{ wound.value }}" class="bordered-input mr-2 adjust-wound-value" />
+								<p{{#if wound.healed}} class="healed"{{/if}}>{{ localize wound.penalty }}</p>
+								<div>
+									{{> systems/aegean/templates/partials/action.hbs action="heal-wound" id=wound.id icon="fa-user-injured" }}
+									{{> systems/aegean/templates/partials/action.hbs action="remove-wound" id=wound.id icon="fa-trash" }}
+								</div>
+							</li>
+						{{/each}}
+					{{else}}
+						{{ localize "aegean.ui.NoWounds" }}
+					{{/if}}
+				</ul>
+			{{/if}}
 		</div>
 	</div>
 	<aside>

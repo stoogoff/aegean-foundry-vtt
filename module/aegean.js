@@ -8,16 +8,18 @@ import { AegeanAdvantageSheet } from './sheets/advantage-sheet.js'
 import { AegeanArmourSheet } from './sheets/armour-sheet.js'
 import { AegeanAttackSheet } from './sheets/attack-sheet.js'
 import { AegeanCharacterSheet } from './sheets/character-sheet.js'
+import { AegeanChampionSheet } from './sheets/champion-sheet.js'
 import { AegeanDeitySheet } from './sheets/deity-sheet.js'
 import { AegeanEquipmentSheet } from './sheets/equipment-sheet.js'
 import { AegeanLegendSheet } from './sheets/legend-sheet.js'
+import { AegeanMinionSheet } from './sheets/minion-sheet.js'
 import { AegeanPropertySheet } from './sheets/property-sheet.js'
 import { AegeanTalentSheet } from './sheets/talent-sheet.js'
 import { AegeanWeaponSheet } from './sheets/weapon-sheet.js'
 
 // helpers
 import { AEGEAN } from './helpers/config.js'
-import { isPC, isAdversary, isEquipment } from './helpers/utils.js'
+import { isPC, isAdversary, isMinion, isChampion, isLegend, isEquipment } from './helpers/utils.js'
 
 Hooks.once('init', async function() {
 	console.log('Aegean | Hook::init')
@@ -41,6 +43,14 @@ Hooks.once('init', async function() {
 	Actors.registerSheet('Aegean', AegeanLegendSheet, {
 		label: game.i18n.localize('aegean.ui.LegendSheet'),
 		types: ['legend'],
+	})
+	Actors.registerSheet('Aegean', AegeanChampionSheet, {
+		label: game.i18n.localize('aegean.ui.ChampionSheet'),
+		types: ['champion'],
+	})
+	Actors.registerSheet('Aegean', AegeanMinionSheet, {
+		label: game.i18n.localize('aegean.ui.MinionSheet'),
+		types: ['minion'],
 	})
 
 	Items.unregisterSheet('core', ItemSheet)
@@ -161,11 +171,16 @@ Hooks.once('init', async function() {
 	Handlebars.registerHelper('lte', (val1, val2) => val1 <= val2)
 	Handlebars.registerHelper('gt', (val1, val2) => val1 > val2)
 	Handlebars.registerHelper('gte', (val1, val2) => val1 >= val2)
+	Handlebars.registerHelper('and', (val1, val2) => val1 && val2)
+	Handlebars.registerHelper('or', (val1, val2) => val1 || val2)
 
 	// actor / item type check functions
 	Handlebars.registerHelper('isPC', actor => isPC(actor.type))
 	Handlebars.registerHelper('isAdversary', actor => isAdversary(actor.type))
 	Handlebars.registerHelper('isEquipment', item => isEquipment(item.type))
+	Handlebars.registerHelper('isMinion', actor => isMinion(actor.type))
+	Handlebars.registerHelper('isChampion', actor => isChampion(actor.type))
+	Handlebars.registerHelper('isLegend', actor => isLegend(actor.type))
 })
 
 

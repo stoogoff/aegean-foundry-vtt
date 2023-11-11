@@ -7,7 +7,7 @@ import { RecoveryRoll } from '../dialogs/recovery-roll.js'
 import { SkillCheck } from '../dialogs/skill-check.js'
 import Actions from '../helpers/actions.js'
 
-export class AegeanLegendSheet extends AegeanActorSheet {
+export class AegeanMinionSheet extends AegeanActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'actor'],
@@ -29,7 +29,7 @@ export class AegeanLegendSheet extends AegeanActorSheet {
 		const context = super.getData()
 		const actor = this.actor.toObject(false)
 
-		context.sheetTitle = 'TYPES.Actor.legend'
+		context.sheetTitle = 'TYPES.Actor.minion'
 		context.config = AEGEAN
 		context.system = actor.system
 		context.flags = actor.flags.aegean
@@ -43,7 +43,7 @@ export class AegeanLegendSheet extends AegeanActorSheet {
 		if(context.system.background.Tactics) context.system.background.Tactics.value = await TextEditor.enrichHTML(context.system.background.Tactics.value, { async: true })
 		if(context.system.background.ArcaneLore) context.system.background.ArcaneLore.value = await TextEditor.enrichHTML(context.system.background.ArcaneLore.value, { async: true })
 
-		console.log('Aegean | LegendSheet::getData', context)
+		console.log('Aegean | ChampionSheet::getData', context)
 
 		return context
 	}

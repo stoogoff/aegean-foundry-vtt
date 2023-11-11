@@ -2,7 +2,9 @@
 	"TYPES": {
 		"Actor": {
 			"character": "Character",
-			"legend": "Legend"
+			"champion": "Champion",
+			"legend": "Legend",
+			"minion": "Minion"
 		},
 		"Item": {
 			"advantage": "Advantage",
@@ -42,7 +44,6 @@
 			"Vigour": "Vigour"
 		},
 		"character": {
-			"Character": "Character",
 			"Background": "Background",
 			"Careers": "Careers",
 			"Heritage": "Heritage",
@@ -110,6 +111,7 @@
 			"Characteristic": "Characteristic",
 			"Characteristics": "Characteristics",
 			"Cost": "Cost",
+			"Defeated": "Defeated",
 			"Defence": "Defence",
 			"Deity": "Deity",
 			"DeityCharacteristicSelectNote": "Select one or two characteristics that provide a bonus during character generation.",
@@ -155,9 +157,11 @@
 			"AttackRoll": "Attack Roll",
 			"Background": "Background",
 			"CharacterSheet": "Character Sheet",
+			"ChampionSheet": "Adversary Champion Sheet",
 			"CommaSeparated": "comma separated",
 			"Combat": "Combat",
 			"LegendSheet": "Adversary Legend Sheet",
+			"GroupSize": "Group Size",
 			"Notes": "Notes",
 			"NoWounds": "No wounds. Yet!",
 			"RecoveryRoll": "Recovery Roll",

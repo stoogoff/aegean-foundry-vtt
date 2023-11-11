@@ -1,6 +1,6 @@
 
 import { add } from '../helpers/list.js'
-import { isEquipment, isPC, UNARMED_STRIKE } from '../helpers/utils.js'
+import { isEquipment, isPC, isAdversary, isLegend, isChampion, isMinion, UNARMED_STRIKE } from '../helpers/utils.js'
 import { AEGEAN } from '../helpers/config.js'
 import { woundRoll } from '../helpers/wounds.js'
 
@@ -51,8 +51,37 @@ export class AegeanActor extends Actor {
 
 	// roll a wound
 	async applyWound(newWound) {
+		if(isPC(this.type) || isLegend(this.type)) {
+			await this._applyLegendWound(newWound)
+		}
+
+		if(isChampion(this.type)) {
+			this._applyChampionWound()
+		}
+
+		if(isMinion(this.type)) {
+			this._killMinion()
+		}
+	}
+
+	// minions are killed and removed from the group
+	_killMinion() {
+
+	}
+
+	// champions have a wound value
+	_applyChampionWound() {
+		const currentWounds = parseInt(this.system.stats.Wounds.value)
+
+		this.update({
+			'system.stats.Wounds.value': currentWounds - 1
+		})
+	}
+
+	// Legends and PCs roll on the wound table
+	async _applyLegendWound(newWound) {
 		// get the value of all current wounds and add to the new wound
-		const totalWounds = (this.system.attributes.Wounds.value || []).map(({ value }) => value).reduce(add, 0)
+		const totalWounds = (this.system.attributes.Wounds.value || []).map(({ value }) => parseInt(value)).reduce(add, 0)
 		const currentScars = parseInt(this.system.attributes.Scars.value)
 
 		console.log(`Aegean | Actor::applyWound => newWound=${newWound}, totalWounds=${totalWounds}`)
@@ -61,7 +90,7 @@ export class AegeanActor extends Actor {
 
 		this.update({
 			'system.attributes.Wounds.value': [ ...this.system.attributes.Wounds.value, wound],
-			'system.attributes.Scars.value': currentScars + wound.value,
+			'system.attributes.Scars.value': currentScars + wound.value, // applying Scars to legends should have no effect
 		})
 	}
 
@@ -165,6 +194,7 @@ export class AegeanActor extends Actor {
 	getDerivedData() {
 		const flags = {}
 
+		// flags for PCs only
 		if(isPC(this.type)) {
 			flags.hasDivineHeritage = this.system.background.Heritage.value === 'Divine'
 			
@@ -181,10 +211,23 @@ export class AegeanActor extends Actor {
 			flags.encumbered = flags.encumbrance > parseInt(this.system.characteristics.Might.value) + AEGEAN.encumbrance		
 		}
 
-		if(this.type === 'legend') {
+		// apply endurance flag to all adversaries
+		if(isAdversary(this.type)) {
 			flags.endurance = this.system.attributes.Endurance.value
 			flags.vulnerable = this.system.attributes.Risk.value > flags.endurance
+		}
+
+		// only legends need vulnerable and threshold data
+		if(isLegend(this.type) || isChampion(this.type)) {
 			flags.threshold = this.system.attributes.Risk.value === flags.endurance
+		}
+
+		if(isChampion(this.type)) {
+			flags.defeated = this.system.stats.Wounds.value <= 0
+		}
+
+		if(isMinion(this.type)) {
+			flags.currentGroup = 1 // how the hell will this work
 		}
 
 		return flags
