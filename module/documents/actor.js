@@ -192,6 +192,9 @@ export class AegeanActor extends Actor {
 		data.actor = this.toObject(false)
 		data.config = AEGEAN
 
+		// this gets set by the combat roll dialogue and is retained, remove it here
+		delete data.weapon
+
 		console.log('Aegean | Actor::getRollData', data)
 
 		return data

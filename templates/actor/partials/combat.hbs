@@ -5,7 +5,7 @@
 				type="number"
 				name="damage"
 				value="0"
-				class="damage-value"
+				class="damage-value bordered-input"
 			/>
 			{{> systems/aegean/templates/partials/action.hbs action="damage-action" icon="fa-sword" text="aegean.ui.ApplyDamage" }}
 			<span class="divider"></span>
@@ -66,7 +66,7 @@
 				{{#if system.attributes.Wounds.value}}
 					{{#each system.attributes.Wounds.value as | wound key |}}
 						<li>
-							<span class="boxed">{{ wound.value }}</span>
+							<input type="text" data-id="{{ wound.id }}" value="{{ wound.value }}" class="bordered-input mr-2 adjust-wound-value" />
 							<p{{#if wound.healed}} class="healed"{{/if}}>{{ localize wound.penalty }}</p>
 							<div>
 								{{> systems/aegean/templates/partials/action.hbs action="heal-wound" id=wound.id icon="fa-user-injured" }}

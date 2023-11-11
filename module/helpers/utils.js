@@ -32,6 +32,7 @@ export const UNARMED_STRIKE = {
 	_id: 'brawling',
 	name: 'Brawling',
 	shortProperties: [],
+	properties: [],
 	system: {
 		equipment: {
 			Properties: {

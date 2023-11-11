@@ -121,14 +121,6 @@
 }
 
 /* Combat and wounds */
-.aegean .character-sheet input.damage-value { /* TODO this is the same as .rating-input */
-	max-width: 30px;
-	text-align: right !important;
-	display: inline-block;
-	border: var(--border-light);
-	border-radius: var(--border-radius);
-}
-
 .aegean .character-sheet .damage-bar {
 	border-bottom: var(--border-light);
 	padding-bottom: var(--spacing-2);

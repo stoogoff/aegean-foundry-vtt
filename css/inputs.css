@@ -120,8 +120,8 @@
 	margin-right: 0;
 }
 
-/* Property rating */
-.aegean input.rating-input {
+/* Light bordered inputs used for property ratings, damage value etc */
+.aegean input.bordered-input {
 	max-width: 30px;
 	text-align: right !important;
 	display: inline-block;
