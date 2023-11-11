@@ -4,13 +4,13 @@
 		<div>
 			<!-- home -->
 			{{> systems/aegean/templates/partials/form-input.hbs
-				label=system.background.Home.label
+				label="aegean.character.Home"
 				value=system.background.Home.value
 				name="system.background.Home.value"
 			}}
 			<!-- heritage -->
 			{{> systems/aegean/templates/partials/select-input.hbs
-				label=system.background.Heritage.label
+				label="aegean.character.Heritage"
 				value=system.background.Heritage.value
 				name="system.background.Heritage.value"
 				options=config.heritages
@@ -18,7 +18,7 @@
 			<!-- parent -->
 			{{#if actor.flags.aegean.hasDivineHeritage}}
 				{{> systems/aegean/templates/partials/select-input.hbs
-					label=system.background.Parent.label
+					label="aegean.character.Parent"
 					value=system.background.Parent.value
 					name="system.background.Parent.value"
 					options=parents
@@ -26,20 +26,20 @@
 			{{/if}}
 			<!-- upbringing -->
 			{{> systems/aegean/templates/partials/select-input.hbs
-				label=system.background.Background.label
+				label="aegean.character.Background"
 				value=system.background.Background.value
 				name="system.background.Background.value"
 				options=config.backgrounds
 			}}
 
 			<div>
-				<label class="label">{{ localize system.background.Fate.label }}</label>
+				<label class="label">{{ localize "aegean.attributes.Fate" }}</label>
 				{{editor system.background.Fate.value target="system.background.Fate.value" button=true owner=owner editable=editable}}
 			</div>
 		</div>
 		<div>
 			<div class="boxed">
-				<label class="label">{{ localize system.background.Notes.label }}</label>
+				<label class="label">{{ localize "aegean.ui.Notes" }}</label>
 				{{editor system.background.Notes.value target="system.background.Notes.value" button=true owner=owner editable=editable}}
 			</div>
 

@@ -47,33 +47,33 @@
 		<aside>
 			<h3>{{ localize "aegean.system.Attributes" }}</h3>
 			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Standing.label
+				label="aegean.attributes.Standing"
 				value=system.attributes.Standing.value
 				name="system.attributes.Standing.value"
 			}}
 			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Endurance.label
+				label="aegean.attributes.Endurance"
 				value=system.attributes.Endurance.value
 				name="system.attributes.Endurance.value"
 			}}
 			{{#if (isPC actor)}}
 				{{> systems/aegean/templates/partials/box-input.hbs
-					label=system.attributes.Glory.label
+					label="aegean.attributes.Glory"
 					value=system.attributes.Glory.value
 					name="system.attributes.Glory.value"
 				}}
 				{{> systems/aegean/templates/partials/box-input.hbs
-					label=system.attributes.Hubris.label
+					label="aegean.attributes.Hubris"
 					value=system.attributes.Hubris.value
 					name="system.attributes.Hubris.value"
 				}}
 				{{> systems/aegean/templates/partials/box-input.hbs
-					label=system.attributes.XP.label
+					label="aegean.attributes.XP"
 					value=system.attributes.XP.value
 					name="system.attributes.XP.value"
 				}}
 				{{> systems/aegean/templates/partials/box-input.hbs
-					label=system.attributes.Scars.label
+					label="aegean.attributes.Scars"
 					value=system.attributes.Scars.value
 					name="system.attributes.Scars.value"
 				}}
