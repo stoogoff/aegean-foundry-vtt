@@ -34,6 +34,10 @@
 .aegean .box-input {
 	border: var(--border);
 }
+.aegean .box-input:has(span) {
+	display: grid;
+	grid-template-columns: 1fr 10px 1fr;
+}
 .aegean .box-input label {
 	text-transform: uppercase;
 	background-color: var(--invert-bg);
@@ -44,12 +48,27 @@
 	line-height: 1;
 	font-size: var(--font-md);
 	max-height: 20px;
+	grid-column-start: 1;
+	grid-column-end: 4;
 }
 .aegean .box-input input[type=text] {
-	padding-top: var(--spacing-4);
-	padding-bottom: var(--spacing-4);
 	font-size: 30px;
 	text-align: center;
+	display: block;
+	padding-top: var(--spacing-1);
+	padding-bottom: var(--spacing-1);
+	height: auto;
+}
+.aegean .box-input span, .aegean .box-input small {
+	display: inline-block;
+	font-size: 24px;
+	text-align: center;
+	color: var(--grey-500);
+	padding-top: var(--spacing-2);
+}
+.aegean .box-input small {
+	font-size: 16px;
+	padding-top: var(--spacing-3);
 }
 
 /* Form input */

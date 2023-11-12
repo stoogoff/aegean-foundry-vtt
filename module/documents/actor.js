@@ -193,6 +193,8 @@ export class AegeanActor extends Actor {
 
 	getDerivedData() {
 		const flags = {}
+		const RISK = parseInt(this.system.attributes.Risk.value)
+		const ENDURANCE = parseInt(this.system.attributes.Endurance.value)
 
 		// flags for PCs only
 		if(isPC(this.type)) {
@@ -205,29 +207,31 @@ export class AegeanActor extends Actor {
 				({ properties }) => properties.filter(({ property }) => property.name === 'Cumbersome')
 			).map(({ rating }) => parseInt(rating)).reduce(add, 0)
 
-			flags.endurance = this.system.attributes.Endurance.value - flags.cumbersome
-			flags.vulnerable = this.system.attributes.Risk.value > flags.endurance
-			flags.threshold = this.system.attributes.Risk.value === flags.endurance
+			flags.endurance = ENDURANCE - flags.cumbersome
+			flags.vulnerable = RISK > flags.endurance
+			flags.threshold = RISK === flags.endurance
 			flags.encumbered = flags.encumbrance > parseInt(this.system.characteristics.Might.value) + AEGEAN.encumbrance		
 		}
 
-		// apply endurance flag to all adversaries
-		if(isAdversary(this.type)) {
-			flags.endurance = this.system.attributes.Endurance.value
-			flags.vulnerable = this.system.attributes.Risk.value > flags.endurance
-		}
-
-		// only legends need vulnerable and threshold data
+		// legends and champions need vulnerable and threshold data
 		if(isLegend(this.type) || isChampion(this.type)) {
-			flags.threshold = this.system.attributes.Risk.value === flags.endurance
+			flags.threshold = RISK === flags.endurance
+			flags.endurance = ENDURANCE
+			flags.vulnerable = RISK > flags.endurance
 		}
 
 		if(isChampion(this.type)) {
-			flags.defeated = this.system.stats.Wounds.value <= 0
+			flags.defeated = parseInt(this.system.stats.Wounds.value) <= 0
 		}
 
+		// manage group size and total endurance for minions
 		if(isMinion(this.type)) {
-			flags.currentGroup = 1 // how the hell will this work
+			const SIZE = parseInt(this.system.group.Size.value)
+
+			flags.endurance = ENDURANCE * SIZE
+			flags.currentSize = Math.max(0, SIZE - Math.floor(Math.max(0, RISK - 1) / ENDURANCE))
+			flags.defeated = RISK > flags.endurance
+			flags.assistance = Math.clamped(flags.currentSize - 1, 0, 3)
 		}
 
 		return flags

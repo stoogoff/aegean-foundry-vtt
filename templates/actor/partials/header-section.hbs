@@ -11,7 +11,7 @@
 		<div class="grid grid-cols-3-1-split">
 			{{> systems/aegean/templates/actor/partials/risk.hbs}}
 
-			<div>
+			<aside>
 				{{#if (isPC actor)}}
 					{{> systems/aegean/templates/partials/box-input.hbs
 						label="aegean.attributes.Resolve"
@@ -30,7 +30,7 @@
 						label="aegean.ui.GroupSize"
 						value=system.group.Size.value
 						name="system.group.Size.value"
-						readonly=true
+						fixedValue=flags.currentSize
 					}}
 				{{/if}}
 
@@ -43,7 +43,7 @@
 				{{/if}}
 
 				{{> systems/aegean/templates/partials/action.hbs action="roll" icon="fa-dice-d10" text="aegean.ui.Roll"}}
-			</div>
+			</aside>
 		</div>
 	</div>
 </header>

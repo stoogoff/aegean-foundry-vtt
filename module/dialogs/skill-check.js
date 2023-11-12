@@ -64,8 +64,7 @@ export class SkillCheck extends BaseRoll {
 					target,
 					key,
 					numericValue,
-					isDifficulty ? 'data-difficulty' : 'data-value',
-					isDifficulty ? '' : 'D'
+					isDifficulty ? 'data-difficulty' : 'data-value'
 				)
 			}
 		})

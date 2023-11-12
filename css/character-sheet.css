@@ -11,6 +11,10 @@
 	margin-bottom: var(--spacing-2);
 }
 
+.aegean .character-sheet .character-info aside .box-input {
+	margin-bottom: var(--spacing-4);
+}
+
 .aegean .character-sheet .character-portrait {
 	background-color: var(--grey-light);
 }

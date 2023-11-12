@@ -1,4 +1,8 @@
 <div class="box-input">
+	{{#if fixedValue}}
+		<span>{{ fixedValue }}</span>
+		<small>/</small>
+	{{/if}}
 	<input type="text" value="{{ value }}" name="{{ name }}" id="{{ name }}" {{#if readonly }}readonly{{/if}} />
 	<label for="{{ name }}">{{ localize label }}</label>
 </div>

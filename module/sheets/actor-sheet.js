@@ -44,10 +44,16 @@ export class AegeanActorSheet extends ActorSheet {
 
 	_skillCheckDialog() {
 		const context = this.actor.getRollData()
+		const selection = {}
+
+		// prefill assistance
+		if(context.flags.assistance) {
+			selection.modifier = context.flags.assistance
+		}
 
 		console.log('Aegean | ActorSheet::_skillCheckDialog => context', context)
 
-		SkillCheck.show(context)
+		SkillCheck.show(context, selection)
 	}
 
 	_combatAction() {

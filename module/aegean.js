@@ -171,6 +171,7 @@ Hooks.once('init', async function() {
 	Handlebars.registerHelper('lte', (val1, val2) => val1 <= val2)
 	Handlebars.registerHelper('gt', (val1, val2) => val1 > val2)
 	Handlebars.registerHelper('gte', (val1, val2) => val1 >= val2)
+	Handlebars.registerHelper('mod', (val1, val2) => val1 > 0 && val1 % val2 === 0)
 	Handlebars.registerHelper('and', (val1, val2) => val1 && val2)
 	Handlebars.registerHelper('or', (val1, val2) => val1 || val2)
 
