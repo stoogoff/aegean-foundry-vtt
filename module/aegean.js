@@ -21,6 +21,9 @@ import { AegeanWeaponSheet } from './sheets/weapon-sheet.js'
 import { AEGEAN } from './helpers/config.js'
 import { isPC, isAdversary, isMinion, isChampion, isLegend, isEquipment } from './helpers/utils.js'
 
+// migrations
+import migrations from './migrations/index.js'
+
 Hooks.once('init', async function() {
 	console.log('Aegean | Hook::init')
 
@@ -187,6 +190,5 @@ Hooks.once('init', async function() {
 
 Hooks.once('ready', async function() {
 	console.log('Aegean | Hook::ready')
-	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-	Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot))
+	migrations()
 })
