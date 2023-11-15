@@ -1,0 +1,24 @@
+{
+  "_id": "1XK25bwvtXUQCLRM",
+  "_key": "!items!1XK25bwvtXUQCLRM",
+  "name": "Clumsy",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This item is unwieldy or difficult to use. A character using this item requires a Reflexes characteristic of 3 or greater or they take a -1D penalty to all Actions using this item.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": false
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

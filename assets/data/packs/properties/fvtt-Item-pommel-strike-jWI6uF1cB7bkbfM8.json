@@ -1,0 +1,24 @@
+{
+  "_id": "jWI6uF1cB7bkbfM8",
+  "_key": "!items!jWI6uF1cB7bkbfM8",
+  "name": "Pommel Strike",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This weapon can be used to make a pommel strike as a Harm Action instead of its standard attack profile.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": false
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

@@ -2,7 +2,7 @@
 	<div class="grid column-panel">
 		<div>
 			{{> systems/aegean/templates/partials/select-input.hbs
-				label=system.equipment.Availability.label
+				label="aegean.equipment.Availability"
 				value=system.equipment.Availability.value
 				name="system.equipment.Availability.value"
 				options=config.availability
@@ -12,13 +12,13 @@
 		</div>
 		<aside>
 			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.equipment.Weight.label
+				label="aegean.equipment.Weight"
 				value=system.equipment.Weight.value
 				name="system.equipment.Weight.value"
 			}}
 
 			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.equipment.Price.label
+				label="aegean.equipment.Price"
 				value=system.equipment.Price.value
 				name="system.equipment.Price.value"
 			}}

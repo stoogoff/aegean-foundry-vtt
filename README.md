@@ -6,8 +6,10 @@
 The Aegean RPG system for Foundry VTT including sheets for the following:
 
 - Aegean PC Character Sheet
+- Adversary Sheet
 - Advantages / Disadvantages
 - Armour
+- Attacks (for creatures and monstrous adversaries)
 - Deities
 - Equipment
 - Equipment Properties
@@ -25,7 +27,6 @@ The following sheets and items still need to be created:
 - Careers
 - Factions
 - Mystery Cults
-- Adversary Sheet
 - City Sheet
 - Arkhons
 - Buildings

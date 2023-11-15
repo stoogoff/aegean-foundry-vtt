@@ -1,8 +1,15 @@
 {
 	"TYPES": {
+		"Actor": {
+			"character": "Character",
+			"champion": "Champion",
+			"legend": "Legend",
+			"minion": "Minion"
+		},
 		"Item": {
 			"advantage": "Advantage",
 			"armour": "Armour",
+			"attack": "Attack",
 			"career": "Career",
 			"deity": "Deity",
 			"equipment": "Equipment",
@@ -38,7 +45,6 @@
 			"Vigour": "Vigour"
 		},
 		"character": {
-			"Character": "Character",
 			"Background": "Background",
 			"Careers": "Careers",
 			"Heritage": "Heritage",
@@ -60,6 +66,7 @@
 		},
 		"combat": {
 			"Armour": "Armour",
+			"Attack": "Attack",
 			"Damage": "Damage",
 			"Dodge": "Dodge",
 			"Location": "Location",
@@ -69,6 +76,15 @@
 			"Shield": "Shield",
 			"Weapon": "Weapon",
 			"Weapons": "Weapons"
+		},
+		"actions": {
+			"Defend": "Defend",
+			"Disarm": "Disarm",
+			"Disengage": "Disengage",
+			"Harm": "Harm",
+			"Misdirect": "Misdirect",
+			"Pin": "Pin",
+			"Taunt": "Taunt"
 		},
 		"equipment": {
 			"Ammo": "Ammo",
@@ -83,14 +99,20 @@
 			"Weight": "Weight"
 		},
 		"system": {
+			"Abilities": "Abilities",
 			"Active": "Active",
+			"ActiveTalentNote": "Mainly for adversary abilities. If a talent is Active the character must *invoke the Fates* to gain its benefits.",
 			"ActivePropertyNote": "If a property is Active the character must *invoke the Fates* to gain its benefits.",
 			"Advantage": "Advantage",
 			"AmmoLoads": "Ammo",
+			"ArcaneLore": "Arcane Lore",
+			"Attacks": "Attacks",
 			"Attributes": "Attributes",
+			"Category": "Category",
 			"Characteristic": "Characteristic",
 			"Characteristics": "Characteristics",
 			"Cost": "Cost",
+			"Defeated": "Defeated",
 			"Defence": "Defence",
 			"Deity": "Deity",
 			"DeityCharacteristicSelectNote": "Select one or two characteristics that provide a bonus during character generation.",
@@ -120,6 +142,7 @@
 			"Specialisation": "Specialisation",
 			"Specialisations": "Specialisations",
 			"Symbols": "Symbols",
+			"Tactics": "Tactics",
 			"Talent": "Talent",
 			"Talents": "Talents",
 			"Title": "Title",
@@ -131,18 +154,25 @@
 			"Add": "Add",
 			"AdvantagesDisadvantages": "Advantages / Disadvantages",
 			"ApplyDamage": "Apply Damage",
+			"AttackRoll": "Attack Roll",
 			"Background": "Background",
 			"CharacterSheet": "Character Sheet",
+			"ChampionSheet": "Adversary Champion Sheet",
 			"CommaSeparated": "comma separated",
 			"Combat": "Combat",
+			"LegendSheet": "Adversary Legend Sheet",
+			"Group": "Group",
+			"GroupSize": "Group Size",
 			"Notes": "Notes",
+			"NoWounds": "No wounds. Yet!",
+			"RecoveryRoll": "Recovery Roll",
 			"Roll": "Roll",
+			"RollRecovery": "Roll Recovery",
 			"RollWound": "Roll Wound",
 			"SkillSelectNote": "Select three skills that provide a bonus during character generation.",
 			"SpecialisationPlaceholder": "Skill: Specialisation",
 			"Stats": "Stats",
 			"Symbols": "Symbols",
-			"Talents": "Talents",
 			"TheGods": "The Gods"
 		},
 		"wounds": {

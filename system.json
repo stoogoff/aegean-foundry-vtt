@@ -2,7 +2,7 @@
 	"id": "aegean",
 	"title": "Aegean",
 	"description": "Aegean RPG system for FoundryVTT",
-	"version": "0.0.2",
+	"version": "0.2.7",
 	"compatibility": {
 		"minimum": "11",
 		"verified": "11",
@@ -36,7 +36,32 @@
 		"css/roll-dialog.css",
 		"css/tabs.css"
 	],
-	"packs": [],
+	"packFolders": [
+		{
+			"name": "Aegean Core",
+			"folders": [
+				{
+					"name": "Properties",
+					"packs": ["properties"]
+				}
+			]
+		}
+	],
+	"packs": [
+		{
+			"name": "properties",
+			"label": "Properties",
+			"system": "aegean",
+			"path": "packs/properties",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"TRUSTED": "OBSERVER",
+				"ASSISTANT": "OWNER",
+				"GAMEMASTER": "OWNER"
+			}
+		}
+	],
 	"languages": [
 		{
 			"lang": "en",
@@ -46,6 +71,6 @@
 	],
 	"url": "https://github.com/stoogoff/aegean-foundry-vtt/",
 	"manifest": "https://github.com/stoogoff/aegean-foundry-vtt/releases/latest/download/system.json",
-	"download": "https://github.com/stoogoff/aegean-foundry-vtt/releases/download/v0.0.2/aegean.zip",
-	"license": "MIT"
+	"download": "https://github.com/stoogoff/aegean-foundry-vtt/releases/download/v0.2.7/aegean.zip",
+	"license": "LICENSE"
 }

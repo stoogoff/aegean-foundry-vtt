@@ -1,7 +1,22 @@
 {
 	"Actor": {
-		"types": ["character"],
+		"types": ["character", "legend", "champion", "minion"],
 		"templates": {
+			"adversary": {
+				"background": {
+					"Description": {
+						"label": "aegean.system.Description",
+						"value": ""
+					},
+					"Tactics": {
+						"label": "aegean.system.Tactics",
+						"value": ""
+					},
+					"ArcaneLore": {
+						"value": ""
+					}
+				}
+			},
 			"characteristics": {
 				"characteristics": {
 					"Might": {
@@ -105,7 +120,12 @@
 						"label": "aegean.combat.Parry",
 						"value": 0,
 						"used": false
-					}
+					},
+					"Dodge": {
+						"label": "aegean.combat.Dodge",
+						"value": 0,
+						"used": false
+					}					
 				}
 			},
 			"baseAttributes": {
@@ -205,15 +225,55 @@
 					"value": 0
 				}
 			}
+		},
+		"legend": {
+			"templates": ["characteristics", "skills", "defence", "baseAttributes", "adversary"]
+		},
+		"champion": {
+			"templates": ["characteristics", "skills", "defence", "baseAttributes", "adversary"],
+			"stats": {
+				"Wounds": {
+					"label": "aegean.system.Wounds",
+					"value": 2
+				}
+			}
+		},
+		"minion": {
+			"templates": ["characteristics", "skills", "defence", "baseAttributes", "adversary"],
+			"group": {
+				"Size": {
+					"value": 1
+				}
+			}
 		}
 	},
 	"Item": {
-		"types": ["advantage", "armour", "career", "deity", "equipment", "property", "talent", "weapon"],
+		"types": ["advantage", "armour", "attack", "career", "deity", "equipment", "property", "talent", "weapon"],
 		"templates": {
 			"base": {
 				"Description": {
 					"label": "aegean.system.Description",
 					"value": ""
+				}
+			},
+			"combat": {
+				"stats": {
+					"Skill": {
+						"label": "aegean.system.Skill",
+						"value": ""
+					},
+					"Reach": {
+						"label": "aegean.combat.Reach",
+						"value": 0
+					},
+					"Range": {
+						"label": "aegean.combat.Range",
+						"value": ""
+					},
+					"Damage": {
+						"label": "aegean.combat.Damage",
+						"value": 0
+					}
 				}
 			},
 			"equipment": {
@@ -260,6 +320,10 @@
 				"Rating": {
 					"label": "aegean.system.Rating",
 					"value": 1
+				},
+				"Active": {
+					"label": "aegean.system.Active",
+					"value": false
 				}
 			}
 		},
@@ -279,26 +343,17 @@
 		"equipment": {
 			"templates": ["base", "equipment"]
 		},
-		"weapon": {
-			"templates": ["base", "equipment"],
-			"stats": {
-				"Skill": {
-					"label": "aegean.system.Skill",
-					"value": ""
-				},
-				"Reach": {
-					"label": "aegean.combat.Reach",
-					"value": 0
-				},
-				"Range": {
-					"label": "aegean.combat.Range",
-					"value": ""
-				},
-				"Damage": {
-					"label": "aegean.combat.Damage",
-					"value": 0
+		"attack": {
+			"templates": ["base", "combat"],
+			"equipment": {
+				"Properties": {
+					"label": "aegean.equipment.Properties",
+					"value": []
 				}
 			}
+		},
+		"weapon": {
+			"templates": ["base", "equipment", "combat"]
 		},
 		"armour": {
 			"templates": ["base", "equipment"],

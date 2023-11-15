@@ -17,7 +17,7 @@
 				<div class="grid column-panel">
 					<div>
 						{{> systems/aegean/templates/partials/select-input.hbs
-							label=system.stats.Location.label
+							label="aegean.combat.Location"
 							value=system.stats.Location.value
 							name="system.stats.Location.value"
 							options=config.locations
@@ -25,7 +25,7 @@
 					</div>
 					<aside>
 						{{> systems/aegean/templates/partials/box-input.hbs
-							label=system.stats.Armour.label
+							label="aegean.combat.Armour"
 							value=system.stats.Armour.value
 							name="system.stats.Armour.value"
 						}}

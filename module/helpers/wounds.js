@@ -58,7 +58,7 @@ export const WOUNDS = [
 	},
 	{
 		rollLow: 16,
-		rollHigh: 100,
+		rollHigh: Number.MAX_SAFE_INTEGER,
 		text: 'aegean.wounds.Dying',
 		effect: () => {},
 	},

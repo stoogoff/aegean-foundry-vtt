@@ -1,6 +1,6 @@
 <form class="{{cssClass}} {{actor.type}}" autocomplete="off">
 	<article class="character-sheet">
-		{{> systems/aegean/templates/actor/partials/header-section.hbs }}
+		{{> systems/aegean/templates/actor/partials/header-section.hbs title="TYPES.Actor.character" }}
 
 		<div class="tab-group">
 			<!-- stats -->
@@ -29,7 +29,7 @@
 			{{#if talents}}
 				{{#> systems/aegean/templates/partials/tab-panel.hbs
 					id="character_talents"
-					label="aegean.ui.Talents"
+					label="aegean.system.Talents"
 					count=talents.length
 				}}
 					{{> systems/aegean/templates/actor/partials/talents.hbs }}

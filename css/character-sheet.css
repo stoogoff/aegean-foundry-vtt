@@ -11,6 +11,10 @@
 	margin-bottom: var(--spacing-2);
 }
 
+.aegean .character-sheet .character-info aside .box-input {
+	margin-bottom: var(--spacing-4);
+}
+
 .aegean .character-sheet .character-portrait {
 	background-color: var(--grey-light);
 }
@@ -121,14 +125,6 @@
 }
 
 /* Combat and wounds */
-.aegean .character-sheet input.damage-value { /* TODO this is the same as .rating-input */
-	max-width: 30px;
-	text-align: right !important;
-	display: inline-block;
-	border: var(--border-light);
-	border-radius: var(--border-radius);
-}
-
 .aegean .character-sheet .damage-bar {
 	border-bottom: var(--border-light);
 	padding-bottom: var(--spacing-2);

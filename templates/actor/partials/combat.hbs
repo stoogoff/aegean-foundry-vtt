@@ -5,49 +5,109 @@
 				type="number"
 				name="damage"
 				value="0"
-				class="damage-value"
+				class="damage-value bordered-input"
 			/>
 			{{> systems/aegean/templates/partials/action.hbs action="damage-action" icon="fa-sword" text="aegean.ui.ApplyDamage" }}
+			<span class="divider"></span>
+			{{> systems/aegean/templates/partials/action.hbs action="recovery-action" icon="fa-user-injured" text="aegean.ui.RollRecovery" }}
 		</div>
 		<div>
-			<h2><span>{{ localize "aegean.system.Wounds" }}</span></h2>
-			<ul class="wounds">
-				{{#each system.attributes.Wounds.value as | wound key |}}
-					<li>
-						<span class="boxed">{{ wound.value }}</span>
-						<p{{#if wound.healed}} class="healed"{{/if}}>{{ localize wound.penalty }}</p>
-						<div>
-							{{> systems/aegean/templates/partials/action.hbs action="heal-wound" id=wound.id icon="fa-user-injured" }}
-							{{> systems/aegean/templates/partials/action.hbs action="remove-wound" id=wound.id icon="fa-trash" }}
-						</div>
-					</li>
-				{{/each}}
-			</ul>
-		</div>
+			<h2><span>{{ localize "aegean.system.Attacks" }}</span></h2>
+			<table class="mb-2">
+				<thead>
+					<tr>
+						<th class="text-left">{{ localize "aegean.system.Name" }}</th>
+						<th class="text-left">{{ localize "aegean.system.Skill" }}</th>
+						<th class="text-right">{{ localize "aegean.combat.Reach" }} / {{ localize "aegean.combat.Range" }}</th>
+						<th class="text-right">{{ localize "aegean.combat.Damage" }}</th>
+						<th class="text-left">{{ localize "aegean.equipment.Properties" }}</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each weapons as |item key|}}
+						<tr>
+							<td>{{ item.name }}</td>
+							<td>{{ item.system.stats.Skill.value }}</td>
+							<td class="text-right">
+								{{#if (eq item.system.stats.Range.value 'Engaged') }}
+									{{ item.system.stats.Reach.value }}
+								{{else}}
+									{{ item.system.stats.Range.value }}
+								{{/if}}
+							</td>
+							<td class="text-right">{{ item.system.stats.Damage.value }}</td>
+							<td>
+								{{#if item.shortProperties}}
+									{{join item.shortProperties}}
+								{{else}}
+									&mdash;
+								{{/if}}
+							</td>
+							<td>
+								{{> systems/aegean/templates/partials/action.hbs action="attack" id=item._id icon="fa-swords" }}
+								{{#unless (isPC @root.actor)}}{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=item.id icon="fa-trash" }}{{/unless}}
+							</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
 
-		<p><span class="chip">>> TODO: COMBAT ACTIONS <<</span></p>
-		<p><span class="chip">>> TODO: COMBAT MANEUVERS <<</span></p>
-		<p><span class="chip">>> TODO: RECOVERY ROLL <<</span></p>
+			<div class="action-bar combat-actions mb-4">
+				{{> systems/aegean/templates/partials/action.hbs action="defend-roll" id="defend" text="aegean.actions.Defend" }}
+				{{> systems/aegean/templates/partials/action.hbs action="disarm-roll" id="disarm" text="aegean.actions.Disarm" }}
+				{{> systems/aegean/templates/partials/action.hbs action="disengage-roll" id="disengage" text="aegean.actions.Disengage" }}
+				{{> systems/aegean/templates/partials/action.hbs action="misdirect-roll" id="misdirect" text="aegean.actions.Misdirect" }}
+				{{> systems/aegean/templates/partials/action.hbs action="pin-roll" id="pin" text="aegean.actions.Pin" }}
+				{{> systems/aegean/templates/partials/action.hbs action="taunt-roll" id="taunt" text="aegean.actions.Taunt" }}
+			</div>
+
+			{{#if (or (isPC actor) (isLegend actor))}}
+				<h2 class="mt-4"><span>{{ localize "aegean.system.Wounds" }}</span></h2>
+				<ul class="wounds">
+					{{#if system.attributes.Wounds.value}}
+						{{#each system.attributes.Wounds.value as | wound key |}}
+							<li>
+								<input type="text" data-id="{{ wound.id }}" value="{{ wound.value }}" class="bordered-input mr-2 adjust-wound-value" />
+								<p{{#if wound.healed}} class="healed"{{/if}}>{{ localize wound.penalty }}</p>
+								<div>
+									{{> systems/aegean/templates/partials/action.hbs action="heal-wound" id=wound.id icon="fa-user-injured" }}
+									{{> systems/aegean/templates/partials/action.hbs action="remove-wound" id=wound.id icon="fa-trash" }}
+								</div>
+							</li>
+						{{/each}}
+					{{else}}
+						{{ localize "aegean.ui.NoWounds" }}
+					{{/if}}
+				</ul>
+			{{/if}}
+		</div>
 	</div>
 	<aside>
 		<h3>{{ localize "aegean.system.Defence" }}</h3>
 		<!-- armour -->
 		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.defence.Armour.label
+			label="aegean.combat.Armour"
 			value=system.defence.Armour.value
 			name="system.defence.Armour.value"
 		}}
 		<!-- shield -->
 		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.defence.Shield.label
+			label="aegean.combat.Shield"
 			value=system.defence.Shield.value
 			name="system.defence.Shield.value"
 		}}
 		<!-- parry -->
 		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.defence.Parry.label
+			label="aegean.combat.Parry"
 			value=system.defence.Parry.value
 			name="system.defence.Parry.value"
+		}}
+		<!-- dodge -->
+		{{> systems/aegean/templates/partials/box-input.hbs
+			label="aegean.combat.Dodge"
+			value=system.defence.Dodge.value
+			name="system.defence.Dodge.value"
 		}}
 	</aside>
 </div>

@@ -4,18 +4,26 @@ import { AegeanActor } from './documents/actor.js'
 import { AegeanItem } from './documents/item.js'
 
 // sheets
-import { AegeanActorSheet } from './sheets/actor-sheet.js'
 import { AegeanAdvantageSheet } from './sheets/advantage-sheet.js'
 import { AegeanArmourSheet } from './sheets/armour-sheet.js'
+import { AegeanAttackSheet } from './sheets/attack-sheet.js'
 import { AegeanCareerSheet } from './sheets/career-sheet.js'
+import { AegeanCharacterSheet } from './sheets/character-sheet.js'
+import { AegeanChampionSheet } from './sheets/champion-sheet.js'
 import { AegeanDeitySheet } from './sheets/deity-sheet.js'
 import { AegeanEquipmentSheet } from './sheets/equipment-sheet.js'
+import { AegeanLegendSheet } from './sheets/legend-sheet.js'
+import { AegeanMinionSheet } from './sheets/minion-sheet.js'
 import { AegeanPropertySheet } from './sheets/property-sheet.js'
 import { AegeanTalentSheet } from './sheets/talent-sheet.js'
 import { AegeanWeaponSheet } from './sheets/weapon-sheet.js'
 
 // helpers
 import { AEGEAN } from './helpers/config.js'
+import { isPC, isAdversary, isMinion, isChampion, isLegend, isEquipment } from './helpers/utils.js'
+
+// migrations
+import migrations from './migrations/index.js'
 
 Hooks.once('init', async function() {
 	console.log('Aegean | Hook::init')
@@ -31,9 +39,22 @@ Hooks.once('init', async function() {
 	CONFIG.Item.documentClass = AegeanItem
 
 	Actors.unregisterSheet('core', ActorSheet)
-	Actors.registerSheet('Aegean', AegeanActorSheet, {
+	Actors.registerSheet('Aegean', AegeanCharacterSheet, {
 		label: game.i18n.localize('aegean.ui.CharacterSheet'),
+		types: ['character'],
 		makeDefault: true,
+	})
+	Actors.registerSheet('Aegean', AegeanLegendSheet, {
+		label: game.i18n.localize('aegean.ui.LegendSheet'),
+		types: ['legend'],
+	})
+	Actors.registerSheet('Aegean', AegeanChampionSheet, {
+		label: game.i18n.localize('aegean.ui.ChampionSheet'),
+		types: ['champion'],
+	})
+	Actors.registerSheet('Aegean', AegeanMinionSheet, {
+		label: game.i18n.localize('aegean.ui.MinionSheet'),
+		types: ['minion'],
 	})
 
 	Items.unregisterSheet('core', ItemSheet)
@@ -44,6 +65,10 @@ Hooks.once('init', async function() {
 	})
 	Items.registerSheet('Aegean', AegeanArmourSheet, {
 		types: ['armour'],
+		makeDefault: true,
+	})
+	Items.registerSheet('Aegean', AegeanAttackSheet, {
+		types: ['attack'],
 		makeDefault: true,
 	})
 	Items.registerSheet('Aegean', AegeanCareerSheet, {
@@ -84,9 +109,12 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/partials/skill-input.hbs',
 		'systems/aegean/templates/partials/tab-panel.hbs',
 		'systems/aegean/templates/partials/value-select.hbs',
+		'systems/aegean/templates/partials/value-text.hbs',
 
 		// actor partials
 		'systems/aegean/templates/actor/partials/advantages.hbs',
+		'systems/aegean/templates/actor/partials/adversary-background.hbs',
+		'systems/aegean/templates/actor/partials/adversary-stats.hbs',
 		'systems/aegean/templates/actor/partials/background.hbs',
 		'systems/aegean/templates/actor/partials/character-stats.hbs',
 		'systems/aegean/templates/actor/partials/combat.hbs',
@@ -145,17 +173,27 @@ Hooks.once('init', async function() {
 	})
 
 	// comparison functions
-	Handlebars.registerHelper('eq', (val1, val2) => val1 === val2)
-	Handlebars.registerHelper('ne', (val1, val2) => val1 !== val2)
+	Handlebars.registerHelper('eq', (val1, val2) => val1 == val2)
+	Handlebars.registerHelper('ne', (val1, val2) => val1 != val2)
 	Handlebars.registerHelper('lt', (val1, val2) => val1 < val2)
 	Handlebars.registerHelper('lte', (val1, val2) => val1 <= val2)
 	Handlebars.registerHelper('gt', (val1, val2) => val1 > val2)
 	Handlebars.registerHelper('gte', (val1, val2) => val1 >= val2)
+	Handlebars.registerHelper('mod', (val1, val2) => val1 > 0 && val1 % val2 === 0)
+	Handlebars.registerHelper('and', (val1, val2) => val1 && val2)
+	Handlebars.registerHelper('or', (val1, val2) => val1 || val2)
+
+	// actor / item type check functions
+	Handlebars.registerHelper('isPC', actor => isPC(actor.type))
+	Handlebars.registerHelper('isAdversary', actor => isAdversary(actor.type))
+	Handlebars.registerHelper('isEquipment', item => isEquipment(item.type))
+	Handlebars.registerHelper('isMinion', actor => isMinion(actor.type))
+	Handlebars.registerHelper('isChampion', actor => isChampion(actor.type))
+	Handlebars.registerHelper('isLegend', actor => isLegend(actor.type))
 })
 
 
 Hooks.once('ready', async function() {
 	console.log('Aegean | Hook::ready')
-	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-	Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot))
+	migrations()
 })

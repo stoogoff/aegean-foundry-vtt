@@ -1,31 +1,49 @@
 <header class="character-info">
 	<div>
-		<img class="character-portrait" src="{{ actor.img }}" />
+		<img class="character-portrait" src="{{ actor.img }}" data-edit="img" title="{{ name }}" />
 	</div>
 	<div>
-		<!-- TODO Aegean Logo -->
 		{{> systems/aegean/templates/partials/form-input.hbs
-			label="aegean.character.Character"
+			label=title
 			value=actor.name
 			name="name"
 		}}
 		<div class="grid grid-cols-3-1-split">
 			{{> systems/aegean/templates/actor/partials/risk.hbs}}
 
-			<div>
-				{{> systems/aegean/templates/partials/box-input.hbs
-					label=system.attributes.Resolve.label
-					value=system.attributes.Resolve.value
-					name="system.attributes.Resolve.value"
-				}}
-				{{> systems/aegean/templates/partials/box-input.hbs
-					label=system.attributes.Oracle.label
-					value=system.attributes.Oracle.value
-					name="system.attributes.Oracle.value"
-				}}
+			<aside>
+				{{#if (isPC actor)}}
+					{{> systems/aegean/templates/partials/box-input.hbs
+						label="aegean.attributes.Resolve"
+						value=system.attributes.Resolve.value
+						name="system.attributes.Resolve.value"
+					}}
+					{{> systems/aegean/templates/partials/box-input.hbs
+						label="aegean.attributes.Oracle"
+						value=system.attributes.Oracle.value
+						name="system.attributes.Oracle.value"
+					}}
+				{{/if}}
+
+				{{#if (isMinion actor)}}
+					{{> systems/aegean/templates/partials/box-input.hbs
+						label="aegean.ui.GroupSize"
+						value=system.group.Size.value
+						name="system.group.Size.value"
+						fixedValue=flags.currentSize
+					}}
+				{{/if}}
+
+				{{#if (isChampion actor)}}
+					{{> systems/aegean/templates/partials/box-input.hbs
+						label="aegean.system.Wounds"
+						value=system.stats.Wounds.value
+						name="system.stats.Wounds.value"
+					}}
+				{{/if}}
 
 				{{> systems/aegean/templates/partials/action.hbs action="roll" icon="fa-dice-d10" text="aegean.ui.Roll"}}
-			</div>
+			</aside>
 		</div>
 	</div>
 </header>

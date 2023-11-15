@@ -1,0 +1,49 @@
+<form class="{{cssClass}} {{actor.type}}" autocomplete="off">
+	<article class="character-sheet">
+		{{> systems/aegean/templates/actor/partials/header-section.hbs title=sheetTitle }}
+
+		<div class="tab-group">
+			<!-- stats -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="adversary_stats"
+				label="aegean.ui.Stats"
+			}}
+				{{> systems/aegean/templates/actor/partials/adversary-stats.hbs }}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			<!-- combat -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="character_combat"
+				label="aegean.ui.Combat"
+			}}
+				{{> systems/aegean/templates/actor/partials/combat.hbs }}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			<!-- equipment -->
+			{{#if equipment}}
+				{{#> systems/aegean/templates/partials/tab-panel.hbs
+					id="character_equipment"
+					label="aegean.system.Equipment"
+					count=equipment.length
+				}}
+					{{> systems/aegean/templates/actor/partials/equipment.hbs }}
+				{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			{{/if}}
+			<!-- talents -->
+			{{#if talents}}
+				{{#> systems/aegean/templates/partials/tab-panel.hbs
+					id="character_talents"
+					label="aegean.system.Abilities"
+					count=talents.length
+				}}
+					{{> systems/aegean/templates/actor/partials/talents.hbs }}
+				{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			{{/if}}
+			<!-- background -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="character_background"
+				label="aegean.ui.Background"
+			}}
+				{{> systems/aegean/templates/actor/partials/adversary-background.hbs }}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+		</div>
+	</article>
+</form>

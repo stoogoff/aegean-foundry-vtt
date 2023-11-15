@@ -1,0 +1,24 @@
+{
+  "_id": "XbNxfw2JtveV6uFz",
+  "_key": "!items!XbNxfw2JtveV6uFz",
+  "name": "Parry",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This item is good at warding off attacks and gives you a Parry defence equal to its rating. Parry can be used as a Reaction.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": true
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,24 @@
+{
+  "_id": "YsdQiitGWlW0K52W",
+  "_key": "!items!YsdQiitGWlW0K52W",
+  "name": "Accurate",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This weapon is accurate at greater ranges. It reduces any penalties due to range by 1D.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": false
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

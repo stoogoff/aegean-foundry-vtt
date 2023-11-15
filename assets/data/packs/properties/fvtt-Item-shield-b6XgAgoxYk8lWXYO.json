@@ -1,0 +1,24 @@
+{
+  "_id": "b6XgAgoxYk8lWXYO",
+  "_key": "!items!b6XgAgoxYk8lWXYO",
+  "name": "Shield",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This item is especially good at warding off melee and ranged attacks. It gives you Shield defence equal to its rating. Shield can be used as a Reaction.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": true
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

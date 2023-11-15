@@ -1,0 +1,24 @@
+{
+  "_id": "Rd6VjnVhNrMd07Mj",
+  "_key": "!items!Rd6VjnVhNrMd07Mj",
+  "name": "Heavy",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This weapon is large and heavy. It requires two hands to wield effectively and is difficult to use with one. Any character trying to use a Heavy weapon with only one hand, or while mounted on a horse or chariot, takes a -2D penalty for all Actions using the weapon. A warrior wielding a Heavy weapon can&rsquo;t use a shield unless they use the weapon one-handed. A Heavy weapon easily knocks aside parrying weapons and light shields. It ignores 1 point of Parry or Shield defence.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": false
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

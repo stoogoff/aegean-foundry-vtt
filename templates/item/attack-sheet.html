@@ -1,0 +1,49 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<article class="attack-sheet">
+		{{> systems/aegean/templates/item/partials/header-section.hbs }}
+
+		<div class="tab-group">
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="attack_attack"
+				label="aegean.combat.Attack"
+			}}
+				<div class="grid column-panel">
+					<div>
+						{{> systems/aegean/templates/partials/select-input.hbs
+							label="aegean.system.Skill"
+							value=system.stats.Skill.value
+							name="system.stats.Skill.value"
+							options=config.skills
+						}}
+						{{> systems/aegean/templates/partials/select-input.hbs
+							label="aegean.combat.Range"
+							value=system.stats.Range.value
+							name="system.stats.Range.value"
+							options=config.rangeBands
+						}}
+					</div>
+					<aside>
+						{{> systems/aegean/templates/partials/box-input.hbs
+							label="aegean.combat.Damage"
+							value=system.stats.Damage.value
+							name="system.stats.Damage.value"
+						}}
+						{{> systems/aegean/templates/partials/box-input.hbs
+							label="aegean.combat.Reach"
+							value=system.stats.Reach.value
+							name="system.stats.Reach.value"
+						}}
+					</aside>
+				</div>
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="weapon_properties"
+				label="aegean.equipment.Properties"
+				count=properties.length
+			}}
+				{{> systems/aegean/templates/item/partials/properties.hbs }}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+		</div>
+	</article>
+</form>

@@ -1,0 +1,23 @@
+{
+  "_id": "l8U61R47WQ7fa4wr",
+  "_key": "!items!l8U61R47WQ7fa4wr","name": "Entangle",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This weapon is especially good at trapping opponents. When making a Pin attack Action against an opponent the wielder gains +2D to their dice pool. If successful, in addition to the standard Pin penalty, the target can only make Harm Actions with a weapon that has a Reach of 0&ndash;1.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": false
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

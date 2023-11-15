@@ -1,0 +1,24 @@
+{
+  "_id": "nj4ZpIPrIVWZypcG",
+  "_key": "!items!nj4ZpIPrIVWZypcG",
+  "name": "Pierce",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This item is especially good at penetrating armour. If activated on a successful Harm Action it ignores 4 points of the target&rsquo;s armour.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": false
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": true
+      }
+    }
+  },
+  "effects": []
+}

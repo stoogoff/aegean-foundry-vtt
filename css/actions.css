@@ -32,8 +32,8 @@
 	margin-top: var(--spacing-1);
 }
 
-/* Dice roll action */
-.aegean .action.roll {
+/* Dice roll action and combat actions */
+.aegean .action.roll, .aegean .combat-actions .action {
 	border-color: var(--grey-mid);
 	background-color: var(--grey-light);
 	margin-top: var(--spacing-4);
@@ -45,8 +45,13 @@
 	font-size: var(--font-mid);
 }
 
-.aegean .action.roll:hover {
+.aegean .action.roll:hover, .aegean .combat-actions .action:hover {
 	color: var(--invert-fg);
 	background-color: var(--invert-bg);
 	border-color: black;
+}
+
+.aegean .combat-actions .action {
+	display: inline-block;
+	padding: var(--spacing-1) var(--spacing-2);
 }

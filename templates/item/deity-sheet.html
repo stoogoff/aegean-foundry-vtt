@@ -11,7 +11,7 @@
 				<div class="grid grid-cols-2">
 					<div>
 						{{> systems/aegean/templates/partials/multi-select-input.hbs
-							label=system.stats.Skills.label
+							label="aegean.system.Skills"
 							selection=system.stats.Skills.value
 							name="system_stats_Skills_value"
 							options=config.skills
@@ -21,7 +21,7 @@
 					</div>
 					<div>
 						{{> systems/aegean/templates/partials/multi-select-input.hbs
-							label=system.stats.Characteristics.label
+							label="aegean.system.Characteristics"
 							selection=system.stats.Characteristics.value
 							name="system_stats_Characteristics_value"
 							options=config.characteristics
@@ -32,14 +32,14 @@
 				</div>
 				<!-- specialisation -->
 				{{> systems/aegean/templates/partials/form-input.hbs
-					label=system.stats.Specialisation.label
+					label="aegean.system.Specialisation"
 					value=system.stats.Specialisation.value
 					name="system.stats.Specialisation.value"
 					placeholder="aegean.ui.SpecialisationPlaceholder"
 				}}
 				<!-- can be a parent or not -->
 				{{> systems/aegean/templates/partials/checkbox.hbs
-					label=system.stats.Parent.label
+					label="aegean.system.DivineParent"
 					value=system.stats.Parent.value
 					name="system.stats.Parent.value"
 				}}
@@ -51,7 +51,7 @@
 				count=system.stats.Symbols.value.length
 			}}
 				{{> systems/aegean/templates/partials/multi-text-input.hbs
-					label=system.stats.Symbols.label
+					label="aegean.system.Symbols"
 					selection=system.stats.Symbols.value
 					name="system_stats_Symbols_value"
 				}}

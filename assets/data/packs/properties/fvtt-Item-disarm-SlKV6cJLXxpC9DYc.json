@@ -1,0 +1,24 @@
+{
+  "_id": "SlKV6cJLXxpC9DYc",
+  "_key": "!items!SlKV6cJLXxpC9DYc",
+  "name": "Disarm",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This weapon is good at disarming an opponent. When making a Disarm Action against an opponent the wielder gains +2D to their dice pool.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": false
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

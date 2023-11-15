@@ -22,58 +22,62 @@
 						}}
 					{{/each}}
 				</div>
-				<div>
-					<h3 class="text-right">{{ localize "aegean.system.Specialisations" }}</h3>
-					{{#each system.skills as |skill key|}}
-						<div class="specialisations flex flex-end">
-							<input
-								type="text"
-								name="specialisations"
-								placeholder="{{ localize "aegean.ui.CommaSeparated" }}"
-								value="{{ lookup ../system.specialisations.value key }}" />
-							<ul>
-								{{#each (lookup ../system.specialisations.value key) }}
-									<li class="chip">{{ . }}</li>
-								{{/each}}
-							</ul>
-							{{> systems/aegean/templates/partials/action.hbs action="add-spec" icon="fa-pen-to-square" id=key}}
-						</div>
-					{{/each}}
-				</div>
+				{{#if (eq actor.type 'character')}}
+					<div>
+						<h3 class="text-right">{{ localize "aegean.system.Specialisations" }}</h3>
+						{{#each system.skills as |skill key|}}
+							<div class="specialisations flex flex-end">
+								<input
+									type="text"
+									name="specialisations"
+									placeholder="{{ localize "aegean.ui.CommaSeparated" }}"
+									value="{{ lookup ../system.specialisations.value key }}" />
+								<ul>
+									{{#each (lookup ../system.specialisations.value key) }}
+										<li class="chip">{{ . }}</li>
+									{{/each}}
+								</ul>
+								{{> systems/aegean/templates/partials/action.hbs action="add-spec" icon="fa-pen-to-square" id=key}}
+							</div>
+						{{/each}}
+					</div>
+				{{/if}}
 			</div>
 		</div>
 		<aside>
 			<h3>{{ localize "aegean.system.Attributes" }}</h3>
 			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Standing.label
+				label="aegean.attributes.Standing"
 				value=system.attributes.Standing.value
 				name="system.attributes.Standing.value"
 			}}
 			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Endurance.label
+				label="aegean.attributes.Endurance"
 				value=system.attributes.Endurance.value
 				name="system.attributes.Endurance.value"
 			}}
-			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Glory.label
-				value=system.attributes.Glory.value
-				name="system.attributes.Glory.value"
-			}}
-			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Hubris.label
-				value=system.attributes.Hubris.value
-				name="system.attributes.Hubris.value"
-			}}
-			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.XP.label
-				value=system.attributes.XP.value
-				name="system.attributes.XP.value"
-			}}
-			{{> systems/aegean/templates/partials/box-input.hbs
-				label=system.attributes.Scars.label
-				value=system.attributes.Scars.value
-				name="system.attributes.Scars.value"
-			}}
+			{{#if (isPC actor)}}
+				{{> systems/aegean/templates/partials/box-input.hbs
+					label="aegean.attributes.Glory"
+					value=system.attributes.Glory.value
+					name="system.attributes.Glory.value"
+				}}
+				{{> systems/aegean/templates/partials/box-input.hbs
+					label="aegean.attributes.Hubris"
+					value=system.attributes.Hubris.value
+					name="system.attributes.Hubris.value"
+				}}
+				{{> systems/aegean/templates/partials/box-input.hbs
+					label="aegean.attributes.XP"
+					value=system.attributes.XP.value
+					name="system.attributes.XP.value"
+				}}
+				{{> systems/aegean/templates/partials/box-input.hbs
+					label="aegean.attributes.Scars"
+					value=system.attributes.Scars.value
+					name="system.attributes.Scars.value"
+				}}
+			{{/if}}
 		</aside>
 	</div>
 </div>

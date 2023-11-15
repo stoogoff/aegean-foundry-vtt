@@ -1,7 +1,14 @@
 <div class="risk">
 	<div class="grid grid-cols-2">
-		<h3 class="text-left">{{ localize "aegean.attributes.Endurance"}}:
-			<span class="black font-lg">{{ flags.endurance }}</span> <small>of</small> <span class="black font-lg">{{ system.attributes.Endurance.value }}</span>
+		<h3 class="text-left">{{ localize "aegean.attributes.Endurance" }}:
+			<span class="black font-lg">{{ flags.endurance }}</span>
+			{{#if (isMinion actor)}}
+				<span class="black font-lg">({{ system.attributes.Endurance.value }})</span>
+			{{else}}
+				{{#if (ne flags.endurance system.attributes.Endurance.value)}}
+					<small>of</small> <span class="black font-lg">{{ system.attributes.Endurance.value }}</span>
+				{{/if}}
+			{{/if}}
 		</h3>
 		<h3 class="text-left">{{ localize "aegean.attributes.Risk"}}: <span class="black font-lg">{{ system.attributes.Risk.value }}</span></h3>
 	</div>
@@ -12,15 +19,21 @@
 					{{#if (lt @index ../system.attributes.Risk.value)}}active{{/if}}
 					{{#if (eq @index ../system.attributes.Risk.value)}}current{{/if}}
 					{{#if (gt @index ../flags.endurance)}}danger{{/if}}
-					{{#if (eq @index ../flags.endurance)}}endurance{{/if}}
+					{{#if (or
+						(eq @index ../flags.endurance)
+						(and
+							(mod @index ../system.attributes.Endurance.value)
+							(lt @index ../flags.endurance)
+						)
+					)}}endurance{{/if}}
 				"
 				data-value="{{ @index }}">{{ @index }}</span>
 		{{/range}}
 	</div>
 	<div class="flags">
+		{{#if flags.defeated }}<span class="chip danger">{{ localize "aegean.system.Defeated" }}</span>{{/if}}
 		{{#if flags.vulnerable }}<span class="chip danger">{{ localize "aegean.system.Vulnerable" }}</span>{{/if}}
 		{{#if flags.threshold }}<span class="chip warning">{{ localize "aegean.system.Threshold" }}</span>{{/if}}
 		{{#if flags.encumbered }}<span class="chip warning">{{ localize "aegean.system.Encumbered" }}</span>{{/if}}
-		<!-- Cumbersome {{ flags.cumbersome}} -->
 	</div>
 </div>

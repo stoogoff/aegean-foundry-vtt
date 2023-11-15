@@ -1,0 +1,24 @@
+{
+  "_id": "DULcwW503jE44oOS",
+  "_key": "!items!DULcwW503jE44oOS",
+  "name": "Fine",
+  "type": "property",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "Description": {
+      "label": "aegean.system.Description",
+      "value": "<p>This item is an especially fine and well made example of its type, whether it was fashioned using superior materials or superior craftsmanship. When using it, the character adds dice equal to the Fine rating to all relevant skill checks.</p>\n<p>The price of a Fine item is increased by its rating multiplied by two and each rating moves its rarity up the scale by one from Common to Uncommon and Uncommon to Rare.</p>"
+    },
+    "stats": {
+      "Ranked": {
+        "label": "aegean.system.Ranked",
+        "value": true
+      },
+      "Active": {
+        "label": "aegean.system.Active",
+        "value": false
+      }
+    }
+  },
+  "effects": []
+}

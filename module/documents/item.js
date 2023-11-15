@@ -1,10 +1,10 @@
 
-import { isEquipment, parseObject } from '../helpers/utils.js'
+import { canHaveProperties, parseObject } from '../helpers/utils.js'
 
 export class AegeanItem extends Item {
   get properties() {
-    if(isEquipment(this.type)) {
-      const currentProperties = this.system.equipment.Properties.value
+    if(canHaveProperties(this.type)) {
+      const currentProperties = (this.system.equipment.Properties.value || [])
 
       return currentProperties.map(prop => ({ rating: prop.rating, property: game.items.get(prop.id) }))
     }

@@ -18,7 +18,13 @@
 						<td>{{ item.system.equipment.Availability.value }}</td>
 						<td class="text-right">{{ item.system.equipment.Price.value }}</td>
 						<td class="text-right">{{ item.system.equipment.Weight.value }}</td>
-						<td>{{join item.shortProperties}}</td>
+						<td>
+							{{#if item.shortProperties}}
+								{{join item.shortProperties}}
+							{{else}}
+								&mdash;
+							{{/if}}
+						</td>
 						<td>{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=item.id icon="fa-trash" }}</td>
 					</tr>
 				{{/each}}
@@ -26,25 +32,27 @@
 		</table>
 	</div>
 	<aside>
-		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.consumables.Drakhmae.label
-			value=system.consumables.Drakhmae.value
-			name="system.consumables.Drakhmae.value"
-		}}
-		{{> systems/aegean/templates/partials/box-input.hbs
-			label="aegean.equipment.Encumbrance"
-			value=flags.encumbrance
-			readonly=true
-		}}
-		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.consumables.AmmoLoads.label
-			value=system.consumables.AmmoLoads.value
-			name="system.consumables.AmmoLoads.value"
-		}}
-		{{> systems/aegean/templates/partials/box-input.hbs
-			label=system.consumables.HerbalistDoses.label
-			value=system.consumables.HerbalistDoses.value
-			name="system.consumables.HerbalistDoses.value"
-		}}
+		{{#if (isPC actor)}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label="aegean.system.Drakhmae"
+				value=system.consumables.Drakhmae.value
+				name="system.consumables.Drakhmae.value"
+			}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label="aegean.equipment.Encumbrance"
+				value=flags.encumbrance
+				readonly=true
+			}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label="aegean.system.AmmoLoads"
+				value=system.consumables.AmmoLoads.value
+				name="system.consumables.AmmoLoads.value"
+			}}
+			{{> systems/aegean/templates/partials/box-input.hbs
+				label="aegean.system.HerbalistDoses"
+				value=system.consumables.HerbalistDoses.value
+				name="system.consumables.HerbalistDoses.value"
+			}}
+		{{/if}}
 	</aside>
 </div>
