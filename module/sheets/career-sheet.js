@@ -1,25 +1,34 @@
 
 import { AegeanItemSheet } from './item-sheet.js'
 
-export class AegeanDeitySheet extends AegeanItemSheet {
+export class AegeanCareerSheet extends AegeanItemSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'deity'],
-			template: 'systems/aegean/templates/item/deity-sheet.html',
+			template: 'systems/aegean/templates/item/career-sheet.html',
 			width: 600,
 			height: 500,
 			tabs: [{
 				navSelector: '.tab-group',
 				contentSelector: '.tab-panel',
-				initial: 'deity_stats',
+				initial: 'career_stats',
 			}],
 		})
+	}
+
+	async getData() {
+		const context = await super.getData();
+
+		if(context.system.notes.WorksWith) context.system.notes.WorksWith.value = await TextEditor.enrichHTML(context.system.notes.WorksWith.value, { async: true })
+		if(context.system.notes.ChooseIf) context.system.notes.ChooseIf.value = await TextEditor.enrichHTML(context.system.notes.ChooseIf.value, { async: true })
+
+		return context
 	}
 
 	activateListeners(html) {
 		super.activateListeners(html)
 
-		if (!this.isEditable) return
+		if(!this.isEditable) return
 
 		html.find('.add-multi-select').not('.disabled').click(this._addListValue.bind(this))
 		html.find('.delete-multi-select').click(this._deleteListValue.bind(this))

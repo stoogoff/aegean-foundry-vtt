@@ -9,8 +9,9 @@ export class AegeanItemSheet extends ItemSheet {
 
 		context.config = AEGEAN
 		context.system = item.system
-		context.system.Description.value = await TextEditor.enrichHTML(context.system.Description.value, { async: true })
 		context.properties = this.item.properties
+
+		if(context.system.Description) context.system.Description.value = await TextEditor.enrichHTML(context.system.Description.value, { async: true })
 
 		console.log('Aegean | ItemSheet::getData', context)
 

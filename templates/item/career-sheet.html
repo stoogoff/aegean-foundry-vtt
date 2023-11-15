@@ -3,10 +3,10 @@
 		{{> systems/aegean/templates/item/partials/header-section.hbs }}
 
 		<div class="tab-group">
-			<!-- stats -->
+			<!-- skills -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
-				id="deity_stats"
-				label="aegean.ui.Stats"
+				id="career_stats"
+				label="aegean.system.Skills"
 			}}
 				<div class="grid grid-cols-2">
 					<div>
@@ -41,13 +41,29 @@
 							</ul>
 						</div>
 
-
 						{{> systems/aegean/templates/partials/form-input.hbs
 							label=system.stats.Specialisation.label
 							value=system.stats.Specialisation.value
 							name="system.stats.Specialisation.value"
 							placeholder="aegean.ui.SpecialisationPlaceholder"
 						}}
+					</div>
+				</div>
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+
+			<!-- notes -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="career_notes"
+				label="aegean.ui.Notes"
+			}}
+				<div>
+					<div>
+						<label class="label">{{ localize "aegean.ui.WorksWith" }}</label>
+						{{editor system.notes.WorksWith.value target="system.notes.WorksWith.value" button=true owner=owner editable=editable}}
+					</div>
+					<div>
+						<label class="label">{{ localize "aegean.ui.ChooseIf" }}</label>
+						{{editor system.notes.ChooseIf.value target="system.notes.ChooseIf.value" button=true owner=owner editable=editable}}
 					</div>
 				</div>
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}

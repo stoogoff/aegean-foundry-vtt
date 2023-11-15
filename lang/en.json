@@ -158,6 +158,7 @@
 			"Background": "Background",
 			"CharacterSheet": "Character Sheet",
 			"ChampionSheet": "Adversary Champion Sheet",
+			"ChooseIf": "Choose if...",
 			"CommaSeparated": "comma separated",
 			"Combat": "Combat",
 			"LegendSheet": "Adversary Legend Sheet",
@@ -173,7 +174,8 @@
 			"SpecialisationPlaceholder": "Skill: Specialisation",
 			"Stats": "Stats",
 			"Symbols": "Symbols",
-			"TheGods": "The Gods"
+			"TheGods": "The Gods",
+			"WorksWith": "Works with"
 		},
 		"wounds": {
 			"NoEffect": "No long term effect.",

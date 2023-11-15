@@ -398,8 +398,8 @@
 			}
 		},
 		"career": {
-			"tempaltes": ["base"],
-			"Stats": {
+			"templates": ["base"],
+			"stats": {
 				"Skills": {
 					"label": "aegean.system.Skills",
 					"value": []
@@ -407,6 +407,16 @@
 				"Specialisation": {
 					"label": "aegean.system.Specialisation",
 					"value": {}
+				}
+			},
+			"notes": {
+				"WorksWith": {
+					"label": "aegean.ui.WorksWith",
+					"value": ""
+				},
+				"ChooseIf": {
+					"label": "aegean.ui.ChooseIf",
+					"value": ""
 				}
 			}
 		}
