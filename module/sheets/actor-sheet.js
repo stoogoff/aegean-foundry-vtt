@@ -203,10 +203,14 @@ export class AegeanActorSheet extends ActorSheet {
 					if(existing) return
 				}
 
+				break
+
 			// don't add an attack to a PC
 			case 'attack':
 				if(isPC(this.actor.type)) return
 		}
+
+		console.log('Aegean | ActorSheet(super)::_onDropItem', event, data)
 
 		super._onDropItem(event, data)
 	}
