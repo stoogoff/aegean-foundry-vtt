@@ -80,6 +80,8 @@ export const calculateResultAndSendToChat = async (html, context, title) => {
 		difficulty,
 		characteristic: html.find('[name=characteristic]').val(),
 		skill: html.find('[name=skill]').val(),
+		standing: html.find('[name=standing]').length > 0,
+		hubris: html.find('[name=hubris]').length > 0,
 		damage,
 	})
 

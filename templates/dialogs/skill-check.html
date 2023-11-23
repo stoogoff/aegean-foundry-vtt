@@ -23,15 +23,5 @@
 	{{#if flags.vulnerable}}
 		<div><span class="chip danger">{{ localize "aegean.system.Vulnerable" }} +1D</span></div>
 	{{/if}}
-	<div class="multi-select-input">
-		<div class="select-input form-input">
-			<label class="label" for="difficulty">{{ localize "aegean.system.Difficulty" }}</label>
-			<select id="difficulty" name="difficulty" class="difficulty-select">
-				{{#each config.difficulties}}
-					<option value="{{ . }}">{{ . }}</option>
-				{{/each}}
-			</select>
-			<strong class="chip" chip id="difficulty_value" data-difficulty="0">0</strong>
-		</div>
-	</div>
+	{{> systems/aegean/templates/partials/difficulty-select.hbs}}
 </div>

@@ -107,6 +107,7 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/partials/action.hbs',
 		'systems/aegean/templates/partials/box-input.hbs',
 		'systems/aegean/templates/partials/checkbox.hbs',
+		'systems/aegean/templates/partials/difficulty-select.hbs',
 		'systems/aegean/templates/partials/form-input.hbs',
 		'systems/aegean/templates/partials/multi-select-input.hbs',
 		'systems/aegean/templates/partials/multi-text-input.hbs',

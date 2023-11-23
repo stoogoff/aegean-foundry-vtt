@@ -47,6 +47,7 @@ export class AttackRoll extends BaseRoll {
 		super.activateListeners(html)
 
 		html.find('.value-text').change(this._updateFromValue().bind(this))
+		html.find('.difficulty-select').change(this._updateFromValue('data-difficulty').bind(this))
 
 		let characteristicName = 'Might'
 		const weapon = this.context.weapon

@@ -3,7 +3,18 @@
 		<h3>{{ localize title }}</h3>
 
 		<div>
-			Rolling <strong>{{ characteristic }} ({{ skill }})</strong>
+			{{#if hubris}}
+				Rolling <strong>Hubris</strong>
+			{{/if}}
+
+			{{#if standing}}
+				Rolling <strong>Standing</strong>
+			{{/if}}
+
+			{{#unless (or hubris standing)}}
+				Rolling <strong>{{ characteristic }} ({{ skill }})</strong>
+			{{/unless}}
+
 			{{#if (gt difficulty 0)}}
 				with a Difficulty of {{ difficulty }}
 			{{/if}}

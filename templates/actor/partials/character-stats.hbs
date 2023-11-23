@@ -46,11 +46,23 @@
 		</div>
 		<aside>
 			<h3>{{ localize "aegean.system.Attributes" }}</h3>
-			{{> systems/aegean/templates/partials/box-input.hbs
-				label="aegean.attributes.Standing"
-				value=system.attributes.Standing.value
-				name="system.attributes.Standing.value"
-			}}
+			<div class="mb-2">
+				{{> systems/aegean/templates/partials/box-input.hbs
+					label="aegean.attributes.Standing"
+					value=system.attributes.Standing.value
+					name="system.attributes.Standing.value"
+				}}
+				<!-- Standing roll -->
+				<div class="secondary-action">
+					{{> systems/aegean/templates/partials/action.hbs
+						action="standing-roll"
+						icon="fa-dice-d10"
+						id="standing"
+						text="aegean.attributes.Standing"
+					}}
+				</div>
+			</div>
+
 			{{> systems/aegean/templates/partials/box-input.hbs
 				label="aegean.attributes.Endurance"
 				value=system.attributes.Endurance.value
@@ -62,11 +74,23 @@
 					value=system.attributes.Glory.value
 					name="system.attributes.Glory.value"
 				}}
-				{{> systems/aegean/templates/partials/box-input.hbs
-					label="aegean.attributes.Hubris"
-					value=system.attributes.Hubris.value
-					name="system.attributes.Hubris.value"
-				}}
+				<div class="mb-2">
+					{{> systems/aegean/templates/partials/box-input.hbs
+						label="aegean.attributes.Hubris"
+						value=system.attributes.Hubris.value
+						name="system.attributes.Hubris.value"
+					}}
+					<!-- Hubris roll -->
+					<div class="secondary-action">
+						{{> systems/aegean/templates/partials/action.hbs
+							action="hubris-roll"
+							icon="fa-dice-d10"
+							id="hubris"
+							text="aegean.attributes.Hubris"
+						}}
+					</div>
+				</div>
+
 				{{> systems/aegean/templates/partials/box-input.hbs
 					label="aegean.attributes.XP"
 					value=system.attributes.XP.value

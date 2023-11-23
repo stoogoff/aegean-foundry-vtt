@@ -9,6 +9,10 @@
 	border: 1px solid var(--base-bg);
 	border-radius: var(--border-radius);
 }
+.aegean .action.full-width {
+	display: block;
+	text-align: center;
+}
 .aegean .action:hover {
 	background-color: var(--grey-light);
 	border-color: var(--grey-mid);
@@ -33,7 +37,7 @@
 }
 
 /* Dice roll action and combat actions */
-.aegean .action.roll, .aegean .combat-actions .action {
+.aegean .action.roll, .aegean .combat-actions .action, .aegean aside .secondary-action .action {
 	border-color: var(--grey-mid);
 	background-color: var(--grey-light);
 	margin-top: var(--spacing-4);
@@ -45,7 +49,7 @@
 	font-size: var(--font-mid);
 }
 
-.aegean .action.roll:hover, .aegean .combat-actions .action:hover {
+.aegean .action.roll:hover, .aegean .combat-actions .action:hover, .aegean aside .secondary-action .action:hover {
 	color: var(--invert-fg);
 	background-color: var(--invert-bg);
 	border-color: black;
@@ -53,5 +57,10 @@
 
 .aegean .combat-actions .action {
 	display: inline-block;
+	padding: var(--spacing-1) var(--spacing-2);
+}
+
+.aegean aside .secondary-action .action {
+	margin-top: var(--spacing-1);
 	padding: var(--spacing-1) var(--spacing-2);
 }

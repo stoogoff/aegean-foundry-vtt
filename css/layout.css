@@ -152,7 +152,7 @@
 .aegean .column-panel {
 	grid-template-columns: auto 141px;
 }
-.aegean .column-panel aside .box-input {
+.aegean .column-panel aside > .box-input {
 	margin-bottom: var(--spacing-4);
 }
 
