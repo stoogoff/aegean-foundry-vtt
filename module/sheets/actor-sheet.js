@@ -205,9 +205,24 @@ export class AegeanActorSheet extends ActorSheet {
 
 				break
 
+			// don't add a career or mystery cult unless this is a PC
+			case 'career':
+			case 'cult':
+				if(!isPC(this.actor.type)) return
+
+				// if the career / cult exists on the character, don't add it a second time
+				const existingCareer = this.actor.careers.find(item => item.flags.core.sourceId === dragData.uuid)
+				const existingCult = this.actor.cults.find(item => item.flags.core.sourceId === dragData.uuid)
+
+				if(existingCareer || existingCult) return
+
+				break
+
 			// don't add an attack to a PC
 			case 'attack':
 				if(isPC(this.actor.type)) return
+
+				break
 		}
 
 		console.log('Aegean | ActorSheet(super)::_onDropItem', event, data)

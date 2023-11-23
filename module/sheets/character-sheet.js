@@ -36,6 +36,8 @@ export class AegeanCharacterSheet extends AegeanActorSheet {
 		context.parents = game.items.filter(item => item.type === 'deity' && item.system.stats.Parent.value).map(({ name }) => name)
 		context.talents = this.actor.talents
 		context.weapons = this.actor.weapons.sort(sortByProperty('name'))
+		context.careers = this.actor.careers.sort(sortByProperty('name'))
+		context.cults = this.actor.cults.sort(sortByProperty('name'))
 
 		context.system.background.Fate.value = await TextEditor.enrichHTML(context.system.background.Fate.value, { async: true })
 

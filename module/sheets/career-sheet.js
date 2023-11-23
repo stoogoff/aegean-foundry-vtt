@@ -4,7 +4,7 @@ import { AegeanItemSheet } from './item-sheet.js'
 export class AegeanCareerSheet extends AegeanItemSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			classes: ['aegean', 'sheet', 'deity'],
+			classes: ['aegean', 'sheet', 'career'],
 			template: 'systems/aegean/templates/item/career-sheet.html',
 			width: 600,
 			height: 500,

@@ -248,7 +248,7 @@
 		}
 	},
 	"Item": {
-		"types": ["advantage", "armour", "attack", "career", "deity", "equipment", "property", "talent", "weapon"],
+		"types": ["advantage", "armour", "attack", "career", "deity", "equipment", "cult", "property", "talent", "weapon"],
 		"templates": {
 			"base": {
 				"Description": {
@@ -419,6 +419,9 @@
 					"value": ""
 				}
 			}
+		},
+		"cult": {
+			"templates": ["base"]
 		}
 	}
 }

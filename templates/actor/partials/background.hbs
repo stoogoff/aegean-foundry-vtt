@@ -32,12 +32,42 @@
 				options=config.backgrounds
 			}}
 
-			<div>
+			<div class="boxed">
 				<label class="label">{{ localize "aegean.attributes.Fate" }}</label>
 				{{editor system.background.Fate.value target="system.background.Fate.value" button=true owner=owner editable=editable}}
 			</div>
 		</div>
 		<div>
+			{{#if careers}}
+				<div class="multi-select-input">
+					<div class="select-input form-input">
+						<label class="label">{{ localize "aegean.character.Careers"}}</label>
+					</div>
+					<ul class="multi-input-display">
+						{{#each careers as |item key|}}
+							<li>
+								{{ item.name }}
+								{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=item.id icon="fa-trash"}}
+							</li>
+						{{/each}}
+					</ul>
+				</div>
+			{{/if}}
+			{{#if cults}}
+				<div class="multi-select-input">
+					<div class="select-input form-input">
+						<label class="label">{{ localize "aegean.character.MysteryCults"}}</label>
+					</div>
+					<ul class="multi-input-display">
+						{{#each cults as |item key|}}
+							<li>
+								{{ item.name }}
+								{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=item.id icon="fa-trash"}}
+							</li>
+						{{/each}}
+					</ul>
+				</div>
+			{{/if}}
 			<div class="boxed">
 				<label class="label">{{ localize "aegean.ui.Notes" }}</label>
 				{{editor system.background.Notes.value target="system.background.Notes.value" button=true owner=owner editable=editable}}

@@ -6,34 +6,41 @@ import { woundRoll } from '../helpers/wounds.js'
 
 export class AegeanActor extends Actor {
 	get talents() {
-		return this.items.filter(item => item.type === 'talent')
+		return this.items.filter(({ type }) => type === 'talent')
 	}
 
 	get armour() {
-		return this.items.filter(item => item.type === 'armour')
+		return this.items.filter(({ type }) => type === 'armour')
 	}
 
 	get weapons() {
-		const weapons = this.items.filter(item => item.type === 'weapon')
+		const weapons = this.items.filter(({ type }) => type === 'weapon')
 
 		if(isPC(this.type))
 			return [ ...weapons, UNARMED_STRIKE ]
 
-		return [ ...weapons, ...this.items.filter(item => item.type === 'attack') ]
+		return [ ...weapons, ...this.items.filter(({ type }) => type === 'attack') ]
 	}
 
 	get equipment() {
-		return this.items.filter(item => isEquipment(item.type))
+		return this.items.filter(({ type }) => isEquipment(type))
 	}
 
 	get advantages() {
-		return this.items.filter(item => item.type === 'advantage')
+		return this.items.filter(({ type }) => type === 'advantage')
 	}
 
 	get gods() {
-		return this.items.filter(item => item.type === 'deity')
+		return this.items.filter(({ type }) => type === 'deity')
 	}
 
+	get careers() {
+		return this.items.filter(({ type }) => type === 'career')
+	}
+
+	get cults() {
+		return this.items.filter(({ type }) => type === 'cult')
+	}
 
 	// methods for applying damage
 
