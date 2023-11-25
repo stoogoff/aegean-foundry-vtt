@@ -1,6 +1,7 @@
 
 import { AegeanItemSheet } from './item-sheet.js'
 import { sortByProperty } from '../helpers/list.js'
+import { createId } from '../helpers/string.js'
 
 export class AegeanTalentTrackSheet extends AegeanItemSheet {
 	async getData() {
@@ -21,7 +22,7 @@ export class AegeanTalentTrackSheet extends AegeanItemSheet {
 		const loadedTalents = talents.map(talent => {
 			return {
 				...talent,
-				actual: game.items.get(talent.id)
+				actual: game.items.get(talent.talentId)
 			}
 		})
 
@@ -112,7 +113,7 @@ export class AegeanTalentTrackSheet extends AegeanItemSheet {
 
 		if(dragItem.type === 'talent') {
 			this.item.update({
-				'system.stats.Talents.value': [ ...this.item.system.stats.Talents.value, { id: dragItem.id, order: 0, track: '' } ]
+				'system.stats.Talents.value': [ ...this.item.system.stats.Talents.value, { id: createId(), talentId: dragItem.id, order: 0, track: '' } ]
 			})
 		}
 	}
