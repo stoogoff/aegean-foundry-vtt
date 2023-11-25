@@ -42,7 +42,7 @@ export class AegeanCareerSheet extends AegeanTalentTrackSheet {
 
 		console.log('Aegean | CareerSheet::_addListValue => addId, value', addId, value)
 
-		const key = addId.replace(/_/g, '.')
+		const key = addId.replace('career_', '').replace(/_/g, '.')
 		const currentValue = this.item.getValueFromKey(key)
 
 		if(!currentValue.includes(value)) {
@@ -57,7 +57,7 @@ export class AegeanCareerSheet extends AegeanTalentTrackSheet {
 
 		console.log('Aegean | CareerSheet::_deleteListValue => deleteId', deleteId)
 
-		const parts = deleteId.split('_')
+		const parts = deleteId.replace('career_', '').split('_')
 		const index = parts.pop()
 		const key = parts.join('.')
 

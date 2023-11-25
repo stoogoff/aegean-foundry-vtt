@@ -11,9 +11,9 @@
 				<div class="grid grid-cols-2">
 					<div>
 						{{> systems/aegean/templates/partials/multi-select-input.hbs
-							label=system.stats.Skills.label
+							label="aegean.system.Skills"
 							selection=system.stats.Skills.value
-							name="system_stats_Skills_value"
+							name="career_system_stats_Skills_value"
 							options=config.skills
 							limit=3
 						}}
@@ -21,30 +21,10 @@
 					</div>
 					<div>
 						<!-- specialisations -->
-						<div class="multi-select-input">
-							<div class="select-input form-input">
-								<label class="label" for="system_stats_Specialisations_value">{{ localize label }}</label>
-								<select id="system_stats_Specialisations_value">
-									{{#each config.skills}}
-										<option value="{{ . }}">{{ . }}</option>
-									{{/each}}
-								</select>
-								{{> systems/aegean/templates/partials/action.hbs action="add-multi-select" id=name icon="fa-plus"}}
-							</div>
-							<ul class="multi-input-display">
-								{{#each selection}}
-									<li>
-										{{ . }}
-										{{> systems/aegean/templates/partials/action.hbs action="delete-multi-select" id=(concat "system_stats_Specialisations_value_" @index) icon="fa-trash" }}
-									</li>
-								{{/each}}
-							</ul>
-						</div>
-
-						{{> systems/aegean/templates/partials/form-input.hbs
-							label=system.stats.Specialisation.label
-							value=system.stats.Specialisation.value
-							name="system.stats.Specialisation.value"
+						{{> systems/aegean/templates/partials/multi-text-input.hbs
+							label="aegean.system.Specialisation"
+							selection=system.stats.Specialisation.value
+							name="career_system_stats_Specialisation_value"
 							placeholder="aegean.ui.SpecialisationPlaceholder"
 						}}
 					</div>

@@ -31,7 +31,7 @@ export class AegeanDeitySheet extends AegeanItemSheet {
 
 		console.log('Aegean | DeitySheet::_addListValue => addId, value', addId, value)
 
-		const key = addId.replace(/_/g, '.')
+		const key = addId.replace('deity_', '').replace(/_/g, '.')
 		const currentValue = this.item.getValueFromKey(key)
 
 		if(!currentValue.includes(value)) {
@@ -46,7 +46,7 @@ export class AegeanDeitySheet extends AegeanItemSheet {
 
 		console.log('Aegean | DeitySheet::_deleteListValue => deleteId', deleteId)
 
-		const parts = deleteId.split('_')
+		const parts = deleteId.replace('deity_', '').split('_')
 		const index = parts.pop()
 		const key = parts.join('.')
 

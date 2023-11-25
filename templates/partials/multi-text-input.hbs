@@ -1,7 +1,7 @@
 <div class="multi-text-input">
 	<div class="form-input">
 		<label class="label" for="{{ name }}">{{ localize label }}</label>
-		<input type="text" id="{{ name }}" />
+		<input type="text" id="{{ name }}" {{#if placeholder}}placeholder="{{ localize placeholder }}"{{/if}} />
 		{{> systems/aegean/templates/partials/action.hbs action="add-multi-select" id=name icon="fa-plus" disabled=(gte selection.length limit)}}
 	</div>
 	<ul class="multi-input-display">

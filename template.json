@@ -406,7 +406,7 @@
 				},
 				"Specialisation": {
 					"label": "aegean.system.Specialisation",
-					"value": {}
+					"value": []
 				},
 				"Talents": {
 					"label": "aegean.system.Talents",
