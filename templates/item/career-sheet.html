@@ -57,6 +57,18 @@
 				label="aegean.ui.Notes"
 			}}
 				<div>
+					<div class="grid grid-cols-2">
+						{{> systems/aegean/templates/partials/form-input.hbs
+							label="aegean.ui.TalentTrack1"
+							name="system.notes.Track1.value"
+							value=system.notes.Track1.value
+						}}
+						{{> systems/aegean/templates/partials/form-input.hbs
+							label="aegean.ui.TalentTrack2"
+							name="system.notes.Track2.value"
+							value=system.notes.Track2.value
+						}}
+					</div>
 					<div>
 						<label class="label">{{ localize "aegean.ui.WorksWith" }}</label>
 						{{editor system.notes.WorksWith.value target="system.notes.WorksWith.value" button=true owner=owner editable=editable}}
@@ -67,5 +79,34 @@
 					</div>
 				</div>
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+
+			<!-- talents -->
+			{{#if talents.length}}
+				{{#> systems/aegean/templates/partials/tab-panel.hbs
+					id="career_talents"
+					label="aegean.system.Talents"
+					count=talents.length
+				}}
+					<div>
+						<!-- Track 1 talents -->
+						{{#if talents.track1}}
+							<h3>{{ system.notes.Track1.value }}</h3>
+							{{> systems/aegean/templates/item/partials/talents.hbs talents=talents.track1 }}
+						{{/if}}
+
+						<!-- Track 2 talents -->
+						{{#if talents.track2}}
+							<h3>{{ system.notes.Track2.value }}</h3>
+							{{> systems/aegean/templates/item/partials/talents.hbs talents=talents.track2 }}
+						{{/if}}
+
+						<!-- Ungrouped talents -->
+						{{#if talents.ungrouped}}
+							<h3>{{ localize "aegean.ui.Ungrouped" }}</h3>
+							{{> systems/aegean/templates/item/partials/talents.hbs talents=talents.ungrouped }}
+						{{/if}}
+					</div>
+				{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			{{/if}}
 	</article>
 </form>

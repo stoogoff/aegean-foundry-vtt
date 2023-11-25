@@ -27,19 +27,6 @@
 	margin-top: var(--spacing-4);
 }
 
-/* Talents overrides */
-.aegean .character-sheet .accordion-bar {
-	display: flex;
-	align-items: center;
-}
-.aegean .character-sheet .accordion-bar .action-bar {
-	flex-grow: 2;
-	margin-left: var(--spacing-2);
-}
-.aegean .character-sheet .accordion-bar .action {
-	float: right;
-}
-
 /* Risk */
 .aegean .character-sheet .risk {
 	margin-top: var(--spacing-2);

@@ -8,13 +8,15 @@
 				</span>
 				<div class="action-bar">
 					{{#if talent.system.stats.Ranked.value}}
-						<input
-							type="number"
-							name="system.stats.Rating.value"
-							value="{{ talent.system.stats.Rating.value }}"
-							class="rating-input bordered-input"
-							data-id="{{ talent.id }}"
-						/>
+						<label class="action-bar-label mr-2">{{ localize "aegean.system.Rank" }}
+							<input
+								type="number"
+								name="system.stats.Rating.value"
+								value="{{ talent.system.stats.Rating.value }}"
+								class="rating-input bordered-input"
+								data-id="{{ talent.id }}"
+							/>
+						</label>
 					{{/if}}
 					{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=talent.id icon="fa-trash"}}
 				</div>

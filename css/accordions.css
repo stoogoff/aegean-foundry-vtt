@@ -40,3 +40,25 @@
 .accordion.active .accordion-bar:before {
 	transform: rotate(90deg);
 }
+
+/* Talents overrides */
+.aegean .talents .accordion-bar {
+	display: flex;
+	align-items: center;
+}
+.aegean .talents .accordion-bar .action-bar {
+	flex-grow: 2;
+	margin-left: var(--spacing-2);
+	display: flex;
+	justify-content: flex-end;
+}
+.aegean .talents .accordion-bar .action-bar .action-bar-label {
+	font-size: var(--font-sm);
+	text-transform: uppercase;
+	color: var(--grey-mid);
+	font-weight: normal;
+}
+.aegean .talents .accordion-bar .action {
+	float: right;
+}
+

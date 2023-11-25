@@ -140,12 +140,15 @@
 }
 
 /* Light bordered inputs used for property ratings, damage value etc */
-.aegean input.bordered-input {
+.aegean input.bordered-input, .aegean input.bordered-input-large {
 	max-width: 30px;
 	text-align: right !important;
 	display: inline-block;
 	border: var(--border-light);
 	border-radius: var(--border-radius);
+}
+.aegean input.bordered-input-large {
+	max-width: 80px;
 }
 
 /* Built-in editor */

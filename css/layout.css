@@ -137,6 +137,12 @@
 .aegean .flex {
 	display: flex;
 }
+.aegean .flex-grow {
+	flex-grow: 2;
+}
+.aegean .flex-shrink {
+	flex-shrink: 2;
+}
 .aegean .flex-end {
 	justify-content: flex-end;
 }

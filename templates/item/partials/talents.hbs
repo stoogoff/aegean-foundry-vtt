@@ -1,0 +1,47 @@
+<div class="talents">
+	{{#each talents as |talent key|}}
+		<div class="accordion">
+			<div class="accordion-bar">
+				<span class="accordion-activator">
+					{{ talent.actual.name }}
+					{{#if talent.actual.system.stats.Active.value}}<small>({{ localize "aegean.system.Active" }})</small>{{/if}}
+				</span>
+				<div class="action-bar">
+					{{#if @root.editable}}
+						<label class="action-bar-label mr-2">{{ localize "aegean.ui.Order" }}
+							<input
+								type="number"
+								name="talent.order"
+								value="{{ talent.order }}"
+								class="order-input bordered-input"
+								data-id="{{ talent.id }}"
+							/>
+						</label>
+						<label class="action-bar-label">{{ localize "aegean.ui.Track" }}
+							<select
+								type="text"
+								name="talent.track"
+								value="{{ talent.track }}"
+								class="track-input bordered-input-large"
+								data-id="{{ talent.id }}"
+							>
+								<option value=""></option>
+								{{#select talent.track}}
+									{{#each @root.tracks}}
+										<option value="{{ . }}">{{ . }}</option>
+									{{/each}}
+								{{/select}}
+							</select>
+						</label>
+						{{> systems/aegean/templates/partials/action.hbs action="delete-talent" id=talent.id icon="fa-trash"}}
+					{{else}}
+						<span>{{ xp @index }}xp</span>
+					{{/if}}
+				</div>
+			</div>
+			<div class="accordion-content">
+				{{{ talent.actual.system.Description.value }}}
+			</div>
+		</div>
+	{{/each}}
+</div>

@@ -407,6 +407,10 @@
 				"Specialisation": {
 					"label": "aegean.system.Specialisation",
 					"value": {}
+				},
+				"Talents": {
+					"label": "aegean.system.Talents",
+					"value": []
 				}
 			},
 			"notes": {
@@ -416,6 +420,14 @@
 				},
 				"ChooseIf": {
 					"label": "aegean.ui.ChooseIf",
+					"value": ""
+				},
+				"Track1": {
+					"label": "aegean.ui.TalentTrack1",
+					"value": ""
+				},
+				"Track2": {
+					"label": "aegean.ui.TalentTrack2",
 					"value": ""
 				}
 			}

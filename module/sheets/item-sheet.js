@@ -10,6 +10,9 @@ export class AegeanItemSheet extends ItemSheet {
 		context.config = AEGEAN
 		context.system = item.system
 		context.properties = this.item.properties
+		context.editable = this.isEditable
+
+		console.log(context.editable)
 
 		if(context.system.Description) context.system.Description.value = await TextEditor.enrichHTML(context.system.Description.value, { async: true })
 
