@@ -1,23 +1,23 @@
 
-import migration027 from './0-2-7.js'
+import migration0_2_7 from './0-2-7.js'
+import migration0_3_11 from './0-3-11.js'
 
 const MIGRATIONS = [
-	migration027,
+	migration0_2_7,
+	migration0_3_11,
 ]
 
+// TODO so far migrations are non-destructive (if the actor has the data already it's not deleted)
+// but this should really check the current version and only run if the migration is older than current version
 export default () => {
 	console.log('Aegean | Running migrations')
 
-	let logged = false 
-
 	// run migrations for actors
-	for(const actor of game.actors) {
-		MIGRATIONS.forEach(async migration => {
-			if(!logged) console.log(`Aegean | Running actor migrations for ${migration.version}`)
+	MIGRATIONS.forEach(async migration => {
+		if('migrateActor' in migration) {
+			console.log(`Aegean | Running actor migrations for ${migration.version}`)
 
-			logged = true
-
-			if('migrateActor' in migration) {
+			for(const actor of game.actors) {
 				const update = migration.migrateActor(actor.toObject())
 
 				if(!foundry.utils.isEmpty(update)) {
@@ -26,19 +26,15 @@ export default () => {
 					console.log(`Aegean | Migrated Actor '${actor.name}'`, result)
 				}
 			}
-		})
-	}
-
-	logged = false
+		}
+	})
 
 	// run migrations for items
-	for(const item of game.items) {
-		MIGRATIONS.forEach(async migration => {
-			if(!logged) console.log(`Aegean | Running item migrations for ${migration.version}`)
+	MIGRATIONS.forEach(async migration => {
+		if('migrateItem' in migration) {
+			console.log(`Aegean | Running item migrations for ${migration.version}`)
 
-			logged = true
-
-			if('migrateItem' in migration) {
+			for(const item of game.items) {
 				const update = migration.migrateItem(item.toObject())
 
 				if (!foundry.utils.isEmpty(update)) {
@@ -47,7 +43,7 @@ export default () => {
 					console.log(`Aegean | Migrated Item '${item.name}'`, result)
 				}
 			}
-		})
-	}
+		}
+	})
 }
 

@@ -58,22 +58,17 @@ export class AegeanActor extends Actor {
 
 	// roll a wound
 	async applyWound(newWound) {
-		if(isPC(this.type) || isLegend(this.type)) {
+		if(isPC(this.type)) {
+			await this._applyPCWound(newWound)
+		}
+
+		if(isLegend(this.type)) {
 			await this._applyLegendWound(newWound)
 		}
 
 		if(isChampion(this.type)) {
 			this._applyChampionWound()
 		}
-
-		if(isMinion(this.type)) {
-			this._killMinion()
-		}
-	}
-
-	// minions are killed and removed from the group
-	_killMinion() {
-
 	}
 
 	// champions have a wound value
@@ -85,21 +80,36 @@ export class AegeanActor extends Actor {
 		})
 	}
 
-	// Legends and PCs roll on the wound table
-	async _applyLegendWound(newWound) {
+	// PCs gain scars and roll on the wound table
+	async _applyPCWound(newWound) {
 		// get the value of all current wounds and add to the new wound
 		const totalWounds = (this.system.attributes.Wounds.value || []).map(({ value }) => parseInt(value)).reduce(add, 0)
 		const currentScars = parseInt(this.system.attributes.Scars.value)
 
-		console.log(`Aegean | Actor::applyWound => newWound=${newWound}, totalWounds=${totalWounds}`)
+		console.log(`Aegean | Actor::_applyPCWound => newWound=${newWound}, totalWounds=${totalWounds}`)
 
 		const wound = await woundRoll(totalWounds, newWound)
 
 		this.update({
 			'system.attributes.Wounds.value': [ ...this.system.attributes.Wounds.value, wound],
-			'system.attributes.Scars.value': currentScars + wound.value, // applying Scars to legends should have no effect
+			'system.attributes.Scars.value': currentScars + wound.value,
 		})
 	}
+
+	// Legends roll on the wound table
+	async _applyLegendWound(newWound) {
+		// get the value of all current wounds and add to the new wound
+		const totalWounds = (this.system.attributes.Wounds.value || []).map(({ value }) => parseInt(value)).reduce(add, 0)
+
+		console.log(`Aegean | Actor::_applyLegendWound => newWound=${newWound}, totalWounds=${totalWounds}`)
+
+		const wound = await woundRoll(totalWounds, newWound)
+
+		this.update({
+			'system.attributes.Wounds.value': [ ...this.system.attributes.Wounds.value, wound],
+		})
+	}
+
 
 	// set Risk to the given value
 	// apply as Wound if the character is vulnerable instead
@@ -167,31 +177,11 @@ export class AegeanActor extends Actor {
 	}
 
 	prepareData() {
-	// Prepare data for the actor. Calling the super version of this executes
-	// the following, in order: data reset (to clear active effects),
-	// prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
-	// prepareDerivedData().
 		const data = super.prepareData()
 		console.log('Aegean | Actor::prepareData', data)
 		return data
 	}
 
-	/** @override */
-	/*prepareBaseData() {
-		// Data modifications in this step occur before processing embedded
-		// documents or derived data.
-		return super.prepareBaseData()
-	}*/
-
-	/**
-	 * @override
-	 * Augment the basic actor data with additional dynamic data. Typically,
-	 * you'll want to handle most of your calculated/derived data in this step.
-	 * Data calculated in this step should generally not exist in template.json
-	 * (such as ability modifiers rather than ability scores) and should be
-	 * available both inside and outside of character sheets (such as if an actor
-	 * is queried and has a roll executed directly from it).
-	 */
 	prepareDerivedData() {
 		this.flags.aegean = this.getDerivedData()
 

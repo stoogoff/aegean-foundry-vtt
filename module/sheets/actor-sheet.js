@@ -68,6 +68,11 @@ export class AegeanActorSheet extends ActorSheet {
 		const context = this.actor.getRollData()
 		const selection = Actions[actionId].selection()
 
+		// prefill assistance
+		if(context.flags.assistance) {
+			selection.modifier = context.flags.assistance
+		}
+
 		SkillCheck.show(context, selection, result => {
 			Actions[actionId].effect(this.actor, result)
 		})
@@ -127,12 +132,18 @@ export class AegeanActorSheet extends ActorSheet {
 	_attackDialog() {
 		const context = this.actor.getRollData()
 		const attackId = $(event.currentTarget).attr('data-id')
+		const selection = {}
 
 		context.weapon = this.actor.weapons.find(({ _id }) => _id === attackId)
 
+		// prefill assistance
+		if(context.flags.assistance) {
+			selection.modifier = context.flags.assistance
+		}
+
 		console.log('Aegean | ActorSheet::_attackDialog => context, attackId', context, attackId)
 
-		AttackRoll.show(context)
+		AttackRoll.show(context, selection)
 	}
 
 	_applyDamage(event) {
