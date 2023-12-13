@@ -54,10 +54,13 @@ export default class BaseRoll extends Dialog {
 	}
 }
 
-export const calculateResultAndSendToChat = async (html, context, title) => {
+export const calculateResultAndSendToChat = async (html, context, title, selection) => {
 	let dice = html.find('[data-value]').map(function() {
 		return parseInt($(this).attr('data-value'))
 	}).get().reduce(add, 0)
+
+	console.log('Aegeain | calculateResultAndSendToChat => context', context)
+	console.log('Aegeain | calculateResultAndSendToChat => dice', dice)
 
 	if(context.flags.vulnerable) ++dice
 
@@ -69,12 +72,11 @@ export const calculateResultAndSendToChat = async (html, context, title) => {
 	// calculate damage if a weapon is included in the context
 	let damage = 0
 
-	if(context.weapon && result.success > 0) {
-		damage = parseInt(context.weapon.system.stats.Damage.value) + result.successes
+	if(selection && selection.weapon && result.successes > 0) {
+		damage = parseInt(selection.weapon.system.stats.Damage.value) + result.successes
 	}
 
-	// send results to chat
-	const content = await renderTemplate('systems/aegean/templates/messages/skill-check.html', {
+	const chatContext = {
 		title,
 		dice: result,
 		difficulty,
@@ -83,7 +85,12 @@ export const calculateResultAndSendToChat = async (html, context, title) => {
 		standing: html.find('[name=standing]').length > 0,
 		hubris: html.find('[name=hubris]').length > 0,
 		damage,
-	})
+	}
+
+	console.log('Aegeain | calculateResultAndSendToChat => chatContext', chatContext)
+
+	// send results to chat
+	const content = await renderTemplate('systems/aegean/templates/messages/skill-check.html', chatContext)
 
 	ChatMessage.create({
 		title: game.i18n.localize(title),

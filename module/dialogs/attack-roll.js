@@ -1,6 +1,7 @@
 
 import { AEGEAN } from '../helpers/config.js'
 import { isPC } from '../helpers/utils.js'
+import { sortByProperty } from '../helpers/list.js'
 import BaseRoll, { calculateResultAndSendToChat } from './base-roll.js'
 
 export class AttackRoll extends BaseRoll {
@@ -22,7 +23,7 @@ export class AttackRoll extends BaseRoll {
 					icon: '<i class="fas fa-dice-d10"></i>',
 					label: game.i18n.localize('aegean.ui.Roll'),
 					callback: async html => {
-						const result = await calculateResultAndSendToChat(html, context, 'aegean.ui.AttackRoll')
+						const result = await calculateResultAndSendToChat(html, context, 'aegean.ui.AttackRoll', selection)
 
 						if(callback) callback(result.successes)
 					},
@@ -51,18 +52,19 @@ export class AttackRoll extends BaseRoll {
 		html.find('.difficulty-select').change(this._updateFromValue('data-difficulty').bind(this))
 
 		let characteristicName = 'Might'
-		const weapon = this.context.weapon
+		const weapon = this.selection.weapon
 
 		// find any properties with names that match characteristics
-		const weaponCharacteristic = weapon.properties.find(({ property }) => AEGEAN.characteristics.includes(property.name))
+		const weaponCharacteristics = weapon.properties.filter(({ property }) => AEGEAN.characteristics.includes(property.name))
 
-		console.log('Aegean | Attack::activateListeners => weaponCharacteristic', weaponCharacteristic)
+		console.log('Aegean | Attack::activateListeners => weaponCharacteristics', weaponCharacteristics)
 
 		// if a characteristic property exists use it if its value is greater than the character's Might
-		if(weaponCharacteristic) {
-			if(this.context.characteristics.Might.value < this.context.characteristics[weaponCharacteristic.property.name].value) {
-				characteristicName = weaponCharacteristic.property.name
-			}
+		if(weaponCharacteristics.length > 0) {
+			characteristicName = [ 'Might', ...weaponCharacteristics.map(wc => wc.property.name) ]
+				.map(c => ({ name: c, value: this.context.characteristics[c].value }))
+				.sort(sortByProperty('value'))
+				.reverse()[0].name
 		}
 
 		const characteristic = this.context.characteristics[characteristicName]

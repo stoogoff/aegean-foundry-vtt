@@ -134,7 +134,7 @@ export class AegeanActorSheet extends ActorSheet {
 		const attackId = $(event.currentTarget).attr('data-id')
 		const selection = {}
 
-		context.weapon = this.actor.weapons.find(({ _id }) => _id === attackId)
+		selection.weapon = this.actor.weapons.find(({ _id }) => _id === attackId)
 
 		// prefill assistance
 		if(context.flags.assistance) {
