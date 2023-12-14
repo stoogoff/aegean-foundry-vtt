@@ -1,7 +1,7 @@
 
 import { AegeanActorSheet } from './actor-sheet.js'
-import { AEGEAN } from '../helpers/config.js'
-import { sortByProperty } from '../helpers/list.js'
+import { AEGEAN } from '../../helpers/config.js'
+import { sortByProperty } from '../../helpers/list.js'
 
 export class AegeanCharacterSheet extends AegeanActorSheet {
 	static get defaultOptions() {

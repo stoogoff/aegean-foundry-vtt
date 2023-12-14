@@ -1,5 +1,5 @@
 
-import { AegeanItemSheet } from './item-sheet.js'
+import { AegeanItemSheet } from '../item-sheet.js'
 
 export class AegeanDeitySheet extends AegeanItemSheet {
 	static get defaultOptions() {

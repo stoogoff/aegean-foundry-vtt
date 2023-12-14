@@ -52,7 +52,7 @@
 	display: flex;
 	justify-content: flex-end;
 }
-.aegean .talents .accordion-bar .action-bar .action-bar-label {
+.aegean .action-bar-label {
 	font-size: var(--font-sm);
 	text-transform: uppercase;
 	color: var(--grey-mid);

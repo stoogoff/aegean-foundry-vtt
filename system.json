@@ -2,7 +2,7 @@
 	"id": "aegean",
 	"title": "Aegean",
 	"description": "Aegean RPG system for FoundryVTT",
-	"version": "0.3.12",
+	"version": "0.3.13",
 	"compatibility": {
 		"minimum": "11",
 		"verified": "11",

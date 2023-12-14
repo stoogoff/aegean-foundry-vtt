@@ -1,13 +1,13 @@
 
 import { AegeanActorSheet } from './actor-sheet.js'
-import { AEGEAN } from '../helpers/config.js'
-import { sortByProperty, add } from '../helpers/list.js'
-import { AttackRoll } from '../dialogs/attack-roll.js'
-import { RecoveryRoll } from '../dialogs/recovery-roll.js'
-import { SkillCheck } from '../dialogs/skill-check.js'
-import Actions from '../helpers/actions.js'
+import { AEGEAN } from '../../helpers/config.js'
+import { sortByProperty, add } from '../../helpers/list.js'
+import { AttackRoll } from '../../dialogs/attack-roll.js'
+import { RecoveryRoll } from '../../dialogs/recovery-roll.js'
+import { SkillCheck } from '../../dialogs/skill-check.js'
+import Actions from '../../helpers/actions.js'
 
-export class AegeanMinionSheet extends AegeanActorSheet {
+export class AegeanChampionSheet extends AegeanActorSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'actor'],
@@ -29,7 +29,7 @@ export class AegeanMinionSheet extends AegeanActorSheet {
 		const context = super.getData()
 		const actor = this.actor.toObject(false)
 
-		context.sheetTitle = 'TYPES.Actor.minion'
+		context.sheetTitle = 'TYPES.Actor.champion'
 		context.config = AEGEAN
 		context.system = actor.system
 		context.flags = actor.flags.aegean

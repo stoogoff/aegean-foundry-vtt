@@ -1,0 +1,45 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<article class="building-sheet">
+		{{> systems/aegean/templates/item/partials/header-section.hbs }}
+
+		<div class="tab-group">
+			<!-- stats -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="building_stats"
+				label="aegean.ui.Stats"
+			}}
+				<div class="grid grid-cols-2">
+					<div>
+						{{> systems/aegean/templates/partials/form-input.hbs
+							label="aegean.system.Cost"
+							value=system.stats.Cost.value
+							name="system.stats.Cost.value"
+						}}
+					</div>
+					<div>
+						STATS
+					</div>
+				</div>
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+
+			<!-- characteristic and attribute modifiers -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="building_modifiers"
+				label="aegean.system.Modifiers"
+			}}
+				{{> systems/aegean/templates/partials/multi-select-editable-input.hbs
+					label="aegean.system.Characteristics"
+					selection=system.modifiers.Characteristics.value
+					name="building_system_modifiers_Characteristics_value"
+					options=config.cityCharacteristics
+				}}
+				{{> systems/aegean/templates/partials/multi-select-editable-input.hbs
+					label="aegean.system.Attributes"
+					selection=system.modifiers.Attributes.value
+					name="building_system_modifiers_Attributes_value"
+					options=config.cityAttributes
+				}}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+		</div>
+	</article>
+</form>

@@ -1,11 +1,11 @@
 
 import { AegeanActorSheet } from './actor-sheet.js'
-import { AEGEAN } from '../helpers/config.js'
-import { sortByProperty, add } from '../helpers/list.js'
-import { AttackRoll } from '../dialogs/attack-roll.js'
-import { RecoveryRoll } from '../dialogs/recovery-roll.js'
-import { SkillCheck } from '../dialogs/skill-check.js'
-import Actions from '../helpers/actions.js'
+import { AEGEAN } from '../../helpers/config.js'
+import { sortByProperty, add } from '../../helpers/list.js'
+import { AttackRoll } from '../../dialogs/attack-roll.js'
+import { RecoveryRoll } from '../../dialogs/recovery-roll.js'
+import { SkillCheck } from '../../dialogs/skill-check.js'
+import Actions from '../../helpers/actions.js'
 
 export class AegeanLegendSheet extends AegeanActorSheet {
 	static get defaultOptions() {

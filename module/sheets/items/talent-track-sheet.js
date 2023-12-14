@@ -1,7 +1,7 @@
 
-import { AegeanItemSheet } from './item-sheet.js'
-import { sortByProperty } from '../helpers/list.js'
-import { createId } from '../helpers/string.js'
+import { AegeanItemSheet } from '../item-sheet.js'
+import { sortByProperty } from '../../helpers/list.js'
+import { createId } from '../../helpers/string.js'
 
 export class AegeanTalentTrackSheet extends AegeanItemSheet {
 	async getData() {

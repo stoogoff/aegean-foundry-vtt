@@ -254,7 +254,7 @@
 		}
 	},
 	"Item": {
-		"types": ["advantage", "armour", "attack", "career", "deity", "equipment", "cult", "property", "talent", "weapon"],
+		"types": ["advantage", "armour", "attack", "career", "deity", "equipment", "cult", "property", "talent", "weapon", "building"],
 		"templates": {
 			"base": {
 				"Description": {
@@ -458,6 +458,41 @@
 				"Initiation": {
 					"label": "aegean.ui.Initiation",
 					"value": ""
+				}
+			}
+		},
+		"building": {
+			"templates": ["base"],
+			"stats": {
+				"Cost": {
+					"label": "aegean.system.Cost",
+					"value": 0
+				},
+				"CostPerPopulace": {
+					"label": "aegean.system.CostPerPopulace",
+					"value": 0
+				},
+				"Structure": {
+					"label": "aegean.system.Structure",
+					"value": 0
+				},
+				"CurrentStructure": {
+					"label": "aegean.system.CurrentStructure",
+					"value": 0
+				},
+				"Defensive": {
+					"label": "aegean.system.Defensive",
+					"value": false
+				}
+			},
+			"modifiers": {
+				"Characteristics": {
+					"label": "aegean.system.Characteristics",
+					"value": []
+				},
+				"Attributes": {
+					"label": "aegean.system.Attributes",
+					"value": []
 				}
 			}
 		}

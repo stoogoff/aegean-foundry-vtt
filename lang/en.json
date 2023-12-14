@@ -17,7 +17,9 @@
 			"mysteryCult": "Mystery Cult",
 			"property": "Property",
 			"talent": "Talent",
-			"weapon": "Weapon"
+			"weapon": "Weapon",
+			"building": "Building",
+			"retainer": "Retainer"
 		}
 	},
 	"aegean": {
@@ -113,8 +115,11 @@
 			"Characteristic": "Characteristic",
 			"Characteristics": "Characteristics",
 			"Cost": "Cost",
+			"CostPerPopulace": "Cost per Populace",
+			"CurrentStructure": "Current Structure",
 			"Defeated": "Defeated",
 			"Defence": "Defence",
+			"Defensive": "Defensive",
 			"Deity": "Deity",
 			"DeityCharacteristicSelectNote": "Select one or two characteristics that provide a bonus during character generation.",
 			"Description": "Description",
@@ -143,6 +148,7 @@
 			"Skills": "Skills",
 			"Specialisation": "Specialisation",
 			"Specialisations": "Specialisations",
+			"Structure": "Structure",
 			"Symbols": "Symbols",
 			"Tactics": "Tactics",
 			"Talent": "Talent",
@@ -182,9 +188,10 @@
 			"Symbols": "Symbols",
 			"TalentTrack1": "Track One",
 			"TalentTrack2": "Track Two",
+			"TheGods": "The Gods",
 			"Track": "Track",
 			"Ungrouped": "Ungrouped Talents",
-			"TheGods": "The Gods",
+			"Value": "Value",
 			"WorksWith": "Works with"
 		},
 		"wounds": {

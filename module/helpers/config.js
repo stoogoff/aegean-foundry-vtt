@@ -24,6 +24,20 @@ export const AEGEAN = {
 		'Survival',
 		'Vigour',
 	],
+	cityCharacteristics: [
+		'Military',
+		'Culture',
+		'Produce',
+		'Resources',
+		'Trade',
+	],
+	cityAttributes: [
+		'Food',
+		'Morale',
+		'Populace',
+		'Risk',
+		'Stater',
+	],
 	backgrounds: [
 		'Criminal',
 		'Farmer',

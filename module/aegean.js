@@ -3,25 +3,30 @@
 import { AegeanActor } from './documents/actor.js'
 import { AegeanItem } from './documents/item.js'
 
-// sheets
-import { AegeanAdvantageSheet } from './sheets/advantage-sheet.js'
-import { AegeanArmourSheet } from './sheets/armour-sheet.js'
-import { AegeanAttackSheet } from './sheets/attack-sheet.js'
-import { AegeanCareerSheet } from './sheets/career-sheet.js'
-import { AegeanCharacterSheet } from './sheets/character-sheet.js'
-import { AegeanChampionSheet } from './sheets/champion-sheet.js'
-import { AegeanCultSheet } from './sheets/cult-sheet.js'
-import { AegeanDeitySheet } from './sheets/deity-sheet.js'
-import { AegeanEquipmentSheet } from './sheets/equipment-sheet.js'
-import { AegeanLegendSheet } from './sheets/legend-sheet.js'
-import { AegeanMinionSheet } from './sheets/minion-sheet.js'
-import { AegeanPropertySheet } from './sheets/property-sheet.js'
-import { AegeanTalentSheet } from './sheets/talent-sheet.js'
-import { AegeanWeaponSheet } from './sheets/weapon-sheet.js'
+// actor sheets
+import { AegeanCharacterSheet } from './sheets/actors/character-sheet.js'
+import { AegeanChampionSheet } from './sheets/actors/champion-sheet.js'
+import { AegeanLegendSheet } from './sheets/actors/legend-sheet.js'
+import { AegeanMinionSheet } from './sheets/actors/minion-sheet.js'
+
+// item sheets
+import { AegeanAdvantageSheet } from './sheets/items/advantage-sheet.js'
+import { AegeanArmourSheet } from './sheets/items/armour-sheet.js'
+import { AegeanAttackSheet } from './sheets/items/attack-sheet.js'
+import { AegeanCareerSheet } from './sheets/items/career-sheet.js'
+import { AegeanCultSheet } from './sheets/items/cult-sheet.js'
+import { AegeanDeitySheet } from './sheets/items/deity-sheet.js'
+import { AegeanEquipmentSheet } from './sheets/items/equipment-sheet.js'
+import { AegeanPropertySheet } from './sheets/items/property-sheet.js'
+import { AegeanTalentSheet } from './sheets/items/talent-sheet.js'
+import { AegeanWeaponSheet } from './sheets/items/weapon-sheet.js'
+
+// polis sheets
+import { AegeanBuildingSheet } from './sheets/polis/building-sheet.js'
 
 // helpers
 import { AEGEAN } from './helpers/config.js'
-import { isPC, isAdversary, isMinion, isChampion, isLegend, isEquipment } from './helpers/utils.js'
+import { registerHelpers } from './helpers/handlebars.js'
 
 // migrations
 import migrations from './migrations/index.js'
@@ -39,6 +44,7 @@ Hooks.once('init', async function() {
 	CONFIG.Actor.documentClass = AegeanActor
 	CONFIG.Item.documentClass = AegeanItem
 
+	// actor sheets
 	Actors.unregisterSheet('core', ActorSheet)
 	Actors.registerSheet('Aegean', AegeanCharacterSheet, {
 		label: game.i18n.localize('aegean.ui.CharacterSheet'),
@@ -58,8 +64,8 @@ Hooks.once('init', async function() {
 		types: ['minion'],
 	})
 
+	// item sheets
 	Items.unregisterSheet('core', ItemSheet)
-
 	Items.registerSheet('Aegean', AegeanAdvantageSheet, {
 		types: ['advantage'],
 		makeDefault: true,
@@ -101,6 +107,12 @@ Hooks.once('init', async function() {
 		makeDefault: true,
 	})
 
+	// polis sheets
+	Items.registerSheet('Aegean', AegeanBuildingSheet, {
+		types: ['building'],
+		makeDefault: true,
+	})
+
 	loadTemplates([
 		// global partials
 		'systems/aegean/templates/partials/accordion.hbs',
@@ -109,6 +121,7 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/partials/checkbox.hbs',
 		'systems/aegean/templates/partials/difficulty-select.hbs',
 		'systems/aegean/templates/partials/form-input.hbs',
+		'systems/aegean/templates/partials/multi-select-editable-input.hbs',
 		'systems/aegean/templates/partials/multi-select-input.hbs',
 		'systems/aegean/templates/partials/multi-text-input.hbs',
 		'systems/aegean/templates/partials/select-input.hbs',
@@ -137,70 +150,8 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/item/partials/talents.hbs',
 	])
 
-	Handlebars.registerHelper('concat', function() {
-		const args = Array.from(arguments)
-
-		args.pop()
-
-		return args.join('')
-	})
-
-	Handlebars.registerHelper('join', function(array) {
-		return array.join(', ')
-	})
-
-	// repeat a block a number of times
-	Handlebars.registerHelper('range', (count, options) => {
-		const buffer = []
-		const data = options.data ? Handlebars.createFrame(options.data) : {}
-
-		for(let i = 0; i < count; ++i) {
-			data.first = i === 0
-			data.last = i === i - 1
-			data.index = i
-
-			buffer.push(options.fn(this, { data: data }))
-		}
-
-		return buffer.join('')
-	})
-	Handlebars.registerHelper('range-reverse', (count, options) => {
-		const buffer = []
-		const data = options.data ? Handlebars.createFrame(options.data) : {}
-
-		for(let i = count; i >= 0; --i) {
-			data.first = i === 0
-			data.last = i === i - 1
-			data.index = i
-
-			buffer.push(options.fn(this, { data: data }))
-		}
-
-		return buffer.join('')
-	})
-
-	// comparison functions
-	Handlebars.registerHelper('eq', (val1, val2) => val1 == val2)
-	Handlebars.registerHelper('ne', (val1, val2) => val1 != val2)
-	Handlebars.registerHelper('lt', (val1, val2) => val1 < val2)
-	Handlebars.registerHelper('lte', (val1, val2) => val1 <= val2)
-	Handlebars.registerHelper('gt', (val1, val2) => val1 > val2)
-	Handlebars.registerHelper('gte', (val1, val2) => val1 >= val2)
-	Handlebars.registerHelper('mod', (val1, val2) => val1 > 0 && val1 % val2 === 0)
-	Handlebars.registerHelper('and', (val1, val2) => val1 && val2)
-	Handlebars.registerHelper('or', (val1, val2) => val1 || val2)
-
-	// Aegean system functions
-	Handlebars.registerHelper('xp', order => (order + 1) * 5)
-
-
-	// actor / item type check functions
-	Handlebars.registerHelper('isPC', actor => isPC(actor.type))
-	Handlebars.registerHelper('isAdversary', actor => isAdversary(actor.type))
-	Handlebars.registerHelper('isEquipment', item => isEquipment(item.type))
-	Handlebars.registerHelper('isMinion', actor => isMinion(actor.type))
-	Handlebars.registerHelper('isChampion', actor => isChampion(actor.type))
-	Handlebars.registerHelper('isLegend', actor => isLegend(actor.type))
+	// register handlebars helpers
+	registerHelpers()
 })
 
 

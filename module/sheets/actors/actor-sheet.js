@@ -1,11 +1,11 @@
 
-import { AttackRoll } from '../dialogs/attack-roll.js'
-import { RecoveryRoll } from '../dialogs/recovery-roll.js'
-import { SkillCheck } from '../dialogs/skill-check.js'
-import { StandingRoll } from '../dialogs/standing-roll.js'
-import { HubrisRoll } from '../dialogs/hubris-roll.js'
-import Actions from '../helpers/actions.js'
-import { isPC, UNARMED_STRIKE } from '../helpers/utils.js'
+import { AttackRoll } from '../../dialogs/attack-roll.js'
+import { RecoveryRoll } from '../../dialogs/recovery-roll.js'
+import { SkillCheck } from '../../dialogs/skill-check.js'
+import { StandingRoll } from '../../dialogs/standing-roll.js'
+import { HubrisRoll } from '../../dialogs/hubris-roll.js'
+import Actions from '../../helpers/actions.js'
+import { isPC, UNARMED_STRIKE } from '../../helpers/utils.js'
 
 export class AegeanActorSheet extends ActorSheet {
 	activateListeners(html) {
