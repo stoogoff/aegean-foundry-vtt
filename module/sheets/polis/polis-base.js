@@ -2,6 +2,16 @@
 import { AegeanItemSheet } from '../item-sheet.js'
 
 export class AegeanPolisBaseSheet extends AegeanItemSheet {
+	async getData() {
+		const context = await super.getData();
+		const item = this.item.toObject(false)
+
+		context.requires = this.item.system.stats.Requires.value.map(item => ({ ...game.items.get(item.id) }))
+
+		console.log('Aegean | PolisBase::getData', context)
+
+		return context;
+	}
 
 	activateListeners(html) {
 		super.activateListeners(html)
@@ -65,5 +75,36 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 		this.item.update({
 			[key]: currentValue
 		})
+	}
+
+	async _onDrop(event, data) {
+		if(!event.originalEvent) return
+		if(!event.originalEvent.dataTransfer) return
+
+		let dragData = JSON.parse(event.originalEvent.dataTransfer.getData('text/plain'))
+
+		console.log('Aegean | PolisBase::_onDrop => dragData', dragData)
+
+		if(!dragData.uuid.startsWith('Item.')) return
+
+		// load the item by uuid (remove the Item prefix)
+		const dragItem = game.items.get(dragData.uuid.replace('Item.', ''))
+
+		console.log('Aegean | PolisBase::_onDrop => dragItem', dragItem)
+
+		if(dragItem.type === 'building') {
+			const currentItems = this.item.system.stats.Requires.value
+			const existing = currentItems.find(item => item.id === dragItem.id)
+
+			// the item already exists
+			if(existing) {
+				return
+			}
+			else {
+				this.item.update({
+					'system.stats.Requires.value': [ ...currentItems, { id: dragItem.id, rating: 1 } ]
+				})
+			}
+		}
 	}
 }

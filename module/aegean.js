@@ -152,6 +152,7 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/item/partials/header-section.hbs',
 		'systems/aegean/templates/item/partials/equipment.hbs',
 		'systems/aegean/templates/item/partials/properties.hbs',
+		'systems/aegean/templates/item/partials/requirements.hbs',
 		'systems/aegean/templates/item/partials/talents.hbs',
 	])
 

@@ -56,6 +56,15 @@
 					options=config.cityAttributes
 				}}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+
+			<!-- requirements -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="building_requirements"
+				label="aegean.ui.Requirements"
+				count=requires.length
+			}}
+				{{> systems/aegean/templates/item/partials/requirements.hbs }}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 		</div>
 	</article>
 </form>

@@ -483,6 +483,10 @@
 				"Defensive": {
 					"label": "aegean.system.Defensive",
 					"value": false
+				},
+				"Requires": {
+					"label": "aegean.system.Requires",
+					"value": []
 				}
 			},
 			"modifiers": {
@@ -522,6 +526,10 @@
 				"Marine": {
 					"label": "aegean.system.MarineUnit",
 					"value": false
+				},
+				"Requires": {
+					"label": "aegean.system.Requires",
+					"value": []
 				}
 			},
 			"modifiers": {

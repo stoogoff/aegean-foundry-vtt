@@ -1,0 +1,11 @@
+<div class="requires">
+	{{#if requires}}
+		<ul>
+			{{#each requires as |require key|}}
+				<li>{{ require.name }}</li>
+			{{/each}}
+		</ul>
+	{{else}}
+		<p class="note">{{ localize "aegean.system.RequiresNone" }}</p>
+	{{/if}}
+</div>
