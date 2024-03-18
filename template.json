@@ -254,7 +254,7 @@
 		}
 	},
 	"Item": {
-		"types": ["advantage", "armour", "attack", "career", "deity", "equipment", "cult", "property", "talent", "weapon", "building"],
+		"types": ["advantage", "armour", "attack", "career", "deity", "equipment", "cult", "property", "talent", "weapon", "building", "retainer"],
 		"templates": {
 			"base": {
 				"Description": {
@@ -468,9 +468,9 @@
 					"label": "aegean.system.Cost",
 					"value": 0
 				},
-				"CostPerPopulace": {
-					"label": "aegean.system.CostPerPopulace",
-					"value": 0
+				"CostIsPerPopulace": {
+					"label": "aegean.system.CostIsPerPopulace",
+					"value": false
 				},
 				"Structure": {
 					"label": "aegean.system.Structure",
@@ -482,6 +482,45 @@
 				},
 				"Defensive": {
 					"label": "aegean.system.Defensive",
+					"value": false
+				}
+			},
+			"modifiers": {
+				"Characteristics": {
+					"label": "aegean.system.Characteristics",
+					"value": []
+				},
+				"Attributes": {
+					"label": "aegean.system.Attributes",
+					"value": []
+				}
+			}
+		},
+		"retainer": {
+			"templates": ["base"],
+			"stats": {
+				"Cost": {
+					"label": "aegean.system.Cost",
+					"value": 0
+				},
+				"HireMercenaries": {
+					"label": "aegean.system.HireMercenaries",
+					"value": 0
+				},
+				"Health": {
+					"label": "aegean.system.Health",
+					"value": 0
+				},
+				"CurrentHealth": {
+					"label": "aegean.system.CurrentHealth",
+					"value": 0
+				},
+				"Military": {
+					"label": "aegean.system.MilitaryUnit",
+					"value": false
+				},
+				"Marine": {
+					"label": "aegean.system.MarineUnit",
 					"value": false
 				}
 			},

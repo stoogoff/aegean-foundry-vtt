@@ -23,6 +23,7 @@ import { AegeanWeaponSheet } from './sheets/items/weapon-sheet.js'
 
 // polis sheets
 import { AegeanBuildingSheet } from './sheets/polis/building-sheet.js'
+import { AegeanRetainerSheet } from './sheets/polis/retainer-sheet.js'
 
 // helpers
 import { AEGEAN } from './helpers/config.js'
@@ -110,6 +111,10 @@ Hooks.once('init', async function() {
 	// polis sheets
 	Items.registerSheet('Aegean', AegeanBuildingSheet, {
 		types: ['building'],
+		makeDefault: true,
+	})
+	Items.registerSheet('Aegean', AegeanRetainerSheet, {
+		types: ['retainer'],
 		makeDefault: true,
 	})
 

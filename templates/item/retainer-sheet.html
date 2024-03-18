@@ -15,25 +15,29 @@
 							value=system.stats.Cost.value
 							name="system.stats.Cost.value"
 						}}
-						{{> systems/aegean/templates/partials/checkbox.hbs
-							label="aegean.system.CostIsPerPopulace"
-							value=system.stats.CostIsPerPopulace.value
-							name="system.stats.CostIsPerPopulace.value"
+						{{> systems/aegean/templates/partials/form-input.hbs
+							label="aegean.system.HireMercenaries"
+							value=system.stats.HireMercenaries.value
+							name="system.stats.HireMercenaries.value"
 						}}
-						<p class="note">{{ localize "aegean.system.CostIsPerPopulaceNote" }}</p>
+						<p class="note">{{ localize "aegean.system.HireMercenariesNote" }}</p>
 					</div>
 					<div>
 						{{> systems/aegean/templates/partials/form-input.hbs
-							label="aegean.system.Structure"
-							value=system.stats.Structure.value
-							name="system.stats.Structure.value"
+							label="aegean.system.Health"
+							value=system.stats.Health.value
+							name="system.stats.Health.value"
 						}}
 						{{> systems/aegean/templates/partials/checkbox.hbs
-							label="aegean.system.Defensive"
-							value=system.stats.Defensive.value
-							name="system.stats.Defensive.value"
+							label="aegean.system.MilitaryUnit"
+							value=system.stats.MilitaryUnit.value
+							name="system.stats.MilitaryUnit.value"
 						}}
-						<p class="note">{{ localize "aegean.system.DefensiveNote" }}</p>
+						{{> systems/aegean/templates/partials/checkbox.hbs
+							label="aegean.system.MarineUnit"
+							value=system.stats.MarineUnit.value
+							name="system.stats.MarineUnit.value"
+						}}
 					</div>
 				</div>
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
