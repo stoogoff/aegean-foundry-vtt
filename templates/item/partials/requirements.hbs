@@ -1,10 +1,23 @@
 <div class="requires">
 	{{#if requires}}
-		<ul>
-			{{#each requires as |require key|}}
-				<li>{{ require.name }}</li>
-			{{/each}}
-		</ul>
+		<table>
+			<thead>
+				<tr>
+					<th class="text-left">{{ localize "aegean.system.Building" }}</th>
+					<th class="text-right">{{ localize "aegean.system.Cost" }}</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each requires as |require key|}}
+					<tr>
+						<td class="text-left">{{ require.building.name }}</td>
+						<td class="text-right">{{ require.building.system.stats.Cost.value }}</td>
+						<td>{{> systems/aegean/templates/partials/action.hbs action="delete-requirement" id=require.building.id icon="fa-trash" }}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
 	{{else}}
 		<p class="note">{{ localize "aegean.system.RequiresNone" }}</p>
 	{{/if}}

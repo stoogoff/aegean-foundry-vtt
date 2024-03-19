@@ -6,7 +6,7 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 		const context = await super.getData();
 		const item = this.item.toObject(false)
 
-		context.requires = this.item.system.stats.Requires.value.map(item => ({ ...game.items.get(item.id) }))
+		context.requires = (this.item.system.stats.Requires.value || []).map(item => ({ building: game.items.get(item.id) }))
 
 		console.log('Aegean | PolisBase::getData', context)
 
@@ -21,6 +21,9 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 		html.find('.add-multi-select').not('.disabled').click(this._addListValue.bind(this))
 		html.find('.delete-multi-select').click(this._deleteListValue.bind(this))
 		html.find('.editable-input').change(this._updateListValue.bind(this))
+
+		// enable delete actions
+		html.find('.delete-requirement').click(this._deleteRequirement.bind(this))
 	}
 
 	_addListValue(event) {
@@ -74,6 +77,18 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 
 		this.item.update({
 			[key]: currentValue
+		})
+	}
+
+	_deleteRequirement(event) {
+		const deleteId = $(event.currentTarget).attr('data-id')
+
+		console.log('Aegean | PolisBase::_deleteRequirement => deleteId', deleteId)
+
+		const updatedRequirements = this.item.system.stats.Requires.value.filter(({ id }) => id !== deleteId)
+
+		this.item.update({
+			'system.stats.Requires.value': updatedRequirements
 		})
 	}
 
