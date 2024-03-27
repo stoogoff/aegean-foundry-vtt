@@ -72,6 +72,20 @@ export class AegeanCitySheet extends ActorSheet {
 		context.buildings = this.actor.buildings.sort(sortByProperty('name'))
 		context.retainers = this.actor.retainers.sort(sortByProperty('name'))
 
+		// generate characteristics and attributes from buildings and retainers
+		const characteristics = {}
+		const structures = [...context.buildings, ...context.retainers]
+
+		AEGEAN.cityCharacteristics.forEach(ch => characteristics[ch] = 0)
+
+		structures.forEach(st => {
+			st.system.modifiers.Characteristics.value.forEach(ch => {
+				characteristics[ch.text] += ch.value
+			})
+		})
+
+		context.characteristics = characteristics
+
 		console.log('Aegean | CitySheet::getData', context)
 
 		return context

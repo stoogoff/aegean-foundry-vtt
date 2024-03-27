@@ -4,6 +4,8 @@
 			<div class="accordion-bar">
 				<span class="accordion-activator">
 					{{ retainer.name }}
+					{{#if retainer.system.stats.Military.value}}<small class="chip safe">{{ localize "aegean.system.MilitaryUnit" }}</small>{{/if}}
+					{{#if retainer.system.stats.Marine.value}}<small class="chip safe">{{ localize "aegean.system.MarineUnit" }}</small>{{/if}}
 				</span>
 				<div class="action-bar">
 					<label class="action-bar-label mr-2">{{ localize "aegean.system.Health" }}

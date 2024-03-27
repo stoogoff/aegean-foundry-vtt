@@ -1,12 +1,58 @@
 <form class="{{cssClass}} {{actor.type}}" autocomplete="off">
 	<article class="character-sheet">
+		{{> systems/aegean/templates/actor/partials/header-section.hbs title="TYPES.Actor.polis" }}
+
 		<div class="tab-group">
 			<!-- stats -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="city_stats"
 				label="aegean.ui.Stats"
 			}}
-				STATS
+				<div class="character-stats">
+					<h2><span>{{ localize "aegean.system.Characteristics" }}</span></h2>
+					<div class="grid grid-cols-5">
+						{{#each characteristics as |value label|}}
+							{{> systems/aegean/templates/partials/box-input.hbs
+								label=label
+								value=value
+								name=(concat "system.characteristics." label ".value")
+								readonly=true
+							}}
+						{{/each}}
+					</div>
+					<div class="grid column-panel">
+						<div class="skills">
+							<div class="grid grid-cols-2">
+								<div>
+									<h3 class="text-left">{{ localize "aegean.system.Skills" }}</h3>
+								</div>
+							</div>
+						</div>
+						<aside>
+							<h3>{{ localize "aegean.system.Attributes" }}</h3>
+							{{> systems/aegean/templates/partials/box-input.hbs
+								label="aegean.polis.Morale"
+								value=system.attributes.Morale.value
+								name="system.attributes.Morale.value"
+							}}
+							{{> systems/aegean/templates/partials/box-input.hbs
+								label="aegean.polis.Populace"
+								value=system.attributes.Populace.value
+								name="system.attributes.Populace.value"
+							}}
+							{{> systems/aegean/templates/partials/box-input.hbs
+								label="aegean.polis.Food"
+								value=system.attributes.Food.value
+								name="system.attributes.Food.value"
+							}}
+							{{> systems/aegean/templates/partials/box-input.hbs
+								label="aegean.polis.Stater"
+								value=system.attributes.Stater.value
+								name="system.attributes.Stater.value"
+							}}
+						</aside>
+					</div>
+				</div>
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 			<!-- buildings -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs

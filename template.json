@@ -268,7 +268,7 @@
 				},
 				"Food": {
 					"label": "aegean.polis.Food",
-					"value": ""
+					"value": 0
 				},
 				"Stater": {
 					"label": "aegean.polis.Stater",
