@@ -27,7 +27,7 @@ export class AegeanActorSheet extends ActorSheet {
 		html.find('.standing-roll').click(this._standingRoll.bind(this))
 		html.find('.hubris-roll').click(this._hubrisRoll.bind(this))
 
-		if (!this.isEditable) return
+		if(!this.isEditable) return
 
 		// enable updating linked item properties
 		html.find('.rating-input').change(this._updateItemProperty(this.actor.talents).bind(this))

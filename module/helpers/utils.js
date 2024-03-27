@@ -6,7 +6,7 @@ export const isLegend = type => type === 'legend'
 export const isChampion = type => type === 'champion'
 export const isMinion = type => type === 'minion'
 export const isAdversary = type => isLegend(type) || isChampion(type) || isMinion(type)
-
+export const isCity = type => type === 'polis'
 export const isPC = type => type === 'character'
 
 export const parseObject = (input, scope, debug = false) => {

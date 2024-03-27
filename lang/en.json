@@ -4,22 +4,22 @@
 			"character": "Character",
 			"champion": "Champion",
 			"legend": "Legend",
-			"minion": "Minion"
+			"minion": "Minion",
+			"polis": "Polis"
 		},
 		"Item": {
 			"advantage": "Advantage",
 			"armour": "Armour",
 			"attack": "Attack",
+			"building": "Building",
 			"career": "Career",
 			"cult": "Mystery Cult",
 			"deity": "Deity",
 			"equipment": "Equipment",
-			"mysteryCult": "Mystery Cult",
 			"property": "Property",
+			"retainer": "Retainer",
 			"talent": "Talent",
-			"weapon": "Weapon",
-			"building": "Building",
-			"retainer": "Retainer"
+			"weapon": "Weapon"
 		}
 	},
 	"aegean": {
@@ -175,16 +175,18 @@
 			"ApplyDamage": "Apply Damage",
 			"AttackRoll": "Attack Roll",
 			"Background": "Background",
-			"CharacterSheet": "Character Sheet",
 			"ChampionSheet": "Adversary Champion Sheet",
+			"CharacterSheet": "Character Sheet",
+			"CitySheet": "Polis Sheet",
 			"ChooseIf": "Choose if...",
-			"CommaSeparated": "comma separated",
 			"Combat": "Combat",
-			"LegendSheet": "Adversary Legend Sheet",
+			"CommaSeparated": "comma separated",
 			"Group": "Group",
 			"GroupSize": "Group Size",
 			"HubrisRoll": "Hubris Roll",
 			"Initiation": "Initiation",
+			"LegendSheet": "Adversary Legend Sheet",
+			"MinionSheet": "Adversary Minion Sheet",
 			"Notes": "Notes",
 			"NoWounds": "No wounds. Yet!",
 			"Order": "Order",
@@ -217,6 +219,14 @@
 			"Stunned": "The character is Stunned and suffers all of the effects of the Stunned condition.",
 			"Incapacitated": "Incapacitated.",
 			"Dying": "Close to Death."
+		},
+		"polis": {
+			"Buildings": "Buildings",
+			"Food": "Food",
+			"Morale": "Morale",
+			"Populace": "Populace",
+			"Retainers": "Retainers",
+			"Stater": "Stater"
 		}
 	}
 }

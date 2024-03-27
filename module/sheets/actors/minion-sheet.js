@@ -43,7 +43,7 @@ export class AegeanMinionSheet extends AegeanActorSheet {
 		if(context.system.background.Tactics) context.system.background.Tactics.value = await TextEditor.enrichHTML(context.system.background.Tactics.value, { async: true })
 		if(context.system.background.ArcaneLore) context.system.background.ArcaneLore.value = await TextEditor.enrichHTML(context.system.background.ArcaneLore.value, { async: true })
 
-		console.log('Aegean | ChampionSheet::getData', context)
+		console.log('Aegean | MinionSheet::getData', context)
 
 		return context
 	}

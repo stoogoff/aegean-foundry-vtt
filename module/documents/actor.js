@@ -1,6 +1,6 @@
 
 import { add } from '../helpers/list.js'
-import { isEquipment, isPC, isAdversary, isLegend, isChampion, isMinion, UNARMED_STRIKE } from '../helpers/utils.js'
+import { isEquipment, isPC, isCity, isAdversary, isLegend, isChampion, isMinion, UNARMED_STRIKE } from '../helpers/utils.js'
 import { AEGEAN } from '../helpers/config.js'
 import { woundRoll } from '../helpers/wounds.js'
 
@@ -40,6 +40,15 @@ export class AegeanActor extends Actor {
 
 	get cults() {
 		return this.items.filter(({ type }) => type === 'cult')
+	}
+
+	// polis
+	get buildings() {
+		return this.items.filter(({ type }) => type === 'building')
+	}
+
+	get retainers() {
+		return this.items.filter(({ type }) => type === 'retainer')
 	}
 
 	// methods for applying damage
@@ -191,7 +200,7 @@ export class AegeanActor extends Actor {
 	getDerivedData() {
 		const flags = {}
 		const RISK = parseInt(this.system.attributes.Risk.value)
-		const ENDURANCE = parseInt(this.system.attributes.Endurance.value)
+		const ENDURANCE = isCity(this.type) ? 0 : parseInt(this.system.attributes.Endurance.value)
 
 		// flags for PCs only
 		if(isPC(this.type)) {

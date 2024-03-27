@@ -8,6 +8,7 @@ import { AegeanCharacterSheet } from './sheets/actors/character-sheet.js'
 import { AegeanChampionSheet } from './sheets/actors/champion-sheet.js'
 import { AegeanLegendSheet } from './sheets/actors/legend-sheet.js'
 import { AegeanMinionSheet } from './sheets/actors/minion-sheet.js'
+import { AegeanCitySheet } from './sheets/actors/city-sheet.js'
 
 // item sheets
 import { AegeanAdvantageSheet } from './sheets/items/advantage-sheet.js'
@@ -63,6 +64,10 @@ Hooks.once('init', async function() {
 	Actors.registerSheet('Aegean', AegeanMinionSheet, {
 		label: game.i18n.localize('aegean.ui.MinionSheet'),
 		types: ['minion'],
+	})
+	Actors.registerSheet('Aegean', AegeanCitySheet, {
+		label: game.i18n.localize('aegean.ui.CitySheet'),
+		types: ['polis'],
 	})
 
 	// item sheets
@@ -140,10 +145,12 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/actor/partials/adversary-background.hbs',
 		'systems/aegean/templates/actor/partials/adversary-stats.hbs',
 		'systems/aegean/templates/actor/partials/background.hbs',
+		'systems/aegean/templates/actor/partials/buildings.hbs',
 		'systems/aegean/templates/actor/partials/character-stats.hbs',
 		'systems/aegean/templates/actor/partials/combat.hbs',
 		'systems/aegean/templates/actor/partials/equipment.hbs',
 		'systems/aegean/templates/actor/partials/header-section.hbs',
+		'systems/aegean/templates/actor/partials/retainers.hbs',
 		'systems/aegean/templates/actor/partials/risk.hbs',
 		'systems/aegean/templates/actor/partials/talents.hbs',
 		'systems/aegean/templates/actor/partials/the-gods.hbs',

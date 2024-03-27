@@ -41,12 +41,12 @@
 	transform: rotate(90deg);
 }
 
-/* Talents overrides */
-.aegean .talents .accordion-bar {
+/* Accordions with actions overrides */
+.aegean .accordion-actions .accordion-bar {
 	display: flex;
 	align-items: center;
 }
-.aegean .talents .accordion-bar .action-bar {
+.aegean .accordion-actions .accordion-bar .action-bar {
 	flex-grow: 2;
 	margin-left: var(--spacing-2);
 	display: flex;
@@ -58,7 +58,7 @@
 	color: var(--grey-mid);
 	font-weight: normal;
 }
-.aegean .talents .accordion-bar .action {
+.aegean .accordion-actions .accordion-bar .action {
 	float: right;
 }
 

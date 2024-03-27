@@ -1,0 +1,29 @@
+<form class="{{cssClass}} {{actor.type}}" autocomplete="off">
+	<article class="character-sheet">
+		<div class="tab-group">
+			<!-- stats -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="city_stats"
+				label="aegean.ui.Stats"
+			}}
+				STATS
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			<!-- buildings -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="city_buildings"
+				label="aegean.polis.Buildings"
+				count=buildings.length
+			}}
+				{{> systems/aegean/templates/actor/partials/buildings.hbs }}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			<!-- retainers -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="city_retainers"
+				label="aegean.polis.Retainers"
+				count=retainers.length
+			}}
+				{{> systems/aegean/templates/actor/partials/retainers.hbs }}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+		</div>
+	</article>
+</form>
