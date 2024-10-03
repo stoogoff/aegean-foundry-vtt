@@ -6,7 +6,9 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 		const context = await super.getData();
 		const item = this.item.toObject(false)
 
-		context.requires = (this.item.system.stats.Requires.value || []).map(item => ({ building: game.items.get(item.id) }))
+		if('stats' in this.item.system && 'Requires' in this.item.system.stats) {
+			context.requires = (this.item.system.stats.Requires.value || []).map(item => ({ building: game.items.get(item.id) }))
+		}
 
 		console.log('Aegean | PolisBase::getData', context)
 
@@ -32,7 +34,7 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 
 		console.log('Aegean | PolisBase::_addListValue => addId, value', addId, value)
 
-		const key = addId.replace('building_', '').replace(/_/g, '.')
+		const key = addId.replace(this.template_key, '').replace(/_/g, '.')
 		const currentValue = this.item.getValueFromKey(key)
 
 		if(!currentValue.map(val => val.text).includes(value)) {
@@ -49,7 +51,7 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 
 		console.log('Aegean | PolisBase::_updateListValue => attribute, value', attribute, value)
 
-		const parts = attribute.replace('building_', '').split('_')
+		const parts = attribute.replace(this.template_key, '').split('_')
 		const index = parseInt(parts.pop())
 
 		const key = parts.join('.')
@@ -67,7 +69,7 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 
 		console.log('Aegean | PolisBase::_deleteListValue => deleteId', deleteId)
 
-		const parts = deleteId.replace('building_', '').split('_')
+		const parts = deleteId.replace(this.template_key, '').split('_')
 		const index = parts.pop()
 		const key = parts.join('.')
 

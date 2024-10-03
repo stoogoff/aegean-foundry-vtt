@@ -1,6 +1,6 @@
 <div class="skill-input">
 	<div class="skill">
 		<label for="{{ name }}">{{ localize label }}</label>
-		<input type="text" value="{{ value }}" name="{{ name }}" id="{{ name }}" />
+		<input type="text" value="{{ value }}" name="{{ name }}" id="{{ name }}" {{#if readonly}}readonly{{/if}} />
 	</div>
 </div>

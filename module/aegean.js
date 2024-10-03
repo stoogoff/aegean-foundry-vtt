@@ -23,6 +23,7 @@ import { AegeanTalentSheet } from './sheets/items/talent-sheet.js'
 import { AegeanWeaponSheet } from './sheets/items/weapon-sheet.js'
 
 // polis sheets
+import { AegeanArkhonSheet } from './sheets/polis/arkhon-sheet.js'
 import { AegeanBuildingSheet } from './sheets/polis/building-sheet.js'
 import { AegeanRetainerSheet } from './sheets/polis/retainer-sheet.js'
 
@@ -114,6 +115,10 @@ Hooks.once('init', async function() {
 	})
 
 	// polis sheets
+	Items.registerSheet('Aegean', AegeanArkhonSheet, {
+		types: ['arkhon'],
+		makeDefault: true,
+	})
 	Items.registerSheet('Aegean', AegeanBuildingSheet, {
 		types: ['building'],
 		makeDefault: true,

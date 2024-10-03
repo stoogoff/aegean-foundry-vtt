@@ -1,0 +1,29 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<article class="arkhon-sheet">
+		{{> systems/aegean/templates/item/partials/header-section.hbs }}
+
+		<div class="tab-group">
+			<!-- skills -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="arkhon_skills"
+				label="aegean.system.Skills"
+			}}
+				{{> systems/aegean/templates/partials/multi-select-editable-input.hbs
+					label="aegean.system.Skills"
+					selection=system.modifiers.Skills.value
+					name="arkhon_system_modifiers_Skills_value"
+					options=config.skills
+				}}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+
+			<!-- abilities -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="arkhon_abilities"
+				label="aegean.ui.Abilities"
+				count=abilities.length
+			}}
+				Abilities
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+		</div>
+	</article>
+</form>

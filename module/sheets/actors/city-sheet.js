@@ -86,6 +86,12 @@ export class AegeanCitySheet extends ActorSheet {
 
 		context.characteristics = characteristics
 
+		const skills = {}
+
+		AEGEAN.skills.forEach(sk => skills[sk] = 0)
+
+		context.skills = skills
+
 		console.log('Aegean | CitySheet::getData', context)
 
 		return context

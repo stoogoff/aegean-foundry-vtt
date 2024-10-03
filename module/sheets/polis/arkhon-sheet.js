@@ -1,19 +1,19 @@
 
 import { AegeanPolisBaseSheet } from './polis-base.js'
 
-export class AegeanBuildingSheet extends AegeanPolisBaseSheet {
-	template_key = 'building_'
+export class AegeanArkhonSheet extends AegeanPolisBaseSheet {
+	template_key = 'arkhon_'
 
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			classes: ['aegean', 'sheet', 'building'],
-			template: 'systems/aegean/templates/item/building-sheet.html',
+			classes: ['aegean', 'sheet', 'arkhon'],
+			template: 'systems/aegean/templates/item/arkhon-sheet.html',
 			width: 520,
 			height: 480,
 			tabs: [{
 				navSelector: '.tab-group',
 				contentSelector: '.tab-panel',
-				initial: 'building_stats',
+				initial: 'arkhon_skills',
 			}],
 		})
 	}

@@ -49,7 +49,7 @@ export class AegeanCharacterSheet extends AegeanActorSheet {
 	activateListeners(html) {
 		super.activateListeners(html)
 	
-		if (!this.isEditable) return
+		if(!this.isEditable) return
 
 		// enable updating linked item properties
 		html.find('.set-favour').change(this._updateItemProperty(this.actor.gods).bind(this))

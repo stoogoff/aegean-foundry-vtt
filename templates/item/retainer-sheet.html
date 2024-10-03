@@ -5,7 +5,7 @@
 		<div class="tab-group">
 			<!-- stats -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
-				id="building_stats"
+				id="retainer_stats"
 				label="aegean.ui.Stats"
 			}}
 				<div class="grid grid-cols-2">
@@ -44,26 +44,26 @@
 
 			<!-- characteristic and attribute modifiers -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
-				id="building_modifiers"
+				id="retainer_modifiers"
 				label="aegean.system.Modifiers"
 			}}
 				{{> systems/aegean/templates/partials/multi-select-editable-input.hbs
 					label="aegean.system.Characteristics"
 					selection=system.modifiers.Characteristics.value
-					name="building_system_modifiers_Characteristics_value"
+					name="retainer_system_modifiers_Characteristics_value"
 					options=config.cityCharacteristics
 				}}
 				{{> systems/aegean/templates/partials/multi-select-editable-input.hbs
 					label="aegean.system.Attributes"
 					selection=system.modifiers.Attributes.value
-					name="building_system_modifiers_Attributes_value"
+					name="retainer_system_modifiers_Attributes_value"
 					options=config.cityAttributes
 				}}
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 
 			<!-- requirements -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
-				id="building_requirements"
+				id="retainer_requirements"
 				label="aegean.ui.Requirements"
 				count=requires.length
 			}}

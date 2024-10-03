@@ -14,7 +14,7 @@ export const parseObject = (input, scope, debug = false) => {
 	let buffer = scope
 
 	for(let i = 0, ilen = parts.length; i < ilen; ++i) {
-		if (parts[i] === 'this') continue
+		if(parts[i] === 'this') continue
 
 		buffer = buffer[parts[i]]
 

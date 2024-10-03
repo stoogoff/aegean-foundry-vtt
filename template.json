@@ -278,7 +278,7 @@
 		}
 	},
 	"Item": {
-		"types": ["advantage", "armour", "attack", "career", "deity", "equipment", "cult", "property", "talent", "weapon", "building", "retainer"],
+		"types": ["advantage", "armour", "attack", "career", "deity", "equipment", "cult", "property", "talent", "weapon", "building", "retainer", "arkhon"],
 		"templates": {
 			"base": {
 				"Description": {
@@ -563,6 +563,15 @@
 				},
 				"Attributes": {
 					"label": "aegean.system.Attributes",
+					"value": []
+				}
+			}
+		},
+		"arkhon": {
+			"templates": ["base"],
+			"modifiers": {
+				"Skills": {
+					"label": "aegean.system.Skills",
 					"value": []
 				}
 			}
