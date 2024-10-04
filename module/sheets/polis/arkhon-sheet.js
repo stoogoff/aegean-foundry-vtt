@@ -17,4 +17,8 @@ export class AegeanArkhonSheet extends AegeanPolisBaseSheet {
 			}],
 		})
 	}
+
+	_canAdd(itemType) {
+		return false
+	}
 }

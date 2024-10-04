@@ -6,8 +6,12 @@ export const isLegend = type => type === 'legend'
 export const isChampion = type => type === 'champion'
 export const isMinion = type => type === 'minion'
 export const isAdversary = type => isLegend(type) || isChampion(type) || isMinion(type)
-export const isCity = type => type === 'polis'
 export const isPC = type => type === 'character'
+export const isCity = type => type === 'polis'
+export const isBuilding = type => type === 'building'
+export const isRetainer = type => type === 'retainer'
+export const isArkhon = type => type === 'arkhon'
+export const isCityAsset = type => isBuilding(type) || isRetainer(type) || isArkhon(type)
 
 export const parseObject = (input, scope, debug = false) => {
 	const parts = input.trim().split(/\./g)

@@ -62,6 +62,14 @@
 					</div>
 				</div>
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
+			<!-- arkhon -->
+			{{#> systems/aegean/templates/partials/tab-panel.hbs
+				id="city_arkhons"
+				label="aegean.polis.Arkhon"
+				count=arkhons.length
+			}}
+				{{> systems/aegean/templates/actor/partials/arkhons.hbs }}
+			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 			<!-- buildings -->
 			{{#> systems/aegean/templates/partials/tab-panel.hbs
 				id="city_buildings"

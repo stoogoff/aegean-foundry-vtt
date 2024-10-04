@@ -43,6 +43,10 @@ export class AegeanActor extends Actor {
 	}
 
 	// polis
+	get arkhons() {
+		return this.items.filter(({ type }) => type === 'arkhon')
+	}
+
 	get buildings() {
 		return this.items.filter(({ type }) => type === 'building')
 	}

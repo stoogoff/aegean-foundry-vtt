@@ -9,6 +9,7 @@
 		},
 		"Item": {
 			"advantage": "Advantage",
+			"arkhon": "Arkhon",
 			"armour": "Armour",
 			"attack": "Attack",
 			"building": "Building",
@@ -221,11 +222,15 @@
 			"Dying": "Close to Death."
 		},
 		"polis": {
+			"Arkhon": "Arkhon",
+			"ArkhonsNone": "This city has no arkhons.",
 			"Buildings": "Buildings",
+			"BuildingsNone": "This city has no buildings.",
 			"Food": "Food",
 			"Morale": "Morale",
 			"Populace": "Populace",
 			"Retainers": "Retainers",
+			"RetainersNone": "This city has no retainers.",
 			"Stater": "Stater"
 		}
 	}

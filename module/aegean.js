@@ -150,6 +150,7 @@ Hooks.once('init', async function() {
 		'systems/aegean/templates/actor/partials/adversary-background.hbs',
 		'systems/aegean/templates/actor/partials/adversary-stats.hbs',
 		'systems/aegean/templates/actor/partials/background.hbs',
+		'systems/aegean/templates/actor/partials/arkhons.hbs',
 		'systems/aegean/templates/actor/partials/buildings.hbs',
 		'systems/aegean/templates/actor/partials/character-stats.hbs',
 		'systems/aegean/templates/actor/partials/combat.hbs',

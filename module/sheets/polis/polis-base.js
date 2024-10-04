@@ -1,5 +1,6 @@
 
 import { AegeanItemSheet } from '../item-sheet.js'
+import { isBuilding } from '../../helpers/utils.js'
 
 export class AegeanPolisBaseSheet extends AegeanItemSheet {
 	async getData() {
@@ -109,7 +110,7 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 
 		console.log('Aegean | PolisBase::_onDrop => dragItem', dragItem)
 
-		if(dragItem.type === 'building') {
+		if(this._canAdd(dragItem.type)) {
 			const currentItems = this.item.system.stats.Requires.value
 			const existing = currentItems.find(item => item.id === dragItem.id)
 
@@ -123,5 +124,9 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 				})
 			}
 		}
+	}
+
+	_canAdd(itemType) {
+		return isBuilding(itemType)
 	}
 }

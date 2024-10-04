@@ -1,0 +1,21 @@
+<div class="arkhons accordion-actions">
+	{{#if arkhons}}
+		{{#each arkhons as |arkhon key|}}
+			<div class="accordion">
+				<div class="accordion-bar">
+					<span class="accordion-activator">
+						{{ arkhon.name }}
+					</span>
+					<div class="action-bar">
+						{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=arkhon.id icon="fa-trash"}}
+					</div>
+				</div>
+				<div class="accordion-content">
+					{{{ arkhon.system.Description.value }}}
+				</div>
+			</div>
+		{{/each}}
+	{{else}}
+		<p class="note">{{ localize "aegean.polis.ArkhonsNone" }}</p>
+	{{/if}}
+</div>

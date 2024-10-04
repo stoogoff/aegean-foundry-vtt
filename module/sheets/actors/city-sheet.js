@@ -1,6 +1,7 @@
 
 import { AEGEAN } from '../../helpers/config.js'
 import { sortByProperty } from '../../helpers/list.js'
+import { isBuilding, isRetainer, isArkhon } from '../../helpers/utils.js'
 
 export class AegeanCitySheet extends ActorSheet {
 	static get defaultOptions() {
@@ -71,6 +72,7 @@ export class AegeanCitySheet extends ActorSheet {
 
 		context.buildings = this.actor.buildings.sort(sortByProperty('name'))
 		context.retainers = this.actor.retainers.sort(sortByProperty('name'))
+		context.arkhons = this.actor.arkhons.sort(sortByProperty('name'))
 
 		// generate characteristics and attributes from buildings and retainers
 		const characteristics = {}
@@ -80,15 +82,20 @@ export class AegeanCitySheet extends ActorSheet {
 
 		structures.forEach(st => {
 			st.system.modifiers.Characteristics.value.forEach(ch => {
-				characteristics[ch.text] += ch.value
+				characteristics[ch.text] += parseInt(ch.value)
 			})
 		})
 
 		context.characteristics = characteristics
 
+		// TODO generate attributes?
+
+		// generate skills from arkhon(s)
 		const skills = {}
 
 		AEGEAN.skills.forEach(sk => skills[sk] = 0)
+
+		context.arkhons.forEach(arkhon => arkhon.system.modifiers.Skills.value.forEach(sk => skills[sk.text] += parseInt(sk.value)))
 
 		context.skills = skills
 
@@ -111,7 +118,13 @@ export class AegeanCitySheet extends ActorSheet {
 
 		if(!dragItem) return
 
-		if(dragItem.type === 'building' || dragItem.type === 'retainer') {
+		if(isBuilding(dragItem.type) || isRetainer(dragItem.type)) {
+			console.log('Aegean | CitySheet(super)::_onDropItem', event, data)
+
+			super._onDropItem(event, data)
+		}
+
+		if(isArkhon(dragItem.type) && this.actor.arkhons.length === 0) {
 			console.log('Aegean | CitySheet(super)::_onDropItem', event, data)
 
 			super._onDropItem(event, data)

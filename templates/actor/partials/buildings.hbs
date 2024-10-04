@@ -1,28 +1,32 @@
 <div class="buildings accordion-actions">
-	{{#each buildings as |building key|}}
-		<div class="accordion">
-			<div class="accordion-bar">
-				<span class="accordion-activator">
-					{{ building.name }}
-				</span>
-				<div class="action-bar">
-					<label class="action-bar-label mr-2">{{ localize "aegean.system.Structure" }}
-						<input
-							type="number"
-							name="system.stats.CurrentStructure.value"
-							value="{{ building.system.stats.CurrentStructure.value }}"
-							class="rating-input bordered-input building-input"
-							data-id="{{ building.id }}"
-						/>
-						of
-						{{ building.system.stats.Structure.value }}
-					</label>
-					{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=building.id icon="fa-trash"}}
+	{{#if buildings}}
+		{{#each buildings as |building key|}}
+			<div class="accordion">
+				<div class="accordion-bar">
+					<span class="accordion-activator">
+						{{ building.name }}
+					</span>
+					<div class="action-bar">
+						<label class="action-bar-label mr-2">{{ localize "aegean.system.Structure" }}
+							<input
+								type="number"
+								name="system.stats.CurrentStructure.value"
+								value="{{ building.system.stats.CurrentStructure.value }}"
+								class="rating-input bordered-input building-input"
+								data-id="{{ building.id }}"
+							/>
+							of
+							{{ building.system.stats.Structure.value }}
+						</label>
+						{{> systems/aegean/templates/partials/action.hbs action="delete-action" id=building.id icon="fa-trash"}}
+					</div>
+				</div>
+				<div class="accordion-content">
+					{{{ building.system.Description.value }}}
 				</div>
 			</div>
-			<div class="accordion-content">
-				{{{ building.system.Description.value }}}
-			</div>
-		</div>
-	{{/each}}
+		{{/each}}
+	{{else}}
+		<p class="note">{{ localize "aegean.polis.BuildingsNone" }}</p>
+	{{/if}}
 </div>
