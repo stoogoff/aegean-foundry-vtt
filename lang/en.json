@@ -223,6 +223,7 @@
 		},
 		"polis": {
 			"Arkhon": "Arkhon",
+			"ArkhonAbilityNone": "This arkhon has no abilities.",
 			"ArkhonsNone": "This city has no arkhons.",
 			"Buildings": "Buildings",
 			"BuildingsNone": "This city has no buildings.",

@@ -11,6 +11,10 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 			context.requires = (this.item.system.stats.Requires.value || []).map(item => ({ building: game.items.get(item.id) }))
 		}
 
+		if('stats' in this.item.system && 'Abilities' in this.item.system.stats) {
+			context.abilities = (this.item.system.stats.Abilities.value || []).map(item => ({ ability: game.items.get(item.id) }))
+		}
+
 		console.log('Aegean | PolisBase::getData', context)
 
 		return context;
@@ -18,6 +22,11 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 
 	activateListeners(html) {
 		super.activateListeners(html)
+
+		// enable accordions
+		html.find('.accordion-activator').click(event => {
+			$(event.currentTarget).closest('.accordion').toggleClass('active')
+		})
 
 		if (!this.isEditable) return
 
@@ -88,10 +97,10 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 
 		console.log('Aegean | PolisBase::_deleteRequirement => deleteId', deleteId)
 
-		const updatedRequirements = this.item.system.stats.Requires.value.filter(({ id }) => id !== deleteId)
+		const updatedRequirements = this._currentDragItems.filter(({ id }) => id !== deleteId)
 
 		this.item.update({
-			'system.stats.Requires.value': updatedRequirements
+			[this._dropItemsProperty]: updatedRequirements
 		})
 	}
 
@@ -111,7 +120,7 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 		console.log('Aegean | PolisBase::_onDrop => dragItem', dragItem)
 
 		if(this._canAdd(dragItem.type)) {
-			const currentItems = this.item.system.stats.Requires.value
+			const currentItems = this._currentDragItems
 			const existing = currentItems.find(item => item.id === dragItem.id)
 
 			// the item already exists
@@ -120,10 +129,18 @@ export class AegeanPolisBaseSheet extends AegeanItemSheet {
 			}
 			else {
 				this.item.update({
-					'system.stats.Requires.value': [ ...currentItems, { id: dragItem.id, rating: 1 } ]
+					[this._dropItemsProperty]: [ ...currentItems, { id: dragItem.id, rating: 1 } ]
 				})
 			}
 		}
+	}
+
+	get _currentDragItems() {
+		return this.item.system.stats.Requires.value
+	}
+
+	get _dropItemsProperty() {
+		return 'system.stats.Requires.value'
 	}
 
 	_canAdd(itemType) {

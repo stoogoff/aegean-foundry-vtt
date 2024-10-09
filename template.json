@@ -574,6 +574,12 @@
 					"label": "aegean.system.Skills",
 					"value": []
 				}
+			},
+			"stats": {
+				"Abilities": {
+					"label": "aegean.system.Abilities",
+					"value": []
+				}
 			}
 		}
 	}

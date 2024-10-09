@@ -18,7 +18,15 @@ export class AegeanArkhonSheet extends AegeanPolisBaseSheet {
 		})
 	}
 
+	get _currentDragItems() {
+		return this.item.system.stats.Abilities.value
+	}
+
+	get _dropItemsProperty() {
+		return 'system.stats.Abilities.value'
+	}
+
 	_canAdd(itemType) {
-		return false
+		return itemType === 'talent'
 	}
 }

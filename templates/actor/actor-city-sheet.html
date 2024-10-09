@@ -14,7 +14,7 @@
 						{{#each characteristics as |value label|}}
 							{{> systems/aegean/templates/partials/box-input.hbs
 								label=label
-								value=value
+								value=value.value
 								name=(concat "system.characteristics." label ".value")
 								readonly=true
 							}}
@@ -28,7 +28,7 @@
 									{{#each skills as |value label|}}
 										{{> systems/aegean/templates/partials/skill-input.hbs
 											label=label
-											value=value
+											value=value.value
 											name=(concat "system.skills." label ".value")
 											readonly=true
 										}}

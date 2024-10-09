@@ -2,6 +2,7 @@
 import { AEGEAN } from '../../helpers/config.js'
 import { sortByProperty } from '../../helpers/list.js'
 import { isBuilding, isRetainer, isArkhon } from '../../helpers/utils.js'
+import { SkillCheck } from '../../dialogs/skill-check.js'
 
 export class AegeanCitySheet extends ActorSheet {
 	static get defaultOptions() {
@@ -28,6 +29,9 @@ export class AegeanCitySheet extends ActorSheet {
 			$(event.currentTarget).closest('.accordion').toggleClass('active')
 		})
 
+		// display roll dialogue
+		html.find('.roll').click(this._skillCheckDialog.bind(this))
+
 		if(!this.isEditable) return
 
 		// enable delete actions
@@ -36,6 +40,24 @@ export class AegeanCitySheet extends ActorSheet {
 		// enable updating linked item properties
 		html.find('.building-input').change(this._updateItemProperty(this.actor.buildings).bind(this))
 		html.find('.retainer-input').change(this._updateItemProperty(this.actor.retainers).bind(this))
+	}
+
+	_skillCheckDialog() {
+		const context = this.actor.getRollData()
+		const selection = {}
+
+		// prefill assistance
+		if(context.flags.assistance) {
+			selection.modifier = context.flags.assistance
+		}
+
+		// add characteristics and skills
+		context.characteristics = this._generateCharacteristics(this.actor.buildings, this.actor.retainers)
+		context.skills = this._generateSkills(this.actor.arkhons)
+
+		console.log('Aegean | CitySheet::_skillCheckDialog => context', context)
+
+		SkillCheck.show(context, selection)
 	}
 
 	_updateItemProperty(list) {
@@ -74,34 +96,40 @@ export class AegeanCitySheet extends ActorSheet {
 		context.retainers = this.actor.retainers.sort(sortByProperty('name'))
 		context.arkhons = this.actor.arkhons.sort(sortByProperty('name'))
 
-		// generate characteristics and attributes from buildings and retainers
-		const characteristics = {}
-		const structures = [...context.buildings, ...context.retainers]
-
-		AEGEAN.cityCharacteristics.forEach(ch => characteristics[ch] = 0)
-
-		structures.forEach(st => {
-			st.system.modifiers.Characteristics.value.forEach(ch => {
-				characteristics[ch.text] += parseInt(ch.value)
-			})
-		})
-
-		context.characteristics = characteristics
-
 		// TODO generate attributes?
-
-		// generate skills from arkhon(s)
-		const skills = {}
-
-		AEGEAN.skills.forEach(sk => skills[sk] = 0)
-
-		context.arkhons.forEach(arkhon => arkhon.system.modifiers.Skills.value.forEach(sk => skills[sk.text] += parseInt(sk.value)))
-
-		context.skills = skills
+		context.characteristics = this._generateCharacteristics(context.buildings, context.retainers)
+		context.skills = this._generateSkills(context.arkhons)
 
 		console.log('Aegean | CitySheet::getData', context)
 
 		return context
+	}
+
+	// generate characteristics and attributes from buildings and retainers
+	_generateCharacteristics(buildings, retainers) {
+		const characteristics = {}
+		const structures = [...buildings, ...retainers]
+
+		AEGEAN.cityCharacteristics.forEach(ch => characteristics[ch] = { value: 0, label: ch })
+
+		structures.forEach(st => {
+			st.system.modifiers.Characteristics.value.forEach(ch => {
+				characteristics[ch.text].value += parseInt(ch.value)
+			})
+		})
+
+		return characteristics
+	}
+
+	// generate skills from arkhon(s)
+	_generateSkills(arkhons) {
+		const skills = {}
+
+		AEGEAN.skills.forEach(sk => skills[sk] = { value: 0, label: sk })
+
+		arkhons.forEach(arkhon => arkhon.system.modifiers.Skills.value.forEach(sk => skills[sk.text].value += parseInt(sk.value)))
+
+		return skills
 	}
 
 	async _onDropItem(event, data) {

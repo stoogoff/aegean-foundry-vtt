@@ -1,5 +1,5 @@
 
-import { isPC, isAdversary, isMinion, isChampion, isLegend, isEquipment } from './utils.js'
+import { isPC, isAdversary, isMinion, isChampion, isLegend, isEquipment, isCity } from './utils.js'
 
 export const registerHelpers = () => {
 	Handlebars.registerHelper('concat', function() {
@@ -65,4 +65,5 @@ export const registerHelpers = () => {
 	Handlebars.registerHelper('isMinion', actor => isMinion(actor.type))
 	Handlebars.registerHelper('isChampion', actor => isChampion(actor.type))
 	Handlebars.registerHelper('isLegend', actor => isLegend(actor.type))
+	Handlebars.registerHelper('isCity', actor => isCity(actor.type))
 }

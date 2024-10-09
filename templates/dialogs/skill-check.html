@@ -1,9 +1,17 @@
 <div class="roll-dialog">
-	{{> systems/aegean/templates/partials/value-select.hbs
-		label="aegean.system.Characteristic"
-		name="characteristic"
-		options=config.characteristics
-	}}
+	{{#if (isCity actor)}}
+		{{> systems/aegean/templates/partials/value-select.hbs
+			label="aegean.system.Characteristic"
+			name="characteristic"
+			options=config.cityCharacteristics
+		}}
+	{{else}}
+		{{> systems/aegean/templates/partials/value-select.hbs
+			label="aegean.system.Characteristic"
+			name="characteristic"
+			options=config.characteristics
+		}}
+	{{/if}}
 	{{> systems/aegean/templates/partials/value-select.hbs
 		label="aegean.system.Skill"
 		name="skill"
