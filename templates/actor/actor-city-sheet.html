@@ -8,58 +8,54 @@
 				id="city_stats"
 				label="aegean.ui.Stats"
 			}}
-				<div class="character-stats">
-					<h2><span>{{ localize "aegean.system.Characteristics" }}</span></h2>
-					<div class="grid grid-cols-5">
-						{{#each characteristics as |value label|}}
-							{{> systems/aegean/templates/partials/box-input.hbs
-								label=label
-								value=value.value
-								name=(concat "system.characteristics." label ".value")
-								readonly=true
-							}}
-						{{/each}}
-					</div>
-					<div class="grid column-panel">
-						<div class="skills">
-							<div class="grid grid-cols-2">
-								<div>
-									<h3 class="text-left">{{ localize "aegean.system.Skills" }}</h3>
-									{{#each skills as |value label|}}
-										{{> systems/aegean/templates/partials/skill-input.hbs
-											label=label
-											value=value.value
-											name=(concat "system.skills." label ".value")
-											readonly=true
-										}}
-									{{/each}}
-								</div>
-							</div>
+				<div class="grid column-panel">
+					<div class="grid grid-cols-2">
+						<div>
+							<h3 class="text-left">{{ localize "aegean.system.Characteristics" }}</h3>
+							{{#each characteristics as |ch key|}}
+								{{> systems/aegean/templates/partials/skill-input.hbs
+									label=ch.label
+									value=ch.value
+									name=(concat "system.characteristics." key ".value")
+								}}
+							{{/each}}
 						</div>
-						<aside>
-							<h3>{{ localize "aegean.system.Attributes" }}</h3>
-							{{> systems/aegean/templates/partials/box-input.hbs
-								label="aegean.polis.Morale"
-								value=system.attributes.Morale.value
-								name="system.attributes.Morale.value"
-							}}
-							{{> systems/aegean/templates/partials/box-input.hbs
-								label="aegean.polis.Populace"
-								value=system.attributes.Populace.value
-								name="system.attributes.Populace.value"
-							}}
-							{{> systems/aegean/templates/partials/box-input.hbs
-								label="aegean.polis.Food"
-								value=system.attributes.Food.value
-								name="system.attributes.Food.value"
-							}}
-							{{> systems/aegean/templates/partials/box-input.hbs
-								label="aegean.polis.Stater"
-								value=system.attributes.Stater.value
-								name="system.attributes.Stater.value"
-							}}
-						</aside>
+
+						<div>
+							<h3 class="text-left">{{ localize "aegean.system.Skills" }}</h3>
+							{{#each skills as |value label|}}
+								{{> systems/aegean/templates/partials/skill-input.hbs
+									label=label
+									value=value.value
+									name=(concat "system.skills." label ".value")
+									readonly=true
+								}}
+							{{/each}}
+						</div>
 					</div>
+					<aside>
+						<h3>{{ localize "aegean.system.Attributes" }}</h3>
+						{{> systems/aegean/templates/partials/box-input.hbs
+							label="aegean.polis.Morale"
+							value=system.attributes.Morale.value
+							name="system.attributes.Morale.value"
+						}}
+						{{> systems/aegean/templates/partials/box-input.hbs
+							label="aegean.polis.Populace"
+							value=system.attributes.Populace.value
+							name="system.attributes.Populace.value"
+						}}
+						{{> systems/aegean/templates/partials/box-input.hbs
+							label="aegean.polis.Food"
+							value=system.attributes.Food.value
+							name="system.attributes.Food.value"
+						}}
+						{{> systems/aegean/templates/partials/box-input.hbs
+							label="aegean.polis.Stater"
+							value=system.attributes.Stater.value
+							name="system.attributes.Stater.value"
+						}}
+					</aside>
 				</div>
 			{{/systems/aegean/templates/partials/tab-panel.hbs }}
 			<!-- arkhon -->
