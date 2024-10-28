@@ -17,6 +17,7 @@
 									label=ch.label
 									value=ch.value
 									name=(concat "system.characteristics." key ".value")
+									readonly=true
 								}}
 							{{/each}}
 						</div>
@@ -35,16 +36,14 @@
 					</div>
 					<aside>
 						<h3>{{ localize "aegean.system.Attributes" }}</h3>
-						{{> systems/aegean/templates/partials/box-input.hbs
-							label="aegean.polis.Morale"
-							value=system.attributes.Morale.value
-							name="system.attributes.Morale.value"
-						}}
-						{{> systems/aegean/templates/partials/box-input.hbs
-							label="aegean.polis.Populace"
-							value=system.attributes.Populace.value
-							name="system.attributes.Populace.value"
-						}}
+						{{#each attributes as |attr key|}}
+							{{> systems/aegean/templates/partials/box-input.hbs
+								label=attr.label
+								value=attr.value
+								name=(concat "system.attributes." key ".value")
+								readonly=true
+							}}
+						{{/each}}
 						{{> systems/aegean/templates/partials/box-input.hbs
 							label="aegean.polis.Food"
 							value=system.attributes.Food.value

@@ -258,14 +258,6 @@
 					"label": "aegean.attributes.Risk",
 					"value": 0
 				},
-				"Morale": {
-					"label": "aegean.polis.Morale",
-					"value": 0
-				},
-				"Populace": {
-					"label": "aegean.polis.Populace",
-					"value": 0
-				},
 				"Food": {
 					"label": "aegean.polis.Food",
 					"value": 0

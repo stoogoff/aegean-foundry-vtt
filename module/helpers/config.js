@@ -32,11 +32,8 @@ export const AEGEAN = {
 		'Trade',
 	],
 	cityAttributes: [
-		'Food',
 		'Morale',
 		'Populace',
-		'Risk',
-		'Stater',
 	],
 	backgrounds: [
 		'Criminal',

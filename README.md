@@ -32,7 +32,15 @@ The following sheets and items still need to be created:
 
 - Factions
 - City Sheet
-- Arkhons
+  - `DONE Characteristics`
+  - `DONE Skills (Arkhon)`
+  - `DONE Atributes created by retainers / buildings`
+  - `DONE Stats created by retainers / buildings`
+  - `DONE Dice rolls`
+  - `DONE Morale / Risk`
+- `DONE Arkhons`
+- `DONE Retainers`
+- `DONE Buildings`
 
 ### Things Coming Soon
 

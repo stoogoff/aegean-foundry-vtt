@@ -1,6 +1,11 @@
 <div class="risk">
 	<div class="grid grid-cols-2">
-		<h3 class="text-left">{{ localize "aegean.attributes.Endurance" }}:
+		<h3 class="text-left">
+			{{#if (isCity actor) }}
+				{{ localize "aegean.polis.Morale" }}:
+			{{else}}
+				{{ localize "aegean.attributes.Endurance" }}:
+			{{/if}}
 			<span class="black font-lg">{{ flags.endurance }}</span>
 			{{#if (isMinion actor)}}
 				<span class="black font-lg">({{ system.attributes.Endurance.value }})</span>
@@ -32,7 +37,13 @@
 	</div>
 	<div class="flags">
 		{{#if flags.defeated }}<span class="chip danger">{{ localize "aegean.system.Defeated" }}</span>{{/if}}
-		{{#if flags.vulnerable }}<span class="chip danger">{{ localize "aegean.system.Vulnerable" }}</span>{{/if}}
+		{{#if flags.vulnerable }}
+			{{#if (isCity actor) }}
+				<span class="chip danger">{{ localize "aegean.polis.Damage" }}</span>
+			{{else}}
+				<span class="chip danger">{{ localize "aegean.system.Vulnerable" }}</span>
+			{{/if}}
+		{{/if}}
 		{{#if flags.threshold }}<span class="chip warning">{{ localize "aegean.system.Threshold" }}</span>{{/if}}
 		{{#if flags.encumbered }}<span class="chip warning">{{ localize "aegean.system.Encumbered" }}</span>{{/if}}
 	</div>

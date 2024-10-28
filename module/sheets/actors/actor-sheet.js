@@ -114,6 +114,8 @@ export class AegeanActorSheet extends ActorSheet {
 	_setRisk(event) {
 		const target = $(event.currentTarget)
 
+		console.log('Aegean | ActorSheet::_setRisk => target', target)
+
 		if(!target.hasClass('current')) {
 			this.actor.setRisk(parseInt(target.attr('data-value')))
 		}

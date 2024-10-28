@@ -23,7 +23,7 @@ export class AegeanCitySheet extends ActorSheet {
 
 	activateListeners(html) {
 		super.activateListeners(html)
-	
+
 		// enable accordions
 		html.find('.accordion-activator').click(event => {
 			$(event.currentTarget).closest('.accordion').toggleClass('active')
@@ -37,9 +37,22 @@ export class AegeanCitySheet extends ActorSheet {
 		// enable delete actions
 		html.find('.delete-action').click(this._deleteItem.bind(this))
 
+		// enable clicking on the risk track
+		html.find('.risk .track .boxed').click(this._setRisk.bind(this))
+
 		// enable updating linked item properties
 		html.find('.building-input').change(this._updateItemProperty(this.actor.buildings).bind(this))
 		html.find('.retainer-input').change(this._updateItemProperty(this.actor.retainers).bind(this))
+	}
+
+	_setRisk(event) {
+		const target = $(event.currentTarget)
+
+		console.log('Aegean | CitySheet::_setRisk => target', target)
+
+		if(!target.hasClass('current')) {
+			this.actor.setRisk(parseInt(target.attr('data-value')))
+		}
 	}
 
 	_skillCheckDialog() {
@@ -96,9 +109,18 @@ export class AegeanCitySheet extends ActorSheet {
 		context.retainers = this.actor.retainers.sort(sortByProperty('name'))
 		context.arkhons = this.actor.arkhons.sort(sortByProperty('name'))
 
-		// TODO generate attributes?
-		context.characteristics = this._generateCharacteristics(context.buildings, context.retainers)
+		const { characteristics, attributes } = this._generateCharacteristics(context.buildings, context.retainers)
+
+		context.characteristics = characteristics
+		context.attributes = attributes
 		context.skills = this._generateSkills(context.arkhons)
+
+		// compute City flags here rather than in the actor
+		const RISK = parseInt(this.actor.system.attributes.Risk.value)
+
+		context.flags.endurance = context.attributes.Morale.value
+		context.flags.vulnerable = RISK > context.flags.endurance
+		context.flags.threshold = RISK === context.flags.endurance
 
 		console.log('Aegean | CitySheet::getData', context)
 
@@ -108,17 +130,22 @@ export class AegeanCitySheet extends ActorSheet {
 	// generate characteristics and attributes from buildings and retainers
 	_generateCharacteristics(buildings, retainers) {
 		const characteristics = {}
+		const attributes = {}
 		const structures = [...buildings, ...retainers]
 
 		AEGEAN.cityCharacteristics.forEach(ch => characteristics[ch] = { value: 0, label: ch })
+		AEGEAN.cityAttributes.forEach(attr => attributes[attr] = { value: 0, label: attr })
 
 		structures.forEach(st => {
 			st.system.modifiers.Characteristics.value.forEach(ch => {
 				characteristics[ch.text].value += parseInt(ch.value)
 			})
+			st.system.modifiers.Attributes.value.forEach(attr => {
+				attributes[attr.text].value += parseInt(attr.value)
+			})
 		})
 
-		return characteristics
+		return { characteristics, attributes }
 	}
 
 	// generate skills from arkhon(s)
