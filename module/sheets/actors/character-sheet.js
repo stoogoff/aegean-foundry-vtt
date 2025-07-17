@@ -5,7 +5,7 @@ import { sortByProperty } from '../../helpers/list.js'
 
 export class AegeanCharacterSheet extends AegeanActorSheet {
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'actor'],
 			template: 'systems/aegean/templates/actor/actor-character-sheet.html',
 			width: 800,

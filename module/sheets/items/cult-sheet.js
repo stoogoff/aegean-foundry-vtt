@@ -3,7 +3,7 @@ import { AegeanTalentTrackSheet } from './talent-track-sheet.js'
 
 export class AegeanCultSheet extends AegeanTalentTrackSheet {
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'cult'],
 			template: 'systems/aegean/templates/item/cult-sheet.html',
 			width: 600,

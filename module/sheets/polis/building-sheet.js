@@ -5,7 +5,7 @@ export class AegeanBuildingSheet extends AegeanPolisBaseSheet {
 	template_key = 'building_'
 
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'building'],
 			template: 'systems/aegean/templates/item/building-sheet.html',
 			width: 520,

@@ -6,7 +6,7 @@ import { SkillCheck } from '../../dialogs/skill-check.js'
 
 export class AegeanCitySheet extends ActorSheet {
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'city'],
 			template: 'systems/aegean/templates/actor/actor-city-sheet.html',
 			width: 800,

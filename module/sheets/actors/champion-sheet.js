@@ -9,7 +9,7 @@ import Actions from '../../helpers/actions.js'
 
 export class AegeanChampionSheet extends AegeanActorSheet {
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'actor'],
 			template: 'systems/aegean/templates/actor/actor-adversary-sheet.html',
 			width: 800,

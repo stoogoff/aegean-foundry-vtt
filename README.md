@@ -16,31 +16,18 @@ The Aegean RPG system for Foundry VTT including sheets for the following:
 - Equipment Properties
 - Talents
 - Weapons
+- City
+- Arkhon
+- Buildings
+- Retainers
 
 Almost all parts of a character can be created ready for play, including adding equipment, relationships to the Gods, as well as talents, specialisations and advantages / disadvantages.
 
 Systems are in place to roll skill checks by selecting a characteristic and skill and automatically calculating successes. Risk can be tracked, vulnerable state is taken into account when making skill checks and Wounds are automatically rolled and added to the character (although penalties aren't automatically applied). Damage can be applied which takes into account the character's armour. Combat options are provided on the sheet so players can roll for Defend, or Misdirect actions etc.
 
-Elements of the polis can be tracked, including:
-
-- Buildings
-- Retainers
-
 ## TODO
 
-The following sheets and items still need to be created:
-
-- Factions
-- City Sheet
-  - `DONE Characteristics`
-  - `DONE Skills (Arkhon)`
-  - `DONE Atributes created by retainers / buildings`
-  - `DONE Stats created by retainers / buildings`
-  - `DONE Dice rolls`
-  - `DONE Morale / Risk`
-- `DONE Arkhons`
-- `DONE Retainers`
-- `DONE Buildings`
+Factions don't need a separate sheet. They just need a relationship link with another city.
 
 ### Things Coming Soon
 

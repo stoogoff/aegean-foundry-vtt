@@ -6,7 +6,7 @@ import BaseRoll, { calculateResultAndSendToChat } from './base-roll.js'
 
 export class HubrisRoll extends BaseRoll {
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'dialog'],
 			width: 400,
 			height: 220,

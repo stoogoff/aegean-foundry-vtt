@@ -3,7 +3,7 @@ import { AegeanItemSheet } from '../item-sheet.js'
 
 export class AegeanWeaponSheet extends AegeanItemSheet {
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'weapon'],
 			template: 'systems/aegean/templates/item/weapon-sheet.html',
 			width: 520,

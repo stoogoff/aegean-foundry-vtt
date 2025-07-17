@@ -5,7 +5,7 @@ import { add } from './list.js'
 export const roll = async (dice, difficulty) => {
 	let roll = await new Roll(`${dice}d10`)
 
-	roll.evaluate({ async: true })
+	roll.evaluate()
 
 	// roll.terms[0].results: array of { result: num, active: true } for each dice rolled
 	const result = roll.terms[0].results.map(({ result }) => ({

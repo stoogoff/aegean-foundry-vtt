@@ -5,7 +5,7 @@ export class AegeanRetainerSheet extends AegeanPolisBaseSheet {
 	template_key = 'retainer_'
 
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'retainer'],
 			template: 'systems/aegean/templates/item/retainer-sheet.html',
 			width: 520,

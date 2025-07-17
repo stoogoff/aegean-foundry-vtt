@@ -241,7 +241,7 @@ export class AegeanActor extends Actor {
 			flags.endurance = ENDURANCE * SIZE
 			flags.currentSize = Math.max(0, SIZE - Math.floor(Math.max(0, RISK - 1) / ENDURANCE))
 			flags.defeated = RISK > flags.endurance
-			flags.assistance = Math.clamped(flags.currentSize - 1, 0, 3)
+			flags.assistance = Math.clamp(flags.currentSize - 1, 0, 3)
 		}
 
 		return flags

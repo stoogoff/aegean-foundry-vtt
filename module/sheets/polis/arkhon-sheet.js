@@ -5,7 +5,7 @@ export class AegeanArkhonSheet extends AegeanPolisBaseSheet {
 	template_key = 'arkhon_'
 
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['aegean', 'sheet', 'arkhon'],
 			template: 'systems/aegean/templates/item/arkhon-sheet.html',
 			width: 520,
