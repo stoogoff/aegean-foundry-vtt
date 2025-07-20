@@ -67,7 +67,7 @@ export const WOUNDS = [
 export const woundRoll = async (current, wound) => {
 	const roll = await new Roll('1d10')
 
-	roll.evaluate({ async: true })
+	await roll.evaluate()
 
 	// roll.terms[0].results: array of { result: num, active: true } for each dice rolled
 	const result = roll.terms[0].results[0].result + current + wound

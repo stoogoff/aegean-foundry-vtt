@@ -5,7 +5,9 @@ import { add } from './list.js'
 export const roll = async (dice, difficulty) => {
 	let roll = await new Roll(`${dice}d10`)
 
-	roll.evaluate()
+	console.log(`Aegean | roll => new Roll('${dice}d10')`, roll)
+
+	await roll.evaluate()
 
 	// roll.terms[0].results: array of { result: num, active: true } for each dice rolled
 	const result = roll.terms[0].results.map(({ result }) => ({
@@ -13,6 +15,8 @@ export const roll = async (dice, difficulty) => {
 		success: result >= AEGEAN.dice.success,
 		bonus: result >= AEGEAN.dice.bonus,
 	}))
+
+	console.log('Aegean | roll => result=', result)
 
 	const output = {
 		result,

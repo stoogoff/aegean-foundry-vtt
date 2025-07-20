@@ -2,10 +2,11 @@
 	"id": "aegean",
 	"title": "Aegean",
 	"description": "Aegean RPG system for FoundryVTT",
-	"version": "0.4.11",
+	"version": "0.5.1",
 	"compatibility": {
 		"minimum": "11",
-		"verified": "12.343"
+		"verified": "12.343",
+		"maximum": "14"
 	},
 	"authors": [
 		{
@@ -70,6 +71,6 @@
 	],
 	"url": "https://github.com/stoogoff/aegean-foundry-vtt/",
 	"manifest": "https://github.com/stoogoff/aegean-foundry-vtt/releases/latest/download/system.json",
-	"download": "https://github.com/stoogoff/aegean-foundry-vtt/releases/download/v0.4.11/aegean.zip",
+	"download": "https://github.com/stoogoff/aegean-foundry-vtt/releases/download/v0.5.1/aegean.zip",
 	"license": "LICENSE"
 }
